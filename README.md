@@ -1,2 +1,2 @@
-# test-catalogo
-Repositorio de testeo para elementos a implementar en la pagina catálogo del proyecto de plataforma Damfilms.
+# Repositorio Damfilms.
+Repositorio del proyecto de plataforma streaming Damfilms de 1º DAM.

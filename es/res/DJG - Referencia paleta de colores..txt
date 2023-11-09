@@ -1,0 +1,7 @@
+Resultado: 
+Gris navbar:  R: 34 G:34 B:34 | #222222
+Gris del gradiente del fondo parte superior:  R: 34 G:34 B:34 | #222222
+Gris del gradiente del fondo parte inferior:  R: 64 G:64 B:64 | #404040
+Naranja de énfasis: R:255 G:139 B:69  | #ff8b45
+
+Nota: Recordatorio de que la NavBar se funde con el gradiente del fondo en la parte superior. 
