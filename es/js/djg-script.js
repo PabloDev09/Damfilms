@@ -1,4 +1,4 @@
-import { films } from "../res/stock.js";
+import { films } from "../js/stock.js";
 /* Small posters generation script using array variables */
 
 var newest = document.querySelector('.movie-box-container');
