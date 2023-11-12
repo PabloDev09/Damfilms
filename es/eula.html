@@ -25,7 +25,8 @@
         <!-- Damfilms stylesheet --> 
         <!-- SI QUIERES PERSONALIZAR ALGO MAS ALLÁ DE LO QUE ESTABLECE BOOTSTRAP UTILIZA ESTA HOJA DE ESTILOS | ¡CUIDADO CON LOS CONFLICTOS CSS!-->
         <link rel="stylesheet" href="css/style.css" TYPE="text/css">
-
+        <!-- OBTENER ESTILOS DE LA NAVBAR!-->
+        <link rel="stylesheet" href="css/navbar.css" TYPE="text/css">
     </head>
 
 
@@ -33,17 +34,83 @@
     <!--  BODY -->
     <body>
 
-        <!-- Navbar and navigation section-->
-        <nav>
+        <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg ">
 
-            <!-- NAVEGACIÓN BASICA PARA PRUEBAS INTERNAS | UTILIZAR SOLO COMO REFERENCIA | ELIMINAR CUANDO CONVENGA -->
-            <a href="index.html">Inicio</a>
-            <a href="home.html">Home</a>
-            <a href="player.html">Vitrina</a>
-            <a href="catalog.html">Catalogo</a>
-            <a href="config.html">Ajustes</a>
-            <a href="eula.html">Eula</a>
-        </nav>
+        <!-- container fluido que aloja la ROW porque las Row deben de estar en un contairer.-->
+        <div class="container-fluid">
+
+            <!-- row que contiene las 12 columnas en las que se subdivide la navbar-->
+            <div class="row" style="width:100%;">
+
+                <!-- 8 Columnas para enlaces de navegacion de la navbar-->
+                <div class="col-11 container-left">
+                     <!-- BOTON TRAS EL CUAL SE ESCONDE LOS MENUS-->
+                    <button class="navbar-toggler" id="navbar" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon navbar-dark"></span>
+                    </button>
+
+                    <!-- SECCION QUE SE COLAPSA LLAMDA navbarTogglerDemo01 -->
+                    <div class="collapse navbar-collapse" id="navbarTogglerDemo01" style="justify-content: start;">
+
+                        <a class="navbar-brand" href="#"><img src="img/Logo.png"></a>
+
+                        <!-- lista de objetos que se colapsan.-->
+                        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                            <li class="nav-item-left">
+                                <a class="nav-link active" aria-current="page" href="home.html">
+                                    <div id="home-icon">Home</div>
+                                </a>
+                            </li>
+                            <li class="nav-item-left">
+                                <a class="nav-link active" href="#"> <!-- INTRODUCIR LOS ENLACES A LAS PAGINAS PERTINENTES -->
+                                    <div id="series-icon">Series</div>
+                                </a>
+                            </li>
+                            <li class="nav-item-left">
+                                <a class="nav-link active" href="#"> <!-- INTRODUCIR LOS ENLACES A LAS PAGINAS PERTINENTES -->
+                                    <div id="films-icon">Películas</div>
+                                </a>
+                            </li>
+                            <li class="nav-item-left">
+                                <a class="nav-link active" href="#" > <!-- INTRODUCIR LOS ENLACES A LAS PAGINAS PERTINENTES -->
+                                    <div id="documentals-icon">Documentales</div>
+                                </a>
+                            </li>
+                        </ul>
+                        <!-- modulo de buscar-->
+                        <form class="d-flex">
+                            <input class="input-search me-2" type="search" placeholder="Buscar" aria-label="Search">
+                            <button class="button-search" type="submit"><img src="img/icons/lupa-64.png"></button>
+                        </form>
+
+                    </div> <!-- cierra el colapso-->
+
+                </div><!-- cierra col1 (links de navegacion)-->
+                
+                <div class="col-1 container-right" >
+                    <ul>
+                        <li class="nav-item-right dropdown">
+        
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <img src="img/icons/user-64.png">
+                            </a>
+        
+                            <ul class="dropdown-menu dropdown-menu-end">
+                                <li><a class="dropdown-item" href="#">Ajustes</a></li>                            
+                                <li><a class="dropdown-item" href="#">Cerrar Sesión</a></li>
+                            </ul>
+                            
+                        </li>
+                    </ul>            
+
+                </div> <!-- cierra col2 (buscar + perfil)-->
+
+            </div> <!-- cierra el row-->
+                
+        </div> <!-- Cierra contenedor del Row-->         
+
+    </nav> <!-- cierra navbar-->
 
         <!-- Main content-->
         <main>
