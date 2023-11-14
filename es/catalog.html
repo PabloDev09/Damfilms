@@ -12,6 +12,7 @@
         <!-- Popper JS inclusion via Local File - BEFORE BOOTSTRAP SCRIPTS-->
         <script src="js/popper.min.js" type="text/Javascript"></script>
         <!--<script src="res/stock.js" type="module"></script> COMENTADO POR SI ACASO, NO BORRAR -->
+        
 
         
         <!-- Bootstrap stylesheet CDN -->
@@ -31,7 +32,7 @@
 
     <!-- Document of the BODY -->
     <body>
-
+        
         <!-- Navbar -->
     <nav class="navbar navbar-expand-lg ">
 
@@ -115,23 +116,29 @@
 
         <!-- Main document content-->
         <main>
-            <div class="container-fluid ">
-                <section id="arriba"> </section>
 
-                <!-- CAJA DE FILTRADO-->
+            <div class="container-fluid ">
+                
+                <!-- Filter container-->
                 <div id="filterBox">
 
                     <!-- Genero button-->
                     <div class="dropdown">
+
                         <!-- Button actual body and title-->
                         <button type="button" class="btn btn-secondary dropdown-toggle" id="genreDropDown" data-bs-toggle="dropdown" aria-expanded="false">Género</button>
                         
                         <!-- Dropdown menu content-->
                         <ul class="dropdown-menu" id="DropDownItem">
-                            <li><button onClick="seleccionaAccion()"type="button" class="dropdown-item">Acción</button></li>
-                            <li><button onClick="seleccionaDrama()"type="button" class="dropdown-item">Drama</button></li>
-                            <li><button onClick="seleccionaComedia()" type="button" class="dropdown-item" >Comedia</button></li>
-                            <li><button onClick="mostrarTodoGenero()" type="button" class="dropdown-item" >Todo</button></li>
+                            <li><button id="actionButton" type="button" class="dropdown-item">Acción</button></li>
+                            <li><button id="dramaButton" type="button" class="dropdown-item">Drama</button></li>
+                            <li><button id="comedyButton" type="button" class="dropdown-item" >Comedia</button></li>
+                            <li><button id="adventureButton" type="button" class="dropdown-item" >Aventura</button></li>
+                            <li><button id="scifiButton" type="button" class="dropdown-item">Ciencia Ficción</button></li>
+                            <li><button id="fantasyButton" type="button" class="dropdown-item">Fantasía</button></li>
+                            <li><button id="thrillerButton" type="button" class="dropdown-item">Suspense</button></li>
+                            <li><button id="horrorButton" type="button" class="dropdown-item">Terror</button></li>
+                            <li><button id="romanceButton" type="button" class="dropdown-item" >Romance</button></li>
                         </ul>
                     </div>
 
@@ -142,12 +149,13 @@
                         
                         <!-- Dropdown menu content-->
                         <ul class="dropdown-menu" id="DropDownItem">
-                            <li><button onClick="mostrarAnimacion()"type="button" class="dropdown-item">Animación</button></li>
-                            <li><button onClick="mostrarLive()"type="button" class="dropdown-item">Live action</button></li>
-                            <li><button onClick="mostrarTodoTipo()" type="button" class="dropdown-item" >Todo</button></li>
+                            <li><button id="animationButton" type="button" class="dropdown-item">Animación</button></li>
+                            <li><button id="liveButton" type="button" class="dropdown-item">Live action</button></li>
+                            <!--<li><button id="allTypeButton" type="button" class="dropdown-item">Todo</button></li>-->
                         </ul>
                     </div>
-
+                    
+                    <div id="cleanFilterButton" type="button">Limpiar filtro.</div>
                 </div>
 
                 <!-- CAJA DE PELICULAS-->
@@ -175,7 +183,9 @@
                         <h4 class="tituloseccion-djg" style="color:white;">Lo mas popular</h4>
 
                         <!-- Listado lo mas popular -->
-                        <div class="movie-box-container2"></div>
+                        <div class="movie-box-container-2" id="myButton">                      
+                        </div>
+
                     </div>
                                     
                 </div>
@@ -214,7 +224,7 @@
 
                 <!-- FOOTER LINKS COLUMN (RIGHT) -->
                 <div class="col-md-4 col-lg-3  ms-md-auto align-self-end p-2 mx-auto"> 
-                    <a href="#arriba">Ir arriba.<br/></a>
+                    <a href="arriba">Ir arriba.<br/></a>
                     <!-- INTRODUCIR TEXTO DEFINITIVO Y BORRAR LOREM IPSUM -->
                     Lorem Ipsum es simplemente el texto de relleno de las imprentas 
                     y archivos de texto. Lorem Ipsum ha sido el texto de relleno 
@@ -226,8 +236,8 @@
             </div>
 
         </footer>
-        
-        <!-- Page specific Javascript link that needs to load after html render-->
-        <script src="js/djg-script.js" type="module"></script>
+                <!-- Page specific Javascript link that needs to load after html render-->
+                <script src="js/djg-script.js" type="module"></script>
+
     </body>
 </html>
