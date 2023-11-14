@@ -15,7 +15,7 @@ for (var i in films){
         <div id="popularFilmCard${i}" class="boxes">
         <div class="box-content">
         <p style=" ">${films[i].popindex}</p>
-                <div class="box-content-son" onclick="showPopup(${i})">
+                <div class="box-content-son pmg-box-margin" onclick="showPopup(${i})">
                     <h5 class="titulopelicula">${films[i].title}</h5>
                     <p class="duracion">
                     ${films[i].duration}

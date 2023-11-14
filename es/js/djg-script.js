@@ -1,4 +1,4 @@
-import { films } from "../js/stock";
+import { films } from "../js/stock.js";
 /* Small posters generation script using array variables */
 // big-box = contenedor general
 // popular-row = contenedor populares
@@ -14,7 +14,7 @@ var movieGenre;
 var movieType = undefined;
 var recentYear = 2015;
 
-function filterGenre(genre,){
+function filterGenre(genre){
     movieGenre = genre
 }
 function filterType(type){
@@ -186,4 +186,5 @@ document.getElementById('allGenreButton').addEventListener('click', function() {
 document.getElementById('liveButton').addEventListener('click', function() { filterType("Live action"); setFilterValue();}); // Event listener que contiene una función que invoca otra función para psarale parametros. 
 document.getElementById('animationButton').addEventListener('click', function() { filterType("Animación"); setFilterValue();}); // Event listener que contiene una función que invoca otra función para psarale parametros. 
 document.getElementById('allTypeButton').addEventListener('click', function() { filterType(undefined); setFilterValue();});
+
 document.getElementById('cleanFilterButton').addEventListener('click', showAll) /* BOTON DE LIMPIAR FILTRO */
