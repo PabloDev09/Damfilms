@@ -16,4 +16,8 @@
     border-radius: 10%;
     padding: 5px 10px;
 }
-.
+.btn-4 {
+    background-color: transparent;
+    border: none;
+    color: red;
+}

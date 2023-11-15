@@ -28,6 +28,7 @@
         <!-- OBTENER ESTILOS DE LA NAVBAR!-->
         <link rel="stylesheet" href="css/navbar.css" TYPE="text/css">
         <link rel="stylesheet" href="alineacion.css">
+        <link rel="stylesheet" href="boton.css">
     </head>
 
 
@@ -115,14 +116,14 @@
         <!-- Main content-->
         <main>
             <center>
-                <h2 style="font-size: 20px; color:white;">Detalles de la suscripción</h2>
-                <div class="card" style="width: 30%; margin-left:-2%; --bs-card-bg: #252525;">
+                <h1 style="color:white;">Detalles de la suscripción</h1>
+                <div class="card" style="width: 40%; margin-left: 0%; --bs-card-bg: #252525;">
                     <div class="card-body" >
-                        <h3 style="font-size: 20px; color: #d6631c;">DAMFILMS</h3>
+                        <h3 style="font-size: 35px; color: #d6631c;">DAMFILMS</h3>
                     </div>
                 </div>
                 <br>
-                <div class="card" style="width: 30%; margin-left:-2%; --bs-card-bg: #252525;">
+                <div class="card" style="width: 40%; margin-left: 0%; --bs-card-bg: #252525;">
                     <div class="card-body">
                         <p>
                             <span style="font-size: 20px; color:white" class="inicio"> Plan actual: Estandar </span>
@@ -130,28 +131,50 @@
                         <br>
                         <p> 
                             <span style="font-size: 20px; color:white" class="inicio"> 12,99/mes </span>
-                            <span class="final" style="font-size: 20px;"><a href="">Cambiar</a></span> 
+                            <span class="final" style="font-size: 20px;"><a style="color: #d6631c;" href="">Cambiar</a></span> 
                         </p>
                     </div>
                 </div>
                 <br>
-                <div class="card" style="width: 30%; margin-left:-2%; --bs-card-bg: #252525;">
+                <div class="card" style="width: 40%; margin-left: 0%; --bs-card-bg: #252525;">
                     <div class="card-body">
                         <p style="font-size: 20px; color:white" class="inicio">Método de pago</p>
-                        <p style="font-size: 20px; color:white" class="final">visa</p>
+                        <p style="font-size: 20px; color:white" class="final">VISA **** **** ****</p>
                     </div>
                 </div>
                 <br>
-                <div class="card" style="width: 30%; margin-left:-2%; --bs-card-bg: #252525;">
+                <div class="card" style="width: 40%; margin-left: 0%; --bs-card-bg: #252525;">
                     <div class="card-body" >
                         <p style="font-size: 20px; color:white" class="inicio">Próxima fecha de facturación</p>
                         <p style="font-size: 20px; color:white" class="final">fecha en cuestion</p>
                     </div>
                 </div>
                 <br>
-                <div class="card" style="width: 30%; margin-left:-2%; --bs-card-bg: #252525;">
+                <div class="card" style="width: 40%; margin-left: 0%; --bs-card-bg: #252525;">
                     <div class="card-body" >
-                        <p style="font-size: 20px; color: red" >Cancelar suscripción</p>
+                        <button style="font-size: 20px" type="button" class="btn-4" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                            Cancelar suscripción
+                          </button>
+                    </div>
+                </div>
+                <!-- Modal -->
+                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="exampleModalLabel">¿No quieres ver ningun título más?</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <p>Bueno, si algo hemos aprendido del cine es que, a veces, las relaciones hay que dejarlas ir.
+                            Eso sí, ¡te echaremos de menos! 😥</p>
+                            <p>La cancelación se hará efectiva al finalizar el periodo de facturación actual el 23 de noviembre.</p>
+                        </div>
+                        <div class="modal-footer">
+                        <button  type="button" class="btn-3" data-bs-dismiss="modal">Mantenerla</button>
+                        <button type="button" class="btn-2" data-bs-dismiss="modal">Cancelarla</button>
+                        </div>
+                    </div>
                     </div>
                 </div>
             </center>
