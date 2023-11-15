@@ -1,0 +1,175 @@
+@font-face {
+    font-family: 'Avenir LT';
+    src: url(/fuentes/Avenir\ LT\ 35\ Light.ttf);
+}
+
+.navbar{
+    background-color: rgba(32,32,32,1)
+    ;
+}
+
+.navbar-brand img{
+    width: 175px;
+    margin-right: 20px;
+}
+
+.nav-link{
+    color: #fff !important;
+    float: left;
+    font-family: 'Avenir LT';
+    font-size: 20px;
+}
+
+.nav-link:hover{
+    color: #d6631c !important;
+}
+
+.nav-item-left{
+    float: left;
+    margin-right: 15px;
+}
+
+.nav-item-right{
+    float: right;
+    list-style: none;
+    margin-top: 3px;
+}
+
+.nav-item-right img{
+    width: 48px;
+    height: 48px;
+}
+
+.input-search{
+    width: 120%;
+    min-width: 50%;
+    background-color: rgba(0,0,0,0);
+    color: #fff;
+    border-top: 0px;
+    border-right: 0px;
+    border-left: 0px;
+    border-color: #d6631c;
+    margin: 0px !important;
+    float: right;
+}
+.input-search::placeholder{
+    color: #fff;
+}
+
+.input-search:focus{
+    border-color: none !important;
+}
+
+.button-search{
+    background-color: rgba(0,0,0,0);
+    border: none;
+    float: left;
+}
+
+.button-search img{
+    width: 24px;
+    height: 24px;
+    align-items: start;
+}
+
+/*camibio de color en iconos*/
+#home-icon{
+    height: 24px;
+    width: 85px;
+    background-image: url(../img/icons/home-64.png); /* imagen blanca de fondo */
+    background-size: contain;
+    background-repeat: no-repeat;
+    float: left;
+    text-align: right;
+}
+
+#home-icon:hover{
+    background-image: url(../img/icons/home-64-alter.png); /* imagen naranja de fondo */
+    background-size: contain;
+}
+
+#series-icon{
+    height: 24px;
+    width: 87px;
+    background-image: url(../img/icons/tele-64.png); /* imagen blanca de fondo */
+    background-size: contain;
+    background-repeat: no-repeat;
+    float: left;
+    text-align: right;
+}
+
+#series-icon:hover{
+    background-image: url(../img/icons/tele-64-alter.png); /* imagen naranja de fondo */
+    background-size: contain;
+}
+
+#films-icon{
+    height: 24px;
+    width: 108px;
+    background-image: url(../img/icons/claketa-64.png); /* imagen blanca de fondo */
+    background-size: contain;
+    background-repeat: no-repeat;
+    float: left;
+    text-align: right;
+}
+#films-icon:hover{
+    background-image: url(../img/icons/claketa-64-alter.png); /* imagen naranja de fondo */
+    background-size: contain;
+}
+
+#documentals-icon{
+    height: 24px;
+    width: 152px;
+    background-image: url(../img/icons/camara-64.png); /* imagen blanca de fondo */
+    background-size: contain;
+    background-repeat: no-repeat;
+    float: left;
+    text-align: right;
+}
+
+#documentals-icon:hover{
+    background-image: url(../img/icons/camara-64-alter.png); /* imagen naranja de fondo */
+    background-size: contain;
+}
+.dropdown-menu{
+    background-color: #333333;
+}
+
+.dropdown-item{
+    color: #fff;
+}
+
+.dropdown-item:hover{
+    color: #d6631c;
+}
+
+.navbar-toggler{
+    width: 50px;
+    height: 40px;
+    border: none;
+    color: none;
+    float: left !important;
+    margin-top: 3px;
+    padding: 5px !important;
+}
+
+.navbar-toggler:focus{
+    border: none;
+    color: rgba(0,0,0,0);
+}
+
+.navbar-dark, .navbar[data-bs-theme=dark]{
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28248, 125, 48, 1%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e")
+}
+
+
+.input-search[type="search"]::-webkit-search-cancel-button{
+    -webkit-appearance: none;
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    margin-left: 10px;
+    background:
+      linear-gradient(45deg, rgba(0,0,0,0) 0%,rgba(0,0,0,0) 43%,#d6631c 45%,#d6631c 55%,rgba(0,0,0,0) 57%,rgba(0,0,0,0) 100%),
+      linear-gradient(135deg, transparent 0%,transparent 43%,#d6631c 45%,#d6631c 55%,transparent 57%,transparent 100%);
+}

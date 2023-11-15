@@ -1,0 +1,148 @@
+/* -------------------- COMIENZO: SECCION DE BODY -------------------- */
+body{
+    height:auto;
+    width:auto;
+    background: rgb(0,0,0);
+    background: linear-gradient(180deg, rgba(32,32,32,1) 35%, rgba(84,84,84,1) 100%);
+}
+/* ------------------------ FINAL SECCION DE BODY ---------------------- */
+
+/* -------------------- COMIENZO: SECCION DE FOOTER - TOCAR CON CUIDADO-------------------- */
+.antifloater-djg{
+    clear: both;
+}
+
+.footer-djg{
+    color:#aaa0a0;
+    background: linear-gradient(180deg, rgba(70, 70, 70, 0) 0%, rgb(84, 84, 84) 15%, rgba(32,32,32,1) 100%);
+}
+/* -------------------------------- FINAL SECCION DE FOOTER -------------------------------- */
+
+/* -------------------- COMIENZO: SECCION DE CATALOGO - TOCAR CON CUIDADO -------------------- */
+
+
+/*------ ESTILO POSTERS AUTOMATICOS ------*/
+
+/* CONTENEDOR DE SECCIONES POSTER*/
+.movie-box-container .movie-box-container2{ 
+    width:100%;
+    margin: auto;
+    padding-top: 20px;
+    background-color: rgb(71, 185, 185);
+}
+
+/* CAJA CONTENEDORA DE OBJETO PELICULA */
+.boxes{
+    height: 244px;
+    width: 174px;
+    border-style: solid;
+    border-width: 2px;
+    border-color: rgb(255, 166, 0);
+    float:left;
+    margin: 8px 8px 8px 8px;
+    color: rgba(255, 255, 255, 0);  
+    text-align: center;  
+}
+
+/* CAJA HIJA DE OBJETO POSTER*/
+.box-content-son{
+    text-align:center;
+    height: 240px;
+    width: 170px;
+}
+
+/*efecto on hover de poster*/
+.box-content-son:hover{
+    transition-duration: 0.3s;
+    box-shadow: 0 0 25px orange;
+    color: rgb(255, 255, 255);  
+    background-image: linear-gradient( rgba(0, 0, 0, 0.901) 35%, rgba(0, 0, 0, 0.205) 100%);
+    }
+
+/*TEXTO POSTER*/
+.titulopelicula{
+    padding:10px;
+}
+.duracion{
+    font-size: 10pt;
+}
+.fechasalida{
+    font-weight: bold;
+    font-size: 9pt;
+}
+
+/*------ FIN ESTILO POSTERS AUTOMATICOS ------*/
+
+/*CAJA QUE CONTIENE LOS BOTONES DE FILTRADO*/
+#filterBox{
+    padding-left: 10px;
+    margin-top: 30px;
+    color: white;
+    width:100%;
+    height: 45px;
+}
+
+/* BOTONES DE FILTROS*/
+#genreDropDown {
+    background-color: rgb(255, 166, 0);
+    color: black;
+}
+
+/*ESTILO DE OBJETOS DE MENU FILTRO*/
+#DropDownItem{
+    color: black;
+    background-color: rgb(250, 200, 139);
+}
+
+.dropdown{
+    float:left;
+    margin-left: 10px;
+}
+
+#cleanFilterButton{
+    margin-left: 10px;
+    margin-top: 15px;
+    float: left;
+    height: auto;
+    width: 100px;
+}
+
+/* PROPIEDADES TITULOS DE CAJA */
+.tituloseccion-djg{
+    margin-left:10px;
+    margin-bottom: 0px;
+}
+
+/* Caja de peliculas con borde naranja*/
+.movie-box{
+    height: 244px;
+    width: 174px;
+    background-color: rgb(0, 0, 0);
+    border-style: solid;
+    border-width: 2px;
+    border-color: rgb(255, 166, 0);
+    float:left;
+    margin: 8px 8px 8px 8px;
+    color: white;     
+}
+
+/* Efecto resplandor para caja peliculas*/
+.movie-box :hover{
+    box-shadow: 0 0 25px orange;
+    color: black;
+}
+
+/* Caja de peliculas con borde naranja*/
+.movie-box-djg{
+    height: 244px;
+    width: 174px;
+    background-color: rgb(0, 0, 0);
+    border-style: solid;
+    border-width: 2px;
+    border-color: rgb(255, 166, 0);
+    float:left;
+    margin: 8px 8px 8px 8px;
+    color: white;     
+}
+
+/* -------------------------------- FINAL SECCION DE CATALOGO -------------------------------- */
