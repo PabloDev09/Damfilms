@@ -141,4 +141,13 @@ body{
 .mainInicio {
     color:aliceblue /*Change the color of the text*/
 }
+.infoInicio{
+    text-align: center;
+    color: white;
+    font-size: 30px;
+}
+
+.tablaSuscripciones{
+  
+}
 /* -------------------------------- FINAL SECCION DE INDEX -------------------------------- */
