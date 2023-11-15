@@ -112,12 +112,30 @@
     </nav> <!-- cierra navbar-->
 
         <!-- Main content-->
-        <main>
+        <main id="ajustesedad">
 
-            <!-- CAJA DE PRUEBAS, BORRAR -->
-            <div style="height: 1000px; width: 100%;"> 
+            <h1 class="display-1">Preferencias/</h1><h2 class="display-5">Clasificación por edades</h2>
+            <hr id="barrajuste">
             
+            <h3> Modo infantil </h3>
+            <div style= "bottom: 0; display: flex;width: 300vh;">
+            <h4> Permitir solo contenido destinado a público infantil </h4>
+            
+            <label class="switch" id="switchnino">
+                <input type="checkbox">
+                <span class="slider round" id="slidernino"></span>
+            </label>
             </div>
+            
+                <h3> Contenido adulto </h3>
+            <div style= "bottom: 0; display: flex;width: 300vh;">
+                <h4> Permitir contendido de caracter sexual o gráfico. </h4>
+            <label class="switch" id="switchadu">
+                     <input type="checkbox">
+                     <span class="slider round" id="slideradu"></span>
+            </label>
+            </div>
+    
 
         </main>
 
