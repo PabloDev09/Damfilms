@@ -27,6 +27,7 @@
         <link rel="stylesheet" href="css/style.css" TYPE="text/css">
         <!-- OBTENER ESTILOS DE LA NAVBAR!-->
         <link rel="stylesheet" href="css/navbar.css" TYPE="text/css">
+        <link rel="stylesheet" href="boton.css">
     </head>
 
 
@@ -113,22 +114,22 @@
 
         <!-- Main content-->
         <main>
-          <div>
+            <div>
             <center>
-              <h2 style="color:white;">Centro de ayuda</h2>
-              <nav>
-                <form class="container-fluid">
-                  <div class="input-group">
-                    <span class="input-group-text" id="basic-addon1"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
-                      <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
-                      </svg></span>
-                    <input type="text" class="form-control" placeholder="¿En que podemos ayudarte?"  aria-label="Username" aria-describedby="basic-addon1" >
-                  </div>
-                </form>
-              </nav>
-              <h3 style="color:white;">Todos los temas</h3>  
-            </center>
-                <div class="accordion" id="accordionExample">
+                <h2 style="color:white;">Centro de ayuda</h2>
+                <nav style="width: 70%; margin-left: 0%;">
+                  <form class="container-fluid">
+                    <div class="input-group">
+                      <span class="input-group-text" id="basic-addon1"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                          <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+                        </svg></span>
+                      <input type="text" class="form-control" placeholder="¿En que podemos ayudarte?"  aria-label="Username" aria-describedby="basic-addon1" >
+                    </div>
+                  </form>
+                </nav>
+                <h3 style="color:white;">Todos los temas</h3>  
+              </center>
+                <div class="accordion" id="accordionExample" style="width: 80%; margin-left:10%;">
                   <div class="accordion-item">
                     <h2 class="accordion-header" >
                       <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
@@ -519,24 +520,49 @@
                 </div>
                 <center>
                 <h3 style="color:white;">¿Necesitas más ayuda?</h3>
-                <p style="color:white;">Estamos disponibles para atenderte en directo de 08:00 a 24:00 los siete días de la semana</p>
-                </center>
-                <div c-dtcvx_supportcontacttray_dtcvx_supportcontacttray class="contact-tray-card-wrap slds-col slds-size_1-of-1 slds-small-size_1-of-1 slds-medium-size_6-of-12 slds-large-size_6-of-12">
-                  <div class="row gx-5">
-                    <div class="col">
-                     <div style="color:white" class="p-3">Comentarios</div>
+                <p style="color:white;">Estamos disponibles para atenderte de 08:00 a 24:00 los siete días de la semana</p>
+                <div class="card" style="width: 30%; margin-left:-2%;">
+                  <div class="card-body" >
+                    <h4>Comentarios</h4>
+                    <p>¿Cómo podemos mejorar Damfimls? ¡Cuéntanoslo en nuestro formulario de comentarios!</p>
+                    <button type="button" class="btn-1" data-bs-toggle="modal" data-bs-target="#exampleModal" border:none;>
+                      Enviar comentario
+                    </button>
+                  </div>
+                </div>
+                <!-- Modal -->
+                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                  <div class="modal-dialog">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="exampleModalLabel">Dinos qué opinas</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                      </div>
+                      <div class="modal-body">
+                        Tus opiniones nos ayudan a mejorar. Aunque no podamos contestar a los comentarios, nuestros equipos los leen todos. No incluyas datos personales que puedan identificarte directa o indirectamente (tu nombre o datos de contacto) ni datos sensibles como los referentes a tu estado de salud. Cualquier dato personal que decidas incluir es voluntario y no se utilizará para ningún fin que no sea examinar tus comentarios.
+                      </div>
+                      <form>
+                        <div class="mb-3" style="width: 90%;">
+                          <label for="message-text">Comentario:</label>
+                          <textarea class="form-control" id="message-text"></textarea>
+                        </div>
+                      </form>
+                      <div class="modal-footer">
+                        <button type="button" class="btn-3" data-bs-dismiss="modal">Cerrar</button>
+                        <button type="button" class="btn-2">Enviar</button>
+                      </div>
                     </div>
                   </div>
                 </div>
-          </div>
+                </center>
+            </div>
         </main>
-
 
         <!-- FOOTER SPACE CONTROL DIV - BORRAR SI EL FOOTER INTERFIERE CON EL CONTENIDO DE TU PAGINA - SI NO ENTIENDES PREGUNTA A DAVID -->
         <div class="clear-djg"></div>
 
         <!-- Footer and infoboxes section -->
-        <footer class="container-fluid fixed-bottom footer-djg">
+        <footer class="container-fluid footer-djg">
 
             <!-- FOOTER COLUMNS ROW - THIS ROW CONTAINS THE FOOTER COLUMNS -->
             <div class="row mx-auto pt-3 pb-1" style="font-size: 9pt;">
