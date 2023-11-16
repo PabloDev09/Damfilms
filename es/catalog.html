@@ -8,12 +8,12 @@
 
         <!-- Page tab title -->
         <title>Damfilms - Catalogo</title> <!-- INTRODUCE AQUI EL TITULO DE TU SECCION | BORRA ESTE COMENTARIO Ejemplo: " Damfilms - Home "-->
-
-        <!-- Page specific Javascript link -->
-        <!-- SI TIENES UN LINK A UN JAVASCRIPT PERSONAL PARA TU PAGINA INTRODUCELO AQUI | BORRA ESTE COMENTARIO -->
-       
+     
         <!-- Popper JS inclusion via Local File - BEFORE BOOTSTRAP SCRIPTS-->
-        <script src="js/popper.min.js"></script>
+        <script src="js/popper.min.js" type="text/Javascript"></script>
+        <!--<script src="res/stock.js" type="module"></script> COMENTADO POR SI ACASO, NO BORRAR -->
+        
+
         
         <!-- Bootstrap stylesheet CDN -->
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
@@ -25,15 +25,16 @@
         <!-- Damfilms stylesheet --> 
         <!-- SI QUIERES PERSONALIZAR ALGO MAS ALLÁ DE LO QUE ESTABLECE BOOTSTRAP UTILIZA ESTA HOJA DE ESTILOS | ¡CUIDADO CON LOS CONFLICTOS CSS!-->
         <link rel="stylesheet" href="css/style.css" type="text/css">
-        <link rel="stylesheet" href="css/estilotest.css" type="text/css">
         <!-- OBTENER ESTILOS DE LA NAVBAR!-->
         <link rel="stylesheet" href="css/navbar.css" TYPE="text/css">
+
+        
     </head>
 
 
     <!-- Document of the BODY -->
     <body>
-
+        
         <!-- Navbar -->
     <nav class="navbar navbar-expand-lg ">
 
@@ -117,23 +118,30 @@
 
         <!-- Main document content-->
         <main>
-            <div class="container-fluid ">
-                <section id="arriba"> </section>
 
-                <!-- CAJA DE FILTRADO-->
+            <div class="container-fluid ">
+                
+                <!-- Filter container-->
                 <div id="filterBox">
 
                     <!-- Genero button-->
                     <div class="dropdown">
+
                         <!-- Button actual body and title-->
                         <button type="button" class="btn btn-secondary dropdown-toggle" id="genreDropDown" data-bs-toggle="dropdown" aria-expanded="false">Género</button>
                         
                         <!-- Dropdown menu content-->
                         <ul class="dropdown-menu" id="DropDownItem">
-                            <li><button onClick="seleccionaAccion()"type="button" class="dropdown-item">Acción</button></li>
-                            <li><button onClick="seleccionaDrama()"type="button" class="dropdown-item">Drama</button></li>
-                            <li><button onClick="seleccionaComedia()" type="button" class="dropdown-item" >Comedia</button></li>
-                            <li><button onClick="mostrarTodoGenero()" type="button" class="dropdown-item" >Todo</button></li>
+                            <li><button id="actionButton" type="button" class="dropdown-item">Acción</button></li>
+                            <li><button id="dramaButton" type="button" class="dropdown-item">Drama</button></li>
+                            <li><button id="comedyButton" type="button" class="dropdown-item" >Comedia</button></li>
+                            <li><button id="adventureButton" type="button" class="dropdown-item" >Aventura</button></li>
+                            <li><button id="scifiButton" type="button" class="dropdown-item">Ciencia Ficción</button></li>
+                            <li><button id="fantasyButton" type="button" class="dropdown-item">Fantasía</button></li>
+                            <li><button id="thrillerButton" type="button" class="dropdown-item">Suspense</button></li>
+                            <li><button id="horrorButton" type="button" class="dropdown-item">Terror</button></li>
+                            <li><button id="romanceButton" type="button" class="dropdown-item" >Romance</button></li>
+                            <li><button id="allGenreButton" type="button" class="dropdown-item" >Todo</button></li>
                         </ul>
                     </div>
 
@@ -144,81 +152,48 @@
                         
                         <!-- Dropdown menu content-->
                         <ul class="dropdown-menu" id="DropDownItem">
-                            <li><button onClick="mostrarAnimacion()"type="button" class="dropdown-item">Animación</button></li>
-                            <li><button onClick="mostrarLive()"type="button" class="dropdown-item">Live action</button></li>
-                            <li><button onClick="mostrarTodoTipo()" type="button" class="dropdown-item" >Todo</button></li>
+                            <li><button id="animationButton" type="button" class="dropdown-item">Animación</button></li>
+                            <li><button id="liveButton" type="button" class="dropdown-item">Live action</button></li>
+                            <li><button id="allTypeButton" type="button" class="dropdown-item">Todo</button></li>
+                            <!--<li><button id="allTypeButton" type="button" class="dropdown-item">Todo</button></li>-->
                         </ul>
                     </div>
-
+                    
+                    <div id="cleanFilterButton" type="button">Limpiar filtro.</div>
                 </div>
 
-                <!-- CAJA DE PELICULAS-->
-                <div class="container-fluid mx">
+                
+                <div class="container-fluid mx" id="big-box"><!-- CAJA DE PELICULAS-->
+                    
+                    <!-- CAJA CONTENEDORA ULTIMAS LLEGADAS --> 
+                    <div classs="wrapper">           
+                        <h4 class="tituloseccion-djg" style="color:white;">Ultimas llegadas</h4> <!-- Titulo sección ultimas llegadas-->       
+                        
+                        <!-- Aquí se inyectan los objetos de peliculas recientes -->
+                        <div id="newest-row" ></div>
+                    </div>
 
-                    <!-- caja de las ultimas llegadas-->
-                    <div class="container-fluid">
+                    <div class="antifloater-djg"></div> <!-- FLOAT CLEARING DIV -->
 
-                        <!-- CAJA CONTENEDORA ULTIMAS LLEGADAS -->
-                        <div classs="container-fluid ">
-                            <h4 class="tituloseccion-djg" style="color:white;">Ultimas llegadas</h4>
-                            <div class="movie-box"><img src="img/170x240/Accion/Batman.png"></div>
-                            <div class="movie-box"><img src="img/170x240/Accion/Gladiador.png"></div>
-                            <div class="movie-box"><img src="img/170x240/Accion/Jungla.png"></div>
-                            <div class="movie-box"><img src="img/170x240/Accion/Killbil.png"></div>
-                            <div class="movie-box"><img src="img/170x240/Accion/MadMax.png"></div>
-                            <div class="movie-box"><img src="img/170x240/Accion/Matrix.png"></div>
-                            <div class="movie-box"><img src="img/170x240/Aventuras/ESDLA.png"></div>
-                            <div class="movie-box"><img src="img/170x240/Aventuras/Indiana.png"></div>
-                            <div class="movie-box"><img src="img/170x240/Aventuras/Jumanji.png"></div>
-                            <div class="movie-box"><img src="img/170x240/Aventuras/Jurasico.png"></div>
-                            <div class="movie-box"><img src="img/170x240/Aventuras/Laberino.png"></div>
-                            <div class="movie-box"><img src="img/170x240/Comedia/AceVentura.png"></div>
-                            <div class="movie-box"><img src="img/170x240/Comedia/Borat.png"></div>
-                            <div class="movie-box"><img src="img/170x240/Comedia/Cazafantasmas.png"></div>
-                            <div class="movie-box"><img src="img/170x240/Comedia/LaMascara.png"></div>
-                            <div class="movie-box"><img src="img/170x240/Comedia/SantoGrial.png"></div>
-                            <div class="movie-box"><img src="img/170x240/Drama/Manchester.png"></div>
-                            <div class="movie-box"><img src="img/170x240/Drama/Tom Hanks.png"></div>
-                        </div>
+                    <!-- CAJA CONTENEDORA LO MAS POPULAR -->                        
+                    <div classs="wrapper">   
+                        <h4 class="tituloseccion-djg" style="color:white;">Lo mas popular</h4>
+                        
+                        <!-- Aquí se inyectan los objetos de peliculas populares-->
+                        <div id="popular-row"></div>
+                    </div>
 
-                        <!-- LIMPIADOR DE FLOTADO -->
-                        <div class="antifloater-djg"></div>
+                    <div class="antifloater-djg"></div> <!-- FLOAT CLEARING DIV -->
 
-                        <!-- CAJA CONTENEDORA LO MAS POPULAR -->                        
-                        <div classs="container-fluid">
-                            <h4 class="tituloseccion-djg" style="color:white;">Lo mas popular</h4>
-                            <div class="movie-box"><img src="img/170x240/Accion/Batman.png"></div>
-                            <div class="movie-box"><img src="img/170x240/Accion/Gladiador.png"></div>
-                            <div class="movie-box"><img src="img/170x240/Accion/Jungla.png"></div>
-                            <div class="movie-box"><img src="img/170x240/Accion/Killbil.png"></div>
-                            <div class="movie-box"><img src="img/170x240/Accion/MadMax.png"></div>
-                            <div class="movie-box"><img src="img/170x240/Accion/Matrix.png"></div>
-                            <div class="movie-box"><img src="img/170x240/Aventuras/ESDLA.png"></div>
-                            <div class="movie-box"><img src="img/170x240/Aventuras/Indiana.png"></div>
-                            <div class="movie-box"><img src="img/170x240/Aventuras/Jumanji.png"></div>
-                            <div class="movie-box"><img src="img/170x240/Aventuras/Jurasico.png"></div>
-                            <div class="movie-box"><img src="img/170x240/Aventuras/Laberino.png"></div>
-                            <div class="movie-box"><img src="img/170x240/Comedia/AceVentura.png"></div>
-                            <div class="movie-box"><img src="img/170x240/Comedia/Borat.png"></div>
-                            <div class="movie-box"><img src="img/170x240/Comedia/Cazafantasmas.png"></div>
-                            <div class="movie-box"><img src="img/170x240/Comedia/LaMascara.png"></div>
-                            <div class="movie-box"><img src="img/170x240/Comedia/SantoGrial.png"></div>
-                            <div class="movie-box"><img src="img/170x240/Drama/Manchester.png"></div>
-                            <div class="movie-box"><img src="img/170x240/Drama/Tom Hanks.png"></div>
-                        </div>
-
-                    </div>                        
-
-
-
-
-                    <!-- caja de las ultimas mas populares-->
-                    <div class="container-fluid"></div>
-
-
-
+                    <!-- CAJA CONTENEDORA GENERAL -->
+                    <div classs="wrapper">
+                        <h4 class="tituloseccion-djg" style="color:white;">Explora!</h4>
+                        <!-- Aqui se inyectan los objetos de peliculas sin filtrar ni discriminar -->
+                        <div id="explore-row"></div>
+                    </div>
                 </div>
-                <!-- Footer Hotfix-djg -->
+
+                <!-- Footer Hotfix-djg - If you change the footer class 'fixed-bottom' you may need to delete this one too -->
                 <div style="width: 100%; height: 1px; margin-top: 140px; float:left;"></div>
             </div>
 
@@ -228,16 +203,13 @@
         <footer class="container-fluid fixed-bottom footer-djg">
 
             <!-- FOOTER COLUMNS ROW - THIS ROW CONTAINS THE FOOTER COLUMNS -->
-            <div class="row mx-auto pt-3 pb-1" style="font-size: 9pt;">
+            <div class="row mx-auto pt-1 pb-1" style="font-size: 9pt;">
 
                 <!-- FOOTER COOKIES COLUMN (LEFT) -->
                 <div class="col-md-4 col-lg-3  ms-md-auto align-self-end p-2 mx-auto"> 
                     <!-- INTRODUCIR TEXTO DEFINITIVO Y BORRAR LOREM IPSUM -->
                     Lorem Ipsum es simplemente el texto de relleno de las imprentas 
                     y archivos de texto. Lorem Ipsum ha sido el texto de relleno 
-                    estándar de las industrias desde el año 1500, cuando un impresor 
-                    (N. del T. persona que se dedica a la imprenta) desconocido usó 
-                    una galería de textos y los mezcló de tal manera que logró hacer
                 </div>
 
                 <!-- FOOTER COPYRIGHT COLUMN (MIDDLE)-->
@@ -245,25 +217,23 @@
                     <!-- INTRODUCIR TEXTO DEFINITIVO Y BORRAR LOREM IPSUM -->
                     Lorem Ipsum es simplemente el texto de relleno de las imprentas 
                     y archivos de texto. Lorem Ipsum ha sido el texto de relleno 
-                    estándar de las industrias desde el año 1500, cuando un impresor 
-                    (N. del T. persona que se dedica a la imprenta) desconocido usó 
-                    una galería de textos y los mezcló de tal manera que logró hacer 
+
                 </div>
 
                 <!-- FOOTER LINKS COLUMN (RIGHT) -->
                 <div class="col-md-4 col-lg-3  ms-md-auto align-self-end p-2 mx-auto"> 
-                    <a href="#arriba">Ir arriba.<br/></a>
+                    <a href="arriba">Ir arriba.<br/></a>
                     <!-- INTRODUCIR TEXTO DEFINITIVO Y BORRAR LOREM IPSUM -->
                     Lorem Ipsum es simplemente el texto de relleno de las imprentas 
                     y archivos de texto. Lorem Ipsum ha sido el texto de relleno 
-                    estándar de las industrias desde el año 1500, cuando un impresor 
-                    (N. del T. persona que se dedica a la imprenta) desconocido usó 
-                    una galería de textos y los mezcló de tal manera que logró hacer
+
                 </div>
 
             </div>
 
         </footer>
+                <!-- Page specific Javascript link that needs to load after html render-->
+                <script src="js/djg-script.js" type="module"></script>
 
     </body>
 </html>
