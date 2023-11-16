@@ -5,6 +5,7 @@ import { films } from "../js/stock.js";
 // newest-row = contener nuevos
 // en primer lugar se renderiza la caja de populares con la de nuevos. Luego al llamar un filtro se borra y se rellena la caja de bigbox.
 
+<<<<<<< HEAD
 var bigbox = document.querySelector('#big-box'); // Selecciona la caja general
 var popular = document.querySelector('#popular-row'); // Selecciona el div de populares
 var newest = document.querySelector('#newest-row'); // Selecciona el div de novedades
@@ -13,6 +14,12 @@ var minimalPopularity = 10;
 var movieGenre;  
 var movieType = undefined;
 var recentYear = 2015;
+=======
+var newest = document.querySelector('.movie-box-container'); // Selecciona un elemento.
+
+var movieGenre;  
+var movieType;
+>>>>>>> G5
 
 function filterGenre(genre,){
     movieGenre = genre
@@ -21,6 +28,7 @@ function filterType(type){
     movieType = type
 }
 
+<<<<<<< HEAD
 //LOS MAS NUEVOS + LO MAS POPULAR + GENERAL
 for (var i in films) {  /* por cada clave presente en films hace un ciclo.*/
 
@@ -83,6 +91,50 @@ for (var i in films) {  /* por cada clave presente en films hace un ciclo.*/
         
         /* le agrega este HTML con valores extraidos de films*/
         explore.innerHTML = ` 
+=======
+function setFilterValue() { 
+
+    document.querySelector('.movie-box-container').innerHTML = "" //Cada vez que se llama la funcion borra el contenido del contenedor 'movie-box-container'.
+
+
+    for (var i in films) {  /* por cada clave presente en films hace un ciclo.*/
+
+        if ( (films[i].genre1 == movieGenre) && (films[i].type == movieType) ){ /* Test de variables con genero y tipo */
+
+            var fetch = document.querySelector('.movie-box-container').innerHTML;  /* Selecciona el contenido actual del contenedor "movie-box-container".*/
+            
+            /* le agrega este HTML con valores extraidos de films*/
+            newest.innerHTML = ` 
+            <div id="cards${i}" class="boxes">
+                <div class="box-content">
+                        <div class="box-content-son" onclick="mostrarPopup(${i})">
+                            <h5 class="titulopelicula">${films[i].title}</h5>
+                            <p class="duracion">
+                            ${films[i].duration}
+                            </p>
+                            <p class="fechasalida">
+                            ${films[i].release}
+                            </p> 
+                        </div> 
+                    </div>
+                </div>` + fetch; /* se actualiza el contenido conocido. Si antes habia 0 elementos, lo lee y sabrá que ahora hay 1 mas.*/
+
+            /*aplica una imagen de fondo a los contenedores*/
+            var bgimg = document.getElementById(`cards${i}`)
+            bgimg.style.backgroundImage = `url('img/170x240/films/${films[i].poster}.png')`;
+        }        
+    }
+}
+
+function showAll() {
+    document.querySelector('.movie-box-container').innerHTML = "" //Cada vez que se llama la funcion borra el contenido del contenedor 'movie-box-container'.
+
+    for (var i in films) {  /* por cada clave presente en films hace un ciclo.*/
+        var fetch = document.querySelector('.movie-box-container').innerHTML;  /* Selecciona el contenido actual del contenedor "movie-box-container".*/
+        
+        /* le agrega este HTML con valores extraidos de films*/
+        newest.innerHTML = ` 
+>>>>>>> G5
         <div id="cards${i}" class="boxes">
             <div class="box-content">
                     <div class="box-content-son" onclick="mostrarPopup(${i})">
@@ -99,6 +151,7 @@ for (var i in films) {  /* por cada clave presente en films hace un ciclo.*/
 
         /*aplica una imagen de fondo a los contenedores*/
         var bgimg = document.getElementById(`cards${i}`)
+<<<<<<< HEAD
         bgimg.style.backgroundImage = `url('img/170x240/films/${films[i].poster}.png')`;
    
 }
@@ -168,6 +221,9 @@ function showAll() {
             var bgimg = document.getElementById(`cards${i}`)
             bgimg.style.backgroundImage = `url('img/170x240/films/${films[i].poster}.png')`;
               
+=======
+        bgimg.style.backgroundImage = `url('img/170x240/films/${films[i].poster}.png')`;    
+>>>>>>> G5
     }
 }
 
@@ -180,11 +236,18 @@ document.getElementById('fantasyButton').addEventListener('click', function() { 
 document.getElementById('thrillerButton').addEventListener('click', function() { filterGenre("Suspense"); setFilterValue(); });
 document.getElementById('horrorButton').addEventListener('click', function() { filterGenre("Terror"); setFilterValue(); });
 document.getElementById('romanceButton').addEventListener('click', function() { filterGenre("Romance"); setFilterValue(); }); 
+<<<<<<< HEAD
 document.getElementById('allGenreButton').addEventListener('click', function() { filterGenre(undefined); setFilterValue();});
+=======
+>>>>>>> G5
 
 
 document.getElementById('liveButton').addEventListener('click', function() { filterType("Live action"); setFilterValue();}); // Event listener que contiene una función que invoca otra función para psarale parametros. 
 document.getElementById('animationButton').addEventListener('click', function() { filterType("Animación"); setFilterValue();}); // Event listener que contiene una función que invoca otra función para psarale parametros. 
+<<<<<<< HEAD
 document.getElementById('allTypeButton').addEventListener('click', function() { filterType(undefined); setFilterValue();});
+=======
+/*document.getElementById('allTypeButton').addEventListener('click', function() { filterType(); setFilterValue();});  BOTON DESACTIVADO POR AHORA*/
+>>>>>>> G5
 
 document.getElementById('cleanFilterButton').addEventListener('click', showAll) /* BOTON DE LIMPIAR FILTRO */
