@@ -2,41 +2,76 @@
 /* Da color gradiente al fondo*/
 
 body{
+    margin: 0px;
+    padding: 0px;
     height:auto;
     width:auto;
     background: rgb(0,0,0);
     background: linear-gradient(180deg, rgba(32,32,32,1) 35%, rgba(84,84,84,1) 100%);
 }
-
+/* ------------------------ FINAL SECCION DE BODY ---------------------- */
+/* -------------------- COMIENZO: SECCION DE FOOTER - TOCAR CON CUIDADO-------------------- */
 .antifloater-djg{
     clear: both;
 }
-
-/* -------------------- COMIENZO: SECCION DE FOOTER - TOCAR CON CUIDADO-------------------- */
-
-.main-djg{
-    background-color: aqua;
-}
-
-/*ESPACIADOR ENTRE CAJA MAIN Y FOOTER*/
-.clear-djg { clear: both; height: 155px; }
 
 .footer-djg{
     color:#aaa0a0;
     background: linear-gradient(180deg, rgba(70, 70, 70, 0) 0%, rgb(84, 84, 84) 15%, rgba(32,32,32,1) 100%);
 }
-
-/* -------------------- FINAL SECCION DE FOOTER -------------------- */
-
+/* -------------------------------- FINAL SECCION DE FOOTER -------------------------------- */
 /* -------------------- COMIENZO: SECCION DE CATALOGO - TOCAR CON CUIDADO -------------------- */
 
 
+/*----- CATALOGO - ESTILO POSTERS AUTOMATICOS - CATALOGO  -----*/
 
-/* PROPIEDADES TITULOS DE CAJA */
-.tituloseccion-djg{
-    margin-left:10px;
-    margin-bottom: 0px;
+/* CONTENEDOR DE SECCIONES POSTER*/
+.movie-box-container .movie-box-container2{ 
+    width:100%;
+    margin: auto;
+    padding-top: 20px;
+    background-color: rgb(71, 185, 185);
 }
+
+/* CAJA CONTENEDORA DE OBJETO PELICULA */
+.boxes{
+    height: 244px;
+    width: 174px;
+    border-style: solid;
+    border-width: 2px;
+    border-color: rgb(255, 166, 0);
+    float:left;
+    margin: 8px 8px 8px 8px;
+    color: rgba(255, 255, 255, 0);  
+    text-align: center;  
+}
+
+/* CAJA HIJA DE OBJETO POSTER*/
+.box-content-son{
+    text-align:center;
+    height: 240px;
+    width: 170px;
+}
+/*efecto on hover de poster*/
+.box-content-son:hover{
+    transition-duration: 0.3s;
+    box-shadow: 0 0 25px orange;
+    color: rgb(255, 255, 255);  
+    background-image: linear-gradient( rgba(0, 0, 0, 0.901) 35%, rgba(0, 0, 0, 0.205) 100%);
+    }
+/*TEXTO POSTER*/
+.titulopelicula{
+    padding:10px;
+}
+.duracion{
+    font-size: 10pt;
+}
+.fechasalida{
+    font-weight: bold;
+    font-size: 9pt;
+}
+
+/*------------------------------  POSTERS AUTOMATICOS  ------------------------------*/
 
 /*CAJA QUE CONTIENE LOS BOTONES DE FILTRADO*/
 #filterBox{
@@ -58,11 +93,22 @@ body{
     background-color: rgb(250, 200, 139);
 }
 
+.dropdown{
+    float:left;
+    margin-left: 10px;
+}
+
+/* PROPIEDADES TITULOS DE CAJA */
+.tituloseccion-djg{
+    margin-left:10px;
+    margin-bottom: 0px;
+}
+
 /* Caja de peliculas con borde naranja*/
 .movie-box{
     height: 244px;
     width: 174px;
-    background-color: aqua;
+    background-color: rgb(0, 0, 0);
     border-style: solid;
     border-width: 2px;
     border-color: rgb(255, 166, 0);
@@ -74,34 +120,148 @@ body{
 /* Efecto resplandor para caja peliculas*/
 .movie-box :hover{
     box-shadow: 0 0 25px orange;
+    color: black;
 }
 
-.dropdown{
+/* Caja de peliculas con borde naranja*/
+.movie-box-djg{
+    height: 244px;
+    width: 174px;
+    background-color: rgb(0, 0, 0);
+    border-style: solid;
+    border-width: 2px;
+    border-color: rgb(255, 166, 0);
     float:left;
-    margin-left: 10px;
+    margin: 8px 8px 8px 8px;
+    color: white;     
 }
 
-.comedia{
-    display:block;
-    background-color: rgb(0, 255, 179);
-    transition-duration: 800ms;
+/* -------------------------------- FINAL SECCION DE CATALOGO -------------------------------- */
+/* -------------------- COMIENZO: SECCION DE HOME - TOCAR CON CUIDADO -------------------- */
+.outline{
+    text-shadow: 0.1em 0.1em 0.2em black;
 }
 
-.drama{
-    display:block;
-    background-color: rgb(233, 82, 213);
-}
-.accion{
-    display:block;
-    background-color: orange;
+.pmg-carousel{
+    border-top: 2px solid #ff8b45;
+    border-bottom: 2px solid #ff8b45; 
+    box-shadow: 0px 5px 15px black;
 }
 
-.live{
-    display:block;
+#pmg-newest{
+    margin-top: 15px;
 }
 
-.animacion{
-    display:block;
+#pmg-newest h4{
+    width: 100%;
+    color: #fff;
+    padding-left: 20px;
 }
 
-/* -------------------- FINAL SECCION DE CATALOGO -------------------- */
+#pmg-most-popular{
+    width: 100%;
+    height: 525px;
+    margin-top: 20px;
+    padding-top: 10px;
+    background: rgb(255,139,69);
+    background: linear-gradient(180deg, rgba(255,139,69,0.05) 0%, rgba(255,139,69,0.1) 100%);
+}
+
+#pmg-most-popular h4{
+    width: 100%;
+    color: #fff;
+    padding-left: 20px;
+}
+
+#pmg-most-popular-series{
+
+}
+
+#pmg-most-popular-series h6{
+    width: 100%;
+    color: #ff8b45;
+    padding-left: 20px;
+}
+
+#pmg-most-popular-films{
+
+}
+
+#pmg-most-popular-films h6{
+    width: 100%;
+    color: #ff8b45; 
+    padding-left: 20px;
+}
+
+#pmg-keep-watching{
+    width: 100%;
+    height: 200px;
+    margin-top: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    background: rgb(255,139,69);
+    background: linear-gradient(180deg, rgba(255,139,69,0.05) 0%, rgba(255,139,69,0.1) 100%);
+}
+
+#pmg-keep-watching h5{
+    width: 100%;
+    color: #fff;
+    padding-left: 20px;
+}
+
+#pmg-might-like{
+    width: 100%;
+    height: 540px;
+    margin-top: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    background: rgb(255,139,69);
+    background: linear-gradient(180deg, rgba(255,139,69,0.05) 0%, rgba(255,139,69,0.1) 100%);
+}
+
+#pmg-might-like h4{
+    width: 100%;
+    color: #fff;
+    padding-left: 20px;
+}
+
+#pmg-might-like-films{
+
+}
+
+#pmg-might-like-films h6{
+    width: 100%;
+    color: #ff8b45; 
+    padding-left: 20px;
+}
+
+#pmg-might-like-series{
+
+}
+
+#pmg-might-like-series h6{
+    width: 100%;
+    color: #ff8b45; 
+    padding-left: 20px;
+}
+
+#pmg-might-like-films{
+
+}
+
+#pmg-might-like-films h6{
+    width: 100%;
+    color: #ff8b45; 
+    padding-left: 20px;
+}
+
+#pmg-might-like-documentals{
+
+}
+
+#pmg-might-like-documentals h6{
+    width: 100%;
+    color: #ff8b45; 
+    padding-left: 20px;
+}
+/* -------------------- FINAL SECCION DE HOME -------------------- */
