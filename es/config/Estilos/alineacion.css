@@ -1,0 +1,11 @@
+.inicio {
+    float: left;
+}
+
+.final {
+    float: right;
+}
+.fondo {
+    background-color: black;
+    border-color: black;
+}
