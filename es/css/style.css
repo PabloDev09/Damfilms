@@ -133,3 +133,131 @@ body{
 }
 
 /* -------------------------------- FINAL SECCION DE CATALOGO -------------------------------- */
+/* -------------------- COMIENZO: SECCION DE HOME - TOCAR CON CUIDADO -------------------- */
+.outline{
+    text-shadow: 0.1em 0.1em 0.2em black;
+}
+
+.pmg-carousel{
+    border-top: 2px solid #ff8b45;
+    border-bottom: 2px solid #ff8b45; 
+    box-shadow: 0px 5px 15px black;
+}
+
+#pmg-newest{
+    margin-top: 15px;
+}
+
+#pmg-newest h4{
+    width: 100%;
+    color: #fff;
+    padding-left: 20px;
+}
+
+#pmg-most-popular{
+    width: 100%;
+    height: 525px;
+    margin-top: 20px;
+    padding-top: 10px;
+    background: rgb(255,139,69);
+    background: linear-gradient(180deg, rgba(255,139,69,0.05) 0%, rgba(255,139,69,0.1) 100%);
+}
+
+#pmg-most-popular h4{
+    width: 100%;
+    color: #fff;
+    padding-left: 20px;
+}
+
+#pmg-most-popular-series{
+
+}
+
+#pmg-most-popular-series h6{
+    width: 100%;
+    color: #ff8b45;
+    padding-left: 20px;
+}
+
+#pmg-most-popular-films{
+
+}
+
+#pmg-most-popular-films h6{
+    width: 100%;
+    color: #ff8b45; 
+    padding-left: 20px;
+}
+
+#pmg-keep-watching{
+    width: 100%;
+    height: 200px;
+    margin-top: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    background: rgb(255,139,69);
+    background: linear-gradient(180deg, rgba(255,139,69,0.05) 0%, rgba(255,139,69,0.1) 100%);
+}
+
+#pmg-keep-watching h5{
+    width: 100%;
+    color: #fff;
+    padding-left: 20px;
+}
+
+#pmg-might-like{
+    width: 100%;
+    height: 540px;
+    margin-top: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    background: rgb(255,139,69);
+    background: linear-gradient(180deg, rgba(255,139,69,0.05) 0%, rgba(255,139,69,0.1) 100%);
+}
+
+#pmg-might-like h4{
+    width: 100%;
+    color: #fff;
+    padding-left: 20px;
+}
+
+#pmg-might-like-films{
+
+}
+
+#pmg-might-like-films h6{
+    width: 100%;
+    color: #ff8b45; 
+    padding-left: 20px;
+}
+
+#pmg-might-like-series{
+
+}
+
+#pmg-might-like-series h6{
+    width: 100%;
+    color: #ff8b45; 
+    padding-left: 20px;
+}
+
+#pmg-might-like-films{
+
+}
+
+#pmg-might-like-films h6{
+    width: 100%;
+    color: #ff8b45; 
+    padding-left: 20px;
+}
+
+#pmg-might-like-documentals{
+
+}
+
+#pmg-might-like-documentals h6{
+    width: 100%;
+    color: #ff8b45; 
+    padding-left: 20px;
+}
+/* -------------------- FINAL SECCION DE HOME -------------------- */
