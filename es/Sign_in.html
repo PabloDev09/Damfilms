@@ -1,19 +1,44 @@
 <!DOCTYPE html>
+
+<!-- Site language specificaction for the browser -->
 <html lang="en">
+
+    <!-- Document HEAD -->
     <head>
+
+       <!-- Bootstrap stylesheet CDN -->
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+
+        <!-- Bootstrap JavaScript CDN-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+
+        <script src="js/Validation.js"> </script>
+        <!-- Damfilms stylesheet -->
         <link rel="Stylesheet" type="text/css" href="css/style.css">
+
+
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Sign_in</title> 
+
+        <!-- Page tab title -->
+        <title>Damfilms-Sign-in</title> 
+
     </head>
+
+    <!--Comienzo del body-->
     <body class="bodyInicio">
-        <header> <!--Create a header to have separations on the page-->
-           <img src="img/logo.png"> <!--Add the logo image-->
-        </header> <!--Close the header-->
-        <main class="mainInicio"> <!--Create the main section of the webpage-->
-            <h1> Crea una cuenta </h1> <!--Create larger text-->
-            <p> Empieza a disfrutar!</p> <!--Create normal text-->
+
+        <!--Encabezado, donde va la imagen del logo de Damfilms-->
+        <header> 
+           <img src="img/logo.png"> 
+        </header> 
+
+        <!--Comienzo del main-->
+        <main class="MainSign-in"> 
+            <h1> Crea una cuenta </h1> 
+            <p> Empieza a disfrutar!</p> 
+
+            <!--Formulario-->
             <form class="row g-3">
                 <div class="col-md-4">
                   <label for="validationServer01" class="form-label">Nombre</label>
@@ -25,16 +50,16 @@
                 <div class="col-md-4">
                   <label for="validationServer02" class="form-label">Email</label>
                   <input type="text" class="form-control is-valid" id="validationServer02"  required>
-                  <div class="valid-feedback">
+                  <div class="valid-feedback" id="validationserveremail">
                     Looks good!
                   </div>
                 </div>
                 <div class="col-md-4">
-                  <label for="validationServerUsername" class="form-label">Username</label>
+                  <label for="validationServerUsername" class="form-label">Contraseña</label>
                   <div class="input-group has-validation">
                     <input type="text" class="form-control is-invalid" id="validationServerUsername" aria-describedby="inputGroupPrepend3 validationServerUsernameFeedback" required>
                     <div id="validationServerUsernameFeedback" class="invalid-feedback">
-                      Please choose a username.
+                      Por favor elige una contraseña valida.
                     </div>
                   </div>
                 </div>
@@ -53,7 +78,9 @@
                   <button class="btn btn-primary" type="submit">Crear Cuenta</button>
                 </div>
               </form>
+              <!--Final del formulario-->
+
             <button><p>Continuar con google</p></button>
-        </main> <!--Close the main section-->
+        </main> 
     </body>
 </html>
