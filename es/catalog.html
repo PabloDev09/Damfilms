@@ -8,12 +8,11 @@
 
         <!-- Page tab title -->
         <title>Damfilms - Catalogo</title> <!-- INTRODUCE AQUI EL TITULO DE TU SECCION | BORRA ESTE COMENTARIO Ejemplo: " Damfilms - Home "-->
-
-        <!-- Page specific Javascript link -->
-        <!-- SI TIENES UN LINK A UN JAVASCRIPT PERSONAL PARA TU PAGINA INTRODUCELO AQUI | BORRA ESTE COMENTARIO -->
-       
+     
         <!-- Popper JS inclusion via Local File - BEFORE BOOTSTRAP SCRIPTS-->
-        <script src="js/popper.min.js"></script>
+        <script src="js/popper.min.js" type="text/Javascript"></script>
+        <!--<script src="res/stock.js" type="module"></script> COMENTADO POR SI ACASO, NO BORRAR -->
+
         
         <!-- Bootstrap stylesheet CDN -->
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
@@ -25,7 +24,6 @@
         <!-- Damfilms stylesheet --> 
         <!-- SI QUIERES PERSONALIZAR ALGO MAS ALLÁ DE LO QUE ESTABLECE BOOTSTRAP UTILIZA ESTA HOJA DE ESTILOS | ¡CUIDADO CON LOS CONFLICTOS CSS!-->
         <link rel="stylesheet" href="css/style.css" type="text/css">
-        <link rel="stylesheet" href="css/estilotest.css" type="text/css">
         <!-- OBTENER ESTILOS DE LA NAVBAR!-->
         <link rel="stylesheet" href="css/navbar.css" TYPE="text/css">
     </head>
@@ -155,70 +153,34 @@
                 <!-- CAJA DE PELICULAS-->
                 <div class="container-fluid mx">
 
-                    <!-- caja de las ultimas llegadas-->
-                    <div class="container-fluid">
+                    <!-- CAJA CONTENEDORA ULTIMAS LLEGADAS -->
+                    <div classs="wrapper ">
 
-                        <!-- CAJA CONTENEDORA ULTIMAS LLEGADAS -->
-                        <div classs="container-fluid ">
-                            <h4 class="tituloseccion-djg" style="color:white;">Ultimas llegadas</h4>
-                            <div class="movie-box"><img src="img/170x240/Accion/Batman.png"></div>
-                            <div class="movie-box"><img src="img/170x240/Accion/Gladiador.png"></div>
-                            <div class="movie-box"><img src="img/170x240/Accion/Jungla.png"></div>
-                            <div class="movie-box"><img src="img/170x240/Accion/Killbil.png"></div>
-                            <div class="movie-box"><img src="img/170x240/Accion/MadMax.png"></div>
-                            <div class="movie-box"><img src="img/170x240/Accion/Matrix.png"></div>
-                            <div class="movie-box"><img src="img/170x240/Aventuras/ESDLA.png"></div>
-                            <div class="movie-box"><img src="img/170x240/Aventuras/Indiana.png"></div>
-                            <div class="movie-box"><img src="img/170x240/Aventuras/Jumanji.png"></div>
-                            <div class="movie-box"><img src="img/170x240/Aventuras/Jurasico.png"></div>
-                            <div class="movie-box"><img src="img/170x240/Aventuras/Laberino.png"></div>
-                            <div class="movie-box"><img src="img/170x240/Comedia/AceVentura.png"></div>
-                            <div class="movie-box"><img src="img/170x240/Comedia/Borat.png"></div>
-                            <div class="movie-box"><img src="img/170x240/Comedia/Cazafantasmas.png"></div>
-                            <div class="movie-box"><img src="img/170x240/Comedia/LaMascara.png"></div>
-                            <div class="movie-box"><img src="img/170x240/Comedia/SantoGrial.png"></div>
-                            <div class="movie-box"><img src="img/170x240/Drama/Manchester.png"></div>
-                            <div class="movie-box"><img src="img/170x240/Drama/Tom Hanks.png"></div>
+                        <!-- Titulo sección ultimas llegadas-->
+                        <h4 class="tituloseccion-djg" style="color:white;">Ultimas llegadas</h4>
+
+                        <!-- Listado ultimas llegadas-->
+                        <div class="movie-box-container">
                         </div>
+                        
+                    </div>
 
-                        <!-- LIMPIADOR DE FLOTADO -->
-                        <div class="antifloater-djg"></div>
+                    <!-- FLOAT CLEARING DIV -->
+                    <div class="antifloater-djg"></div>
 
-                        <!-- CAJA CONTENEDORA LO MAS POPULAR -->                        
-                        <div classs="container-fluid">
-                            <h4 class="tituloseccion-djg" style="color:white;">Lo mas popular</h4>
-                            <div class="movie-box"><img src="img/170x240/Accion/Batman.png"></div>
-                            <div class="movie-box"><img src="img/170x240/Accion/Gladiador.png"></div>
-                            <div class="movie-box"><img src="img/170x240/Accion/Jungla.png"></div>
-                            <div class="movie-box"><img src="img/170x240/Accion/Killbil.png"></div>
-                            <div class="movie-box"><img src="img/170x240/Accion/MadMax.png"></div>
-                            <div class="movie-box"><img src="img/170x240/Accion/Matrix.png"></div>
-                            <div class="movie-box"><img src="img/170x240/Aventuras/ESDLA.png"></div>
-                            <div class="movie-box"><img src="img/170x240/Aventuras/Indiana.png"></div>
-                            <div class="movie-box"><img src="img/170x240/Aventuras/Jumanji.png"></div>
-                            <div class="movie-box"><img src="img/170x240/Aventuras/Jurasico.png"></div>
-                            <div class="movie-box"><img src="img/170x240/Aventuras/Laberino.png"></div>
-                            <div class="movie-box"><img src="img/170x240/Comedia/AceVentura.png"></div>
-                            <div class="movie-box"><img src="img/170x240/Comedia/Borat.png"></div>
-                            <div class="movie-box"><img src="img/170x240/Comedia/Cazafantasmas.png"></div>
-                            <div class="movie-box"><img src="img/170x240/Comedia/LaMascara.png"></div>
-                            <div class="movie-box"><img src="img/170x240/Comedia/SantoGrial.png"></div>
-                            <div class="movie-box"><img src="img/170x240/Drama/Manchester.png"></div>
-                            <div class="movie-box"><img src="img/170x240/Drama/Tom Hanks.png"></div>
-                        </div>
+                    <!-- CAJA CONTENEDORA LO MAS POPULAR -->                        
+                    <div classs="wrapper">
 
-                    </div>                        
+                        <!-- Titulo sección lo mas popular -->
+                        <h4 class="tituloseccion-djg" style="color:white;">Lo mas popular</h4>
 
-
-
-
-                    <!-- caja de las ultimas mas populares-->
-                    <div class="container-fluid"></div>
-
-
-
+                        <!-- Listado lo mas popular -->
+                        <div class="movie-box-container2"></div>
+                    </div>
+                                    
                 </div>
-                <!-- Footer Hotfix-djg -->
+
+                <!-- Footer Hotfix-djg - avoid tempering with this or do at your own risk -->
                 <div style="width: 100%; height: 1px; margin-top: 140px; float:left;"></div>
             </div>
 
@@ -264,6 +226,8 @@
             </div>
 
         </footer>
-
+        
+        <!-- Page specific Javascript link that needs to load after html render-->
+        <script src="js/djg-script.js" type="module"></script>
     </body>
 </html>
