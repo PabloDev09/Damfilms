@@ -24,6 +24,11 @@ body{
 
 /* -------------------- COMIENZO: SECCION DE CATALOGO - TOCAR CON CUIDADO -------------------- */
 
+#big-box{
+    min-height: 600px;
+}
+
+
 /*------ ESTILO POSTERS AUTOMATICOS ------*/
 
 /* CONTENEDOR DE SECCIONES POSTER*/
@@ -202,9 +207,7 @@ body{
     padding-left: 20px;
 }
 
-#pmg-most-popular-films{
 
-}
 
 #pmg-most-popular-films h4{
     width: 100%;

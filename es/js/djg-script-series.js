@@ -1,4 +1,4 @@
-import { films } from "./stock.js";
+import { series } from "../js/stock.js";
 /* Small posters generation script using array variables */
 // big-box = contenedor general
 // popular-row = contenedor populares
@@ -14,7 +14,7 @@ var movieGenre;
 var movieType = undefined;
 var recentYear = 2015;
 
-function filterGenre(genre,){
+function filterGenre(genre){
     movieGenre = genre
 }
 function filterType(type){
@@ -22,12 +22,12 @@ function filterType(type){
 }
 
 //LOS MAS NUEVOS + LO MAS POPULAR + GENERAL
-for (var i in films) {  /* por cada clave presente en films hace un ciclo.*/
+for (var i in series) {  /* por cada clave presente en films hace un ciclo.*/
 
 
     // Rellena recientes.
-    if (films[i].release >= recentYear) {
-        console.log(films[i].release)
+    if (series[i].release >= recentYear) {
+        console.log(series[i].release)
 
     fetch = newest.innerHTML; /* Selecciona el contenido actual del contenedor "movie-box-container".*/
     
@@ -36,12 +36,12 @@ for (var i in films) {  /* por cada clave presente en films hace un ciclo.*/
     <div id="newestFilmCard${i}" class="boxes">
         <div class="box-content">
                 <div class="box-content-son" onclick="mostrarPopup(${i})">
-                    <h5 class="titulopelicula">${films[i].title}</h5>
+                    <h5 class="titulopelicula">${series[i].title}</h5>
                     <p class="duracion">
-                    ${films[i].duration}
+                    ${series[i].duration}
                     </p>
                     <p class="fechasalida">
-                    ${films[i].release}
+                    ${series[i].release}
                     </p> 
                 </div> 
             </div>
@@ -49,12 +49,12 @@ for (var i in films) {  /* por cada clave presente en films hace un ciclo.*/
 
     /*aplica una imagen de fondo a los contenedores*/
     var bgimg = document.getElementById(`newestFilmCard${i}`)
-    bgimg.style.backgroundImage = `url('img/170x240/films/${films[i].poster}.png')`;
+    bgimg.style.backgroundImage = `url('img/170x240/series/${series[i].poster}.png')`;
     }
 
     // rellena populares.
-    if (films[i].popindex <= minimalPopularity) {
-        console.log(films[i].release)
+    if (series[i].popindex <= minimalPopularity) {
+        console.log(series[i].release)
 
     fetch = popular.innerHTML; /* Selecciona el contenido actual del contenedor "movie-box-container".*/
     
@@ -63,12 +63,12 @@ for (var i in films) {  /* por cada clave presente en films hace un ciclo.*/
     <div id="popularFilmCard${i}" class="boxes">
         <div class="box-content">
                 <div class="box-content-son" onclick="mostrarPopup(${i})">
-                    <h5 class="titulopelicula">${films[i].title}</h5>
+                    <h5 class="titulopelicula">${series[i].title}</h5>
                     <p class="duracion">
-                    ${films[i].duration}
+                    ${series[i].duration}
                     </p>
                     <p class="fechasalida">
-                    ${films[i].release}
+                    ${series[i].release}
                     </p> 
                 </div> 
             </div>
@@ -76,7 +76,7 @@ for (var i in films) {  /* por cada clave presente en films hace un ciclo.*/
 
     /*aplica una imagen de fondo a los contenedores*/
     var bgimg = document.getElementById(`popularFilmCard${i}`)
-    bgimg.style.backgroundImage = `url('img/170x240/films/${films[i].poster}.png')`;    
+    bgimg.style.backgroundImage = `url('img/170x240/series/${series[i].poster}.png')`;    
     }
 
     fetch = explore.innerHTML;  /* Selecciona el contenido actual del contenedor "movie-box-container".*/
@@ -86,12 +86,12 @@ for (var i in films) {  /* por cada clave presente en films hace un ciclo.*/
         <div id="cards${i}" class="boxes">
             <div class="box-content">
                     <div class="box-content-son" onclick="mostrarPopup(${i})">
-                        <h5 class="titulopelicula">${films[i].title}</h5>
+                        <h5 class="titulopelicula">${series[i].title}</h5>
                         <p class="duracion">
-                        ${films[i].duration}
+                        ${series[i].duration}
                         </p>
                         <p class="fechasalida">
-                        ${films[i].release}
+                        ${series[i].release}
                         </p> 
                     </div> 
                 </div>
@@ -99,7 +99,7 @@ for (var i in films) {  /* por cada clave presente en films hace un ciclo.*/
 
         /*aplica una imagen de fondo a los contenedores*/
         var bgimg = document.getElementById(`cards${i}`)
-        bgimg.style.backgroundImage = `url('img/170x240/films/${films[i].poster}.png')`;
+        bgimg.style.backgroundImage = `url('img/170x240/series/${series[i].poster}.png')`;
    
 }
 
@@ -109,9 +109,9 @@ function setFilterValue() {
 
     bigbox.innerHTML="";
 
-    for (var i in films) {  /* por cada clave presente en films hace un ciclo.*/      
+    for (var i in series) {  /* por cada clave presente en films hace un ciclo.*/      
 
-        if ( (movieGenre == undefined || films[i].genre1 == movieGenre) && (movieType == undefined || films[i].type == movieType) ){ /* Test de variables con genero y tipo */
+        if ( (movieGenre == undefined || series[i].genre1 == movieGenre) && (movieType == undefined || series[i].type == movieType) ){ /* Test de variables con genero y tipo */
 
             fetch = bigbox.innerHTML;  /* Selecciona el contenido actual del contenedor "movie-box-container".*/
             
@@ -120,12 +120,12 @@ function setFilterValue() {
             <div id="cards${i}" class="boxes">
                 <div class="box-content">
                         <div class="box-content-son" onclick="mostrarPopup(${i})">
-                            <h5 class="titulopelicula">${films[i].title}</h5>
+                            <h5 class="titulopelicula">${series[i].title}</h5>
                             <p class="duracion">
-                            ${films[i].duration}
+                            ${series[i].duration}
                             </p>
                             <p class="fechasalida">
-                            ${films[i].release}
+                            ${series[i].release}
                             </p> 
                         </div> 
                     </div>
@@ -133,7 +133,7 @@ function setFilterValue() {
 
             /*aplica una imagen de fondo a los contenedores*/
             var bgimg = document.getElementById(`cards${i}`)
-            bgimg.style.backgroundImage = `url('img/170x240/films/${films[i].poster}.png')`;
+            bgimg.style.backgroundImage = `url('img/170x240/series/${series[i].poster}.png')`;
         }        
     }
 }
@@ -142,7 +142,7 @@ function showAll() {
 
     bigbox.innerHTML="";
 
-    for (var i in films) {  /* por cada clave presente en films hace un ciclo.*/
+    for (var i in series) {  /* por cada clave presente en films hace un ciclo.*/
 
         /* Test de variables con genero y tipo */
 
@@ -153,12 +153,12 @@ function showAll() {
             <div id="cards${i}" class="boxes">
                 <div class="box-content">
                         <div class="box-content-son" onclick="mostrarPopup(${i})">
-                            <h5 class="titulopelicula">${films[i].title}</h5>
+                            <h5 class="titulopelicula">${series[i].title}</h5>
                             <p class="duracion">
-                            ${films[i].duration}
+                            ${series[i].duration}
                             </p>
                             <p class="fechasalida">
-                            ${films[i].release}
+                            ${series[i].release}
                             </p> 
                         </div> 
                     </div>
@@ -166,7 +166,7 @@ function showAll() {
 
             /*aplica una imagen de fondo a los contenedores*/
             var bgimg = document.getElementById(`cards${i}`)
-            bgimg.style.backgroundImage = `url('img/170x240/films/${films[i].poster}.png')`;
+            bgimg.style.backgroundImage = `url('img/170x240/series/${series[i].poster}.png')`;
               
     }
 }

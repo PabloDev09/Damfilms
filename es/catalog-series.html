@@ -28,9 +28,7 @@
         <!-- OBTENER ESTILOS DE LA NAVBAR!-->
         <link rel="stylesheet" href="css/navbar.css" TYPE="text/css">
 
-        
     </head>
-
 
     <!-- Document of the BODY -->
     <body>
@@ -54,7 +52,7 @@
                     <!-- SECCION QUE SE COLAPSA LLAMDA navbarTogglerDemo01 -->
                     <div class="collapse navbar-collapse" id="navbarTogglerDemo01" style="justify-content: start;">
 
-                        <a class="navbar-brand" href="#"><img src="img/Logo.png"></a>
+                        <a class="navbar-brand" href="home.html"><img src="img/Logo.png"></a>
 
                         <!-- lista de objetos que se colapsan.-->
                         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
@@ -163,14 +161,14 @@
                 </div>
 
                 
-                <div class="container-fluid mx" id="big-box"><!-- CAJA DE series-->
+                <div class="container-fluid mx" id="big-box"><!-- CAJA DE PELICULAS-->
                     
                     <!-- CAJA CONTENEDORA ULTIMAS LLEGADAS --> 
                     <div classs="wrapper">           
                         <h4 class="tituloseccion-djg" style="color:white;">Ultimas llegadas</h4> <!-- Titulo sección ultimas llegadas-->       
                         
-                        <!-- Aquí se inyectan los objetos de series recientes -->
-                        <div id="newest-row-series" ></div>
+                        <!-- Aquí se inyectan los objetos de peliculas recientes -->
+                        <div id="newest-row" ></div>
                     </div>
 
                     <div class="antifloater-djg"></div> <!-- FLOAT CLEARING DIV -->
@@ -179,8 +177,8 @@
                     <div classs="wrapper">   
                         <h4 class="tituloseccion-djg" style="color:white;">Lo mas popular</h4>
                         
-                        <!-- Aquí se inyectan los objetos de series populares-->
-                        <div id="popular-row-series"></div>
+                        <!-- Aquí se inyectan los objetos de peliculas populares-->
+                        <div id="popular-row"></div>
                     </div>
 
                     <div class="antifloater-djg"></div> <!-- FLOAT CLEARING DIV -->
@@ -188,8 +186,8 @@
                     <!-- CAJA CONTENEDORA GENERAL -->
                     <div classs="wrapper">
                         <h4 class="tituloseccion-djg" style="color:white;">Explora!</h4>
-                        <!-- Aqui se inyectan los objetos de series sin filtrar ni discriminar -->
-                        <div id="explore-row-series"></div>
+                        <!-- Aqui se inyectan los objetos de peliculas sin filtrar ni discriminar -->
+                        <div id="explore-row"></div>
                     </div>
                 </div>
 
@@ -217,7 +215,6 @@
                     <!-- INTRODUCIR TEXTO DEFINITIVO Y BORRAR LOREM IPSUM -->
                     Lorem Ipsum es simplemente el texto de relleno de las imprentas 
                     y archivos de texto. Lorem Ipsum ha sido el texto de relleno 
-
                 </div>
 
                 <!-- FOOTER LINKS COLUMN (RIGHT) -->
@@ -226,14 +223,13 @@
                     <!-- INTRODUCIR TEXTO DEFINITIVO Y BORRAR LOREM IPSUM -->
                     Lorem Ipsum es simplemente el texto de relleno de las imprentas 
                     y archivos de texto. Lorem Ipsum ha sido el texto de relleno 
-
                 </div>
 
             </div>
 
         </footer>
                 <!-- Page specific Javascript link that needs to load after html render-->
-                <script src="js/djg-script.js" type="module"></script>
+                <script src="js/djg-script-series.js" type="module"></script>
 
     </body>
 </html>

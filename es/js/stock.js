@@ -83,29 +83,28 @@ export var films = {
 }
 
 export var series = {
-  "s1": {"title": "The Big Bang Theory", "duration": "22 minutes per episode", "release": 2007, "genre1": "Comedy", "poster": "bang", "type": "Live action", "popindex": 5},
-  "s2": {"title": "The Boys", "duration": "55 minutes per episode", "release": 2019, "genre1": "Action", "poster": "boys", "type": "Live action", "popindex": 10},
-  "s3": {"title": "Breaking Bad", "duration": "47 minutes per episode", "release": 2008, "genre1": "Crime", "poster": "breaking", "type": "Live action", "popindex": 15},
-  "s4": {"title": "Brooklyn Nine-Nine", "duration": "22 minutes per episode", "release": 2013, "genre1": "Comedy", "poster": "brooklyn", "type": "Live action", "popindex": 3},
-  "s5": {"title": "the IT crowd", "duration": "25 minutes per episode", "release": 2006, "genre1": "Comedy", "poster": "crowd", "type": "Live action", "popindex": 12},
-  "s6": {"title": "CSI New York", "duration": "43 minutes per episode", "release": 2004, "genre1": "Crime", "poster": "csi", "type": "Live action", "popindex": 7},
-  "s7": {"title": "Death Note", "duration": "24 minutes per episode", "release": 2006, "genre1": "Animation", "poster": "death", "type": "Animated", "popindex": 18},
-  "s8": {"title": "F.r.i.e.n.d.s.", "duration": "22 minutes per episode", "release": 1994, "genre1": "Comedy", "poster": "friends", "type": "Live action", "popindex": 6},
-  "s9": {"title": "Futurama", "duration": "22 minutes per episode", "release": 1999, "genre1": "Animation", "poster": "futurama", "type": "Animated", "popindex": 11},
+  "s1": {"title": "The Big Bang Theory", "duration": "22 minutes per episode", "release": 2007, "genre1": "Comedia", "poster": "bang", "type": "Live action", "popindex": 5},
+  "s2": {"title": "The Boys", "duration": "55 minutes per episode", "release": 2019, "genre1": "Acción", "poster": "boys", "type": "Live action", "popindex": 10},
+  "s3": {"title": "Breaking Bad", "duration": "47 minutes per episode", "release": 2008, "genre1": "Suspense", "poster": "breaking", "type": "Live action", "popindex": 15},
+  "s4": {"title": "Brooklyn Nine-Nine", "duration": "22 minutes per episode", "release": 2013, "genre1": "Comedia", "poster": "brooklyn", "type": "Live action", "popindex": 3},
+  "s5": {"title": "the IT crowd", "duration": "25 minutes per episode", "release": 2006, "genre1": "Comedia", "poster": "crowd", "type": "Live action", "popindex": 12},
+  "s6": {"title": "CSI New York", "duration": "43 minutes per episode", "release": 2004, "genre1": "Suspense", "poster": "csi", "type": "Live action", "popindex": 7},
+  "s7": {"title": "Death Note", "duration": "24 minutes per episode", "release": 2006, "genre1": "Suspense", "poster": "death", "type": "Animación", "popindex": 18},
+  "s8": {"title": "F.r.i.e.n.d.s.", "duration": "22 minutes per episode", "release": 1994, "genre1": "Comedia", "poster": "friends", "type": "Live action", "popindex": 6},
+  "s9": {"title": "Futurama", "duration": "22 minutes per episode", "release": 1999, "genre1": "Comedia", "poster": "futurama", "type": "Animación", "popindex": 11},
   "s10": {"title": "Dr. House", "duration": "44 minutes per episode", "release": 2004, "genre1": "Drama", "poster": "house", "type": "Live action", "popindex": 9},
-  "s11": {"title": "Miraculous Ladybug", "duration": "22 minutes per episode", "release": 2015, "genre1": "Animation", "poster": "ladybug", "type": "Animated", "popindex": 4},
-  "s12": {"title": "The Mandalorian", "duration": "40 minutes per episode", "release": 2019, "genre1": "Action", "poster": "mandalorian", "type": "Live action", "popindex": 14},
-  "s13": {"title": "The Mentalist", "duration": "43 minutes per episode", "release": 2008, "genre1": "Crime", "poster": "mentalist", "type": "Live action", "popindex": 2},
-  "s14": {"title": "The Office", "duration": "22 minutes per episode", "release": 2005, "genre1": "Comedy", "poster": "office", "type": "Live action", "popindex": 17},
-  "s15": {"title": "Perception", "duration": "42 minutes per episode", "release": 2012, "genre1": "Crime", "poster": "perception", "type": "Live action", "popindex": 8},
-  "s16": {"title": "Seinfeld", "duration": "22 minutes per episode", "release": 1989, "genre1": "Comedy", "poster": "seinfield", "type": "Live action", "popindex": 19},
-  "s17": {"title": "Sherlock", "duration": "88 minutes per episode", "release": 2010, "genre1": "Crime", "poster": "sherlock", "type": "Live action", "popindex": 13},
-  "s18": {"title": "South Park", "duration": "22 minutes per episode", "release": 1997, "genre1": "Animation", "poster": "southpark", "type": "Animated", "popindex": 1},
+  "s11": {"title": "Miraculous Ladybug", "duration": "22 minutes per episode", "release": 2015, "genre1": "Acción", "poster": "ladybug", "type": "Animación", "popindex": 4},
+  "s12": {"title": "The Mandalorian", "duration": "40 minutes per episode", "release": 2019, "genre1": "Acción", "poster": "mandalorian", "type": "Live action", "popindex": 14},
+  "s13": {"title": "The Mentalist", "duration": "43 minutes per episode", "release": 2008, "genre1": "Suspense", "poster": "mentalist", "type": "Live action", "popindex": 2},
+  "s14": {"title": "The Office", "duration": "22 minutes per episode", "release": 2005, "genre1": "Comedia", "poster": "office", "type": "Live action", "popindex": 17},
+  "s15": {"title": "Perception", "duration": "42 minutes per episode", "release": 2012, "genre1": "Suspense", "poster": "perception", "type": "Live action", "popindex": 8},
+  "s16": {"title": "Seinfeld", "duration": "22 minutes per episode", "release": 1989, "genre1": "Comedia", "poster": "seinfield", "type": "Live action", "popindex": 19},
+  "s17": {"title": "Sherlock", "duration": "88 minutes per episode", "release": 2010, "genre1": "Suspense", "poster": "sherlock", "type": "Live action", "popindex": 13},
+  "s18": {"title": "South Park", "duration": "22 minutes per episode", "release": 1997, "genre1": "Comedia", "poster": "southpark", "type": "Animación", "popindex": 21},
   "s19": {"title": "Game of Thrones", "duration": "57 minutes per episode", "release": 2011, "genre1": "Drama", "poster": "thrones", "type": "Live action", "popindex": 16},
-  "s20": {"title": "Vikings", "duration": "44 minutes per episode", "release": 2013, "genre1": "Action", "poster": "vikings", "type": "Live action", "popindex": 20}
+  "s20": {"title": "Vikings", "duration": "44 minutes per episode", "release": 2013, "genre1": "Acción", "poster": "vikings", "type": "Live action", "popindex": 20},
+  "s21": {"title": "Walker Texas Rangers", "duration": "32 minutes per episode", "release": 1993, "genre1": "Acción", "poster": "texas", "type": "Live action", "popindex": 1}
 }
- 
-
 
 export var popup = {
       
