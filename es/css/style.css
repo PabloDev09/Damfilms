@@ -1,5 +1,9 @@
-/* -------------------- COMIENZO: SECCION DE BODY -------------------- */
+
+/* Da color gradiente al fondo*/
+
 body{
+    margin: 0px;
+    padding: 0px;
     height:auto;
     width:auto;
     background: rgb(0,0,0);
@@ -44,6 +48,7 @@ body{
 
 /* CAJA HIJA DE OBJETO POSTER*/
 .box-content-son{
+    margin-top: -40px;
     text-align:center;
     height: 240px;
     width: 170px;
@@ -137,6 +142,9 @@ body{
 .outline{
     text-shadow: 0.1em 0.1em 0.2em black;
 }
+#most-popular-films{
+   
+}
 
 .pmg-carousel{
     border-top: 2px solid #ff8b45;
@@ -148,7 +156,7 @@ body{
     margin-top: 15px;
 }
 
-#pmg-newest h4{
+#pmg-newest h2{
     width: 100%;
     color: #fff;
     padding-left: 20px;
@@ -163,7 +171,7 @@ body{
     background: linear-gradient(180deg, rgba(255,139,69,0.05) 0%, rgba(255,139,69,0.1) 100%);
 }
 
-#pmg-most-popular h4{
+#pmg-most-popular h2{
     width: 100%;
     color: #fff;
     padding-left: 20px;
@@ -173,7 +181,7 @@ body{
 
 }
 
-#pmg-most-popular-series h6{
+#pmg-most-popular-series h4{
     width: 100%;
     color: #ff8b45;
     padding-left: 20px;
@@ -183,7 +191,7 @@ body{
 
 }
 
-#pmg-most-popular-films h6{
+#pmg-most-popular-films h4{
     width: 100%;
     color: #ff8b45; 
     padding-left: 20px;
@@ -199,7 +207,7 @@ body{
     background: linear-gradient(180deg, rgba(255,139,69,0.05) 0%, rgba(255,139,69,0.1) 100%);
 }
 
-#pmg-keep-watching h5{
+#pmg-keep-watching h4{
     width: 100%;
     color: #fff;
     padding-left: 20px;
@@ -215,7 +223,7 @@ body{
     background: linear-gradient(180deg, rgba(255,139,69,0.05) 0%, rgba(255,139,69,0.1) 100%);
 }
 
-#pmg-might-like h4{
+#pmg-might-like h2{
     width: 100%;
     color: #fff;
     padding-left: 20px;
@@ -225,7 +233,7 @@ body{
 
 }
 
-#pmg-might-like-films h6{
+#pmg-might-like-films h4{
     width: 100%;
     color: #ff8b45; 
     padding-left: 20px;
@@ -235,7 +243,7 @@ body{
 
 }
 
-#pmg-might-like-series h6{
+#pmg-might-like-series h4{
     width: 100%;
     color: #ff8b45; 
     padding-left: 20px;
@@ -245,7 +253,7 @@ body{
 
 }
 
-#pmg-might-like-films h6{
+#pmg-might-like-films h4{
     width: 100%;
     color: #ff8b45; 
     padding-left: 20px;
@@ -255,7 +263,7 @@ body{
 
 }
 
-#pmg-might-like-documentals h6{
+#pmg-might-like-documentals h4{
     width: 100%;
     color: #ff8b45; 
     padding-left: 20px;
