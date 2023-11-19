@@ -98,8 +98,8 @@
                             </a>
         
                             <ul class="dropdown-menu dropdown-menu-end">
-                                <li><a class="dropdown-item" href="#">Ajustes</a></li>                            
-                                <li><a class="dropdown-item" href="#">Cerrar Sesión</a></li>
+                                <li><a class="dropdown-item" href="config.html">Ajustes</a></li>                            
+                                <li><a class="dropdown-item" href="index.html">Cerrar Sesión</a></li>
                             </ul>
                             
                         </li>
@@ -131,35 +131,15 @@
                         <button type="button" class="btn btn-secondary dropdown-toggle" id="genreDropDown" data-bs-toggle="dropdown" aria-expanded="false">Género</button>
                         
                         <!-- Dropdown menu content-->
-                        <ul class="dropdown-menu" id="DropDownItem">
-                            <li><button id="actionButton" type="button" class="dropdown-item">Acción</button></li>
-                            <li><button id="dramaButton" type="button" class="dropdown-item">Drama</button></li>
-                            <li><button id="comedyButton" type="button" class="dropdown-item" >Comedia</button></li>
-                            <li><button id="adventureButton" type="button" class="dropdown-item" >Aventura</button></li>
-                            <li><button id="scifiButton" type="button" class="dropdown-item">Ciencia Ficción</button></li>
-                            <li><button id="fantasyButton" type="button" class="dropdown-item">Fantasía</button></li>
-                            <li><button id="thrillerButton" type="button" class="dropdown-item">Suspense</button></li>
-                            <li><button id="horrorButton" type="button" class="dropdown-item">Terror</button></li>
-                            <li><button id="romanceButton" type="button" class="dropdown-item" >Romance</button></li>
-                            <li><button id="allGenreButton" type="button" class="dropdown-item" >Todo</button></li>
+                        <ul class="dropdown-menu" id="DropDownItem" >
+                            <li><button id="historicButton" type="button" class="dropdown-item dd-entry">Histórico</button></li>
+                            <li><button id="biographicButton" type="button" class="dropdown-item">Biográfico</button></li>
+                            <li><button id="scienceButton" type="button" class="dropdown-item" >Naturaleza y ciencia</button></li>
+                            <li><button id="denounceButton" type="button" class="dropdown-item" >Denuncia social</button></li>
+                            <li><button id="reportButton" type="button" class="dropdown-item" >Reportaje</button></li>
+                            <li><button id="showAllButton" type="button" class="dropdown-item" >Mostrar todo</button></li>
                         </ul>
-                    </div>
-
-                    <!-- BOTON DE TIPO-->
-                    <div class="dropdown">
-                        <!-- Button actual body and title-->
-                        <button type="button" class="btn btn-secondary dropdown-toggle" id="genreDropDown" data-bs-toggle="dropdown" aria-expanded="false">Tipo</button>
-                        
-                        <!-- Dropdown menu content-->
-                        <ul class="dropdown-menu" id="DropDownItem">
-                            <li><button id="animationButton" type="button" class="dropdown-item">Animación</button></li>
-                            <li><button id="liveButton" type="button" class="dropdown-item">Live action</button></li>
-                            <li><button id="allTypeButton" type="button" class="dropdown-item">Todo</button></li>
-                            <!--<li><button id="allTypeButton" type="button" class="dropdown-item">Todo</button></li>-->
-                        </ul>
-                    </div>
-                    
-                    <div id="cleanFilterButton" type="button">Limpiar filtro.</div>
+                    </div>                 
                 </div>
 
                 
@@ -233,7 +213,7 @@
 
         </footer>
                 <!-- Page specific Javascript link that needs to load after html render-->
-                <script src="js/djg-script.js" type="module"></script>
+                <script src="js/djg-script-docu.js" type="module"></script>
 
     </body>
 </html>

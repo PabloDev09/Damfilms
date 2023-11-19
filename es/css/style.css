@@ -102,8 +102,14 @@ body{
 
 /*ESTILO DE OBJETOS DE MENU FILTRO*/
 #DropDownItem{
+    font-weight: bold;
     color: black;
-    background-color: rgb(250, 200, 139);
+    background-color: rgb(255, 166, 0);
+}
+
+.dropdown-item{
+    color: black !important;
+    background-color: rgb(250, 200, 140);
 }
 
 .dropdown{
