@@ -83,16 +83,53 @@ export var films = {
 }
 
 export var series = {
-  "s1": {"title": "The Big Bang Theory", "duration": "22 minutos", "release": 2007, "genre1": "Comedy", "poster": "Bang", "type": "Live action", "popindex": 1}
+  "s1": {"title": "The Big Bang Theory", "duration": "22 minutos por episodio", "release": 2007, "genre1": "Comedia", "poster": "bang", "type": "Live action", "popindex": 5},
+  "s2": {"title": "The Boys", "duration": "55 minutos por episodio", "release": 2019, "genre1": "Acción", "poster": "boys", "type": "Live action", "popindex": 10},
+  "s3": {"title": "Breaking Bad", "duration": "47 minutos por episodio", "release": 2008, "genre1": "Suspense", "poster": "breaking", "type": "Live action", "popindex": 15},
+  "s4": {"title": "Brooklyn Nine-Nine", "duration": "22 minutos por episodio", "release": 2013, "genre1": "Comedia", "poster": "brooklyn", "type": "Live action", "popindex": 3},
+  "s5": {"title": "the IT crowd", "duration": "25 minutos por episodio", "release": 2006, "genre1": "Comedia", "poster": "crowd", "type": "Live action", "popindex": 12},
+  "s6": {"title": "CSI New York", "duration": "43 minutos por episodio", "release": 2004, "genre1": "Suspense", "poster": "csi", "type": "Live action", "popindex": 7},
+  "s7": {"title": "Death Note", "duration": "24 minutos por episodio", "release": 2006, "genre1": "Suspense", "poster": "death", "type": "Animación", "popindex": 18},
+  "s8": {"title": "F.r.i.e.n.d.s.", "duration": "22 minutos por episodio", "release": 1994, "genre1": "Comedia", "poster": "friends", "type": "Live action", "popindex": 6},
+  "s9": {"title": "Futurama", "duration": "22 minutos por episodio", "release": 1999, "genre1": "Comedia", "poster": "futurama", "type": "Animación", "popindex": 11},
+  "s10": {"title": "Dr. House", "duration": "44 minutos por episodio", "release": 2004, "genre1": "Drama", "poster": "house", "type": "Live action", "popindex": 9},
+  "s11": {"title": "Miraculous Ladybug", "duration": "22 minutos por episodio", "release": 2015, "genre1": "Acción", "poster": "ladybug", "type": "Animación", "popindex": 4},
+  "s12": {"title": "The Mandalorian", "duration": "40 minutos por episodio", "release": 2019, "genre1": "Acción", "poster": "mandalorian", "type": "Live action", "popindex": 14},
+  "s13": {"title": "The Mentalist", "duration": "43 minutos por episodio", "release": 2008, "genre1": "Suspense", "poster": "mentalist", "type": "Live action", "popindex": 2},
+  "s14": {"title": "The Office", "duration": "22 minutos por episodio", "release": 2005, "genre1": "Comedia", "poster": "office", "type": "Live action", "popindex": 17},
+  "s15": {"title": "Perception", "duration": "42 minutos por episodio", "release": 2012, "genre1": "Suspense", "poster": "perception", "type": "Live action", "popindex": 8},
+  "s16": {"title": "Seinfeld", "duration": "22 minutos por episodio", "release": 1989, "genre1": "Comedia", "poster": "seinfield", "type": "Live action", "popindex": 19},
+  "s17": {"title": "Sherlock", "duration": "88 minutos por episodio", "release": 2010, "genre1": "Suspense", "poster": "sherlock", "type": "Live action", "popindex": 13},
+  "s18": {"title": "South Park", "duration": "22 minutos por episodio", "release": 1997, "genre1": "Comedia", "poster": "southpark", "type": "Animación", "popindex": 21},
+  "s19": {"title": "Game of Thrones", "duration": "57 minutos por episodio", "release": 2011, "genre1": "Drama", "poster": "thrones", "type": "Live action", "popindex": 16},
+  "s20": {"title": "Vikings", "duration": "44 minutos por episodio", "release": 2013, "genre1": "Acción", "poster": "vikings", "type": "Live action", "popindex": 20},
+  "s21": {"title": "Walker Texas Rangers", "duration": "32 minutos por episodio", "release": 1993, "genre1": "Acción", "poster": "texas", "type": "Live action", "popindex": 1}
 }
-
 
 export var popup = {
       
 }
 
 export var documentals = {
-    "d1": {"title": "", "duration": "95 minutos", "release": 2009, "genre1": "Romance", "poster": "500", "type": "Live action", "popindex": 80}
-
+  "d1": {"title": "The Vietnam War", "duration": "10 episodios", "release": 2017, "genre1": "Histórico", "poster": "Vietnam", "type": "", "popindex": 8},
+  "d2": {"title": "Apollo 11", "duration": "93 minutos", "release": 2019, "genre1": "Histórico", "poster": "Apollo", "type": "", "popindex": 15},
+  "d3": {"title": "Amy", "duration": "128 minutos", "release": 2015, "genre1": "Biográfico", "poster": "Amy", "type": "", "popindex": 3},
+  "d4": {"title": "Steve Jobs: The Man in the Machine", "duration": "128 minutos", "release": 2015, "genre1": "Biográfico", "poster": "Jobs", "type": "", "popindex": 11},
+  "d5": {"title": "Planet Earth II", "duration": "6 episodios", "release": 2016, "genre1": "Ciencia", "poster": "Earth", "type": "", "popindex": 2},
+  "d6": {"title": "An Inconvenient Truth", "duration": "96 minutos", "release": 2006, "genre1": "Ciencia", "poster": "Inconvenient", "type": "", "popindex": 7},
+  "d7": {"title": "The True Cost", "duration": "92 minutos", "release": 2015, "genre1": "Denuncia", "poster": "Cost", "type": "", "popindex": 12},
+  "d8": {"title": "Blackfish", "duration": "83 minutos", "release": 2013, "genre1": "Denuncia", "poster": "Blackfish", "type": "", "popindex": 18},
+  "d9": {"title": "Hoop Dreams", "duration": "171 minutos", "release": 1994, "genre1": "Reportaje", "poster": "Hoop", "type": "", "popindex": 10},
+  "d10": {"title": "Salesman", "duration": "91 minutos", "release": 1969, "genre1": "Reportaje", "poster": "Salesman", "type": "", "popindex": 5},
+  "d11": {"title": "The Dust Bowl", "duration": "4 episodios", "release": 2012, "genre1": "Histórico", "poster": "Dust", "type": "", "popindex": 6},
+  "d12": {"title": "Man on Wire", "duration": "94 minutos", "release": 2008, "genre1": "Biográfico", "poster": "Wire", "type": "", "popindex": 14},
+  "d13": {"title": "The Farthest: Voyager in Space", "duration": "120 minutos", "release": 2017, "genre1": "Ciencia", "poster": "Voyager", "type": "", "popindex": 17},
+  "d14": {"title": "Citizenfour", "duration": "114 minutos", "release": 2014, "genre1": "Denuncia", "poster": "Citizenfour", "type": "", "popindex": 4},
+  "d15": {"title": "March of the Penguins", "duration": "80 minutos", "release": 2005, "genre1": "Reportaje", "poster": "Penguins", "type": "", "popindex": 13},
+  "d16": {"title": "Senna", "duration": "106 minutos", "release": 2010, "genre1": "Biográfico", "poster": "Senna", "type": "", "popindex": 9},
+  "d17": {"title": "The Cove", "duration": "92 minutos", "release": 2009, "genre1": "Denuncia", "poster": "Cove", "type": "", "popindex": 20},
+  "d18": {"title": "Restrepo", "duration": "93 minutos", "release": 2010, "genre1": "Reportaje", "poster": "Restrepo", "type": "", "popindex": 1},
+  "d19": {"title": "The Act of Killing", "duration": "159 minutos", "release": 2012, "genre1": "Denuncia", "poster": "Killing", "type": "", "popindex": 19},
+  "d20": {"title": "Free Solo", "duration": "100 minutos", "release": 2018, "genre1": "Reportaje", "poster": "Free", "type": "", "popindex": 16}
   }
     

@@ -1,4 +1,4 @@
-import { films } from "../js/stock.js";
+import {documentals} from "./stock.js";
 /* Small posters generation script using array variables */
 // big-box = contenedor general
 // popular-row = contenedor populares
@@ -22,12 +22,11 @@ function filterType(type){
 }
 
 //LOS MAS NUEVOS + LO MAS POPULAR + GENERAL
-for (var i in films) {  /* por cada clave presente en films hace un ciclo.*/
-
+for (var i in documentals) {  /* por cada clave presente en films hace un ciclo.*/
 
     // Rellena recientes.
-    if (films[i].release >= recentYear) {
-        console.log(films[i].release)
+    if (documentals[i].release >= recentYear) {
+        console.log(documentals[i].release)
 
     fetch = newest.innerHTML; /* Selecciona el contenido actual del contenedor "movie-box-container".*/
     
@@ -36,12 +35,12 @@ for (var i in films) {  /* por cada clave presente en films hace un ciclo.*/
     <div id="newestFilmCard${i}" class="boxes">
         <div class="box-content">
                 <div class="box-content-son" onclick="mostrarPopup(${i})">
-                    <h5 class="titulopelicula">${films[i].title}</h5>
+                    <h5 class="titulopelicula">${documentals[i].title}</h5>
                     <p class="duracion">
-                    ${films[i].duration}
+                    ${documentals[i].duration}
                     </p>
                     <p class="fechasalida">
-                    ${films[i].release}
+                    ${documentals[i].release}
                     </p> 
                 </div> 
             </div>
@@ -49,12 +48,12 @@ for (var i in films) {  /* por cada clave presente en films hace un ciclo.*/
 
     /*aplica una imagen de fondo a los contenedores*/
     var bgimg = document.getElementById(`newestFilmCard${i}`)
-    bgimg.style.backgroundImage = `url('img/170x240/films/${films[i].poster}.png')`;
+    bgimg.style.backgroundImage = `url('img/170x240/documentals/${documentals[i].poster}.png')`;
     }
 
     // rellena populares.
-    if (films[i].popindex <= minimalPopularity) {
-        console.log(films[i].release)
+    if (documentals[i].popindex <= minimalPopularity) {
+        console.log(documentals[i].release)
 
     fetch = popular.innerHTML; /* Selecciona el contenido actual del contenedor "movie-box-container".*/
     
@@ -63,12 +62,12 @@ for (var i in films) {  /* por cada clave presente en films hace un ciclo.*/
     <div id="popularFilmCard${i}" class="boxes">
         <div class="box-content">
                 <div class="box-content-son" onclick="mostrarPopup(${i})">
-                    <h5 class="titulopelicula">${films[i].title}</h5>
+                    <h5 class="titulopelicula">${documentals[i].title}</h5>
                     <p class="duracion">
-                    ${films[i].duration}
+                    ${documentals[i].duration}
                     </p>
                     <p class="fechasalida">
-                    ${films[i].release}
+                    ${documentals[i].release}
                     </p> 
                 </div> 
             </div>
@@ -76,7 +75,7 @@ for (var i in films) {  /* por cada clave presente en films hace un ciclo.*/
 
     /*aplica una imagen de fondo a los contenedores*/
     var bgimg = document.getElementById(`popularFilmCard${i}`)
-    bgimg.style.backgroundImage = `url('img/170x240/films/${films[i].poster}.png')`;    
+    bgimg.style.backgroundImage = `url('img/170x240/documentals/${documentals[i].poster}.png')`;    
     }
 
     fetch = explore.innerHTML;  /* Selecciona el contenido actual del contenedor "movie-box-container".*/
@@ -86,12 +85,12 @@ for (var i in films) {  /* por cada clave presente en films hace un ciclo.*/
         <div id="cards${i}" class="boxes">
             <div class="box-content">
                     <div class="box-content-son" onclick="mostrarPopup(${i})">
-                        <h5 class="titulopelicula">${films[i].title}</h5>
+                        <h5 class="titulopelicula">${documentals[i].title}</h5>
                         <p class="duracion">
-                        ${films[i].duration}
+                        ${documentals[i].duration}
                         </p>
                         <p class="fechasalida">
-                        ${films[i].release}
+                        ${documentals[i].release}
                         </p> 
                     </div> 
                 </div>
@@ -99,7 +98,7 @@ for (var i in films) {  /* por cada clave presente en films hace un ciclo.*/
 
         /*aplica una imagen de fondo a los contenedores*/
         var bgimg = document.getElementById(`cards${i}`)
-        bgimg.style.backgroundImage = `url('img/170x240/films/${films[i].poster}.png')`;
+        bgimg.style.backgroundImage = `url('img/170x240/documentals/${documentals[i].poster}.png')`;
    
 }
 
@@ -109,9 +108,9 @@ function setFilterValue() {
 
     bigbox.innerHTML="";
 
-    for (var i in films) {  /* por cada clave presente en films hace un ciclo.*/      
+    for (var i in documentals) {  /* por cada clave presente en films hace un ciclo.*/      
 
-        if ( (movieGenre == undefined || films[i].genre1 == movieGenre) && (movieType == undefined || films[i].type == movieType) ){ /* Test de variables con genero y tipo */
+        if ( (movieGenre == undefined || documentals[i].genre1 == movieGenre) && (movieType == undefined || documentals[i].type == movieType) ){ /* Test de variables con genero y tipo */
 
             fetch = bigbox.innerHTML;  /* Selecciona el contenido actual del contenedor "movie-box-container".*/
             
@@ -120,12 +119,12 @@ function setFilterValue() {
             <div id="cards${i}" class="boxes">
                 <div class="box-content">
                         <div class="box-content-son" onclick="mostrarPopup(${i})">
-                            <h5 class="titulopelicula">${films[i].title}</h5>
+                            <h5 class="titulopelicula">${documentals[i].title}</h5>
                             <p class="duracion">
-                            ${films[i].duration}
+                            ${documentals[i].duration}
                             </p>
                             <p class="fechasalida">
-                            ${films[i].release}
+                            ${documentals[i].release}
                             </p> 
                         </div> 
                     </div>
@@ -133,7 +132,7 @@ function setFilterValue() {
 
             /*aplica una imagen de fondo a los contenedores*/
             var bgimg = document.getElementById(`cards${i}`)
-            bgimg.style.backgroundImage = `url('img/170x240/films/${films[i].poster}.png')`;
+            bgimg.style.backgroundImage = `url('img/170x240/documentals/${documentals[i].poster}.png')`;
         }        
     }
 }
@@ -142,7 +141,7 @@ function showAll() {
 
     bigbox.innerHTML="";
 
-    for (var i in films) {  /* por cada clave presente en films hace un ciclo.*/
+    for (var i in documentals) {  /* por cada clave presente en films hace un ciclo.*/
 
         /* Test de variables con genero y tipo */
 
@@ -153,12 +152,12 @@ function showAll() {
             <div id="cards${i}" class="boxes">
                 <div class="box-content">
                         <div class="box-content-son" onclick="mostrarPopup(${i})">
-                            <h5 class="titulopelicula">${films[i].title}</h5>
+                            <h5 class="titulopelicula">${documentals[i].title}</h5>
                             <p class="duracion">
-                            ${films[i].duration}
+                            ${documentals[i].duration}
                             </p>
                             <p class="fechasalida">
-                            ${films[i].release}
+                            ${documentals[i].release}
                             </p> 
                         </div> 
                     </div>
@@ -166,25 +165,14 @@ function showAll() {
 
             /*aplica una imagen de fondo a los contenedores*/
             var bgimg = document.getElementById(`cards${i}`)
-            bgimg.style.backgroundImage = `url('img/170x240/films/${films[i].poster}.png')`;
+            bgimg.style.backgroundImage = `url('img/170x240/documentals/${documentals[i].poster}.png')`;
               
     }
 }
 
-document.getElementById('actionButton').addEventListener('click', function() { filterGenre("Acción"); setFilterValue();}); // Event listener que contiene una función que invoca otra función para psarale parametros. 
-document.getElementById('adventureButton').addEventListener('click', function() { filterGenre("Aventura"); setFilterValue(); });
-document.getElementById('dramaButton').addEventListener('click', function() { filterGenre("Drama"); setFilterValue(); });   // No se pueden pasar parametros sin esta guarrada.
-document.getElementById('comedyButton').addEventListener('click', function() { filterGenre("Comedia"); setFilterValue(); });
-document.getElementById('scifiButton').addEventListener('click', function() { filterGenre("Ciencia Ficción"); setFilterValue(); }); 
-document.getElementById('fantasyButton').addEventListener('click', function() { filterGenre("Fantasía"); setFilterValue(); });
-document.getElementById('thrillerButton').addEventListener('click', function() { filterGenre("Suspense"); setFilterValue(); });
-document.getElementById('horrorButton').addEventListener('click', function() { filterGenre("Terror"); setFilterValue(); });
-document.getElementById('romanceButton').addEventListener('click', function() { filterGenre("Romance"); setFilterValue(); }); 
-document.getElementById('allGenreButton').addEventListener('click', function() { filterGenre(undefined); setFilterValue();});
-
-
-document.getElementById('liveButton').addEventListener('click', function() { filterType("Live action"); setFilterValue();}); // Event listener que contiene una función que invoca otra función para psarale parametros. 
-document.getElementById('animationButton').addEventListener('click', function() { filterType("Animación"); setFilterValue();}); // Event listener que contiene una función que invoca otra función para psarale parametros. 
-document.getElementById('allTypeButton').addEventListener('click', function() { filterType(undefined); setFilterValue();});
-
-document.getElementById('cleanFilterButton').addEventListener('click', showAll) /* BOTON DE LIMPIAR FILTRO */
+document.getElementById('historicButton').addEventListener('click', function() { filterGenre("Histórico"); setFilterValue();}); // Event listener que contiene una función que invoca otra función para psarale parametros. 
+document.getElementById('biographicButton').addEventListener('click', function() { filterGenre("Biográfico"); setFilterValue(); });
+document.getElementById('scienceButton').addEventListener('click', function() { filterGenre("Ciencia"); setFilterValue(); });   // No se pueden pasar parametros sin esta guarrada.
+document.getElementById('denounceButton').addEventListener('click', function() { filterGenre("Denuncia"); setFilterValue(); });
+document.getElementById('reportButton').addEventListener('click', function() { filterGenre("Reportaje"); setFilterValue(); }); 
+document.getElementById('showAllButton').addEventListener('click', function() { filterGenre(undefined); setFilterValue();});
