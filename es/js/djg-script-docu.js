@@ -34,7 +34,7 @@ for (var i in documentals) {  /* por cada clave presente en films hace un ciclo.
     newest.innerHTML = ` 
     <div id="newestFilmCard${i}" class="boxes">
         <div class="box-content">
-                <div class="box-content-son" onclick="mostrarPopup(${i})">
+                <div class="box-content-son" onclick="showPopup(${i})">
                     <h5 class="titulopelicula">${documentals[i].title}</h5>
                     <p class="duracion">
                     ${documentals[i].duration}
@@ -61,7 +61,7 @@ for (var i in documentals) {  /* por cada clave presente en films hace un ciclo.
     popular.innerHTML = ` 
     <div id="popularFilmCard${i}" class="boxes">
         <div class="box-content">
-                <div class="box-content-son" onclick="mostrarPopup(${i})">
+                <div class="box-content-son" onclick="showPopup(${i})">
                     <h5 class="titulopelicula">${documentals[i].title}</h5>
                     <p class="duracion">
                     ${documentals[i].duration}
@@ -84,7 +84,7 @@ for (var i in documentals) {  /* por cada clave presente en films hace un ciclo.
         explore.innerHTML = ` 
         <div id="cards${i}" class="boxes">
             <div class="box-content">
-                    <div class="box-content-son" onclick="mostrarPopup(${i})">
+                    <div class="box-content-son" onclick="showPopup(${i})">
                         <h5 class="titulopelicula">${documentals[i].title}</h5>
                         <p class="duracion">
                         ${documentals[i].duration}
@@ -118,7 +118,7 @@ function setFilterValue() {
             bigbox.innerHTML = ` 
             <div id="cards${i}" class="boxes">
                 <div class="box-content">
-                        <div class="box-content-son" onclick="mostrarPopup(${i})">
+                        <div class="box-content-son" onclick="showPopup(${i})">
                             <h5 class="titulopelicula">${documentals[i].title}</h5>
                             <p class="duracion">
                             ${documentals[i].duration}
@@ -151,7 +151,7 @@ function showAll() {
             bigbox.innerHTML = ` 
             <div id="cards${i}" class="boxes">
                 <div class="box-content">
-                        <div class="box-content-son" onclick="mostrarPopup(${i})">
+                        <div class="box-content-son" onclick="showPopup(${i})">
                             <h5 class="titulopelicula">${documentals[i].title}</h5>
                             <p class="duracion">
                             ${documentals[i].duration}
@@ -165,8 +165,7 @@ function showAll() {
 
             /*aplica una imagen de fondo a los contenedores*/
             var bgimg = document.getElementById(`cards${i}`)
-            bgimg.style.backgroundImage = `url('img/170x240/documentals/${documentals[i].poster}.png')`;
-              
+            bgimg.style.backgroundImage = `url('img/170x240/documentals/${documentals[i].poster}.png')`;         
     }
 }
 

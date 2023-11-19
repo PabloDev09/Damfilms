@@ -35,7 +35,7 @@ for (var i in series) {  /* por cada clave presente en films hace un ciclo.*/
     newest.innerHTML = ` 
     <div id="newestFilmCard${i}" class="boxes">
         <div class="box-content">
-                <div class="box-content-son" onclick="mostrarPopup(${i})">
+                <div class="box-content-son" onclick="showPopup(${i})">
                     <h5 class="titulopelicula">${series[i].title}</h5>
                     <p class="duracion">
                     ${series[i].duration}
@@ -62,7 +62,7 @@ for (var i in series) {  /* por cada clave presente en films hace un ciclo.*/
     popular.innerHTML = ` 
     <div id="popularFilmCard${i}" class="boxes">
         <div class="box-content">
-                <div class="box-content-son" onclick="mostrarPopup(${i})">
+                <div class="box-content-son" onclick="showPopup(${i})">
                     <h5 class="titulopelicula">${series[i].title}</h5>
                     <p class="duracion">
                     ${series[i].duration}
@@ -85,7 +85,7 @@ for (var i in series) {  /* por cada clave presente en films hace un ciclo.*/
         explore.innerHTML = ` 
         <div id="cards${i}" class="boxes">
             <div class="box-content">
-                    <div class="box-content-son" onclick="mostrarPopup(${i})">
+                    <div class="box-content-son" onclick="showPopup(${i})">
                         <h5 class="titulopelicula">${series[i].title}</h5>
                         <p class="duracion">
                         ${series[i].duration}
@@ -119,7 +119,7 @@ function setFilterValue() {
             bigbox.innerHTML = ` 
             <div id="cards${i}" class="boxes">
                 <div class="box-content">
-                        <div class="box-content-son" onclick="mostrarPopup(${i})">
+                        <div class="box-content-son" onclick="showPopup(${i})">
                             <h5 class="titulopelicula">${series[i].title}</h5>
                             <p class="duracion">
                             ${series[i].duration}
@@ -152,7 +152,7 @@ function showAll() {
             bigbox.innerHTML = ` 
             <div id="cards${i}" class="boxes">
                 <div class="box-content">
-                        <div class="box-content-son" onclick="mostrarPopup(${i})">
+                        <div class="box-content-son" onclick="showPopup(${i})">
                             <h5 class="titulopelicula">${series[i].title}</h5>
                             <p class="duracion">
                             ${series[i].duration}

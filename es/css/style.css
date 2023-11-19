@@ -107,7 +107,7 @@ body{
     background-color: rgb(255, 166, 0);
 }
 
-.dropdown-item{
+.djg-dropdown-item{
     color: black !important;
     background-color: rgb(250, 200, 140);
 }

@@ -1,7 +1,7 @@
 import { films } from "../js/stock.js";
 
 // Función para mostrar el popup y los detalles de cada película
-function showPopup() {
+export function showPopup(a) {
 
     for (var i in films) {
     
