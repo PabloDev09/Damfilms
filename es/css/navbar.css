@@ -114,6 +114,16 @@
     background-image: url(../img/icons/tele-64-alter.png); /* imagen naranja de fondo */
     background-size: contain;
 }
+#series-icon-active{
+    height: 24px;
+    width: 87px;
+    background-image: url(../img/icons/tele-64-alter.png); /* imagen naranja camara */
+    background-size: contain;
+    background-repeat: no-repeat;
+    float: left;
+    text-align: right;
+    color: #d6631c !important;
+}
 
 #films-icon{
     height: 24px;
@@ -127,6 +137,17 @@
 #films-icon:hover{
     background-image: url(../img/icons/claketa-64-alter.png); /* imagen naranja de fondo */
     background-size: contain;
+}
+
+#films-icon-active{
+    height: 24px;
+    width: 108px;
+    background-image: url(../img/icons/claketa-64-alter.png); /* imagen naranja camara */
+    background-size: contain;
+    background-repeat: no-repeat;
+    float: left;
+    text-align: right;
+    color: #d6631c !important;
 }
 
 #documentals-icon{
@@ -143,6 +164,19 @@
     background-image: url(../img/icons/camara-64-alter.png); /* imagen naranja de fondo */
     background-size: contain;
 }
+
+#documentals-icon-active{
+    height: 24px;
+    width: 152px;
+    background-image: url(../img/icons/camara-64-alter.png); /* imagen naranja camara */
+    background-size: contain;
+    background-repeat: no-repeat;
+    float: left;
+    text-align: right;
+    color: #d6631c !important;
+}
+
+
 .pmg-dropdown-menu{
     background-color: #333333;
 }

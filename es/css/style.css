@@ -12,6 +12,16 @@ body{
 /* ------------------------ FINAL SECCION DE BODY ---------------------- */
 
 /* -------------------- COMIENZO: SECCION DE FOOTER - TOCAR CON CUIDADO-------------------- */
+
+.footer-enlace{
+    text-decoration: none;
+    color:rgb(194, 189, 189);
+}
+
+a a:link {
+    text-decoration: none;
+}
+
 .antifloater-djg{
     clear: both;
     margin-top: auto;
@@ -19,7 +29,7 @@ body{
 
 .footer-djg{
     color:#aaa0a0;
-    background: linear-gradient(180deg, rgba(70, 70, 70, 0) 0%, rgb(84, 84, 84) 15%, rgba(32,32,32,1) 100%);
+    background: linear-gradient(180deg, rgba(70, 70, 70, 0.2) 0%, rgba(84, 84, 84, 0.90) 40%, rgba(32, 32, 32, 1) 100%);
 }
 /* -------------------------------- FINAL SECCION DE FOOTER -------------------------------- */
 

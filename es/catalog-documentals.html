@@ -34,7 +34,7 @@
 
     <!-- Document of the BODY -->
     <body>
-        
+        <div id="arribaX"></div>
         <!-- Navbar -->
         <nav class="navbar navbar-expand-lg ">
 
@@ -74,8 +74,8 @@
                                     </a>
                                 </li>
                                 <li class="nav-item-left">
-                                    <a class="nav-link active" href="catalog-documentals.html" > <!-- INTRODUCIR LOS ENLACES A LAS PAGINAS PERTINENTES -->
-                                        <div id="documentals-icon">Documentales</div>
+                                    <a class="nav-link active presente" href="catalog-documentals.html" > <!-- INTRODUCIR LOS ENLACES A LAS PAGINAS PERTINENTES -->
+                                        <div id="documentals-icon-active">Documentales</div>
                                     </a>
                                 </li>
                             </ul>
@@ -131,12 +131,12 @@
                         <button type="button" class="btn btn-secondary dropdown-toggle" id="genreDropDown" data-bs-toggle="dropdown" aria-expanded="false">Género</button>
                         
                         <!-- Dropdown menu content-->
-                        <ul class="dropdown-menu" id="DropDownItem" >
-                            <li><button id="historicButton" type="button" class="dropdown-item dd-entry">Histórico</button></li>
-                            <li><button id="biographicButton" type="button" class="dropdown-item">Biográfico</button></li>
-                            <li><button id="scienceButton" type="button" class="dropdown-item" >Naturaleza y ciencia</button></li>
-                            <li><button id="denounceButton" type="button" class="dropdown-item" >Denuncia social</button></li>
-                            <li><button id="reportButton" type="button" class="dropdown-item" >Reportaje</button></li>
+                        <ul class="dropdown-menu " id="DropDownItem" >
+                            <li><button id="historicButton" type="button" class="dropdown-item djg-dropdown-item dd-entry">Histórico</button></li>
+                            <li><button id="biographicButton" type="button" class="dropdown-item djg-dropdown-item">Biográfico</button></li>
+                            <li><button id="scienceButton" type="button" class="dropdown-item djg-dropdown-item" >Naturaleza y ciencia</button></li>
+                            <li><button id="denounceButton" type="button" class="dropdown-item djg-dropdown-item" >Denuncia social</button></li>
+                            <li><button id="reportButton" type="button" class="dropdown-item djg-dropdown-item" >Reportaje</button></li>
                             <li><button id="showAllButton" type="button" class="dropdown-item" >Mostrar todo</button></li>
                         </ul>
                     </div>                 
@@ -174,44 +174,45 @@
                 </div>
 
                 <!-- Footer Hotfix-djg - If you change the footer class 'fixed-bottom' you may need to delete this one too -->
-                <div style="width: 100%; height: 1px; margin-top: 140px; float:left;"></div>
+                <div style="width: 100%; height: 1px; margin-top: 75px; float:left;"></div>
             </div>
 
         </main>
 
         <!-- Footer and infoboxes section -->
-        <footer class="container-fluid fixed-bottom footer-djg">
+        <footer class="container-fluid fixed-bottom footer-djg" >
 
             <!-- FOOTER COLUMNS ROW - THIS ROW CONTAINS THE FOOTER COLUMNS -->
-            <div class="row mx-auto pt-1 pb-1" style="font-size: 9pt;">
+            <div class="row mx-auto pt-4 pb-2" style="font-size: 9pt;">
 
-                <!-- FOOTER COOKIES COLUMN (LEFT) -->
-                <div class="col-md-4 col-lg-3  ms-md-auto align-self-end p-2 mx-auto"> 
-                    <!-- INTRODUCIR TEXTO DEFINITIVO Y BORRAR LOREM IPSUM -->
-                    Lorem Ipsum es simplemente el texto de relleno de las imprentas 
-                    y archivos de texto. Lorem Ipsum ha sido el texto de relleno 
-                </div>
+            <!-- FOOTER COOKIES COLUMN -->
+            <div class="col-md-3 col-lg-3  ms-md-auto align-self-end p-1 mx-auto"> 
+                <!-- INTRODUCIR TEXTO DEFINITIVO Y BORRAR LOREM IPSUM -->
+                <center><a class="footer-enlace" href="#arribaX">Volver arriba</a></center>
+            </div>
 
-                <!-- FOOTER COPYRIGHT COLUMN (MIDDLE)-->
-                <div class="col-md-4 col-lg-3  ms-md-auto align-self-end p-2 mx-auto"> 
-                    <!-- INTRODUCIR TEXTO DEFINITIVO Y BORRAR LOREM IPSUM -->
-                    Lorem Ipsum es simplemente el texto de relleno de las imprentas 
-                    y archivos de texto. Lorem Ipsum ha sido el texto de relleno 
+            <!-- FOOTER COPYRIGHT COLUMN -->
+            <div class="col-md-3 col-lg-3  ms-md-auto align-self-end p-1 mx-auto"> 
+                <!-- INTRODUCIR TEXTO DEFINITIVO Y BORRAR LOREM IPSUM -->
+                <center><a class="footer-enlace" href="eula.html#terminos">Terminos y condiciones</a></center>
+            </div>
 
-                </div>
+            <!-- FOOTER LINKS COLUMN (FAR RIGHT) -->
+            <div class="col-md-3 col-lg-3  ms-md-auto align-self-end p-1 mx-auto"> 
+                <!-- INTRODUCIR TEXTO DEFINITIVO Y BORRAR LOREM IPSUM -->
+                <center><a class="footer-enlace" href="eula.html#politica">Politica de datos</a></center>
+            </div>
 
-                <!-- FOOTER LINKS COLUMN (RIGHT) -->
-                <div class="col-md-4 col-lg-3  ms-md-auto align-self-end p-2 mx-auto"> 
-                    <a href="arriba">Ir arriba.<br/></a>
-                    <!-- INTRODUCIR TEXTO DEFINITIVO Y BORRAR LOREM IPSUM -->
-                    Lorem Ipsum es simplemente el texto de relleno de las imprentas 
-                    y archivos de texto. Lorem Ipsum ha sido el texto de relleno 
-
-                </div>
+            <!-- FOOTER LINKS COLUMN (FAR RIGHT) -->
+            <div class="col-md-3 col-lg-3  ms-md-auto align-self-end p-1 mx-auto"> 
+                <!-- INTRODUCIR TEXTO DEFINITIVO Y BORRAR LOREM IPSUM -->
+                <center><a class="footer-enlace" href="eula.html#cookies">Cookies y seguimiento</a></center>
+            </div>
 
             </div>
 
         </footer>
+
                 <!-- Page specific Javascript link that needs to load after html render-->
                 <script src="js/djg-script-docu.js" type="module"></script>
 
