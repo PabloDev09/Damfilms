@@ -9,7 +9,7 @@ var bigbox = document.querySelector('#big-box'); // Selecciona la caja general
 var popular = document.querySelector('#popular-row'); // Selecciona el div de populares
 var newest = document.querySelector('#newest-row'); // Selecciona el div de novedades
 var explore = document.querySelector('#explore-row'); // Selecciona el div de explorar
-var minimalPopularity = 10;
+var minimalPopularity = 9;
 var movieGenre;  
 var movieType = undefined;
 var recentYear = 2015;
