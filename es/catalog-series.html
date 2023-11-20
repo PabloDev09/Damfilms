@@ -32,86 +32,83 @@
 
     <!-- Document of the BODY -->
     <body>
-        
+        <div id="arribaX"></div>
         <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg ">
+        <nav class="navbar navbar-expand-lg ">
 
-        <!-- container fluido que aloja la ROW porque las Row deben de estar en un contairer.-->
-        <div class="container-fluid">
-
-            <!-- row que contiene las 12 columnas en las que se subdivide la navbar-->
-            <div class="row" style="width:100%;">
-
-                <!-- 8 Columnas para enlaces de navegacion de la navbar-->
-                <div class="col-11 container-left">
-                     <!-- BOTON TRAS EL CUAL SE ESCONDE LOS MENUS-->
-                    <button class="navbar-toggler" id="navbar" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon navbar-dark"></span>
-                    </button>
-
-                    <!-- SECCION QUE SE COLAPSA LLAMDA navbarTogglerDemo01 -->
-                    <div class="collapse navbar-collapse" id="navbarTogglerDemo01" style="justify-content: start;">
-
-                        <a class="navbar-brand" href="home.html"><img src="img/Logo.png"></a>
-
-                        <!-- lista de objetos que se colapsan.-->
-                        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                            <li class="nav-item-left">
-                                <a class="nav-link active" aria-current="page" href="home.html">
-                                    <div id="home-icon">Home</div>
-                                </a>
-                            </li>
-                            <li class="nav-item-left">
-                                <a class="nav-link active" href="catalog-series.html"> <!-- INTRODUCIR LOS ENLACES A LAS PAGINAS PERTINENTES -->
-                                    <div id="series-icon">Series</div>
-                                </a>
-                            </li>
-                            <li class="nav-item-left">
-                                <a class="nav-link active" href="catalog-movies.html"> <!-- INTRODUCIR LOS ENLACES A LAS PAGINAS PERTINENTES -->
-                                    <div id="films-icon">Películas</div>
-                                </a>
-                            </li>
-                            <li class="nav-item-left">
-                                <a class="nav-link active" href="catalog-documentals.html" > <!-- INTRODUCIR LOS ENLACES A LAS PAGINAS PERTINENTES -->
-                                    <div id="documentals-icon">Documentales</div>
-                                </a>
-                            </li>
-                        </ul>
-                        <!-- modulo de buscar-->
-                        <form class="d-flex">
-                            <input class="input-search me-2" type="search" placeholder="Buscar" aria-label="Search">
-                            <button class="button-search" type="submit"><img src="img/icons/lupa-64.png"></button>
-                        </form>
-
-                    </div> <!-- cierra el colapso-->
-
-                </div><!-- cierra col1 (links de navegacion)-->
-                
-                <div class="col-1 container-right" >
-                    <ul>
-                        <li class="nav-item-right dropdown">
-        
-                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                <img src="img/icons/user-64.png">
-                            </a>
-        
-                            <ul class="dropdown-menu dropdown-menu-end">
-                                <li><a class="dropdown-item" href="config.html">Ajustes</a></li>                            
-                                <li><a class="dropdown-item" href="index.html">Cerrar Sesión</a></li>
+            <!-- container fluido que aloja la ROW porque las Row deben de estar en un contairer.-->
+            <div class="container-fluid">
+    
+                <!-- row que contiene las 12 columnas en las que se subdivide la navbar-->
+                <div class="row" style="width:100%;">
+    
+                    <!-- 8 Columnas para enlaces de navegacion de la navbar-->
+                    <div class="col-11 container-left">
+                         <!-- BOTON TRAS EL CUAL SE ESCONDE LOS MENUS-->
+                        <button class="navbar-toggler" id="navbar" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon navbar-dark"></span>
+                        </button>
+    
+                        <!-- SECCION QUE SE COLAPSA LLAMDA navbarTogglerDemo01 -->
+                        <div class="collapse navbar-collapse" id="navbarTogglerDemo01" style="justify-content: start;">
+    
+                            <a class="navbar-brand" href="#"><img src="img/Logo.png"></a>
+    
+                            <!-- lista de objetos que se colapsan.-->
+                            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                                <li class="nav-item-left">
+                                    <a class="nav-link active" aria-current="page" href="home.html">
+                                        <div id="home-icon">Home</div>
+                                    </a>
+                                </li>
+                                <li class="nav-item-left">
+                                    <a class="nav-link active" href="catalog-series.html"> <!-- INTRODUCIR LOS ENLACES A LAS PAGINAS PERTINENTES -->
+                                        <div id="series-icon-active">Series</div>
+                                    </a>
+                                </li>
+                                <li class="nav-item-left">
+                                    <a class="nav-link active" href="catalog-movies.html"> <!-- INTRODUCIR LOS ENLACES A LAS PAGINAS PERTINENTES -->
+                                        <div id="films-icon">Películas</div>
+                                    </a>
+                                </li>
+                                <li class="nav-item-left">
+                                    <a class="nav-link active" href="catalog-documentals.html" > <!-- INTRODUCIR LOS ENLACES A LAS PAGINAS PERTINENTES -->
+                                        <div id="documentals-icon">Documentales</div>
+                                    </a>
+                                </li>
                             </ul>
-                            
-                        </li>
-                    </ul>            
-
-                </div> <!-- cierra col2 (buscar + perfil)-->
-
-            </div> <!-- cierra el row-->
-                
-        </div> <!-- Cierra contenedor del Row-->         
-
-
-
-    </nav> <!-- cierra navbar-->
+                            <!-- modulo de buscar-->
+                            <form class="d-flex">
+                                <input class="input-search me-2" type="search" placeholder="Buscar" aria-label="Search">
+                                <button class="button-search" type="submit"><img src="img/icons/lupa-64.png"></button>
+                            </form>
+    
+                        </div> <!-- cierra el colapso-->
+    
+                    </div><!-- cierra col1 (links de navegacion)-->
+                    
+                    <div class="col-1 container-right" >
+                        <ul>
+                            <li class="nav-item-right dropdown">
+            
+                                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <img src="img/icons/user-64.png">
+                                </a>
+            
+                                <ul class="pmg-dropdown-menu dropdown-menu dropdown-menu-end">
+                                    <li><a class="pmg-dropdown-item dropdown-item" href="config.html">Ajustes</a></li>                            
+                                    <li><a class="pmg-dropdown-item dropdown-item" href="index.html">Cerrar Sesión</a></li>
+                                </ul>
+                                
+                            </li>
+                        </ul>            
+    
+                    </div> <!-- cierra col2 (buscar + perfil)-->
+    
+                </div> <!-- cierra el row-->
+                    
+            </div> <!-- Cierra contenedor del Row-->         
+        </nav> <!-- cierra navbar-->>
       
 
         <!-- Main document content-->
@@ -123,7 +120,7 @@
                 <div id="filterBox">
 
                     <!-- Genero button-->
-                    <div class="dropdown">
+                    <div class="djg-dropdown dropdown">
 
                         <!-- Button actual body and title-->
                         <button type="button" class="btn btn-secondary dropdown-toggle" id="genreDropDown" data-bs-toggle="dropdown" aria-expanded="false">Género</button>
@@ -144,7 +141,7 @@
                     </div>
 
                     <!-- BOTON DE TIPO-->
-                    <div class="dropdown">
+                    <div class="djg-dropdown dropdown">
                         <!-- Button actual body and title-->
                         <button type="button" class="btn btn-secondary dropdown-toggle" id="genreDropDown" data-bs-toggle="dropdown" aria-expanded="false">Tipo</button>
                         
@@ -192,42 +189,46 @@
                 </div>
 
                 <!-- Footer Hotfix-djg - If you change the footer class 'fixed-bottom' you may need to delete this one too -->
-                <div style="width: 100%; height: 1px; margin-top: 140px; float:left;"></div>
+                <div style="width: 100%; height: 1px; margin-top: 75px; float:left;"></div>
             </div>
 
         </main>
 
         <!-- Footer and infoboxes section -->
-        <footer class="container-fluid fixed-bottom footer-djg">
+        <footer class="container-fluid fixed-bottom footer-djg" >
+
 
             <!-- FOOTER COLUMNS ROW - THIS ROW CONTAINS THE FOOTER COLUMNS -->
-            <div class="row mx-auto pt-1 pb-1" style="font-size: 9pt;">
+            <div class="row mx-auto pt-4 pb-2" style="font-size: 9pt;">
 
-                <!-- FOOTER COOKIES COLUMN (LEFT) -->
-                <div class="col-md-4 col-lg-3  ms-md-auto align-self-end p-2 mx-auto"> 
-                    <!-- INTRODUCIR TEXTO DEFINITIVO Y BORRAR LOREM IPSUM -->
-                    Lorem Ipsum es simplemente el texto de relleno de las imprentas 
-                    y archivos de texto. Lorem Ipsum ha sido el texto de relleno 
-                </div>
+            <!-- FOOTER COOKIES COLUMN -->
+            <div class="col-md-3 col-lg-3  ms-md-auto align-self-end p-1 mx-auto"> 
+                <!-- INTRODUCIR TEXTO DEFINITIVO Y BORRAR LOREM IPSUM -->
+                <center><a class="footer-enlace" href="#arribaX">Volver arriba</a></center>
+            </div>
 
-                <!-- FOOTER COPYRIGHT COLUMN (MIDDLE)-->
-                <div class="col-md-4 col-lg-3  ms-md-auto align-self-end p-2 mx-auto"> 
-                    <!-- INTRODUCIR TEXTO DEFINITIVO Y BORRAR LOREM IPSUM -->
-                    Lorem Ipsum es simplemente el texto de relleno de las imprentas 
-                    y archivos de texto. Lorem Ipsum ha sido el texto de relleno 
-                </div>
+            <!-- FOOTER COPYRIGHT COLUMN -->
+            <div class="col-md-3 col-lg-3  ms-md-auto align-self-end p-1 mx-auto"> 
+                <!-- INTRODUCIR TEXTO DEFINITIVO Y BORRAR LOREM IPSUM -->
+                <center><a class="footer-enlace" href="eula.html#terminos">Terminos y condiciones</a></center>
+            </div>
 
-                <!-- FOOTER LINKS COLUMN (RIGHT) -->
-                <div class="col-md-4 col-lg-3  ms-md-auto align-self-end p-2 mx-auto"> 
-                    <a href="arriba">Ir arriba.<br/></a>
-                    <!-- INTRODUCIR TEXTO DEFINITIVO Y BORRAR LOREM IPSUM -->
-                    Lorem Ipsum es simplemente el texto de relleno de las imprentas 
-                    y archivos de texto. Lorem Ipsum ha sido el texto de relleno 
-                </div>
+            <!-- FOOTER LINKS COLUMN (FAR RIGHT) -->
+            <div class="col-md-3 col-lg-3  ms-md-auto align-self-end p-1 mx-auto"> 
+                <!-- INTRODUCIR TEXTO DEFINITIVO Y BORRAR LOREM IPSUM -->
+                <center><a class="footer-enlace" href="eula.html#politica">Politica de datos</a></center>
+            </div>
+
+            <!-- FOOTER LINKS COLUMN (FAR RIGHT) -->
+            <div class="col-md-3 col-lg-3  ms-md-auto align-self-end p-1 mx-auto"> 
+                <!-- INTRODUCIR TEXTO DEFINITIVO Y BORRAR LOREM IPSUM -->
+                <center><a class="footer-enlace" href="eula.html#cookies">Cookies y seguimiento</a></center>
+            </div>
 
             </div>
 
         </footer>
+
                 <!-- Page specific Javascript link that needs to load after html render-->
                 <script src="js/djg-script-series.js" type="module"></script>
 

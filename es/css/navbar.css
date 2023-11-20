@@ -84,8 +84,20 @@
 }
 
 #home-icon:hover{
-    background-image: url(../img/icons/home-64-alter.png); /* imagen naranja de fondo */
+    background-image: url(../img/icons/home-64-alter.png); /* imagen blanca de fondo */
     background-size: contain;
+    background-repeat: no-repeat;
+}
+
+#home-icon-active{
+    height: 24px;
+    width: 85px;
+    background-image: url(../img/icons/home-64-alter.png); /* imagen blanca de fondo */
+    background-size: contain;
+    background-repeat: no-repeat;
+    float: left;
+    text-align: right;
+    color: #d6631c !important;
 }
 
 #series-icon{
@@ -102,6 +114,16 @@
     background-image: url(../img/icons/tele-64-alter.png); /* imagen naranja de fondo */
     background-size: contain;
 }
+#series-icon-active{
+    height: 24px;
+    width: 87px;
+    background-image: url(../img/icons/tele-64-alter.png); /* imagen naranja camara */
+    background-size: contain;
+    background-repeat: no-repeat;
+    float: left;
+    text-align: right;
+    color: #d6631c !important;
+}
 
 #films-icon{
     height: 24px;
@@ -115,6 +137,17 @@
 #films-icon:hover{
     background-image: url(../img/icons/claketa-64-alter.png); /* imagen naranja de fondo */
     background-size: contain;
+}
+
+#films-icon-active{
+    height: 24px;
+    width: 108px;
+    background-image: url(../img/icons/claketa-64-alter.png); /* imagen naranja camara */
+    background-size: contain;
+    background-repeat: no-repeat;
+    float: left;
+    text-align: right;
+    color: #d6631c !important;
 }
 
 #documentals-icon{
@@ -131,15 +164,28 @@
     background-image: url(../img/icons/camara-64-alter.png); /* imagen naranja de fondo */
     background-size: contain;
 }
-.dropdown-menu{
+
+#documentals-icon-active{
+    height: 24px;
+    width: 152px;
+    background-image: url(../img/icons/camara-64-alter.png); /* imagen naranja camara */
+    background-size: contain;
+    background-repeat: no-repeat;
+    float: left;
+    text-align: right;
+    color: #d6631c !important;
+}
+
+
+.pmg-dropdown-menu{
     background-color: #333333;
 }
 
-.dropdown-item{
+.pmg-dropdown-item{
     color: #fff;
 }
 
-.dropdown-item:hover{
+.pmg-dropdown-item:hover{
     color: #d6631c;
 }
 

@@ -87,7 +87,7 @@ export var series = {
   "s2": {"title": "The Boys", "duration": "55 minutos por episodio", "release": 2019, "genre1": "Acción", "poster": "boys", "type": "Live action", "popindex": 10},
   "s3": {"title": "Breaking Bad", "duration": "47 minutos por episodio", "release": 2008, "genre1": "Suspense", "poster": "breaking", "type": "Live action", "popindex": 15},
   "s4": {"title": "Brooklyn Nine-Nine", "duration": "22 minutos por episodio", "release": 2013, "genre1": "Comedia", "poster": "brooklyn", "type": "Live action", "popindex": 3},
-  "s5": {"title": "the IT crowd", "duration": "25 minutos por episodio", "release": 2006, "genre1": "Comedia", "poster": "crowd", "type": "Live action", "popindex": 12},
+  "s5": {"title": "The IT crowd", "duration": "25 minutos por episodio", "release": 2006, "genre1": "Comedia", "poster": "crowd", "type": "Live action", "popindex": 12},
   "s6": {"title": "CSI New York", "duration": "43 minutos por episodio", "release": 2004, "genre1": "Suspense", "poster": "csi", "type": "Live action", "popindex": 7},
   "s7": {"title": "Death Note", "duration": "24 minutos por episodio", "release": 2006, "genre1": "Suspense", "poster": "death", "type": "Animación", "popindex": 18},
   "s8": {"title": "F.r.i.e.n.d.s.", "duration": "22 minutos por episodio", "release": 1994, "genre1": "Comedia", "poster": "friends", "type": "Live action", "popindex": 6},
