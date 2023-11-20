@@ -91,7 +91,7 @@ for(var i in series){
             fetch = homeKeepWatching.innerHTML;
 
             homeKeepWatching.innerHTML = `
-            <div id="popularSeriesCard${i}" class="pmg-boxes-watching resize">
+            <div id="watchingSeriesCard${i}" class="pmg-boxes-watching resize">
             <div class="box-content">
                     <div class="pmg-box-content-son-watching" onclick="showPopup(${i})">
                         <h6 style="font-size: 15px;" class="titulopelicula">
@@ -108,7 +108,7 @@ for(var i in series){
             </div>
             ` + fetch;
 
-            var bgimgseries = document.getElementById(`popularSeriesCard${i}`)
+            var bgimgseries = document.getElementById(`watchingSeriesCard${i}`)
             bgimgseries.style.backgroundImage = `url('img/170x240/series/${series[i].poster}.png')`;
         }
         muchKeepWatchingSeries--;
@@ -120,7 +120,7 @@ for(var i in series){
             fetch = homeKeepWatching.innerHTML;
 
             homeKeepWatching.innerHTML = `
-            <div id="popularFilmsCard${i}" class="pmg-boxes-watching resize">
+            <div id="watchingFilmsCard${i}" class="pmg-boxes-watching resize">
             <div class="box-content">
                     <div class="pmg-box-content-son-watching" onclick="showPopup(${i})">
                         <h6 style="font-size: 15px;" class="titulopelicula">
@@ -137,7 +137,7 @@ for(var i in series){
             </div>
             ` + fetch;
 
-            var bgimgfilms = document.getElementById(`popularFilmsCard${i}`)
+            var bgimgfilms = document.getElementById(`watchingFilmsCard${i}`)
             bgimgfilms.style.backgroundImage = `url('img/170x240/films/${films[i].poster}.png')`;
         }
         muchKeepWatchingFilms--;
@@ -149,7 +149,7 @@ for(var i in series){
             fetch = homeKeepWatching.innerHTML;
 
             homeKeepWatching.innerHTML = `
-            <div id="popularDocumentalsCard${i}" class="pmg-boxes-watching resize">
+            <div id="watchingDocumentalsCard${i}" class="pmg-boxes-watching resize">
             <div class="box-content">
                     <div class="pmg-box-content-son-watching" onclick="showPopup(${i})">
                         <h6 style="font-size: 15px;" class="titulopelicula">
@@ -166,7 +166,7 @@ for(var i in series){
             </div>
             ` + fetch;
 
-            var bgimgdocumentals = document.getElementById(`popularDocumentalsCard${i}`)
+            var bgimgdocumentals = document.getElementById(`watchingDocumentalsCard${i}`)
             bgimgdocumentals.style.backgroundImage = `url('img/170x240/documentals/${documentals[i].poster}.png')`;
             
         }
@@ -179,7 +179,7 @@ for(var i in series){
             fetch = homeMightLikeSeries.innerHTML;
 
             homeMightLikeSeries.innerHTML = `
-            <div id="popularSeriesCard${i}" class="pmg-boxes-might-like resize">
+            <div id="mightSeriesCard${i}" class="pmg-boxes-might-like resize">
             <div class="box-content">
                     <div class="pmg-box-content-son-might-like" onclick="showPopup(${i})">
                         <h6 style="font-size: 15px;" class="titulopelicula">
@@ -196,7 +196,7 @@ for(var i in series){
             </div>
             ` + fetch;
 
-            var bgimgseries = document.getElementById(`popularSeriesCard${i}`)
+            var bgimgseries = document.getElementById(`mightSeriesCard${i}`)
             bgimgseries.style.backgroundImage = `url('img/170x240/series/${series[i].poster}.png')`;
         }
         muchMightLikeSeries--;
@@ -208,7 +208,7 @@ for(var i in films){
         fetch = homeMightLikeFilms.innerHTML;
 
         homeMightLikeFilms.innerHTML = `
-        <div id="popularFilmsCard${i}" class="pmg-boxes-might-like resize">
+        <div id="mightFilmsCard${i}" class="pmg-boxes-might-like resize">
         <div class="box-content">
                 <div class="pmg-box-content-son-might-like" onclick="showPopup(${i})">
                     <h6 style="font-size: 15px;" class="titulopelicula">
@@ -225,7 +225,7 @@ for(var i in films){
         </div>
         ` + fetch;
 
-        var bgimgfilms = document.getElementById(`popularFilmsCard${i}`)
+        var bgimgfilms = document.getElementById(`mightFilmsCard${i}`)
         bgimgfilms.style.backgroundImage = `url('img/170x240/films/${films[i].poster}.png')`;
     }
     muchMightLikeFilms--;
@@ -237,7 +237,7 @@ for(var i in documentals){
         fetch = homeMightLikeDocumentals.innerHTML;
 
         homeMightLikeDocumentals.innerHTML = `
-        <div id="popularDocumentalsCard${i}" class="pmg-boxes-might-like resize">
+        <div id="mightDocumentalsCard${i}" class="pmg-boxes-might-like resize">
         <div class="box-content">
                 <div class="pmg-box-content-son-might-like" onclick="showPopup(${i})">
                     <h6 style="font-size: 15px;" class="titulopelicula">
@@ -254,7 +254,7 @@ for(var i in documentals){
         </div>
         ` + fetch;
 
-        var bgimgdocumentals = document.getElementById(`popularDocumentalsCard${i}`)
+        var bgimgdocumentals = document.getElementById(`mightDocumentalsCard${i}`)
         bgimgdocumentals.style.backgroundImage = `url('img/170x240/documentals/${documentals[i].poster}.png')`;
         
     }

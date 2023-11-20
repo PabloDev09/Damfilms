@@ -84,8 +84,20 @@
 }
 
 #home-icon:hover{
-    background-image: url(../img/icons/home-64-alter.png); /* imagen naranja de fondo */
+    background-image: url(../img/icons/home-64-alter.png); /* imagen blanca de fondo */
     background-size: contain;
+    background-repeat: no-repeat;
+}
+
+#home-icon-active{
+    height: 24px;
+    width: 85px;
+    background-image: url(../img/icons/home-64-alter.png); /* imagen blanca de fondo */
+    background-size: contain;
+    background-repeat: no-repeat;
+    float: left;
+    text-align: right;
+    color: #d6631c !important;
 }
 
 #series-icon{
