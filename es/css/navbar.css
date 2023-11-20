@@ -131,15 +131,15 @@
     background-image: url(../img/icons/camara-64-alter.png); /* imagen naranja de fondo */
     background-size: contain;
 }
-.dropdown-menu{
+.pmg-dropdown-menu{
     background-color: #333333;
 }
 
-.dropdown-item{
+.pmg-dropdown-item{
     color: #fff;
 }
 
-.dropdown-item:hover{
+.pmg-dropdown-item:hover{
     color: #d6631c;
 }
 

@@ -96,9 +96,9 @@
                                 <img src="img/icons/user-64.png">
                             </a>
         
-                            <ul class="dropdown-menu dropdown-menu-end">
-                                <li><a class="dropdown-item" href="config.html">Ajustes</a></li>                            
-                                <li><a class="dropdown-item" href="index.html">Cerrar Sesión</a></li>
+                            <ul class="pmg-dropdown-menu dropdown-menu dropdown-menu-end">
+                                <li><a class="pmg-dropdown-item dropdown-item" href="config.html">Ajustes</a></li>                            
+                                <li><a class="pmg-dropdown-item dropdown-item" href="index.html">Cerrar Sesión</a></li>
                             </ul>
                             
                         </li>
@@ -125,57 +125,100 @@
                         <img src="img/banners/Stranger things.PNG" class="d-block w-100" alt="...">
                       </div>
                     </div>
-                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
-                      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <button class="newest-carousel-control-prev carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
+                      <span class="newest-carousel-control-prev-icon carousel-control-prev-icon" aria-hidden="true"></span>
                       <span class="visually-hidden">Previous</span>
                     </button>
-                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">
-                      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <button class="newest-carousel-control-next carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">
+                      <span class="newest-carousel-control-next-icon carousel-control-next-icon" aria-hidden="true"></span>
                       <span class="visually-hidden">Next</span>
                     </button>
                   </div>
             </div>
 
-            <div id="pmg-most-popular">
-                <h2 class="outline">Lo más popular</h2>
+            <!--Lista de populares-->
+            <div class="container-fluid">            
+                <div class="row">
+                <div id="pmg-most-popular" class="col-12">
+                <div id="pmg-most-popular-title">
+                    <h2 class="outline cols-12">Lo más popular</h2>
+                </div>
+                <div class="row">
                 <div id="pmg-most-popular-series">
-                    <h4 class="outline">Series</h4>
-                    <div class="most-popular-series">
+                    <h4 class="outline" class="col-12">Series</h4>
+                </div>
+                    <div class="most-popular-series wrapper col-12">
 
                     </div>
                 </div>
+                <div class="row">
                 <div id="pmg-most-popular-films">
-                    <h4 class="outline">Películas</h4>
-                    <!-- Listado peliculas mas populares-->
-                    <div class="most-popular-films">
+                        <h4 class="outline col-12" >Películas</h4>
+                    </div>
+                        <!-- Listado peliculas mas populares-->
+                        <div class="most-popular-films wrapper col-12">
+                        
+                        </div>
+                        </div>
+                    </div>
+                </div>
+            </div> 
+            <!--Lista de populares-->
+            <!--Lista de seguir viendo-->
+            <div class="container-fluid">
+                <div class="row">
+                    <div id="pmg-keep-watching">
+                        <div id="pmg-keep-watching-title">
+                            <h4 class="outline">Seguir viendo</h4>
+                        </div>
+                            <div class="keep-watching wrapper " style="padding-left: 5%; padding-right: 5%; ">
+                            </div>
+                              </div>
+                        </div>
+                    </div>
+                </div>
+            </div>  
+            <!--Lista de seguir viendo-->
+            <!--Lista de podria gustarte-->
+            <div class="container-fluid">
+                <div class="row">
+                    <div id="pmg-might-like">
+                        <div id="pmg-might-like-title">
+                            <h2 class="outline" class="col-12 w-100">Podría gustarte</h2>
+                        </div>
+                        <div class="row">
+                        <div id="pmg-might-like-series">
+                            <h4 class="outline" class="col-12 w-100">Series</h4> 
+                        </div>
+                        <div class="might-like-series wrapper" style="padding-left: 3%;">
 
-                    </div>
-                    </div>
-                </div>  
-            </div>
+                        </div>
+                        </div>
+                        <div class="row">
+                        <div id="pmg-might-like-films">
+                            <h4 class="outline" class="col-12 w-100">Películas</h4>    
+                        </div>
+                        <div class="might-like-films wrapper" style="padding-left: 3%;">
 
-            <div id="pmg-keep-watching">
-                <h4 class="outline">Seguir viendo</h4>
-            </div>
+                        </div>
+                    </div>
+                        <div class="row">
+                        <div id="pmg-might-like-documentals">
+                            <h4 class="outline" class="col-12 w-100">Documentales</h4> 
+                        </div>
+                        <div class="might-like-documentals wrapper" style="padding-left: 3%;">
 
-            <div id="pmg-might-like">
-                <h2 class="outline">Podría gustarte</h2>
-                    <div id="pmg-might-like-films">
-                        <h4 class="outline">Películas</h4>    
+                        </div>
+                        </div>
                     </div>
-                    <div id="pmg-might-like-series">
-                        <h4 class="outline">Series</h4> 
-                    </div>
-                    <div id="pmg-might-like-documentals">
-                        <h4 class="outline">Documentales</h4> 
-                    </div>
+                </div>
             </div>
-            
+            <!--Lista de podria gustarte-->
 
         </main>
 
         <!-- FOOTER SPACE CONTROL DIV - BORRAR SI EL FOOTER INTERFIERE CON EL CONTENIDO DE TU PAGINA - SI NO ENTIENDES PREGUNTA A DAVID -->
-        <div class="clear-djg"></div>
+        <div class="clear-djg" style="margin-top: 200px;"></div>
 
         <!-- Footer and infoboxes section -->
         <!-- Footer and infoboxes section -->
@@ -190,8 +233,6 @@
                     Lorem Ipsum es simplemente el texto de relleno de las imprentas 
                     y archivos de texto. Lorem Ipsum ha sido el texto de relleno 
                     estándar de las industrias desde el año 1500, cuando un impresor 
-                    (N. del T. persona que se dedica a la imprenta) desconocido usó 
-                    una galería de textos y los mezcló de tal manera que logró hacer
                 </div>
 
                 <!-- FOOTER COPYRIGHT COLUMN -->
@@ -199,9 +240,7 @@
                     <!-- INTRODUCIR TEXTO DEFINITIVO Y BORRAR LOREM IPSUM -->
                     Lorem Ipsum es simplemente el texto de relleno de las imprentas 
                     y archivos de texto. Lorem Ipsum ha sido el texto de relleno 
-                    estándar de las industrias desde el año 1500, cuando un impresor 
-                    (N. del T. persona que se dedica a la imprenta) desconocido usó 
-                    una galería de textos y los mezcló de tal manera que logró hacer 
+                    estándar de las industrias desde el año 1500, cuando un impresor
                 </div>
 
                 <!-- FOOTER LINKS COLUMN (FAR RIGHT) -->
@@ -211,8 +250,6 @@
                     Lorem Ipsum es simplemente el texto de relleno de las imprentas 
                     y archivos de texto. Lorem Ipsum ha sido el texto de relleno 
                     estándar de las industrias desde el año 1500, cuando un impresor 
-                    (N. del T. persona que se dedica a la imprenta) desconocido usó 
-                    una galería de textos y los mezcló de tal manera que logró hacer
                 </div>
 
             </div>

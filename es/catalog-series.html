@@ -34,84 +34,81 @@
     <body>
         
         <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg ">
+        <nav class="navbar navbar-expand-lg ">
 
-        <!-- container fluido que aloja la ROW porque las Row deben de estar en un contairer.-->
-        <div class="container-fluid">
-
-            <!-- row que contiene las 12 columnas en las que se subdivide la navbar-->
-            <div class="row" style="width:100%;">
-
-                <!-- 8 Columnas para enlaces de navegacion de la navbar-->
-                <div class="col-11 container-left">
-                     <!-- BOTON TRAS EL CUAL SE ESCONDE LOS MENUS-->
-                    <button class="navbar-toggler" id="navbar" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon navbar-dark"></span>
-                    </button>
-
-                    <!-- SECCION QUE SE COLAPSA LLAMDA navbarTogglerDemo01 -->
-                    <div class="collapse navbar-collapse" id="navbarTogglerDemo01" style="justify-content: start;">
-
-                        <a class="navbar-brand" href="home.html"><img src="img/Logo.png"></a>
-
-                        <!-- lista de objetos que se colapsan.-->
-                        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                            <li class="nav-item-left">
-                                <a class="nav-link active" aria-current="page" href="home.html">
-                                    <div id="home-icon">Home</div>
-                                </a>
-                            </li>
-                            <li class="nav-item-left">
-                                <a class="nav-link active" href="catalog-series.html"> <!-- INTRODUCIR LOS ENLACES A LAS PAGINAS PERTINENTES -->
-                                    <div id="series-icon">Series</div>
-                                </a>
-                            </li>
-                            <li class="nav-item-left">
-                                <a class="nav-link active" href="catalog-movies.html"> <!-- INTRODUCIR LOS ENLACES A LAS PAGINAS PERTINENTES -->
-                                    <div id="films-icon">Películas</div>
-                                </a>
-                            </li>
-                            <li class="nav-item-left">
-                                <a class="nav-link active" href="catalog-documentals.html" > <!-- INTRODUCIR LOS ENLACES A LAS PAGINAS PERTINENTES -->
-                                    <div id="documentals-icon">Documentales</div>
-                                </a>
-                            </li>
-                        </ul>
-                        <!-- modulo de buscar-->
-                        <form class="d-flex">
-                            <input class="input-search me-2" type="search" placeholder="Buscar" aria-label="Search">
-                            <button class="button-search" type="submit"><img src="img/icons/lupa-64.png"></button>
-                        </form>
-
-                    </div> <!-- cierra el colapso-->
-
-                </div><!-- cierra col1 (links de navegacion)-->
-                
-                <div class="col-1 container-right" >
-                    <ul>
-                        <li class="nav-item-right dropdown">
-        
-                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                <img src="img/icons/user-64.png">
-                            </a>
-        
-                            <ul class="dropdown-menu dropdown-menu-end">
-                                <li><a class="dropdown-item" href="config.html">Ajustes</a></li>                            
-                                <li><a class="dropdown-item" href="index.html">Cerrar Sesión</a></li>
+            <!-- container fluido que aloja la ROW porque las Row deben de estar en un contairer.-->
+            <div class="container-fluid">
+    
+                <!-- row que contiene las 12 columnas en las que se subdivide la navbar-->
+                <div class="row" style="width:100%;">
+    
+                    <!-- 8 Columnas para enlaces de navegacion de la navbar-->
+                    <div class="col-11 container-left">
+                         <!-- BOTON TRAS EL CUAL SE ESCONDE LOS MENUS-->
+                        <button class="navbar-toggler" id="navbar" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon navbar-dark"></span>
+                        </button>
+    
+                        <!-- SECCION QUE SE COLAPSA LLAMDA navbarTogglerDemo01 -->
+                        <div class="collapse navbar-collapse" id="navbarTogglerDemo01" style="justify-content: start;">
+    
+                            <a class="navbar-brand" href="#"><img src="img/Logo.png"></a>
+    
+                            <!-- lista de objetos que se colapsan.-->
+                            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                                <li class="nav-item-left">
+                                    <a class="nav-link active" aria-current="page" href="home.html">
+                                        <div id="home-icon">Home</div>
+                                    </a>
+                                </li>
+                                <li class="nav-item-left">
+                                    <a class="nav-link active" href="catalog-series.html"> <!-- INTRODUCIR LOS ENLACES A LAS PAGINAS PERTINENTES -->
+                                        <div id="series-icon">Series</div>
+                                    </a>
+                                </li>
+                                <li class="nav-item-left">
+                                    <a class="nav-link active" href="catalog-movies.html"> <!-- INTRODUCIR LOS ENLACES A LAS PAGINAS PERTINENTES -->
+                                        <div id="films-icon">Películas</div>
+                                    </a>
+                                </li>
+                                <li class="nav-item-left">
+                                    <a class="nav-link active" href="catalog-documentals.html" > <!-- INTRODUCIR LOS ENLACES A LAS PAGINAS PERTINENTES -->
+                                        <div id="documentals-icon">Documentales</div>
+                                    </a>
+                                </li>
                             </ul>
-                            
-                        </li>
-                    </ul>            
-
-                </div> <!-- cierra col2 (buscar + perfil)-->
-
-            </div> <!-- cierra el row-->
-                
-        </div> <!-- Cierra contenedor del Row-->         
-
-
-
-    </nav> <!-- cierra navbar-->
+                            <!-- modulo de buscar-->
+                            <form class="d-flex">
+                                <input class="input-search me-2" type="search" placeholder="Buscar" aria-label="Search">
+                                <button class="button-search" type="submit"><img src="img/icons/lupa-64.png"></button>
+                            </form>
+    
+                        </div> <!-- cierra el colapso-->
+    
+                    </div><!-- cierra col1 (links de navegacion)-->
+                    
+                    <div class="col-1 container-right" >
+                        <ul>
+                            <li class="nav-item-right dropdown">
+            
+                                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <img src="img/icons/user-64.png">
+                                </a>
+            
+                                <ul class="pmg-dropdown-menu dropdown-menu dropdown-menu-end">
+                                    <li><a class="pmg-dropdown-item dropdown-item" href="config.html">Ajustes</a></li>                            
+                                    <li><a class="pmg-dropdown-item dropdown-item" href="index.html">Cerrar Sesión</a></li>
+                                </ul>
+                                
+                            </li>
+                        </ul>            
+    
+                    </div> <!-- cierra col2 (buscar + perfil)-->
+    
+                </div> <!-- cierra el row-->
+                    
+            </div> <!-- Cierra contenedor del Row-->         
+        </nav> <!-- cierra navbar-->>
       
 
         <!-- Main document content-->

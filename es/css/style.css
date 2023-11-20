@@ -14,6 +14,7 @@ body{
 /* -------------------- COMIENZO: SECCION DE FOOTER - TOCAR CON CUIDADO-------------------- */
 .antifloater-djg{
     clear: both;
+    margin-top: auto;
 }
 
 .footer-djg{
@@ -52,12 +53,21 @@ body{
     text-align: center;  
 }
 
-/* CAJA HIJA DE OBJETO POSTER*/
-.pmg-box-margin{
-    margin-top: -40px;
+.pmg-boxes-top{
+    height: 230px;
+    width: 160px;
+    border-style: solid;
+    border-width: 3px;
+    border-color: rgb(255, 166, 0);
+    float:left;
+    margin: 8px 8px 8px 8px;
+    color: rgba(255, 255, 255, 0);  
+    text-align: center; 
 }
+/* CAJA HIJA DE OBJETO POSTER*/
 
 .box-content-son{
+    position: absolute;
     text-align:center;
     height: 240px;
     width: 170px;
@@ -65,6 +75,7 @@ body{
 
 /*efecto on hover de poster*/
 .box-content-son:hover{
+    z-index: 1000;
     transition-duration: 0.3s;
     box-shadow: 0 0 25px orange;
     color: rgb(255, 255, 255);  
@@ -107,12 +118,12 @@ body{
     background-color: rgb(255, 166, 0);
 }
 
-.dropdown-item{
+.djg-dropdown-item{
     color: black !important;
     background-color: rgb(250, 200, 140);
 }
 
-.dropdown{
+.djg-dropdown{
     float:left;
     margin-left: 10px;
 }
@@ -165,17 +176,20 @@ body{
 
 /* -------------------------------- FINAL SECCION DE CATALOGO -------------------------------- */
 /* -------------------- COMIENZO: SECCION DE HOME - TOCAR CON CUIDADO -------------------- */
+.newest-carousel-control-prev-icon, .newest-carousel-control-next-icon {
+    height: 70px;
+    width: 70px;
+    outline: rgb(0, 0, 0);
+    background-size: 100%, 100%;
+}
+
 .outline{
     text-shadow: 0.1em 0.1em 0.2em black;
 }
-#most-popular-films{
-   
-}
-
 .pmg-carousel{
     border-top: 2px solid #ff8b45;
     border-bottom: 2px solid #ff8b45; 
-    box-shadow: 0px 5px 15px black;
+    box-shadow: 0px 15px 15px black;
 }
 
 #pmg-newest{
@@ -183,47 +197,44 @@ body{
 }
 
 #pmg-newest h2{
-    width: 100%;
     color: #fff;
-    padding-left: 20px;
+    padding-left: 10px;
 }
 
 #pmg-most-popular{
-    width: 100%;
-    height: 525px;
+    height: auto;
     margin-top: 20px;
     padding-top: 10px;
+    padding-bottom: 10px;
     background: rgb(255,139,69);
     background: linear-gradient(180deg, rgba(255,139,69,0.05) 0%, rgba(255,139,69,0.1) 100%);
 }
 
+
 #pmg-most-popular h2{
-    width: 100%;
     color: #fff;
-    padding-left: 20px;
-}
-
-#pmg-most-popular-series{
-
 }
 
 #pmg-most-popular-series h4{
-    width: 100%;
     color: #ff8b45;
-    padding-left: 20px;
+    padding-left: 10px;
 }
 
-
+.most-popular-series{
+    padding-left: 75px;
+}
 
 #pmg-most-popular-films h4{
-    width: 100%;
     color: #ff8b45; 
-    padding-left: 20px;
+    padding-left: 10px;
+}
+
+.most-popular-films{
+    padding-left: 75px;
 }
 
 #pmg-keep-watching{
-    width: 100%;
-    height: 200px;
+    height: auto;
     margin-top: 20px;
     padding-top: 10px;
     padding-bottom: 10px;
@@ -232,14 +243,11 @@ body{
 }
 
 #pmg-keep-watching h4{
-    width: 100%;
     color: #fff;
-    padding-left: 20px;
 }
 
 #pmg-might-like{
-    width: 100%;
-    height: 540px;
+    height: auto;
     margin-top: 20px;
     padding-top: 10px;
     padding-bottom: 10px;
@@ -248,48 +256,124 @@ body{
 }
 
 #pmg-might-like h2{
-    width: 100%;
     color: #fff;
-    padding-left: 20px;
 }
 
-#pmg-might-like-films{
-
-}
 
 #pmg-might-like-films h4{
-    width: 100%;
     color: #ff8b45; 
-    padding-left: 20px;
+    padding-left: 10px;
 }
 
-#pmg-might-like-series{
-
-}
 
 #pmg-might-like-series h4{
-    width: 100%;
     color: #ff8b45; 
-    padding-left: 20px;
+    padding-left: 10px;
 }
 
-#pmg-might-like-films{
-
-}
 
 #pmg-might-like-films h4{
-    width: 100%;
     color: #ff8b45; 
-    padding-left: 20px;
+    padding-left: 10px;
 }
 
-#pmg-might-like-documentals{
-
-}
 
 #pmg-might-like-documentals h4{
-    width: 100%;
     color: #ff8b45; 
-    padding-left: 20px;
+    padding-left: 10px;
 }
+
+.pmg-top{
+    position: relative;
+    float: right;
+    width: 0;
+    height: 0;
+    margin-top: 165px;
+    border-right: 30px solid orange;
+    border-top: 30px solid transparent;
+    border-left: 30px solid transparent;
+    border-bottom: 30px solid orange;
+   
+}
+
+.pmg-top h3{
+    font-size: 25px;
+    font-weight: 500;
+    color: black;
+    padding-left: 5px;
+}
+
+.pmg-box-content-son{
+    z-index: 1000;
+    position: absolute;
+    text-align:center;
+    height: 224px;
+    width: 154px;
+}
+
+.pmg-box-content-son:hover{
+    transition-duration: 0.3s;
+    box-shadow: 0 0 25px orange;
+    color: rgb(255, 255, 255);  
+    background-image: linear-gradient( rgba(0, 0, 0, 0.901) 35%, rgba(0, 0, 0, 0.205) 100%);
+}
+
+.resize{
+    height: 170px;
+    width: 122px;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.pmg-boxes-watching{
+    height: 170px;
+    width: 120px;
+    border-style: solid;
+    border-width: 2px;
+    border-color: rgb(255, 166, 0);
+    float: left;
+    margin: 8px 8px 8px 8px;
+    color: rgba(255, 255, 255, 0);  
+    text-align: center;  
+    border-bottom: 3px solid red !important;
+}
+
+.pmg-box-content-son-watching{
+    text-align:center;
+    height: 168px;
+    width: 116px;
+}
+
+.pmg-box-content-son-watching:hover{
+    transition-duration: 0.3s;
+    box-shadow: 0 0 25px orange;
+    color: rgb(255, 255, 255);  
+    background-image: linear-gradient( rgba(0, 0, 0, 0.901) 35%, rgba(0, 0, 0, 0.205) 100%);
+}
+
+.pmg-boxes-might-like{
+    height: 168px;
+    width: 120px;
+    border-style: solid;
+    border-width: 2px;
+    border-color: rgb(255, 166, 0);
+    float: left;
+    margin: 8px 8px 8px 8px;
+    color: rgba(255, 255, 255, 0);  
+    text-align: center;  
+}
+
+.pmg-box-content-son-might-like{
+    text-align:center;
+    height: 166px;
+    width: 116px;
+}
+
+.pmg-box-content-son-might-like:hover{
+    transition-duration: 0.3s;
+    box-shadow: 0 0 25px orange;
+    color: rgb(255, 255, 255);  
+    background-image: linear-gradient( rgba(0, 0, 0, 0.901) 35%, rgba(0, 0, 0, 0.205) 100%);
+}
+
 /* -------------------- FINAL SECCION DE HOME -------------------- */
