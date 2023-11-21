@@ -33,25 +33,30 @@
 
     <!--  BODY -->
     <body>
+      <div id="arribaX">
+
+      </div>
         <!-- Main content-->
         <main>
-          <!-- logo -->
-          
-
-
           <!-- Contenedor principal -->
           <div class="trasparente">
-          <img class="imglogo" src="img/Logo.png">
-            <a href="">
-              <button class="botonInicio1">Iniciar Sesión</button>
+            <div id="div-logo">
+              <img style="width: 1250px; height: 250px;" src="img/Logo_inicio.png">
+            </div>
+            <div id="botonInicio1">
+            <a href="Sign_in.html">
+              Iniciar Sesión
             </a>
-            <a href="">
-              <button class="botonInicio2">Registrarse</button>
+            </div>
+          <div id="botonInicio2">
+            <a href="#infoInicio">
+              Registrarse
             </a>
           </div>
+          </div>
             <!-- Carrusel de imágenes -->
-            <div id="carouselExampleSlidesOnly" class="carousel slide" class="carrusel" data-bs-ride="carousel" wrap="true" data-pause="false" >
-                <div class="carousel-inner" >
+            <div id="carouselExampleSlidesOnly" class="carousel slide" class="carrusel"  data-bs-ride="carousel" wrap="true" data-pause="false" >
+                <div class="carousel-inner imgcarrusel"  >
                   <div class="carousel-item active">
                     <img src="img/carrusel 2/carrusel 1.jpg" class="d-block w-100">
                   </div>
@@ -68,7 +73,7 @@
               </div>
               <br>
             <!-- Información básica de la página -->
-            <div class="infoInicio">
+            <div class="infoInicio" id="infoInicio">
                 En nuestra página podrás encontrar las mejores películas y series de la actualidad.
                 <br>
                 Tenemos todo tipo de películas y series, podrás elegir lo que más te guste!
@@ -81,66 +86,85 @@
 
             <!-- Módulo de suscripciones -->
             <div>
-                <h1 style="text-align: center;">SUSCRIPCIONES</h1>
-                <br>
-                <table class="table table-bordered, tablaSuscripciones" >
-                    <thead>
-                      <tr>
-                        <th scope="col"></th>
-                        <th scope="col"> Básica 8.99€ </th>
-                        <th scope="col"> Estándar 12.50€ </th>
-                        <th scope="col"> Premium 17.99€ </th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr>
-                        <th scope="row">
-                        <br>
-                        <br>
-                            Suscripciones
-                        <br>
-                        </th>
-                        <td> <ul>
-                            Calidad buena
-                            <br>
-                            720 ppp
-                            <br>
-                            Un dispositivo simultáneo
-                            <br>
-                            Sin descargas
-                            </ul>
-                        </td>
-                        <td>
-                            <ul>
-                            Calidad muy buena
-                            <br>
-                            1080 ppp
-                            <br>
-                            Tres dispositivo simultáneo
-                            <br>
-                            Con descargas
-                            </ul>
-                        </td>
-                        <td>
-                            <ul>
-                                Calidad excelente
-                                <br>
-                                4K + HDR
-                                <br>
-                                Cinco dispositivo simultáneo
-                                <br>
-                                Con descargas
-                                </ul>
-                        </td>
-                      </tr>
-                    </tbody>
-                  </table>
-                  <br>
-
+                <h1 style="text-align: center; color: rgb(255, 166, 0); width: 100%; margin-bottom: 40px; font-size: 50px;">SUSCRIPCIONES</h1>
+              <div id="suscripcion_basica">
+                <p style="margin-top: 3%; font-size: 50px;"> Básico </p>
+                <p style="font-size: 80px; font-weight: 700;"> 8,99€ </p>
+                <p style="font-size: 30px; margin-bottom: 25px;"> cuota mensual</p>
+                <a href="" style="margin-top: 10px; margin-bottom: 10px;"> Empezar </a>
+                <hr style="width: 80%; color: white; margin-left: 10%;margin-top: 25px; margin-right: 10%; border: 3px solid white;">
+                <p style="font-size: 30px;"> Calidad buena </p>
+                <p style="font-size: 30px;"> 720 ppp </p>
+                <p style="font-size: 30px;"> Un dispositivo simultáneo </p>
+                <p style="margin-bottom: 10%; font-size: 30px;"> Sin descargas </p>
+              </div>
+              <div id="suscripcion_estandar">
+                <p style="margin-top: 3%; font-size: 50px;"> Estándar </p>
+                <p style="font-size: 80px; font-weight: 700;"> 12,50€ </p>
+                <p style="font-size: 30px; margin-bottom: 25px;">cuota mensual</p>
+                <a href=""> Empezar </a>
+                <hr style="width: 80%; margin-left: 10%; margin-right: 10%; margin-top: 25px; border: 3px solid white;">
+                <p style="font-size: 30px;"> Calidad muy buena </p>
+                <p style="font-size: 30px;"> 1080 ppp </p>
+                <p style="font-size: 30px;"> Tres dispositivos simultáneos </p>
+                <p style="margin-bottom: 10%; font-size: 30px;"> Con descargas </p>
+              </div>
+              <div id="suscripcion_premium">
+                <p style="margin-top: 3%; font-size: 50px;"> Premium </p>
+                <p style="font-size: 80px; font-weight: 700;"> 17,99€ </p>
+                <p style="font-size: 30px; margin-bottom: 25px;"> cuota mensual</p>
+                <a href=""> Empezar </a>
+                <hr style="width: 80%; color: white; margin-top: 25px; margin-left: 10%; margin-right: 10%; border: 3px solid white;">
+                <p style="font-size: 30px;"> Calidad excelente </p>
+                <p style="font-size: 30px;"> 4K + HDR </p>
+                <p style="font-size: 30px;"> Cinco dispositivos simultáneos </p>
+                <p style="margin-bottom: 10%; font-size: 30px;"> Con descargas </p>
+              </div>
 
             </div>
 
         </main>
+
+        <!-- Footer and infoboxes section -->
+        <footer style="float: left;" class="container-fluid footer-djg" >
+
+
+            <!-- FOOTER COLUMNS ROW - THIS ROW CONTAINS THE FOOTER COLUMNS -->
+            <div class="row mx-auto pt-4 pb-2" style="font-size: 9pt;">
+
+                <!-- FOOTER COOKIES COLUMN -->
+                <div class="col-md-2 col-lg-3  ms-md-auto align-self-end p-1 mx-auto"> 
+                    <!-- INTRODUCIR TEXTO DEFINITIVO Y BORRAR LOREM IPSUM -->
+                    <center><a class="footer-enlace" href="#arribaX">Volver arriba</a></center>
+                </div>
+
+                <!-- FOOTER COPYRIGHT COLUMN -->
+                <div class="col-md-2 col-lg-2  ms-md-auto align-self-end p-1 mx-auto"> 
+                    <!-- INTRODUCIR TEXTO DEFINITIVO Y BORRAR LOREM IPSUM -->
+                    <center><a class="footer-enlace" href="eula.html#copyright">Copyright Â© 2023</a></center>
+                </div>
+
+                <!-- FOOTER LINKS COLUMN (FAR RIGHT) -->
+                <div class="col-md-2 col-lg-2  ms-md-auto align-self-end p-1 mx-auto"> 
+                    <!-- INTRODUCIR TEXTO DEFINITIVO Y BORRAR LOREM IPSUM -->
+                    <center><a class="footer-enlace" href="eula.html#cookies">Cookies y seguimiento</a></center>
+                </div>
+
+                <!-- FOOTER LINKS COLUMN (FAR RIGHT) -->
+                <div class="col-md-2 col-lg-2  ms-md-auto align-self-end p-1 mx-auto"> 
+                    <!-- INTRODUCIR TEXTO DEFINITIVO Y BORRAR LOREM IPSUM -->
+                    <center><a class="footer-enlace" href="eula.html#politica">Politica de datos</a></center>
+                </div>
+
+                <!-- FOOTER LINKS COLUMN (FAR RIGHT) -->
+                <div class="col-md-3 col-lg-3  ms-md-auto align-self-end p-1 mx-auto"> 
+                    <!-- INTRODUCIR TEXTO DEFINITIVO Y BORRAR LOREM IPSUM -->
+                    <center><a class="footer-enlace" href="eula.html#terminos">Terminos y condiciones</a></center>
+                </div>
+
+            </div>
+
+        </footer>
 
     </body>
     
