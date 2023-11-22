@@ -6,8 +6,9 @@
     <!-- Document HEAD -->
     <head> 
 
+        <meta charset="UTF-8">
         <!-- Page tab title -->
-        <title>Damfilms</title> <!-- INTRODUCE AQUI EL TITULO DE TU SECCION | BORRA ESTE COMENTARIO Ejemplo: " Damfilms - Home "-->
+        <title>Configuración</title> <!-- INTRODUCE AQUI EL TITULO DE TU SECCION | BORRA ESTE COMENTARIO Ejemplo: " Damfilms - Home "-->
 
         <!-- Page specific Javascript link -->
         <!-- SI TIENES UN LINK A UN JAVASCRIPT PERSONAL PARA TU PAGINA INTRODUCELO AQUI | BORRA ESTE COMENTARIO -->
@@ -24,9 +25,10 @@
 
         <!-- Damfilms stylesheet --> 
         <!-- SI QUIERES PERSONALIZAR ALGO MAS ALLÁ DE LO QUE ESTABLECE BOOTSTRAP UTILIZA ESTA HOJA DE ESTILOS | ¡CUIDADO CON LOS CONFLICTOS CSS!-->
-        <link rel="stylesheet" href="css/style.css" TYPE="text/css">
-        <!-- OBTENER ESTILOS DE LA NAVBAR!-->
         <link rel="stylesheet" href="css/navbar.css" TYPE="text/css">
+        <!-- OBTENER ESTILOS DE LA NAVBAR!-->
+        <link rel="stylesheet" href="css/style.css" TYPE="text/css">
+        <link rel="stylesheet" href="config/Estilos/conf_principal.css">
     </head>
 
 
@@ -115,9 +117,22 @@
         <main>
           <!-- CAJA DE PRUEBAS, BORRAR -->
           
-          <div style="height: 1000px; width: 100%;"> 
+          <center>
+
+                <h1> Configuración </h1>
+
+                <p id="p1"> ¡Explora todas las posibilidades que tiene <span> DamFilms </span> para que te sientas cómodo!</p>
+
+                <a href="config/Pagina_Cuenta_Usuario.html"><div class="container-sm" id="div1"><img src="config/images/icons8-cuenta-90.png"> <p> Cuenta </p></div></a>
+                <a href="config/accesibilidad.html"><div class="container-sm" id="d2"><img src="config/images/icons8-accesibilidad-96 (1).png"> <p> Accesibilidad </p></div></a>
+                <a href="config/Tema.html"><div class="container-sm" id="d3"><img src="config/images/icons8-luna-brillante-90.png"> <p> Temas </p></div></a>
+                <a href="config/Detalles_Suscripcion.html"><div class="container-sm" id="d4"><img src="config/images/icons8-aceptar-100.png"> <p> Suscripción</p></div></a> <br>
+                <a href="config/tarjeta_regalo.html"><div class="container-sm" id="div5"><img src="config/images/icons8-regalo-100.png"> <p> Tarjetas</p></div></a>
+                <a href="config/Centro_Ayuda.html"><div class="container-sm"><img src="config/images/icons8-ayuda-100.png"> <p> Ayuda</p></div></a>
+                <a href="config/ajustesedad.html"><div class="container-sm"><img src="config/images/icons8-niños-100.png"> <p> Preferencias </p></div></a>
             
-          </div>
+            </center>
+          
         </main>
 
 
@@ -125,35 +140,40 @@
         <div class="clear-djg"></div>
 
         <!-- Footer and infoboxes section -->
-        <footer class="container-fluid fixed-bottom footer-djg">
-
+        <footer class="container-fluid footer-djg">
 
             <!-- FOOTER COLUMNS ROW - THIS ROW CONTAINS THE FOOTER COLUMNS -->
             <div class="row mx-auto pt-4 pb-2" style="font-size: 9pt;">
 
-            <!-- FOOTER COOKIES COLUMN -->
-            <div class="col-md-3 col-lg-3  ms-md-auto align-self-end p-1 mx-auto"> 
-                <!-- INTRODUCIR TEXTO DEFINITIVO Y BORRAR LOREM IPSUM -->
-                <center><a class="footer-enlace" href="#arribaX">Volver arriba</a></center>
-            </div>
+                <!-- FOOTER COOKIES COLUMN -->
+                <div class="col-md-2 col-lg-3  ms-md-auto align-self-end p-1 mx-auto"> 
+                    <!-- INTRODUCIR TEXTO DEFINITIVO Y BORRAR LOREM IPSUM -->
+                    <center><a class="footer-enlace" href="#arribaX">Volver arriba</a></center>
+                </div>
 
-            <!-- FOOTER COPYRIGHT COLUMN -->
-            <div class="col-md-3 col-lg-3  ms-md-auto align-self-end p-1 mx-auto"> 
-                <!-- INTRODUCIR TEXTO DEFINITIVO Y BORRAR LOREM IPSUM -->
-                <center><a class="footer-enlace" href="eula.html#terminos">Terminos y condiciones</a></center>
-            </div>
+                <!-- FOOTER COPYRIGHT COLUMN -->
+                <div class="col-md-2 col-lg-2  ms-md-auto align-self-end p-1 mx-auto"> 
+                    <!-- INTRODUCIR TEXTO DEFINITIVO Y BORRAR LOREM IPSUM -->
+                    <center><a class="footer-enlace" href="eula.html#copyright">Copyright © 2023</a></center>
+                </div>
 
-            <!-- FOOTER LINKS COLUMN (FAR RIGHT) -->
-            <div class="col-md-3 col-lg-3  ms-md-auto align-self-end p-1 mx-auto"> 
-                <!-- INTRODUCIR TEXTO DEFINITIVO Y BORRAR LOREM IPSUM -->
-                <center><a class="footer-enlace" href="eula.html#politica">Politica de datos</a></center>
-            </div>
+                <!-- FOOTER LINKS COLUMN (FAR RIGHT) -->
+                <div class="col-md-2 col-lg-2  ms-md-auto align-self-end p-1 mx-auto"> 
+                    <!-- INTRODUCIR TEXTO DEFINITIVO Y BORRAR LOREM IPSUM -->
+                    <center><a class="footer-enlace" href="eula.html#cookies">Cookies y seguimiento</a></center>
+                </div>
 
-            <!-- FOOTER LINKS COLUMN (FAR RIGHT) -->
-            <div class="col-md-3 col-lg-3  ms-md-auto align-self-end p-1 mx-auto"> 
-                <!-- INTRODUCIR TEXTO DEFINITIVO Y BORRAR LOREM IPSUM -->
-                <center><a class="footer-enlace" href="eula.html#cookies">Cookies y seguimiento</a></center>
-            </div>
+                <!-- FOOTER LINKS COLUMN (FAR RIGHT) -->
+                <div class="col-md-2 col-lg-2  ms-md-auto align-self-end p-1 mx-auto"> 
+                    <!-- INTRODUCIR TEXTO DEFINITIVO Y BORRAR LOREM IPSUM -->
+                    <center><a class="footer-enlace" href="eula.html#politica">Politica de datos</a></center>
+                </div>
+
+                <!-- FOOTER LINKS COLUMN (FAR RIGHT) -->
+                <div class="col-md-3 col-lg-3  ms-md-auto align-self-end p-1 mx-auto"> 
+                    <!-- INTRODUCIR TEXTO DEFINITIVO Y BORRAR LOREM IPSUM -->
+                    <center><a class="footer-enlace" href="eula.html#terminos">Terminos y condiciones</a></center>
+                </div>
 
             </div>
 

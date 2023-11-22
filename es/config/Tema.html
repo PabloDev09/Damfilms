@@ -24,9 +24,10 @@
 
         <!-- Damfilms stylesheet --> 
         <!-- SI QUIERES PERSONALIZAR ALGO MAS ALLÁ DE LO QUE ESTABLECE BOOTSTRAP UTILIZA ESTA HOJA DE ESTILOS | ¡CUIDADO CON LOS CONFLICTOS CSS!-->
-        <link rel="stylesheet" href="Estilos/preferencias.css" TYPE="text/css">
+        <link rel="stylesheet" href="../css/style.css" TYPE="text/css">
         <!-- OBTENER ESTILOS DE LA NAVBAR!-->
         <link rel="stylesheet" href="../css/navbar.css" TYPE="text/css">
+        <link rel="stylesheet" href="Estilos/alineacion.css">
     </head>
 
 
@@ -63,17 +64,17 @@
                                 </a>
                             </li>
                             <li class="nav-item-left">
-                                <a class="nav-link active" href="../catalog-series.html"> <!-- INTRODUCIR LOS ENLACES A LAS PAGINAS PERTINENTES -->
+                                <a class="nav-link active" href="../catalog.html"> <!-- INTRODUCIR LOS ENLACES A LAS PAGINAS PERTINENTES -->
                                     <div id="series-icon">Series</div>
                                 </a>
                             </li>
                             <li class="nav-item-left">
-                                <a class="nav-link active" href="../catalog-movies.html"> <!-- INTRODUCIR LOS ENLACES A LAS PAGINAS PERTINENTES -->
+                                <a class="nav-link active" href="../catalog.html"> <!-- INTRODUCIR LOS ENLACES A LAS PAGINAS PERTINENTES -->
                                     <div id="films-icon">Películas</div>
                                 </a>
                             </li>
                             <li class="nav-item-left">
-                                <a class="nav-link active" href="../catalog-documentals.html" > <!-- INTRODUCIR LOS ENLACES A LAS PAGINAS PERTINENTES -->
+                                <a class="nav-link active" href="../catalog.html" > <!-- INTRODUCIR LOS ENLACES A LAS PAGINAS PERTINENTES -->
                                     <div id="documentals-icon">Documentales</div>
                                 </a>
                             </li>
@@ -112,83 +113,60 @@
     </nav> <!-- cierra navbar-->
 
         <!-- Main content-->
-        <main id="ajustesedad">
-
-            <h1 class="display-1"><a style="text-decoration:none; color:white" href="../config.html">Ajustes/</a></h1><h2 class="display-5">Clasificación por edades</h2>
-            <hr id="barrajuste">
-            <br>
-            
-            
-            
-            <h3> Modo infantil </h3>
-            <div style= "bottom: 0; display: flex;width: 300vh;">
-            <h4> Permitir solo contenido destinado a público infantil </h4>
-            <audio id="sound1" src="images/kids.mp3" preload="auto"></audio>
-            <label class="switch" id="switchnino" onclick="document.getElementById('sound1').play();">
-                <input type="checkbox">
-                <span class="slider round" id="slidernino"></span>
-            </label>
-            </div>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            
-                <h3> Contenido adulto </h3>
-            <div style= "bottom: 0; display: flex;width: 300vh;">
-                <h4> Permitir contendido de caracter sexual o gráfico </h4>
-            <label class="switch" data-bs-toggle="modal" class="btn btn-primary" data-bs-target="#popupedad" id="switchadu">
-                     <input type="checkbox">
-                     <span class="slider round" id="slideradu"></span>
-            </label>
-            </div>
-            <!-- Modal -->
-            <div class="modal fade" id="popupedad" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="exampleModalLabel">CONFIRMAR CONTRASEÑA</h1>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        <main>
+            <div>
+                <h1 class="centro" style="color:white">Temas</h1>
+                <p class="centro" style="color:white; font-size: 30px">¡Elige el tema que más te guste!</p>
+                <div class="row" style="width: 85%; margin-left: 8%;">
+                    <div class="col-sm-6" >
+                      <div class="card">
+                        <div class="card-body">
+                          <h4 class="card-title; centro"><i class="bi bi-brightness-high-fill" style="color: rgb(242, 203, 46); font-size: 30px;"></i> Tema claro</h4>
+                          <br>
+                          <ul style="font-size: 23px" type="#252525">
+                            <li>Colores más claros que en el modo oscuro.</li>
+                            <br>
+                            <li>Más adecuado para entornos luminosos.</li>
+                            <br>
+                            <li>Mayor brillo que en el modo oscuro.</li>
+                            <br>
+                            <li>Adecuado para horario diurno.</li>
+                            <br>
+                          </ul>
+                          <div class="centro" style="font-size: 20px;">
+                            <button class="btn-2">Activar</button>
+                          </div>
+                        </div>
+                      </div>
                     </div>
-                    <div class="modal-body">
-                        <form>
-                            <div class="mb-3">
-                              <label for="exampleInputEmail1" class="form-label">Dirección de correo</label>
-                              <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-                              <div id="emailHelp" class="form-text">Tambien puedes usar el nombre de usuario.</div>
-                            </div>
-                            <div class="mb-3">
-                              <label for="exampleInputPassword1" class="form-label">Contraseña</label>
-                              <input type="password" class="form-control" id="exampleInputPassword1">
-                            </div>
-                            <div class="mb-3 form-check">
-                            </div>
-                            <button type="submit" class="btn btn-primary">Confirmar</button>
-                          </form>
+                    <div class="col-sm-6" style="width: 50%">
+                      <div class="card" style="background-color: #252525;">
+                        <div class="card-body">
+                          <h4 class="card-title; centro" style="color: white;"><i class="bi bi-moon-stars-fill" style="color: rgb(242, 203, 46);"></i> Tema oscuro</h4>
+                          <br>
+                          <ul style="font-size: 23px; color: white;">
+                            <li>Colores más oscuros que en el modo claro.</li>
+                            <br>
+                            <li>Más adecuado para entornos oscuros.</li>
+                            <br>
+                            <li>Menor brillo que en el modo claro.</li>
+                            <br>
+                            <li>Adecuado para horario nocturno.</li>
+                            <br>
+                          </ul>
+                          <div class="centro" style="font-size: 20px;">
+                            <button class="btn-2">Activar</button>
+                          </div>
+                        </div>
+                      </div>
                     </div>
-                   
-                </div>
-                </div>
             </div>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-    
-
         </main>
-
         <!-- FOOTER SPACE CONTROL DIV - BORRAR SI EL FOOTER INTERFIERE CON EL CONTENIDO DE TU PAGINA - SI NO ENTIENDES PREGUNTA A DAVID -->
         <div class="clear-djg"></div>
 
         <!-- Footer and infoboxes section -->
-        <footer class="container-fluid fixed-bottom footer-djg">
+        <footer class="container-fluid  footer-djg">
 
             <!-- FOOTER COLUMNS ROW - THIS ROW CONTAINS THE FOOTER COLUMNS -->
             <div class="row mx-auto pt-3 pb-1" style="font-size: 9pt;">
