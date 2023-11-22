@@ -1,25 +1,46 @@
-/* -------------------- COMIENZO: SECCION DE BODY -------------------- */
+
+/* Da color gradiente al fondo*/
+
 body{
+    margin: 0px;
+    padding: 0px;
     height:auto;
     width:auto;
     background: rgb(0,0,0);
     background: linear-gradient(180deg, rgba(32,32,32,1) 35%, rgba(84,84,84,1) 100%);
 }
 /* ------------------------ FINAL SECCION DE BODY ---------------------- */
+
 /* -------------------- COMIENZO: SECCION DE FOOTER - TOCAR CON CUIDADO-------------------- */
+
+.footer-enlace{
+    text-decoration: none;
+    color:rgb(194, 189, 189);
+}
+
+a a:link {
+    text-decoration: none;
+}
+
 .antifloater-djg{
     clear: both;
+    margin-top: auto;
 }
 
 .footer-djg{
     color:#aaa0a0;
-    background: linear-gradient(180deg, rgba(70, 70, 70, 0) 0%, rgb(84, 84, 84) 15%, rgba(32,32,32,1) 100%);
+    background: linear-gradient(180deg, rgba(70, 70, 70, 0.2) 0%, rgba(84, 84, 84, 0.90) 40%, rgba(32, 32, 32, 1) 100%);
 }
 /* -------------------------------- FINAL SECCION DE FOOTER -------------------------------- */
+
 /* -------------------- COMIENZO: SECCION DE CATALOGO - TOCAR CON CUIDADO -------------------- */
 
+#big-box{
+    min-height: 600px;
+}
 
-/*----- CATALOGO - ESTILO POSTERS AUTOMATICOS - CATALOGO  -----*/
+
+/*------ ESTILO POSTERS AUTOMATICOS ------*/
 
 /* CONTENEDOR DE SECCIONES POSTER*/
 .movie-box-container .movie-box-container2{ 
@@ -42,19 +63,35 @@ body{
     text-align: center;  
 }
 
+.pmg-boxes-top{
+    height: 230px;
+    width: 160px;
+    border-style: solid;
+    border-width: 3px;
+    border-color: rgb(255, 166, 0);
+    float:left;
+    margin: 8px 8px 8px 8px;
+    color: rgba(255, 255, 255, 0);  
+    text-align: center; 
+}
 /* CAJA HIJA DE OBJETO POSTER*/
+
 .box-content-son{
+    position: absolute;
     text-align:center;
     height: 240px;
     width: 170px;
 }
+
 /*efecto on hover de poster*/
 .box-content-son:hover{
+    z-index: 1000;
     transition-duration: 0.3s;
     box-shadow: 0 0 25px orange;
     color: rgb(255, 255, 255);  
     background-image: linear-gradient( rgba(0, 0, 0, 0.901) 35%, rgba(0, 0, 0, 0.205) 100%);
-    }
+}
+
 /*TEXTO POSTER*/
 .titulopelicula{
     padding:10px;
@@ -67,14 +104,15 @@ body{
     font-size: 9pt;
 }
 
-/*------------------------------  POSTERS AUTOMATICOS  ------------------------------*/
+/*------ FIN ESTILO POSTERS AUTOMATICOS ------*/
 
 /*CAJA QUE CONTIENE LOS BOTONES DE FILTRADO*/
 #filterBox{
+    padding-left: 10px;
     margin-top: 30px;
     color: white;
     width:100%;
-    height: 50px;
+    height: 45px;
 }
 
 /* BOTONES DE FILTROS*/
@@ -85,13 +123,27 @@ body{
 
 /*ESTILO DE OBJETOS DE MENU FILTRO*/
 #DropDownItem{
+    font-weight: bold;
     color: black;
-    background-color: rgb(250, 200, 139);
+    background-color: rgb(255, 166, 0);
 }
 
-.dropdown{
+.djg-dropdown-item{
+    color: black !important;
+    background-color: rgb(250, 200, 140);
+}
+
+.djg-dropdown{
     float:left;
     margin-left: 10px;
+}
+
+#cleanFilterButton{
+    margin-left: 10px;
+    margin-top: 15px;
+    float: left;
+    height: auto;
+    width: 100px;
 }
 
 /* PROPIEDADES TITULOS DE CAJA */
@@ -132,4 +184,213 @@ body{
     color: white;     
 }
 
-/* -------------------------------- FINAL SECCION DE CATALOGO -------------------------------- */
+/* -------------------- FINAL SECCION DE CATALOGO -------------------- */
+/* -------------------- COMIENZO: SECCION DE HOME - TOCAR CON CUIDADO -------------------- */
+.newest-carousel-control-prev-icon, .newest-carousel-control-next-icon {
+    height: 70px;
+    width: 70px;
+    outline: rgb(0, 0, 0);
+    background-size: 100%, 100%;
+}
+
+.outline{
+    text-shadow: 0.1em 0.1em 0.2em black;
+}
+.pmg-carousel{
+    border-top: 2px solid #ff8b45;
+    border-bottom: 2px solid #ff8b45; 
+    box-shadow: 0px 15px 15px black;
+}
+
+#pmg-newest{
+    margin-top: 15px;
+}
+
+#pmg-newest h2{
+    color: #fff;
+    padding-left: 10px;
+}
+
+#pmg-most-popular{
+    height: auto;
+    margin-top: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    background: rgb(255,139,69);
+    background: linear-gradient(180deg, rgba(255,139,69,0.05) 0%, rgba(255,139,69,0.1) 100%);
+}
+
+
+#pmg-most-popular h2{
+    color: #fff;
+}
+
+#pmg-most-popular-series h4{
+    color: #ff8b45;
+    padding-left: 10px;
+}
+
+.most-popular-series{
+    padding-left: 75px;
+}
+
+#pmg-most-popular-films h4{
+    color: #ff8b45; 
+    padding-left: 10px;
+}
+
+.most-popular-films{
+    padding-left: 75px;
+}
+
+#pmg-keep-watching{
+    height: auto;
+    margin-top: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    background: rgb(255,139,69);
+    background: linear-gradient(180deg, rgba(255,139,69,0.05) 0%, rgba(255,139,69,0.1) 100%);
+}
+
+#pmg-keep-watching h4{
+    color: #fff;
+}
+
+#pmg-might-like{
+    height: auto;
+    margin-top: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    background: rgb(255,139,69);
+    background: linear-gradient(180deg, rgba(255,139,69,0.05) 0%, rgba(255,139,69,0.1) 100%);
+}
+
+#pmg-might-like h2{
+    color: #fff;
+}
+
+
+#pmg-might-like-films h4{
+    color: #ff8b45; 
+    padding-left: 10px;
+}
+
+
+#pmg-might-like-series h4{
+    color: #ff8b45; 
+    padding-left: 10px;
+}
+
+
+#pmg-might-like-films h4{
+    color: #ff8b45; 
+    padding-left: 10px;
+}
+
+
+#pmg-might-like-documentals h4{
+    color: #ff8b45; 
+    padding-left: 10px;
+}
+
+.pmg-top{
+    position: relative;
+    float: right;
+    width: 0;
+    height: 0;
+    margin-top: 165px;
+    border-right: 30px solid orange;
+    border-top: 30px solid transparent;
+    border-left: 30px solid transparent;
+    border-bottom: 30px solid orange;
+   
+}
+
+.pmg-top h3{
+    font-size: 25px;
+    font-weight: 500;
+    color: black;
+    padding-left: 5px;
+}
+
+.pmg-box-content-son{
+    z-index: 1000;
+    position: absolute;
+    text-align:center;
+    height: 224px;
+    width: 154px;
+}
+
+.pmg-box-content-son:hover{
+    transition-duration: 0.3s;
+    box-shadow: 0 0 25px orange;
+    color: rgb(255, 255, 255);  
+    background-image: linear-gradient( rgba(0, 0, 0, 0.901) 35%, rgba(0, 0, 0, 0.205) 100%);
+}
+
+.resize{
+    height: 170px;
+    width: 122px;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.pmg-boxes-watching{
+    height: 170px;
+    width: 120px;
+    border-style: solid;
+    border-width: 2px;
+    border-color: rgb(255, 166, 0);
+    float: left;
+    margin: 8px 8px 8px 8px;
+    color: rgba(255, 255, 255, 0);  
+    text-align: center;  
+    border-bottom: 3px solid red !important;
+}
+
+.pmg-box-content-son-watching{
+    text-align:center;
+    height: 168px;
+    width: 116px;
+}
+
+.pmg-box-content-son-watching:hover{
+    transition-duration: 0.3s;
+    box-shadow: 0 0 25px orange;
+    color: rgb(255, 255, 255);  
+    background-image: linear-gradient( rgba(0, 0, 0, 0.901) 35%, rgba(0, 0, 0, 0.205) 100%);
+}
+
+.pmg-boxes-might-like{
+    height: 168px;
+    width: 120px;
+    border-style: solid;
+    border-width: 2px;
+    border-color: rgb(255, 166, 0);
+    float: left;
+    margin: 8px 8px 8px 8px;
+    color: rgba(255, 255, 255, 0);  
+    text-align: center;  
+}
+
+.pmg-box-content-son-might-like{
+    text-align:center;
+    height: 166px;
+    width: 116px;
+}
+
+.pmg-box-content-son-might-like:hover{
+    transition-duration: 0.3s;
+    box-shadow: 0 0 25px orange;
+    color: rgb(255, 255, 255);  
+    background-image: linear-gradient( rgba(0, 0, 0, 0.901) 35%, rgba(0, 0, 0, 0.205) 100%);
+}
+.watching-carousel-control-next-icon {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='orange' viewBox='0 0 8 8'%3E%3Cpath d='M2.75 0l-1.5 1.5 2.5 2.5-2.5 2.5 1.5 1.5 4-4-4-4z'/%3E%3C/svg%3E");
+}
+
+.watching-carousel-control-prev-icon {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='orange' viewBox='0 0 8 8'%3E%3Cpath d='M5.25 0l-4 4 4 4 1.5-1.5-2.5-2.5 2.5-2.5-1.5-1.5z'/%3E%3C/svg%3E");
+}
+
+/* -------------------- FINAL SECCION DE HOME -------------------- */

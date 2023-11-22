@@ -7,7 +7,7 @@
     <head> 
 
         <!-- Page tab title -->
-        <title>Damfilms</title> <!-- INTRODUCE AQUI EL TITULO DE TU SECCION | BORRA ESTE COMENTARIO Ejemplo: " Damfilms - Home "-->
+        <title>Damfilms - Home</title> <!-- INTRODUCE AQUI EL TITULO DE TU SECCION | BORRA ESTE COMENTARIO Ejemplo: " Damfilms - Home "-->
 
         <!-- Page specific Javascript link -->
         <!-- SI TIENES UN LINK A UN JAVASCRIPT PERSONAL PARA TU PAGINA INTRODUCELO AQUI | BORRA ESTE COMENTARIO -->
@@ -21,7 +21,8 @@
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
         <!-- Bootstrap icon font CDN-->
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
-
+        <!-- Optimizar visibilidad y visualizacion en movil-->
+        <meta name="viewport" content="width=device-width, initial-scale=1">
         <!-- Damfilms stylesheet --> 
         <!-- SI QUIERES PERSONALIZAR ALGO MAS ALLÁ DE LO QUE ESTABLECE BOOTSTRAP UTILIZA ESTA HOJA DE ESTILOS | ¡CUIDADO CON LOS CONFLICTOS CSS!-->
         <link rel="stylesheet" href="css/style.css" TYPE="text/css">
@@ -33,7 +34,7 @@
 
     <!--  BODY -->
     <body>
-
+        <div id="arribaX"></div>
         <!-- Navbar -->
     <nav class="navbar navbar-expand-lg ">
 
@@ -59,21 +60,21 @@
                         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                             <li class="nav-item-left">
                                 <a class="nav-link active" aria-current="page" href="home.html">
-                                    <div id="home-icon">Home</div>
+                                    <div id="home-icon-active">Home</div>
                                 </a>
                             </li>
                             <li class="nav-item-left">
-                                <a class="nav-link active" href="#"> <!-- INTRODUCIR LOS ENLACES A LAS PAGINAS PERTINENTES -->
+                                <a class="nav-link active" href="catalog-series.html"> <!-- INTRODUCIR LOS ENLACES A LAS PAGINAS PERTINENTES -->
                                     <div id="series-icon">Series</div>
                                 </a>
                             </li>
                             <li class="nav-item-left">
-                                <a class="nav-link active" href="#"> <!-- INTRODUCIR LOS ENLACES A LAS PAGINAS PERTINENTES -->
+                                <a class="nav-link active" href="catalog-movies.html"> <!-- INTRODUCIR LOS ENLACES A LAS PAGINAS PERTINENTES -->
                                     <div id="films-icon">Películas</div>
                                 </a>
                             </li>
                             <li class="nav-item-left">
-                                <a class="nav-link active" href="#" > <!-- INTRODUCIR LOS ENLACES A LAS PAGINAS PERTINENTES -->
+                                <a class="nav-link active" href="catalog-documentals.html" > <!-- INTRODUCIR LOS ENLACES A LAS PAGINAS PERTINENTES -->
                                     <div id="documentals-icon">Documentales</div>
                                 </a>
                             </li>
@@ -93,12 +94,12 @@
                         <li class="nav-item-right dropdown">
         
                             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                <img src="img/icons/user-64.png">
+                                <img src="img/icons/user-64.png" alt="Pefil">
                             </a>
         
-                            <ul class="dropdown-menu dropdown-menu-end">
-                                <li><a class="dropdown-item" href="#">Ajustes</a></li>                            
-                                <li><a class="dropdown-item" href="#">Cerrar Sesión</a></li>
+                            <ul class="pmg-dropdown-menu dropdown-menu dropdown-menu-end">
+                                <li><a class="pmg-dropdown-item dropdown-item" href="config_principal.html">Ajustes</a></li>                            
+                                <li><a class="pmg-dropdown-item dropdown-item" href="index.html">Cerrar Sesión</a></li>
                             </ul>
                             
                         </li>
@@ -114,58 +115,168 @@
         <!-- Main content-->
         <main>
 
-            <!-- CAJA DE PRUEBAS, BORRAR -->
-            <div style="height: 1000px; width: 100%;"> 
-            
+            <div id="pmg-newest">
+                <h2 class="outline">Novedades</h2>
+                <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
+                    <div class="carousel-inner pmg-carousel">
+                      <div class="carousel-item active " >
+                        <img src="img/banners/banner-georgia.gif" class="d-block w-100" alt="...">
+                      </div>
+                      <div class="carousel-item">
+                        <img src="img/banners/Stranger things.PNG" class="d-block w-100" alt="...">
+                      </div>
+                    </div>
+                    <button class="newest-carousel-control-prev carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
+                      <span class="newest-carousel-control-prev-icon carousel-control-prev-icon" aria-hidden="true"></span>
+                      <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="newest-carousel-control-next carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">
+                      <span class="newest-carousel-control-next-icon carousel-control-next-icon" aria-hidden="true"></span>
+                      <span class="visually-hidden">Next</span>
+                    </button>
+                  </div>
             </div>
+
+            <!--Lista de populares-->
+            <div class="container-fluid">            
+                <div class="row">
+                <div id="pmg-most-popular" class="col-12">
+                <div id="pmg-most-popular-title">
+                    <h2 class="outline cols-12">Lo más popular</h2>
+                </div>
+                <div class="row">
+                <div id="pmg-most-popular-series">
+                    <h4 class="outline" class="col-12">Series</h4>
+                </div>
+                    <div class="most-popular-series wrapper col-12">
+
+                    </div>
+                </div>
+                <div class="row">
+                <div id="pmg-most-popular-films">
+                        <h4 class="outline col-12" >Películas</h4>
+                    </div>
+                        <!-- Listado peliculas mas populares-->
+                        <div class="most-popular-films wrapper col-12">
+                        
+                        </div>
+                        </div>
+                    </div>
+                </div>
+            </div> 
+            <!--Lista de populares-->
+            <!--Lista de seguir viendo-->
+            <div class="container-fluid">
+                <div class="row">
+                    <div id="pmg-keep-watching">
+                        <div id="pmg-keep-watching-title">
+                            <h4 class="outline">Seguir viendo</h4>
+                        </div>
+                        <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel" class="w-100">
+                            <div class="carousel-inner">
+                              <div class="carousel-item active " >
+                                <div class="keep-watching wrapper" style="padding-left: 45px;" >
+                                </div>
+                              </div>
+                            </div>
+                            <button class="watching-carousel-control-prev carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
+                              <span class="watching-carousel-control-prev-icon carousel-control-prev-icon" aria-hidden="true"></span>
+                              <span class="visually-hidden">Previous</span>
+                            </button>
+                            <button class="watching-carousel-control-next carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">
+                              <span class="watching-carousel-control-next-icon carousel-control-next-icon" aria-hidden="true"></span>
+                              <span class="visually-hidden">Next</span>
+                            </button>
+                            </div>
+                              </div>
+                        </div>
+                    </div>
+                </div>
+            </div>  
+            <!--Lista de seguir viendo-->
+            <!--Lista de podria gustarte-->
+            <div class="container-fluid">
+                <div class="row">
+                    <div id="pmg-might-like">
+                        <div id="pmg-might-like-title">
+                            <h2 class="outline" class="col-12 w-100">Podría gustarte</h2>
+                        </div>
+                        <div class="row">
+                        <div id="pmg-might-like-films">
+                                <h4 class="outline" class="col-12 w-100">Películas</h4>    
+                        </div>
+                        <div class="might-like-films wrapper" >
+    
+                        </div>
+                        </div>
+                        <div class="row">
+                        <div id="pmg-might-like-series">
+                            <h4 class="outline" class="col-12 w-100">Series</h4> 
+                        </div>
+                        <div class="might-like-series wrapper" >
+
+                        </div>
+                        </div>
+                        <div class="row">
+                        <div id="pmg-might-like-documentals">
+                            <h4 class="outline" class="col-12 w-100">Documentales</h4> 
+                        </div>
+                        <div class="might-like-documentals wrapper" >
+
+                        </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--Lista de podria gustarte-->
 
         </main>
 
         <!-- FOOTER SPACE CONTROL DIV - BORRAR SI EL FOOTER INTERFIERE CON EL CONTENIDO DE TU PAGINA - SI NO ENTIENDES PREGUNTA A DAVID -->
-        <div class="clear-djg"></div>
+        <div class="clear-djg" style="margin-top: 150px;"></div>
 
         <!-- Footer and infoboxes section -->
-        <!-- Footer and infoboxes section -->
-        <footer class="container-fluid fixed-bottom footer-djg">
+        <footer class="container-fluid fixed-bottom footer-djg" >
+
 
             <!-- FOOTER COLUMNS ROW - THIS ROW CONTAINS THE FOOTER COLUMNS -->
-            <div class="row mx-auto pt-3 pb-1" style="font-size: 9pt;">
+            <div class="row mx-auto pt-4 pb-2" style="font-size: 9pt;">
 
                 <!-- FOOTER COOKIES COLUMN -->
-                <div class="col-md-4 col-lg-3  ms-md-auto align-self-end p-2 mx-auto"> 
+                <div class="col-md-2 col-lg-3  ms-md-auto align-self-end p-1 mx-auto"> 
                     <!-- INTRODUCIR TEXTO DEFINITIVO Y BORRAR LOREM IPSUM -->
-                    Lorem Ipsum es simplemente el texto de relleno de las imprentas 
-                    y archivos de texto. Lorem Ipsum ha sido el texto de relleno 
-                    estándar de las industrias desde el año 1500, cuando un impresor 
-                    (N. del T. persona que se dedica a la imprenta) desconocido usó 
-                    una galería de textos y los mezcló de tal manera que logró hacer
+                    <center><a class="footer-enlace" href="#arribaX">Volver arriba</a></center>
                 </div>
 
                 <!-- FOOTER COPYRIGHT COLUMN -->
-                <div class="col-md-4 col-lg-3  ms-md-auto align-self-end p-2 mx-auto"> 
+                <div class="col-md-2 col-lg-2  ms-md-auto align-self-end p-1 mx-auto"> 
                     <!-- INTRODUCIR TEXTO DEFINITIVO Y BORRAR LOREM IPSUM -->
-                    Lorem Ipsum es simplemente el texto de relleno de las imprentas 
-                    y archivos de texto. Lorem Ipsum ha sido el texto de relleno 
-                    estándar de las industrias desde el año 1500, cuando un impresor 
-                    (N. del T. persona que se dedica a la imprenta) desconocido usó 
-                    una galería de textos y los mezcló de tal manera que logró hacer 
+                    <center><a class="footer-enlace" href="eula.html#copyright">Copyright © 2023</a></center>
                 </div>
 
                 <!-- FOOTER LINKS COLUMN (FAR RIGHT) -->
-                <div class="col-md-4 col-lg-3  ms-md-auto align-self-end p-2 mx-auto"> 
-                    <a href="#arriba">Ir arriba.<br/></a>
+                <div class="col-md-2 col-lg-2  ms-md-auto align-self-end p-1 mx-auto"> 
                     <!-- INTRODUCIR TEXTO DEFINITIVO Y BORRAR LOREM IPSUM -->
-                    Lorem Ipsum es simplemente el texto de relleno de las imprentas 
-                    y archivos de texto. Lorem Ipsum ha sido el texto de relleno 
-                    estándar de las industrias desde el año 1500, cuando un impresor 
-                    (N. del T. persona que se dedica a la imprenta) desconocido usó 
-                    una galería de textos y los mezcló de tal manera que logró hacer
+                    <center><a class="footer-enlace" href="eula.html#cookies">Cookies y seguimiento</a></center>
+                </div>
+
+                <!-- FOOTER LINKS COLUMN (FAR RIGHT) -->
+                <div class="col-md-2 col-lg-2  ms-md-auto align-self-end p-1 mx-auto"> 
+                    <!-- INTRODUCIR TEXTO DEFINITIVO Y BORRAR LOREM IPSUM -->
+                    <center><a class="footer-enlace" href="eula.html#politica">Politica de datos</a></center>
+                </div>
+
+                <!-- FOOTER LINKS COLUMN (FAR RIGHT) -->
+                <div class="col-md-3 col-lg-3  ms-md-auto align-self-end p-1 mx-auto"> 
+                    <!-- INTRODUCIR TEXTO DEFINITIVO Y BORRAR LOREM IPSUM -->
+                    <center><a class="footer-enlace" href="eula.html#terminos">Terminos y condiciones</a></center>
                 </div>
 
             </div>
 
         </footer>
-
+        
+        <script src="js/pmg-script.js" type="module"></script>
     </body>
     
 </html>
