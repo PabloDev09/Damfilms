@@ -54,7 +54,7 @@
                     <!-- SECCION QUE SE COLAPSA LLAMDA navbarTogglerDemo01 -->
                     <div class="collapse navbar-collapse" id="navbarTogglerDemo01" style="justify-content: start;">
 
-                        <a class="navbar-brand" href="#"><img src="../img/Logo.png"></a>
+                        <a class="navbar-brand" href="../index.html"><img src="../img/Logo.png"></a>
 
                         <!-- lista de objetos que se colapsan.-->
                         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
@@ -64,17 +64,17 @@
                                 </a>
                             </li>
                             <li class="nav-item-left">
-                                <a class="nav-link active" href="../catalog-series.html"> <!-- INTRODUCIR LOS ENLACES A LAS PAGINAS PERTINENTES -->
+                                <a class="nav-link active" href="../catalog.html"> <!-- INTRODUCIR LOS ENLACES A LAS PAGINAS PERTINENTES -->
                                     <div id="series-icon">Series</div>
                                 </a>
                             </li>
                             <li class="nav-item-left">
-                                <a class="nav-link active" href="../catalog-movies.html"> <!-- INTRODUCIR LOS ENLACES A LAS PAGINAS PERTINENTES -->
+                                <a class="nav-link active" href="../catalog.html"> <!-- INTRODUCIR LOS ENLACES A LAS PAGINAS PERTINENTES -->
                                     <div id="films-icon">Películas</div>
                                 </a>
                             </li>
                             <li class="nav-item-left">
-                                <a class="nav-link active" href="../catalog-documentals.html" > <!-- INTRODUCIR LOS ENLACES A LAS PAGINAS PERTINENTES -->
+                                <a class="nav-link active" href="../catalog.html" > <!-- INTRODUCIR LOS ENLACES A LAS PAGINAS PERTINENTES -->
                                     <div id="documentals-icon">Documentales</div>
                                 </a>
                             </li>
@@ -98,7 +98,7 @@
                             </a>
         
                             <ul class="dropdown-menu dropdown-menu-end">
-                                <li><a class="dropdown-item" href="../config.html">Ajustes</a></li>                            
+                                <li><a class="dropdown-item" href="../config_principal.html">Ajustes</a></li>                            
                                 <li><a class="dropdown-item" href="#">Cerrar Sesión</a></li>
                             </ul>
                             
@@ -115,43 +115,69 @@
         <!-- Main content-->
     <main>
 
-        <div id= diviz><h1> Tarjetas regalo</h1>
+        <center>
 
-        <p> Si ya tienes una tarjeta regalo, física o digital, puedes canjearla desde aquí.<br>
-        En el caso de no tener, puedes obtenerla desde el siguiente botón.</p>
-
-        <button type="button" name="comprar_tarjeta"> Comprar tarjeta </button>
-
-        <p> Si ha adquirido una tarjeta regalo, ya sea desde nuestra página web o desde una tienda física,
-            <b>no podrá devolverla</b> y obtener de nuevo su dinero. Una vez que esta se compre <b>no se le reembolsará
-            su dinero </b>, a menos que el código no funcione de forma correcta y no le otorgue la cantidad indicada.
-        </p>
-
-        </div>
-
-        <div id="tarjeta">
+            <h1> Tarjetas regalo</h1>
 
             
+            <p> ¡Una tarjeta, mucha diversión!</p>
+            
+            
 
-            <img src="images/Tarjeta_det.png">
+            <p id="p2"> Puedes disfrutar de todo el contenido de pago de <span>DamFilms</span> canjeando una tarjeta regalo.</p>
 
-            <p id="p1">Al introducir el código y canjearlo, se le añadirá automáticamente el saldo de la tarjeta a su cuenta de <span>DamFilms</span>.</p>
+            
+            <div id="img1">
 
-            <p id="p2">En caso de que al introducir el código se produzca un error puede pedir ayuda a través de <a href="#">Ayuda</a> o enviarnos un mensaje
-            a través de nuestro <a href="mailto:damfilmssupport@dfilm.com">correo electrónico.</a></p>
+                <img src="img/Logo-alter.png">
 
-            <form>
+                
+                
 
-                <input type="text" name="codigo_tarjeta" required placeholder="111-ABC-222-D33" maxlenght="15"/>
+                <select id="se1">
+                    <option name="Euros">€</option>
+                    <option name="Dolares">$</option>
+                    <option name="Yen">¥</option>
+                    <option name="Libra">£</option>
+                </select>
 
-                <input type="submit" name="Canjear" value="Canjear" onclick="alert('Has canjeado tu código satisfactoriamente.');"/>
+                <form>
 
+                    <input type="number" required max="50" min="10"/>
 
-            </form>
+                    <input type="submit" value="Comprar tarjeta" onclick="alert('¿Estás seguro? Si aceptas comprarás la tarjeta regalo.')">
+                </form>
 
+                <p>Si usted compra una tarjeta regalo no podrá devolverla y que su dinero sea devuelto. No se hacen reembolsos. <br> <br> Si
+                quiere saber más sobre este tema puede ir a <a href="Centro_Ayuda.html">Ayuda</a> o si su duda o problema no tiene solución 
+                aparente, puede contactarnos a través de nuestro <a href="mailto:damfilmssupport@dfilms.com">correo electrónico</a>.</p>
+                
+                
+            </div>
 
+            <div id="img2">
 
-        </div>
+                <img src="img/Logo-alter.png">
+
+                <form>
+
+                    <input type="submit" value="Canjear" onclick="alert('¿Estás seguro? Si aceptas introducirás el código de tu tarjeta y el dinero se abonará a esta cuenta.')">
+
+                    <input type="text" required name="codigo" minlength="1" maxlength="15" >
+
+                </form>
+
+                <p>Si usted introduce el código de su tarjeta física o digital, y lo canjea, la cantidad monetaria de la tarjeta se abonará instantáneamente a la cuenta que esté
+                    logueada a la hora de introducirlo. <br> <br> Si tiene alguna duda puede consultar nuestra sección <a href="Centro_Ayuda.html">Ayuda</a> o si se ha producido algún error
+                    con su tarjeta puede contactárnos a través de nuestro <a href="mailto:damfilmssupport@dfilms.com">correo electrónico</a>.
+                </p>
+
+            </div>
+
+            
+        </center>
+
+        
 
     </main>
 
@@ -160,7 +186,7 @@
 
         <!-- Footer and infoboxes section -->
         <!-- Footer and infoboxes section -->
-        <footer class="container-fluid fixed-bottom footer-djg">
+        <footer class="container-fluid footer-djg">
 
             <!-- FOOTER COLUMNS ROW - THIS ROW CONTAINS THE FOOTER COLUMNS -->
             <div class="row mx-auto pt-3 pb-1" style="font-size: 9pt;">
