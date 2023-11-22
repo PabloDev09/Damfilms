@@ -21,7 +21,6 @@ var muchMightLikeDocumentals = 13;
 while(contador >= 1){
 for(var i in series){
     if (series[i].popindex == homeTopSeries) {
-        console.log(series[i].release);
 
         fetch = homePopularSeries.innerHTML;
 
@@ -51,7 +50,6 @@ for(var i in series){
 for (var i in films){
     
     if (films[i].popindex == homeTopFilms) {
-        console.log(films[i].release);
 
         fetch = homePopularFilms.innerHTML;
 
@@ -115,7 +113,6 @@ for(var i in series){
     }
     for(var i in films){
         if(muchKeepWatchingFilms > 0){
-            console.log(films[i].popindex);
             
             fetch = homeKeepWatching.innerHTML;
 
@@ -144,7 +141,6 @@ for(var i in series){
     }
     for(var i in documentals){
         if(muchKeepWatchingDocumentals > 0){
-            console.log(documentals[i].popindex);
             
             fetch = homeKeepWatching.innerHTML;
 
@@ -203,7 +199,6 @@ for(var i in series){
 }
 for(var i in films){
     if( muchMightLikeFilms > 0){
-        console.log(films[i].popindex);
         
         fetch = homeMightLikeFilms.innerHTML;
 
@@ -232,7 +227,6 @@ for(var i in films){
 }
 for(var i in documentals){
     if(muchMightLikeDocumentals > 0){
-        console.log(documentals[i].popindex);
         
         fetch = homeMightLikeDocumentals.innerHTML;
 
