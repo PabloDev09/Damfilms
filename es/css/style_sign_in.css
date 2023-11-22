@@ -1,0 +1,123 @@
+body{
+    margin: 0;
+    height:auto;
+    width:auto;
+    background: rgb(0,0,0);
+    background: linear-gradient(180deg, rgba(32,32,32,1) 35%, rgba(84,84,84,1) 100%);
+    background-repeat: no-repeat;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+.MainSign-in {
+    color:aliceblue 
+}
+.logo_sign_in{
+    padding-top: 40px;
+    padding-left: 20px;
+}
+.Crea_una_cuenta{
+    padding-left: 20px;
+    padding-top: 10px;
+}
+.Empieza{
+    padding-left: 20px;
+}
+.formulario{
+    padding-left: 20px;
+}
+.email{
+   background-color: transparent;
+}
+.enlace_inicio_sesion{
+    padding-left: 20px;
+    padding-top: 10px;
+}
+#form-container {
+    padding: 20px;
+    width: 300px;
+  }
+
+.label_sign_in {
+    display: block;
+    margin-bottom: 8px;
+  }
+
+.input_sign_in {
+    width: 150%;
+    padding: 8px;
+    box-sizing:border-box;
+    background-color: transparent;
+    color: white;
+    border-color: #ffffff;
+    border-radius: 5px;
+    height: 45px;
+    font-size: 18px;
+    display: flex;
+  }
+
+  .boton_crear_cuenta {
+    background-color: rgb(255, 145, 77);
+    color: white;
+    border: none;
+    border-radius: 20px;
+    padding-left: 185px;
+    padding-right: 185px;
+    padding-bottom: 20px;
+    padding-top: 20px;
+    font-size: 18px;
+    
+  }
+
+  .boton_crear_cuenta:hover {
+    background-color: rgb(255, 126, 51);
+    cursor: pointer;
+  }
+
+  .error-message {
+    color: red;
+    padding: 10px;
+  }
+  .boton_ojo{
+    background-color: transparent;
+    border-color: transparent;
+    border-radius: 5px;
+  }
+  .boton_ojo:hover{
+    background-color: white;
+  }
+  .continuar_con_google{
+    padding-left: 20px;
+    padding-top: 10px;
+  }
+  .continuar_con_google_boton{
+    padding: 10px;
+    border: none;
+    border-radius: 20px;
+    padding-left: 130px;
+    padding-right: 130px;
+    font-size: 18px;
+    display: flex;
+  }
+  .continuar_con_google_boton:hover{
+    background-color: rgba(255, 255, 255, 0.418);
+    cursor: pointer;
+  }
+.bloque-izquierda{
+    float: left;
+    width: 30%;
+    box-sizing: border-box;
+}
+.bloque_derecha{
+    float: right;
+    width: 70%;
+    background-image:url(/img/Sign-in/imagen\ fondo\ final.png);
+    background-size: cover;
+}
+.imagen_invisible{
+    width: 70%;
+}
+.enlace_log_in{
+    color: white;
+}
+.enlace_home_google{
+    text-decoration: none;
+}

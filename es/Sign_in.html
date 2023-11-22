@@ -5,18 +5,11 @@
 
     <!-- Document HEAD -->
     <head>
-
-       <!-- Bootstrap stylesheet CDN -->
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-    
-        <!-- Bootstrap JavaScript CDN-->
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
-
-        <script src="js/Validation.js"></script>
-
         <!-- Damfilms stylesheet -->
-        <link rel="Stylesheet" type="text/css" href="css/style.css">
+        <link rel="Stylesheet" type="text/css" href="css/style_sign_in.css">
 
+        <!--JavaScript del formulario-->
+        <script src="js/Validation_sign_in.js"></script>
 
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -27,61 +20,60 @@
     </head>
 
     <!--Comienzo del body-->
-    <body class="bodyInicio">
+    <body>
 
-        <!--Encabezado, donde va la imagen del logo de Damfilms-->
-        <header> 
-           <img src="img/logo.png"> 
-        </header> 
+      <!--Incio bloque izquierda-->
+      <div class="bloque-izquierda">
 
-        <!--Comienzo del main-->
+        <!--Imagen del logo-->
+           <img src="img/logo.png" class="logo_sign_in"> 
+        
         <main class="MainSign-in"> 
-            <h1> Crea una cuenta </h1> 
-            <p> Empieza a disfrutar!</p> 
+            <h1 class="Crea_una_cuenta"> Crea una cuenta </h1> 
+            <p class="Empieza"> Empieza a disfrutar!</p> 
 
             <!--Formulario-->
-            <form class="row g-3 needs-validation was-validated" novalidate="">
-              <div class="col-md-4">
-                <label for="validationCustom01" class="form-label">Nombre</label>
-                <input type="text" class="form-control" id="validationCustom01" required="">
-                <div class="invalid-feedback">
-                  Por favor elige un email valido.
-                </div>
-              </div>
-              <div class="col-md-4">
-                <label for="validationCustom02" class="form-label">Email</label>
-                <input type="text" class="form-control" id="validationCustom02" required="">
-                <div class="invalid-feedback">
-                  Por favor elige un nombre valido.
-                </div>
-              </div>
-              <div class="col-md-4">
-                <label for="validationCustomUsername" class="form-label">Contraseña</label>
-                <div class="input-group has-validation">
-                  <input type="text" class="form-control" id="validationCustomUsername" aria-describedby="inputGroupPrepend" required="">
-                  <div class="invalid-feedback">
-                    Por favor elige una contraseña valida.
-                  </div>
-                </div>
-              </div>
-              <div class="col-12">
-                <div class="form-check">
-                  <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required="">
-                  <label class="form-check-label" for="invalidCheck">
-                    Agree to terms and conditions
-                  </label>
-                  <div class="invalid-feedback">
-                    You must agree before submitting.
-                  </div>
-                </div>
-              </div>
-              <div class="col-12">
-                <button class="btn btn-primary" type="button" onclick="js/Validation.js();">Crear cuenta</button>
-              </div>
-            </form>
-              <!--Final del formulario-->
+            <div id="form-container">
+            
+      
+              <label for="nombre" class="label_sign_in">Nombre</label>
+              <input type="text" class="input_sign_in" id="nombre" name="nombre">
+              <div class="error-message" id="nombre-error"></div>
 
-            <button><p>Continuar con google</p></button>
-        </main> 
+              <label for="email" class="label_sign_in">Email</label>
+              <input type="text" class="input_sign_in" id="email" name="email">
+              <div class="error-message" id="email-error"></div>
+          
+              <label for="password" class="label_sign_in">Contraseña</label>
+              <div style="display: flex;">
+                <input type="password" class="input_sign_in" id="password" name="password">
+                <button id="show-password" onclick="togglePasswordVisibility()" class="boton_ojo"><img src="img/Sign-in/eye.svg"></button>
+              </div>
+              <div class="error-message" id="password-error"></div>
+          
+              <button onclick="validarFormulario()" class="boton_crear_cuenta">Regístrate</button>
+            </div>
+            <!--Final del formulario-->
+
+            <!--Boton de continuar con google-->
+            <div class="continuar_con_google">
+            <a class="enlace_home_google" href="home.html">
+              <button type="button" class="continuar_con_google_boton"><p>Continuar con google <img src="img/Sign-in/icon google.svg"> </p></button>
+            </a>
+            </div>
+            
+
+            <!--Enlace a inicio de sesion-->
+            <p class="enlace_inicio_sesion">¿Ya tienes una cuenta?   <a class="enlace_log_in" href="/Log_in.html">Inicia sesión</a></p>
+          </div>
+        </main>
+      </div>
+      <!--Final bloque izquierda-->
+
+      <!--Inicio bloque derecha-->
+      <div class="bloque_derecha">
+        <img class="imagen_invisible" src="/img/Sign-in/invisible.png">
+      </div> 
+      <!--Final bloque derecha-->
     </body>
 </html>

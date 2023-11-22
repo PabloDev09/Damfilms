@@ -1,0 +1,101 @@
+.body_Log_in{
+    margin: 0;
+    height:auto;
+    width:auto;
+    background: rgb(0,0,0);
+    background: linear-gradient(180deg, rgba(32,32,32,1) 35%, rgba(84,84,84,1) 100%);
+    background-repeat: no-repeat;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: white;
+    font-size: 18px;
+}
+.input_log_in{
+    width: 100%;
+    padding: 8px;
+    box-sizing:border-box;
+    background-color: transparent;
+    color: white;
+    border-color: #ffffff;
+    border-radius: 5px;
+    height: 45px;
+    font-size: 18px;
+    display: flex;
+}
+.label_log_in{
+    display: block;
+    margin-bottom: 8px;
+    padding-top: 20px;
+}
+#form-container {
+    width: 400px;
+    padding: 20px;
+    border:none;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+  }
+  .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+.boton_inicio_sesion {
+    background-color: rgb(255, 145, 77);
+    color: white;
+    border: none;
+    border-radius: 20px;
+    padding-left: 75px;
+    padding-right: 75px;
+    padding-bottom: 20px;
+    padding-top: 20px;
+    font-size: 18px;
+    margin-top: 20px;
+  }
+
+  .boton_inicio_sesion:hover {
+    background-color: rgb(255, 126, 51);
+    cursor: pointer;
+  }
+  .Iniciar_sesión{
+    font-size: 30px;
+  }
+.logo_log_in{
+  padding: 30px;
+}
+.registrate_log_in{
+  color: white;
+}
+.error-message{
+  color: red;
+  padding: 5px;
+}
+.boton_ojo{
+  background-color: transparent;
+  border-color: transparent;
+  border-radius: 5px;
+}
+.boton_ojo:hover{
+  background-color: white;
+}
+
+/*Estilo del footer */
+
+.footer-enlace{
+  text-decoration: none;
+  color:rgb(194, 189, 189);
+}
+
+a a:link {
+  text-decoration: none;
+}
+
+.antifloater-djg{
+  clear: both;
+  margin-top: auto;
+}
+
+.footer-djg{
+  color:#aaa0a0;
+  background: linear-gradient(180deg, rgba(70, 70, 70, 0.2) 0%, rgba(84, 84, 84, 0.90) 40%, rgba(32, 32, 32, 1) 100%);
+}
