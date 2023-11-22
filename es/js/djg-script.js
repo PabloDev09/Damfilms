@@ -9,6 +9,7 @@ var bigbox = document.querySelector('#big-box'); // Selecciona la caja general
 var popular = document.querySelector('#popular-row'); // Selecciona el div de populares
 var newest = document.querySelector('#newest-row'); // Selecciona el div de novedades
 var explore = document.querySelector('#explore-row'); // Selecciona el div de explorar
+var modalBox = document.querySelector('#modalBox'); // Selecciona el div de explorar
 var minimalPopularity = 9;
 var movieGenre;  
 var movieType = undefined;
@@ -25,6 +26,7 @@ function filterType(type){
 for (var i in films) {  /* por cada clave presente en films hace un ciclo.*/
 
 
+
     // Rellena recientes.
     if (films[i].release >= recentYear) {
         console.log(films[i].release)
@@ -33,9 +35,11 @@ for (var i in films) {  /* por cada clave presente en films hace un ciclo.*/
     
     /* le agrega este HTML con valores extraidos de films*/
     newest.innerHTML = ` 
+    <!-- LLAMADA AL MODAL -->
+    <button type="button" class="sin-borde" data-bs-toggle="modal" data-bs-target="#showcase${i}">
     <div id="newestFilmCard${i}" class="boxes">
         <div class="box-content">
-                <div class="box-content-son" onclick="showPopup(${i})">
+                <div class="box-content-son">
                     <h5 class="titulopelicula">${films[i].title}</h5>
                     <p class="duracion">
                     ${films[i].duration}
@@ -45,7 +49,9 @@ for (var i in films) {  /* por cada clave presente en films hace un ciclo.*/
                     </p> 
                 </div> 
             </div>
-        </div>` + fetch; /* se actualiza el contenido conocido. Si antes habia 0 elementos, lo lee y sabrá que ahora hay 1 mas.*/
+        </div>
+        </button>
+        ` + fetch; /* se actualiza el contenido conocido. Si antes habia 0 elementos, lo lee y sabrá que ahora hay 1 mas.*/
 
     /*aplica una imagen de fondo a los contenedores*/
     var bgimg = document.getElementById(`newestFilmCard${i}`)
@@ -60,9 +66,10 @@ for (var i in films) {  /* por cada clave presente en films hace un ciclo.*/
     
     /* le agrega este HTML con valores extraidos de films*/
     popular.innerHTML = ` 
+    <button type="button" class="sin-borde" data-bs-toggle="modal" data-bs-target="#showcase${i}">
     <div id="popularFilmCard${i}" class="boxes">
         <div class="box-content">
-                <div class="box-content-son" onclick="showPopup(${i})">
+                <div class="box-content-son">
                     <h5 class="titulopelicula">${films[i].title}</h5>
                     <p class="duracion">
                     ${films[i].duration}
@@ -72,7 +79,9 @@ for (var i in films) {  /* por cada clave presente en films hace un ciclo.*/
                     </p> 
                 </div> 
             </div>
-        </div>` + fetch; /* se actualiza el contenido conocido. Si antes habia 0 elementos, lo lee y sabrá que ahora hay 1 mas.*/
+        </div>
+        </button>
+        ` + fetch; /* se actualiza el contenido conocido. Si antes habia 0 elementos, lo lee y sabrá que ahora hay 1 mas.*/
 
     /*aplica una imagen de fondo a los contenedores*/
     var bgimg = document.getElementById(`popularFilmCard${i}`)
@@ -83,6 +92,8 @@ for (var i in films) {  /* por cada clave presente en films hace un ciclo.*/
         
         /* le agrega este HTML con valores extraidos de films*/
         explore.innerHTML = ` 
+
+        <button type="button" class="sin-borde" data-bs-toggle="modal" data-bs-target="#showcase${i}">
         <div id="cards${i}" class="boxes">
             <div class="box-content">
                     <div class="box-content-son" onclick="showPopup(${i})">
@@ -95,7 +106,9 @@ for (var i in films) {  /* por cada clave presente en films hace un ciclo.*/
                         </p> 
                     </div> 
                 </div>
-            </div>` + fetch; /* se actualiza el contenido conocido. Si antes habia 0 elementos, lo lee y sabrá que ahora hay 1 mas.*/
+            </div>
+            </button>      
+            ` + fetch; /* se actualiza el contenido conocido. Si antes habia 0 elementos, lo lee y sabrá que ahora hay 1 mas.*/
 
         /*aplica una imagen de fondo a los contenedores*/
         var bgimg = document.getElementById(`cards${i}`)
@@ -117,6 +130,7 @@ function setFilterValue() {
             
             /* le agrega este HTML con valores extraidos de films*/
             bigbox.innerHTML = ` 
+            <button type="button" class="sin-borde" data-bs-toggle="modal" data-bs-target="#showcase${i}">
             <div id="cards${i}" class="boxes">
                 <div class="box-content">
                         <div class="box-content-son" onclick="showPopup(${i})">
@@ -129,7 +143,8 @@ function setFilterValue() {
                             </p> 
                         </div> 
                     </div>
-                </div>` + fetch; /* se actualiza el contenido conocido. Si antes habia 0 elementos, lo lee y sabrá que ahora hay 1 mas.*/
+                </div>
+                </button>` + fetch; /* se actualiza el contenido conocido. Si antes habia 0 elementos, lo lee y sabrá que ahora hay 1 mas.*/
 
             /*aplica una imagen de fondo a los contenedores*/
             var bgimg = document.getElementById(`cards${i}`)
@@ -150,6 +165,7 @@ function showAll() {
             
             /* le agrega este HTML con valores extraidos de films*/
             bigbox.innerHTML = ` 
+            <button type="button" class="sin-borde" data-bs-toggle="modal" data-bs-target="#showcase${i}">
             <div id="cards${i}" class="boxes">
                 <div class="box-content">
                         <div class="box-content-son" onclick="showPopup(${i})">
@@ -162,7 +178,8 @@ function showAll() {
                             </p> 
                         </div> 
                     </div>
-                </div>` + fetch; /* se actualiza el contenido conocido. Si antes habia 0 elementos, lo lee y sabrá que ahora hay 1 mas.*/
+                </div>
+                </button>` + fetch; /* se actualiza el contenido conocido. Si antes habia 0 elementos, lo lee y sabrá que ahora hay 1 mas.*/
 
             /*aplica una imagen de fondo a los contenedores*/
             var bgimg = document.getElementById(`cards${i}`)
@@ -172,6 +189,52 @@ function showAll() {
               
     }
 }
+
+
+
+// ESTE BUCLE FOR SOLO SIRVE PARA DIBUJAR LOS MODALES OCULTOS HASTA SU LLAMADA.
+for (var i in films) { 
+
+    var fetchy = modalBox.innerHTML; /* Selecciona el contenido actual del contenedor "movie-box-container".*/
+    
+    /* le agrega este HTML con valores extraidos de films*/
+    modalBox.innerHTML = ` 
+    
+    <!-- MODAL QUE SE DIBUJA -->
+
+    <div class="modal fade" id="showcase${i}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true"> <!-- nombre al que responde -->
+    
+        <div class="modal-dialog"> <!-- modo de respuesta -->
+    
+            <div class="modal-content"> <!-- caja de contenido -->
+
+                <!-- HEADER DEL MODAL (OPCIONAL) -> SI BORRAS PIERDES LA X PARA CERRAR -->
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">${films[i].title}</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+
+                <!-- CUERPO REAL DEL FOOTER (OBLIGATORIO) -> SI BORRAS PIERDES TODO -->
+                <div class="modal-body">
+
+                <!-- AQUI VA EL CONTENIDO DEL MODAL -->
+
+                <img src="img/posters/films/${films[i].poster}.jpg">   
+                      
+                </div>
+
+                <!-- FOOTER DEL MODAL (OPCIONAL) -> SI BORRAS NO CREO QUE PASE NADA -->
+                <div class="modal-footer">
+                    <!--<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save changes</button>-->
+                </div>
+
+            </div>
+        </div> <!-- CIERRA EL DIALOGO MODAL -->
+    </div> <!-- CIERRA EL MODAL ENTERO -->
+        ` + fetchy; /* se actualiza el contenido conocido. Si antes habia 0 elementos, lo lee y sabrá que ahora hay 1 mas.*/
+}
+
 
 document.getElementById('actionButton').addEventListener('click', function() { filterGenre("Acción"); setFilterValue();}); // Event listener que contiene una función que invoca otra función para psarale parametros. 
 document.getElementById('adventureButton').addEventListener('click', function() { filterGenre("Aventura"); setFilterValue(); });

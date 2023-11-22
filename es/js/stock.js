@@ -105,6 +105,7 @@ export var series = {
   "s20": {"title": "Vikings", "duration": "44 minutos por episodio", "release": 2013, "genre1": "Acción", "poster": "vikings", "type": "Live action", "popindex": 20},
   "s21": {"title": "Walker Texas Rangers", "duration": "32 minutos por episodio", "release": 1993, "genre1": "Acción", "poster": "texas", "type": "Live action", "popindex": 1}
 }
+/*
 export var films = {
   "f1": 
   "f2":
@@ -186,8 +187,8 @@ export var films = {
   "f78":
   "f79":
   "f80":
+}*/
 
-}
 export var popup = {
       
 }

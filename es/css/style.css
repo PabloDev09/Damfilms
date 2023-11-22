@@ -35,6 +35,17 @@ a a:link {
 
 /* -------------------- COMIENZO: SECCION DE CATALOGO - TOCAR CON CUIDADO -------------------- */
 
+.sin-borde{
+    border-style:none !important;
+    padding: 0 !important;
+    border: none !important;
+    background: none !important;
+    outline: none !important;
+
+}
+
+.sin-borde:focus { outline: none; }
+
 #big-box{
     min-height: 600px;
 }
