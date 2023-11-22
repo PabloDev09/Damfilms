@@ -404,4 +404,35 @@ a a:link {
     background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='orange' viewBox='0 0 8 8'%3E%3Cpath d='M5.25 0l-4 4 4 4 1.5-1.5-2.5-2.5 2.5-2.5-1.5-1.5z'/%3E%3C/svg%3E");
 }
 
+#body{
+    margin: 50px !important;
+    column-count: 2 !important;
+    text-shadow: 2px 2px 8px grey !important;
+   }
+ 
+   #sinopsis{
+    text-shadow: 2px 2px 8px white !important;
+   }
+ 
+   #image{
+    box-shadow: 2px 2px 8px grey !important;
+    margin-bottom: 10px !important;
+    border-radius: 10px !important;
+   }
+ 
+   #button{
+    font-size: 30px !important;
+    padding: 10px 25px !important;
+    border-radius: 30px !important;
+    margin: 25px !important;
+    border: none !important;
+    box-shadow: 2px 2px 8px grey !important;
+    color: white !important;
+    background-color: #FF6A1A !important;
+}
+
+.modal-ml{
+    max-height: 200px !important;
+}
+
 /* -------------------- FINAL SECCION DE HOME -------------------- */

@@ -204,29 +204,41 @@ for (var i in films) {
 
     <div class="modal fade" id="showcase${i}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true"> <!-- nombre al que responde -->
     
-        <div class="modal-dialog"> <!-- modo de respuesta -->
+        <div class="modal-dialog modal-lg"> <!-- modo de respuesta -->
     
-            <div class="modal-content"> <!-- caja de contenido -->
-
-                <!-- HEADER DEL MODAL (OPCIONAL) -> SI BORRAS PIERDES LA X PARA CERRAR -->
-                <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="exampleModalLabel">${films[i].title}</h1>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-
+            <div class="modal-content" style ="background: rgb(0,0,0); background: linear-gradient(180deg, rgba(32,32,32,1) 35%, rgba(84,84,84,1) 100%);"> <!-- caja de contenido -->
+                    
                 <!-- CUERPO REAL DEL FOOTER (OBLIGATORIO) -> SI BORRAS PIERDES TODO -->
                 <div class="modal-body">
 
-                <!-- AQUI VA EL CONTENIDO DEL MODAL -->
+                <div id="body">
 
-                <img src="img/posters/films/${films[i].poster}.jpg">   
+        <header id="header">
+
+              <br>
+
+                <h1><font size="100" color="white">${films[i].title}</font></h1>
+                <h2><font color="FF6A1A">Géneros</font></h2>
+        </header>
+
+        <section id="sinopsis">
+            <p><font color ="white">Aquí va la sinopsis</font></p>
+        </section>
+
+        <section id="image">
+            <img src="img/posters/films/${films[i].poster}.jpg" align="left" width="350px" height="550" id="image">
+        </section>
+
+        <br>
+
+        <section id="buttons" align="center">
+            <input type="button" id="button" value="Ver ahora"/>
+            <input type="button" id="button" value="Seguir viendo"/>
+            <input type="button" id="button" value="Episodios"/>
+        </section>
+
+            </div> 
                       
-                </div>
-
-                <!-- FOOTER DEL MODAL (OPCIONAL) -> SI BORRAS NO CREO QUE PASE NADA -->
-                <div class="modal-footer">
-                    <!--<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Save changes</button>-->
                 </div>
 
             </div>
