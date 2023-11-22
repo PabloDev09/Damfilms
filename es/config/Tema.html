@@ -24,16 +24,17 @@
 
         <!-- Damfilms stylesheet --> 
         <!-- SI QUIERES PERSONALIZAR ALGO MAS ALLÁ DE LO QUE ESTABLECE BOOTSTRAP UTILIZA ESTA HOJA DE ESTILOS | ¡CUIDADO CON LOS CONFLICTOS CSS!-->
-        <link rel="stylesheet" href="css/style.css" TYPE="text/css">
+        <link rel="stylesheet" href="../css/style.css" TYPE="text/css">
         <!-- OBTENER ESTILOS DE LA NAVBAR!-->
-        <link rel="stylesheet" href="css/navbar.css" TYPE="text/css">
+        <link rel="stylesheet" href="../css/navbar.css" TYPE="text/css">
+        <link rel="stylesheet" href="Estilos/alineacion.css">
     </head>
 
 
 
     <!--  BODY -->
     <body>
-    <div id="arribaX"></div>
+
         <!-- Navbar -->
     <nav class="navbar navbar-expand-lg ">
 
@@ -53,27 +54,27 @@
                     <!-- SECCION QUE SE COLAPSA LLAMDA navbarTogglerDemo01 -->
                     <div class="collapse navbar-collapse" id="navbarTogglerDemo01" style="justify-content: start;">
 
-                        <a class="navbar-brand" href="home.html"><img src="img/Logo.png"></a>
+                        <a class="navbar-brand" href="../index.html"><img src="img/Logo.png"></a>
 
                         <!-- lista de objetos que se colapsan.-->
                         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                             <li class="nav-item-left">
-                                <a class="nav-link active" aria-current="page" href="home.html">
+                                <a class="nav-link active" aria-current="page" href="../home.html">
                                     <div id="home-icon">Home</div>
                                 </a>
                             </li>
                             <li class="nav-item-left">
-                                <a class="nav-link active" href="catalog-series.html"> <!-- INTRODUCIR LOS ENLACES A LAS PAGINAS PERTINENTES -->
+                                <a class="nav-link active" href="../catalog.html"> <!-- INTRODUCIR LOS ENLACES A LAS PAGINAS PERTINENTES -->
                                     <div id="series-icon">Series</div>
                                 </a>
                             </li>
                             <li class="nav-item-left">
-                                <a class="nav-link active" href="catalog-movies.html"> <!-- INTRODUCIR LOS ENLACES A LAS PAGINAS PERTINENTES -->
+                                <a class="nav-link active" href="../catalog.html"> <!-- INTRODUCIR LOS ENLACES A LAS PAGINAS PERTINENTES -->
                                     <div id="films-icon">Películas</div>
                                 </a>
                             </li>
                             <li class="nav-item-left">
-                                <a class="nav-link active" href="catalog-documentals.html" > <!-- INTRODUCIR LOS ENLACES A LAS PAGINAS PERTINENTES -->
+                                <a class="nav-link active" href="../catalog.html" > <!-- INTRODUCIR LOS ENLACES A LAS PAGINAS PERTINENTES -->
                                     <div id="documentals-icon">Documentales</div>
                                 </a>
                             </li>
@@ -97,8 +98,8 @@
                             </a>
         
                             <ul class="dropdown-menu dropdown-menu-end">
-                                <li><a class="dropdown-item" href="config.html">Ajustes</a></li>                            
-                                <li><a class="dropdown-item" href="index.html">Cerrar Sesión</a></li>
+                                <li><a class="dropdown-item" href="../config_principal.html">Ajustes</a></li>                            
+                                <li><a class="dropdown-item" href="#">Cerrar Sesión</a></li>
                             </ul>
                             
                         </li>
@@ -113,52 +114,92 @@
 
         <!-- Main content-->
         <main>
-          <!-- CAJA DE PRUEBAS, BORRAR -->
-          
-          <div style="height: 1000px; width: 100%;"> 
-            
-          </div>
+            <div>
+                <h1 class="centro" style="color:white">Temas</h1>
+                <p class="centro" style="color:white; font-size: 30px">¡Elige el tema que más te guste!</p>
+                <div class="row" style="width: 85%; margin-left: 8%;">
+                    <div class="col-sm-6" >
+                      <div class="card">
+                        <div class="card-body">
+                          <h4 class="card-title; centro"><i class="bi bi-brightness-high-fill" style="color: rgb(242, 203, 46); font-size: 30px;"></i> Tema claro</h4>
+                          <br>
+                          <ul style="font-size: 23px" type="#252525">
+                            <li>Colores más claros que en el modo oscuro.</li>
+                            <br>
+                            <li>Más adecuado para entornos luminosos.</li>
+                            <br>
+                            <li>Mayor brillo que en el modo oscuro.</li>
+                            <br>
+                            <li>Adecuado para horario diurno.</li>
+                            <br>
+                          </ul>
+                          <div class="centro" style="font-size: 20px;">
+                            <button class="btn-2">Activar</button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-sm-6" style="width: 50%">
+                      <div class="card" style="background-color: #252525;">
+                        <div class="card-body">
+                          <h4 class="card-title; centro" style="color: white;"><i class="bi bi-moon-stars-fill" style="color: rgb(242, 203, 46);"></i> Tema oscuro</h4>
+                          <br>
+                          <ul style="font-size: 23px; color: white;">
+                            <li>Colores más oscuros que en el modo claro.</li>
+                            <br>
+                            <li>Más adecuado para entornos oscuros.</li>
+                            <br>
+                            <li>Menor brillo que en el modo claro.</li>
+                            <br>
+                            <li>Adecuado para horario nocturno.</li>
+                            <br>
+                          </ul>
+                          <div class="centro" style="font-size: 20px;">
+                            <button class="btn-2">Activar</button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+            </div>
         </main>
-
-
         <!-- FOOTER SPACE CONTROL DIV - BORRAR SI EL FOOTER INTERFIERE CON EL CONTENIDO DE TU PAGINA - SI NO ENTIENDES PREGUNTA A DAVID -->
         <div class="clear-djg"></div>
 
         <!-- Footer and infoboxes section -->
-        <footer class="container-fluid fixed-bottom footer-djg" >
-
+        <footer class="container-fluid  footer-djg">
 
             <!-- FOOTER COLUMNS ROW - THIS ROW CONTAINS THE FOOTER COLUMNS -->
-            <div class="row mx-auto pt-4 pb-2" style="font-size: 9pt;">
+            <div class="row mx-auto pt-3 pb-1" style="font-size: 9pt;">
 
-                <!-- FOOTER COOKIES COLUMN -->
-                <div class="col-md-2 col-lg-3  ms-md-auto align-self-end p-1 mx-auto"> 
+                <!-- FOOTER COOKIES COLUMN (LEFT) -->
+                <div class="col-md-4 col-lg-3  ms-md-auto align-self-end p-2 mx-auto"> 
                     <!-- INTRODUCIR TEXTO DEFINITIVO Y BORRAR LOREM IPSUM -->
-                    <center><a class="footer-enlace" href="#arribaX">Volver arriba</a></center>
+                    Lorem Ipsum es simplemente el texto de relleno de las imprentas 
+                    y archivos de texto. Lorem Ipsum ha sido el texto de relleno 
+                    estándar de las industrias desde el año 1500, cuando un impresor 
+                    (N. del T. persona que se dedica a la imprenta) desconocido usó 
+                    una galería de textos y los mezcló de tal manera que logró hacer
                 </div>
 
-                <!-- FOOTER COPYRIGHT COLUMN -->
-                <div class="col-md-2 col-lg-2  ms-md-auto align-self-end p-1 mx-auto"> 
+                <!-- FOOTER COPYRIGHT COLUMN (MIDDLE)-->
+                <div class="col-md-4 col-lg-3  ms-md-auto align-self-end p-2 mx-auto"> 
                     <!-- INTRODUCIR TEXTO DEFINITIVO Y BORRAR LOREM IPSUM -->
-                    <center><a class="footer-enlace" href="eula.html#copyright">Copyright © 2023</a></center>
+                    Lorem Ipsum es simplemente el texto de relleno de las imprentas 
+                    y archivos de texto. Lorem Ipsum ha sido el texto de relleno 
+                    estándar de las industrias desde el año 1500, cuando un impresor 
+                    (N. del T. persona que se dedica a la imprenta) desconocido usó 
+                    una galería de textos y los mezcló de tal manera que logró hacer 
                 </div>
 
-                <!-- FOOTER LINKS COLUMN (FAR RIGHT) -->
-                <div class="col-md-2 col-lg-2  ms-md-auto align-self-end p-1 mx-auto"> 
+                <!-- FOOTER LINKS COLUMN (RIGHT) -->
+                <div class="col-md-4 col-lg-3  ms-md-auto align-self-end p-2 mx-auto"> 
+                    <a href="#arriba">Ir arriba.<br/></a>
                     <!-- INTRODUCIR TEXTO DEFINITIVO Y BORRAR LOREM IPSUM -->
-                    <center><a class="footer-enlace" href="eula.html#cookies">Cookies y seguimiento</a></center>
-                </div>
-
-                <!-- FOOTER LINKS COLUMN (FAR RIGHT) -->
-                <div class="col-md-2 col-lg-2  ms-md-auto align-self-end p-1 mx-auto"> 
-                    <!-- INTRODUCIR TEXTO DEFINITIVO Y BORRAR LOREM IPSUM -->
-                    <center><a class="footer-enlace" href="eula.html#politica">Politica de datos</a></center>
-                </div>
-
-                <!-- FOOTER LINKS COLUMN (FAR RIGHT) -->
-                <div class="col-md-3 col-lg-3  ms-md-auto align-self-end p-1 mx-auto"> 
-                    <!-- INTRODUCIR TEXTO DEFINITIVO Y BORRAR LOREM IPSUM -->
-                    <center><a class="footer-enlace" href="eula.html#terminos">Terminos y condiciones</a></center>
+                    Lorem Ipsum es simplemente el texto de relleno de las imprentas 
+                    y archivos de texto. Lorem Ipsum ha sido el texto de relleno 
+                    estándar de las industrias desde el año 1500, cuando un impresor 
+                    (N. del T. persona que se dedica a la imprenta) desconocido usó 
+                    una galería de textos y los mezcló de tal manera que logró hacer
                 </div>
 
             </div>

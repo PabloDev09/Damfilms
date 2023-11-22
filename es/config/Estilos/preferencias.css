@@ -1,0 +1,283 @@
+/* -------------------- COMIENZO: SECCION DE BODY -------------------- */
+body{
+    height:auto;
+    width:auto;
+    background: rgb(0,0,0);
+    background: linear-gradient(180deg, rgba(32,32,32,1) 35%, rgba(84,84,84,1) 100%);
+    background-attachment: fixed;
+}
+/* ------------------------ FINAL SECCION DE BODY ---------------------- */
+/* -------------------- COMIENZO: SECCION DE FOOTER - TOCAR CON CUIDADO-------------------- */
+.antifloater-djg{
+    clear: both;
+}
+
+.footer-djg{
+    color:#aaa0a0;
+    background: linear-gradient(180deg, rgba(70, 70, 70, 0) 0%, rgb(84, 84, 84) 15%, rgba(32,32,32,1) 100%);
+}
+/* -------------------------------- FINAL SECCION DE FOOTER -------------------------------- */
+/* -------------------- COMIENZO: SECCION DE CATALOGO - TOCAR CON CUIDADO -------------------- */
+
+
+/*----- CATALOGO - ESTILO POSTERS AUTOMATICOS - CATALOGO  -----*/
+
+/* CONTENEDOR DE SECCIONES POSTER*/
+.movie-box-container .movie-box-container2{ 
+    width:100%;
+    margin: auto;
+    padding-top: 20px;
+    background-color: rgb(71, 185, 185);
+}
+
+/* CAJA CONTENEDORA DE OBJETO PELICULA */
+.boxes{
+    height: 244px;
+    width: 174px;
+    border-style: solid;
+    border-width: 2px;
+    border-color: rgb(255, 166, 0);
+    float:left;
+    margin: 8px 8px 8px 8px;
+    color: rgba(255, 255, 255, 0);  
+    text-align: center;  
+}
+
+/* CAJA HIJA DE OBJETO POSTER*/
+.box-content-son{
+    text-align:center;
+    height: 240px;
+    width: 170px;
+}
+/*efecto on hover de poster*/
+.box-content-son:hover{
+    transition-duration: 0.3s;
+    box-shadow: 0 0 25px orange;
+    color: rgb(255, 255, 255);  
+    background-image: linear-gradient( rgba(0, 0, 0, 0.901) 35%, rgba(0, 0, 0, 0.205) 100%);
+    }
+/*TEXTO POSTER*/
+.titulopelicula{
+    padding:10px;
+}
+.duracion{
+    font-size: 10pt;
+}
+.fechasalida{
+    font-weight: bold;
+    font-size: 9pt;
+}
+
+/*------------------------------  POSTERS AUTOMATICOS  ------------------------------*/
+
+/*CAJA QUE CONTIENE LOS BOTONES DE FILTRADO*/
+#filterBox{
+    margin-top: 30px;
+    color: white;
+    width:100%;
+    height: 50px;
+}
+
+/* BOTONES DE FILTROS*/
+#genreDropDown {
+    background-color: rgb(255, 166, 0);
+    color: black;
+}
+
+/*ESTILO DE OBJETOS DE MENU FILTRO*/
+#DropDownItem{
+    color: black;
+    background-color: rgb(250, 200, 139);
+}
+
+.dropdown{
+    float:left;
+    margin-left: 10px;
+}
+
+/* PROPIEDADES TITULOS DE CAJA */
+.tituloseccion-djg{
+    margin-left:10px;
+    margin-bottom: 0px;
+}
+
+/* Caja de peliculas con borde naranja*/
+.movie-box{
+    height: 244px;
+    width: 174px;
+    background-color: rgb(0, 0, 0);
+    border-style: solid;
+    border-width: 2px;
+    border-color: rgb(255, 166, 0);
+    float:left;
+    margin: 8px 8px 8px 8px;
+    color: white;     
+}
+
+/* Efecto resplandor para caja peliculas*/
+.movie-box :hover{
+    box-shadow: 0 0 25px orange;
+    color: black;
+}
+
+/* Caja de peliculas con borde naranja*/
+.movie-box-djg{
+    height: 244px;
+    width: 174px;
+    background-color: rgb(0, 0, 0);
+    border-style: solid;
+    border-width: 2px;
+    border-color: rgb(255, 166, 0);
+    float:left;
+    margin: 8px 8px 8px 8px;
+    color: white;     
+}
+
+/* -------------------------------- FINAL SECCION DE CATALOGO -------------------------------- */
+
+/* ------------------------------------ SECCION DE AJUSTES ----------------------------------- */
+/* Ajustes */
+#ajustesedad {
+    background-image: url('FONDO.png');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    color: #FFFFFF
+}
+#barrajuste {
+    height:12px;
+    border-width:0;
+    background-color:#FFFFFF;
+}
+/* Botones de toggle
+/* The switch - the box around the slider */
+#switchnino {
+    position: relative;
+    display: inline-block;
+    float: right;
+    width: 60px;
+    height: 34px;
+    }
+    
+    /* Hide default HTML checkbox */
+    #switchnino input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+    }
+    
+    /* The slider */
+    #slidernino {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+    }
+    
+    #slidernino:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+    }
+    
+    input:checked + #slidernino {
+    background-color: #f3d421;
+    }
+    
+    input:focus + #slidernino {
+    box-shadow: 0 0 1px #f3d421;
+    }
+    
+    input:checked + #slidernino:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+    }
+    
+    /* Rounded sliders */
+    #slidernino.round {
+    border-radius: 34px;
+    }
+    
+    #slidernino.round:before {
+    border-radius: 50%;
+    }
+    
+    /* The switch - the box around the slider */
+    #switchadu {
+        position: relative;
+        display: inline-block;
+        float: right;
+        width: 60px;
+        height: 34px;
+        }
+        
+        /* Hide default HTML checkbox */
+        #switchadu input {
+        opacity: 0;
+        width: 0;
+        height: 0;
+        }
+        
+        /* The slider */
+        #slideradu {
+        position: absolute;
+        cursor: pointer;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: #ccc;
+        -webkit-transition: .4s;
+        transition: .4s;
+        }
+        
+        #slideradu:before {
+        position: absolute;
+        content: "";
+        height: 26px;
+        width: 26px;
+        left: 4px;
+        bottom: 4px;
+        background-color: white;
+        -webkit-transition: .4s;
+        transition: .4s;
+        }
+        
+        input:checked + #slideradu {
+        background-color: #f321bf;
+        }
+        
+        input:focus + #slideradu {
+        box-shadow: 0 0 1px #f321bf;
+        }
+        
+        input:checked + #slideradu:before {
+        -webkit-transform: translateX(26px);
+        -ms-transform: translateX(26px);
+        transform: translateX(26px);
+        }
+        
+        /* Rounded sliders */
+        #slideradu.round {
+        border-radius: 34px;
+        }
+        
+        #slideradu.round:before {
+        border-radius: 50%;
+        }
+
+        #popupedad {
+        color: #000000;
+        }
