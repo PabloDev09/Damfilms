@@ -106,7 +106,7 @@ export var series = {
   "s21": {"title": "Walker Texas Rangers", "duration": "32 minutos por episodio", "release": 1993, "genre1": "Acción", "poster": "texas", "type": "Live action", "popindex": 1}
 }
 export var films = {
-  "f1":
+  "f1": 
   "f2":
   "f3":
   "f4":
