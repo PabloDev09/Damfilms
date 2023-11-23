@@ -11,15 +11,13 @@ body{
     color:aliceblue 
 }
 .logo_sign_in{
-    padding-top: 40px;
-    padding-left: 20px;
+  margin: 5%;
 }
 .Crea_una_cuenta{
-    padding-left: 20px;
-    padding-top: 10px;
+   margin: 5%;
 }
 .Empieza{
-    padding-left: 20px;
+    margin-left: 5%;
 }
 .formulario{
     padding-left: 20px;
@@ -28,12 +26,11 @@ body{
    background-color: transparent;
 }
 .enlace_inicio_sesion{
-    padding-left: 20px;
-    padding-top: 10px;
+   margin: 5%;
 }
 #form-container {
-    padding: 20px;
-    width: 300px;
+    margin:5% ;
+    width: 50%;
   }
 
 .label_sign_in {
@@ -53,18 +50,21 @@ body{
     font-size: 18px;
     display: flex;
   }
+  .crear_cuenta{
+    margin: 1%;
+    margin-top: 6%;
+  }
 
   .boton_crear_cuenta {
     background-color: rgb(255, 145, 77);
     color: white;
+    padding: 6%;
     border: none;
     border-radius: 20px;
-    padding-left: 185px;
-    padding-right: 185px;
-    padding-bottom: 20px;
-    padding-top: 20px;
+    width: 155%;
     font-size: 18px;
-    
+    display: flex;
+    justify-content: center;
   }
 
   .boton_crear_cuenta:hover {
@@ -77,25 +77,25 @@ body{
     padding: 10px;
   }
   .boton_ojo{
-    background-color: transparent;
+    background-color: white;
     border-color: transparent;
-    border-radius: 5px;
+    border-radius: 20%;
   }
   .boton_ojo:hover{
-    background-color: white;
+    background-color: rgb(255, 126, 51);
   }
   .continuar_con_google{
-    padding-left: 20px;
-    padding-top: 10px;
+    margin-left: 5%;
+    margin-top: 5%;
   }
   .continuar_con_google_boton{
-    padding: 10px;
+    padding: 0.1%;
     border: none;
     border-radius: 20px;
-    padding-left: 130px;
-    padding-right: 130px;
+    width: 80%;
     font-size: 18px;
-    display: flex;
+    display: flex;  
+    justify-content: center;
   }
   .continuar_con_google_boton:hover{
     background-color: rgba(255, 255, 255, 0.418);

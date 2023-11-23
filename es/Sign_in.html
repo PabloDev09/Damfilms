@@ -29,8 +29,11 @@
            <img src="img/logo.png" class="logo_sign_in"> 
         
         <main class="MainSign-in"> 
+
+          <div class="container">
             <h1 class="Crea_una_cuenta"> Crea una cuenta </h1> 
             <p class="Empieza"> Empieza a disfrutar!</p> 
+          </div>
 
             <!--Formulario-->
             <div id="form-container">
@@ -50,8 +53,9 @@
                 <button id="show-password" onclick="togglePasswordVisibility()" class="boton_ojo"><img src="img/Sign-in/eye.svg"></button>
               </div>
               <div class="error-message" id="password-error"></div>
-          
-              <button onclick="validarFormulario()" class="boton_crear_cuenta">Regístrate</button>
+                <div class="crear_cuenta">
+                  <button onclick="validarFormulario()" class="boton_crear_cuenta">Regístrate</button>
+                </div>
             </div>
             <!--Final del formulario-->
 

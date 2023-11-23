@@ -28,22 +28,24 @@
 
             <!--Formulario-->
             <div class="container">
-            <div id="form-container">
-                <p class="Iniciar_sesión"><b>Iniciar sesión</b><p>
-                <label for="email" class="label_log_in">Email</label>
-                <input type="text" class="input_log_in" id="email" name="email">
-                <div class="error-message" id="email-error"></div>
-            
-                <label for="password" class="label_log_in">Contraseña</label>
-                <div style="display: flex;">
-                <input type="password" class="input_log_in" id="password" name="password">
-                <button id="show-password" onclick="togglePasswordVisibility()" class="boton_ojo"><img src="img/Sign-in/eye.svg"></button>
+                <div id="form-container">
+                    <p class="Iniciar_sesión"><b>Iniciar sesión</b><p>
+                    <label for="email" class="label_log_in">Email</label>
+                    <input type="text" class="input_log_in" id="email" name="email">
+                    <div class="error-message" id="email-error"></div>
+                
+                    <label for="password" class="label_log_in">Contraseña</label>
+                    <div style="display: flex;">
+                    <input type="password" class="input_log_in" id="password" name="password">
+                    <button id="show-password" onclick="togglePasswordVisibility()" class="boton_ojo"><img src="img/Sign-in/eye.svg"></button>
+                    </div>
+                    <div class="error-message" id="password-error"></div>
+                
+                    <button onclick="validarFormulario()" class="boton_inicio_sesion ">Iniciar sesión</button>
+                    <div class="no_tienes_cuenta">
+                        <p>¿Todavía no tienes cuenta?   <a href="Sign_in.html" class="registrate_log_in">Regístrate</a></p>
+                    </div>
                 </div>
-                <div class="error-message" id="password-error"></div>
-            
-                <button onclick="validarFormulario()" class="boton_inicio_sesion ">Iniciar sesión</button>
-                <p>¿Todavía no tienes cuenta?   <a href="Sign_in.html" class="registrate_log_in">Regístrate</a></p>
-            </div>
             </div>
             <!--Final del formulario-->
 
