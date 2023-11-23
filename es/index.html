@@ -7,7 +7,7 @@
     <head> 
 
         <!-- Page tab title -->
-        <title>Damfilms</title> <!-- INTRODUCE AQUI EL TITULO DE TU SECCION | BORRA ESTE COMENTARIO Ejemplo: " Damfilms - Home "-->
+        <title>Damfilms - Inicio </title>
 
         <!-- Page specific Javascript link -->
         <!-- SI TIENES UN LINK A UN JAVASCRIPT PERSONAL PARA TU PAGINA INTRODUCELO AQUI | BORRA ESTE COMENTARIO -->
@@ -33,98 +33,100 @@
 
     <!--  BODY -->
     <body>
-    <div id="arribaX"></div>
-       <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg ">
+      <div id="arribaX">
 
-        <!-- container fluido que aloja la ROW porque las Row deben de estar en un contairer.-->
-        <div class="container-fluid">
-
-            <!-- row que contiene las 12 columnas en las que se subdivide la navbar-->
-            <div class="row" style="width:100%;">
-
-                <!-- 8 Columnas para enlaces de navegacion de la navbar-->
-                <div class="col-11 container-left">
-                     <!-- BOTON TRAS EL CUAL SE ESCONDE LOS MENUS-->
-                    <button class="navbar-toggler" id="navbar" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon navbar-dark"></span>
-                    </button>
-
-                    <!-- SECCION QUE SE COLAPSA LLAMDA navbarTogglerDemo01 -->
-                    <div class="collapse navbar-collapse" id="navbarTogglerDemo01" style="justify-content: start;">
-
-                        <a class="navbar-brand" href="home.html"><img src="img/Logo.png"></a>
-
-                        <!-- lista de objetos que se colapsan.-->
-                        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                            <li class="nav-item-left">
-                                <a class="nav-link active" aria-current="page" href="home.html">
-                                    <div id="home-icon">Home</div>
-                                </a>
-                            </li>
-                            <li class="nav-item-left">
-                                <a class="nav-link active" href="catalog-series.html"> <!-- INTRODUCIR LOS ENLACES A LAS PAGINAS PERTINENTES -->
-                                    <div id="series-icon">Series</div>
-                                </a>
-                            </li>
-                            <li class="nav-item-left">
-                                <a class="nav-link active" href="catalog-movies.html"> <!-- INTRODUCIR LOS ENLACES A LAS PAGINAS PERTINENTES -->
-                                    <div id="films-icon">Películas</div>
-                                </a>
-                            </li>
-                            <li class="nav-item-left">
-                                <a class="nav-link active" href="catalog-documentals.html" > <!-- INTRODUCIR LOS ENLACES A LAS PAGINAS PERTINENTES -->
-                                    <div id="documentals-icon">Documentales</div>
-                                </a>
-                            </li>
-                        </ul>
-                        <!-- modulo de buscar-->
-                        <form class="d-flex">
-                            <input class="input-search me-2" type="search" placeholder="Buscar" aria-label="Search">
-                            <button class="button-search" type="submit"><img src="img/icons/lupa-64.png"></button>
-                        </form>
-
-                    </div> <!-- cierra el colapso-->
-
-                </div><!-- cierra col1 (links de navegacion)-->
-                
-                <div class="col-1 container-right" >
-                    <ul>
-                        <li class="nav-item-right dropdown">
-        
-                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                <img src="img/icons/user-64.png">
-                            </a>
-        
-                            <ul class="dropdown-menu dropdown-menu-end">
-                                <li><a class="dropdown-item" href="config_principal.html">Ajustes</a></li>                            
-                                <li><a class="dropdown-item" href="index.html">Cerrar Sesión</a></li>
-                            </ul>
-                            
-                        </li>
-                    </ul>            
-
-                </div> <!-- cierra col2 (buscar + perfil)-->
-
-            </div> <!-- cierra el row-->  
-        </div> <!-- Cierra contenedor del Row-->         
-    </nav> <!-- cierra navbar-->
-
+      </div>
         <!-- Main content-->
         <main>
+          <!-- Contenedor principal -->
+          <div class="trasparente">
+            <div id="div-logo">
+              <img style="width: 1250px; height: 250px;" src="img/Logo_inicio.png">
+            </div>
+            <div id="botonInicio1">
+            <a href="Log_in.html">
+              Iniciar Sesión
+            </a>
+            </div>
+          <div id="botonInicio2">
+            <a href="#infoInicio">
+              Registrarse
+            </a>
+          </div>
+          </div>
+            <!-- Carrusel de imágenes -->
+            <div id="carouselExampleSlidesOnly" class="carousel slide" class="carrusel"  data-bs-ride="carousel" wrap="true" data-pause="false" >
+                <div class="carousel-inner imgcarrusel"  >
+                  <div class="carousel-item active">
+                    <img src="img/carrusel 2/carrusel 1.jpg" class="d-block w-100">
+                  </div>
+                  <div class="carousel-item">
+                    <img src="img/carrusel 2/carrusel 2.jpg" class="d-block w-100">
+                  </div>
+                  <div class="carousel-item">
+                    <img src="img/carrusel 2/carrusel 3.jpg" class="d-block w-100">
+                  </div>
+                  <div class="carousel-item">
+                    <img src="img/carrusel 2/carrusel 4.jpeg" class="d-block w-100">
+                  </div>
+                </div>
+              </div>
+              <br>
+            <!-- Información básica de la página -->
+            <div class="infoInicio" id="infoInicio">
+                En nuestra página podrás encontrar las mejores películas y series de la actualidad.
+                <br>
+                Tenemos todo tipo de películas y series, podrás elegir lo que más te guste!
+                <br>
+                Y por supuesto tenemos documentales que te atraparán de seguro.
+                <br>
+                Disfruta de nuestro extenso universo de peliculas y series en Damfilms
+            </div>
+            <br>
 
-            <!-- CAJA DE PRUEBAS, BORRAR -->
-            <div style="height: 1000px; width: 100%;"> 
-            
+            <!-- Módulo de suscripciones -->
+            <div>
+                <h1 style="text-align: center; color: rgb(255, 166, 0); width: 100%; margin-bottom: 40px; font-size: 50px;">SUSCRIPCIONES</h1>
+              <div id="suscripcion_basica">
+                <p style="margin-top: 3%; font-size: 50px;"> Básico </p>
+                <p style="font-size: 80px; font-weight: 700;"> 8,99€ </p>
+                <p style="font-size: 30px; margin-bottom: 25px;"> cuota mensual</p>
+                <a href="Sign_in.html" style="margin-top: 10px; margin-bottom: 10px;"> Empezar </a>
+                <hr style="width: 80%; color: white; margin-left: 10%;margin-top: 25px; margin-right: 10%; border: 3px solid white;">
+                <p style="font-size: 30px;"> Calidad buena </p>
+                <p style="font-size: 30px;"> 720 ppp </p>
+                <p style="font-size: 30px;"> Un dispositivo simultáneo </p>
+                <p style="margin-bottom: 10%; font-size: 30px;"> Sin descargas </p>
+              </div>
+              <div id="suscripcion_estandar">
+                <p style="margin-top: 3%; font-size: 50px;"> Estándar </p>
+                <p style="font-size: 80px; font-weight: 700;"> 12,50€ </p>
+                <p style="font-size: 30px; margin-bottom: 25px;">cuota mensual</p>
+                <a href="Sign_in.html"> Empezar </a>
+                <hr style="width: 80%; margin-left: 10%; margin-right: 10%; margin-top: 25px; border: 3px solid white;">
+                <p style="font-size: 30px;"> Calidad muy buena </p>
+                <p style="font-size: 30px;"> 1080 ppp </p>
+                <p style="font-size: 30px;"> Tres dispositivos simultáneos </p>
+                <p style="margin-bottom: 10%; font-size: 30px;"> Con descargas </p>
+              </div>
+              <div id="suscripcion_premium">
+                <p style="margin-top: 3%; font-size: 50px;"> Premium </p>
+                <p style="font-size: 80px; font-weight: 700;"> 17,99€ </p>
+                <p style="font-size: 30px; margin-bottom: 25px;"> cuota mensual</p>
+                <a href="Sign_in.html"> Empezar </a>
+                <hr style="width: 80%; color: white; margin-top: 25px; margin-left: 10%; margin-right: 10%; border: 3px solid white;">
+                <p style="font-size: 30px;"> Calidad excelente </p>
+                <p style="font-size: 30px;"> 4K + HDR </p>
+                <p style="font-size: 30px;"> Cinco dispositivos simultáneos </p>
+                <p style="margin-bottom: 10%; font-size: 30px;"> Con descargas </p>
+              </div>
+
             </div>
 
         </main>
 
-        <!-- FOOTER SPACE CONTROL DIV - BORRAR SI EL FOOTER INTERFIERE CON EL CONTENIDO DE TU PAGINA - SI NO ENTIENDES PREGUNTA A DAVID -->
-        <div class="clear-djg"></div>
-
         <!-- Footer and infoboxes section -->
-        <footer class="container-fluid fixed-bottom footer-djg" >
+        <footer style="float: left;" class="container-fluid footer-djg" >
 
 
             <!-- FOOTER COLUMNS ROW - THIS ROW CONTAINS THE FOOTER COLUMNS -->
@@ -139,7 +141,7 @@
                 <!-- FOOTER COPYRIGHT COLUMN -->
                 <div class="col-md-2 col-lg-2  ms-md-auto align-self-end p-1 mx-auto"> 
                     <!-- INTRODUCIR TEXTO DEFINITIVO Y BORRAR LOREM IPSUM -->
-                    <center><a class="footer-enlace" href="eula.html#copyright">Copyright © 2023</a></center>
+                    <center><a class="footer-enlace" href="eula.html#copyright">Copyright Â© 2023</a></center>
                 </div>
 
                 <!-- FOOTER LINKS COLUMN (FAR RIGHT) -->
