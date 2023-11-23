@@ -105,89 +105,89 @@ export var series = {
   "s20": {"title": "Vikings", "duration": "44 minutos por episodio", "release": 2013, "genre1": "Acción", "poster": "vikings", "type": "Live action", "popindex": 20},
   "s21": {"title": "Walker Texas Rangers", "duration": "32 minutos por episodio", "release": 1993, "genre1": "Acción", "poster": "texas", "type": "Live action", "popindex": 1}
 }
-/*
-export var films = {
-  "f1": 
-  "f2":
-  "f3":
-  "f4":
-  "f5":
-  "f6":
-  "f7":
-  "f8":
-  "f9":
-  "f10":
-  "f11":
-  "f12":
-  "f13":
-  "f14":
-  "f15":
-  "f16":
-  "f17":
-  "f18":
-  "f19":
-  "f20":
-  "f21":
-  "f22":
-  "f23":
-  "f24":
-  "f25":
-  "f26":
-  "f27":
-  "f28":
-  "f29":
-  "f30":
-  "f31":
-  "f32":
-  "f33":
-  "f34":
-  "f35":
-  "f36":
-  "f37":
-  "f38":
-  "f39":
-  "f40":
-  "f41":
-  "f42":
-  "f43":
-  "f44":
-  "f45":
-  "f46":
-  "f47":
-  "f48":
-  "f49":
-  "f50":
-  "f51":
-  "f52":
-  "f53":
-  "f54":
-  "f55":
-  "f56":
-  "f57":
-  "f58":
-  "f59":
-  "f60":
-  "f61":
-  "f62":
-  "f63":
-  "f64":
-  "f65":
-  "f66":
-  "f67":
-  "f68":
-  "f69":
-  "f70":
-  "f71":
-  "f72":
-  "f73":
-  "f74":
-  "f75":
-  "f76":
-  "f77":
-  "f78":
-  "f79":
-  "f80":
-}*/
+
+export var films_sinopsis = {
+  "f1": {"sinopsis": "Un grupo terrorista se apodera de un edificio de Los Ángeles y toma a un grupo de personas como rehenes. El policía de Nueva York John McClane consigue escapar del acoso terrorista. McClane decide enfrentarse a los secuestradores y se convierte en la única esperanza para los rehenes."},
+  "f2": {"sinopsis": "Tras la guerra termonuclear que ha convertido a la Tierra en un páramo, el antiguo policía Max Rockatansky, atormentado por los espíritus de aquellos a los que no pudo proteger, se ha convertido en un hombre con un solo instinto: sobrevivir. Sin embargo, se ve arrastrado a formar parte de un grupo que huye a través del desierto en un War Rig. Enfurecido, el Señor de la Guerra moviliza a todas sus bandas y persigue implacablemente a Max."},
+  "f3": {"sinopsis": "Torrente es un policía español, machista, racista y alcohólico. Este magnífico representante de las fuerzas del orden vive, con su padre hemipléjico, en Madrid. Gracias a su olfato, descubre en su propio barrio una importante red de narcotraficantes."},
+  "f4": {"sinopsis": "En Nueva York, John Wick, un asesino a sueldo retirado, vuelve otra vez a la acción para vengarse de los gánsteres que le quitaron todo."},
+  "f5": {"sinopsis": "El agente Hunt, acusado de un atentado terrorista, es desautorizado junto con toda la organización, al poner en marcha el Presidente el Protocolo Fantasma. Abandonado sin recursos, Hunt emprende una misión con un equipo formado por fugitivos."},
+  "f6": {"sinopsis": "El general romano Máximo es el soporte más leal del emperador Marco Aurelio, que lo ha conducido de victoria en victoria. Sin embargo, Cómodo, el hijo de Marco Aurelio, está celoso del prestigio de Máximo y aún más del amor que su padre siente por él. Cuando Cómodo llega al poder ordena el arresto del general y su asesinato. Máximo escapa de sus asesinos, pero no puede evitar la muerte de su familia. Entonces se convierte en gladiador para llevar a cabo su venganza."},
+  "f7": {"sinopsis": "Con la ayuda del teniente Jim Gordon y del Fiscal del Distrito Harvey Dent, Batman mantiene a raya el crimen organizado en Gotham. Todo cambia cuando aparece el Joker, un nuevo criminal que desencadena el caos y tiene aterrados a los ciudadanos."},
+  "f8": {"sinopsis": "Mamba Negra es una asesina que, el día de su boda, es atacada por los miembros de la banda de su jefe, Bill. Sin embargo consigue sobrevivir, aunque queda en coma. Cinco años después despierta, con un deseo de venganza."},
+  "f9": {"sinopsis": "El capitán Dodge, al mando de una tripulación que navega en un destartalado submarino, consigue burlar los sofisticados sistemas de la armada."},
+  "f10": {"sinopsis": "Cuatro amigos celebran la despedida de soltero de uno de ellos en Las Vegas. Pero, cuando a la mañana siguiente no pueden encontrar al novio y no recuerdan nada, deberán intentar volver sobre sus pasos, antes de que llegue la hora de la boda."},
+  "f11": {"sinopsis": "El reportero de Kazajistán Borat Sagdiyev es enviado a Estados Unidos por el Gobierno de su país para realizar un reportaje de la que, para Borat, es la nación más maravillosa de la Tierra. El Gobierno pretende que el documental permita mejorar algunos problemas de Kazajistán."},
+  "f12": {"sinopsis": "Un aburrido empleado de banca encuentra una máscara que representa a Loki, un dios de la malicia y la travesura, la cual le transformará por completo."},
+  "f13": {"sinopsis": "Al quedarse en paro, tres doctores en parapsicología crean una empresa para limpiar Nueva York de ectoplasmas. Mítica comedia a cargo de Ivan Reitman."},
+  "f14": {"sinopsis": "Chris es un joven y exitoso fotógrafo afroamericano que, desde hace cinco meses, sale con Rose, una chica blanca. Termina accediendo a la invitación de Rose para conocer a su familia por lo que ella le invita a pasar un fin de semana en el campo con sus padres. Al principio, Chris piensa que el comportamiento complaciente de los padres se debe a su nerviosismo por la relación interracial de su hija, pero todo cambia."},
+  "f15": {"sinopsis": "Durante un vuelo de Los Ángeles a Chicago, gran parte de la tripulación de un avión comercial, incluyendo a los dos pilotos, cae gravemente enferma a consecuencia de una intoxicación alimentaria."},
+  "f16": {"sinopsis": "Un hombre tetraplégico y millonario contrata como cuidador a domicilio a Driss, un inmigrante de un barrio marginal recién salido de la cárcel. Aunque no parece la persona más indicada, congenian hasta forjar una amistad tan sólida como inesperada."},
+  "f17": {"sinopsis": "Sentado en un banco en Savannah, Georgia, Forrest Gump espera al autobús. Mientras éste tarda en llegar, el joven cuenta su vida a las personas que se sientan a esperar con él. Aunque sufre un pequeño retraso mental, esto no le impide hacer cosas maravillosas. Sin entender del todo lo que sucede a su alrededor, Forrest toma partido en los eventos más importantes de la historia de los Estados Unidos."},
+  "f18": {"sinopsis": "Las familias mafiosas de Nueva York entran en conflicto cuando el capo de una de las más poderosas, Vito Corleone, se opone a que la Cosa Nostra entre en el negocio del tráfico de drogas...."},
+  "f19": {"sinopsis": "Jack es un joven artista que gana un pasaje para viajar a América en el Titanic. A bordo del buque conoce a Rose, una chica de clase alta que viaja con su madre y su prometido Cal. Jack y Rose se enamoran a pesar de las trabas que ponen la madre de ella y Cal en su relación. Mientras, el lujoso transatlántico se acerca a un inmenso iceberg."},
+  "f20": {"sinopsis": "Oskar Schindler, un hombre de enorme astucia y talento organiza un ambicioso plan para ganarse la simpatía de los nazis y a la vez poder rescatar a miles de judíos."},
+  "f21": {"sinopsis": "Hugh Glass, un trampero y explorador de finales del siglo XIX resulta herido de muerte por el ataque de un oso. Sus compañeros deciden dejarle para proseguir con la expedición. Glass deberá enfrentarse a un territorio hostil para poder vengarse de quienes lo abandonaron a su suerte, especialmente de la traición llevada a cabo por quien consideraba su fiel confidente."},
+  "f22": {"sinopsis": "Un empleado de oficina insomne en busca de una manera de cambiar su vida se cruza con un vendedor y crean un club de lucha clandestino como forma de terapia."},
+  "f23": {"sinopsis": "En 1939, a punto de estallar la Segunda Guerra Mundial, Guido llega a Arezzo con la intención de abrir una librería. Allí conoce a Dora y, a pesar de que está prometida con el fascista Rodolfo, acaba casándo con ella y tienen un hijo. Poco después de estallar la guerra, las tropas nazis llegan a Italia y los tres son internados en un campo de concentración. Allí, Guido construye una elaborada fantasía para proteger a su hijo y hacerle creer que la situación es tan solo un juego."},
+  "f24": {"sinopsis": "Tras la muerte de su hermano, Lee Chandler se ve obligado a regresar a su pueblo natal y asumir la tutela de su sobrino adolescente. Allí Lee tendrá que lidiar también con su trágico pasado, motivo por el cual se marchó y rompió los vínculos que tenía con su familia y su hogar."},
+  "f25": {"sinopsis": "El capitán Barbossa le roba el barco al pirata Jack Sparrow y secuestra a Elizabeth, amiga de Will Turner. Barbossa y su tripulación son víctimas de un conjuro que los condena a vivir eternamente y a transformarse cada noche en esqueletos vivientes."},
+  "f26": {"sinopsis": "Después de una infructuosa misión en Sudamérica, el Gobierno estadounidense encarga al arqueólogo Indiana Jones la búsqueda del Arca de la Alianza, una reliquia bíblica que contiene los diez mandamientos y que convierte en invencible a su portador. Jones deberá enfrentarse a los nazis para adquirir este precioso objeto."},
+  "f27": {"sinopsis": "En la Tierra Media, el Señor Oscuro Sauron forjó los Grandes Anillos del Poder y creó uno con el poder de esclavizar a toda la Tierra Media. Frodo Bolsón es un hobbit al que su tío Bilbo hace portador del poderoso Anillo Único con la misión de destruirlo. Frodo emprende un viaje hacia Mordor, el único lugar donde el anillo puede ser destruido. Sin embargo, Sauron ordena la persecución del grupo para recuperar el anillo y acabar con la Tierra Media."},
+  "f28": {"sinopsis": "Alan Parris queda atrapado en un juego de mesa mágico y muy antiguo llamado Jumanji. Nadie cree a su compañera de juego cuando cuenta lo ocurrido. Veinticinco años más tarde, es liberado por dos niños, pero una manada de animales exóticos queda también en libertad."},
+  "f29": {"sinopsis": "El multimillonario John Hammond hace realidad su sueño de clonar dinosaurios del Jurásico y crear con ellos un parque temático en una isla. Antes de abrir el parque al público general, Hammond invita a una pareja de científicos y a un matemático para que comprueben la viabilidad del proyecto. El sistema de seguridad falla y los dinosaurios se escapan."},
+  "f30": {"sinopsis": "Un día, Bastian entra a una librería donde encuentra un misterioso libro que a pesar de las advertencias del dueño, decide leerlo. Es entonces cuando Bastian se introduce en un mundo fantástico, repleto de seres extraordinarios."},
+  "f31": {"sinopsis": "Carl Fredricksen es un viudo vendedor de globos de 78 años que, finalmente, consigue llevar a cabo el sueño de su vida: enganchar miles de globos a su casa y salir volando rumbo a América del Sur. Sin embargo, ya estando en el aire y sin posibilidad de retornar Carl descubre que viaja acompañado de un 'boy scout' de 8 años como polizón."},
+  "f32": {"sinopsis": "Mikey es un chico 13 años que tiene una pandilla junto a su hermano mayor y sus amigos, Los Goonies. Un día deciden subir a jugar al desván de su casa, donde su padre guarda antigüedades y allí encuentran el mapa de un tesoro."},
+  "f33": {"sinopsis": "Al final del siglo XX, miles de hombres y mujeres dejaron la Tierra para conquistar el espacio y escapar de las grandes ciudades, que se habían vuelto inhabitables. En las colonias nació una nueva raza de esclavos androides llamados Replicantes. Los nuevos androides son parecidos al hombre, pero superiores en fuerza y agilidad. El antiguo policía Rick Deckard debe encontrar y eliminar a los replicantes rebeldes."},
+  "f34": {"sinopsis": "Un grupo de científicos y exploradores, encabezados por Cooper, se embarcan en un viaje espacial para encontrar un lugar con las condiciones necesarias para reemplazar a la Tierra y comenzar una nueva vida allí. La Tierra está llegando a su fin y este grupo necesita encontrar un planeta más allá de nuestra galaxia que garantice el futuro de la raza humana."},
+  "f35": {"sinopsis": "La nave en la que viaja la princesa Leia es capturada por las tropas imperiales al mando del temible Darth Vader. Antes de ser atrapada, Leia consigue introducir un mensaje en su robot R2-D2, quien acompañado de su inseparable C-3PO logran escapar. Tras aterrizar en el planeta Tattooine son capturados y vendidos al joven Luke Skywalker, quien descubrirá el mensaje oculto que va destinado a Obi Wan Kenobi, maestro Jedi a quien Luke debe encontrar para salvar a la princesa."},
+  "f36": {"sinopsis": "La historia del director Luc Besson, sobre un taxista del futuro que tropieza con la mujer que puede salvar al mundo. Cada 5.000 años se abre una puerta entre dos dimensiones. En una dimensión existe el Universo y la vida y en la otra un elemento que no está hecho ni de tierra, ni de fuego, ni de aire, ni de agua, sino que es una anti-energía, la anti-vida: el quinto elemento."},
+  "f37": {"sinopsis": "El programador informático Thomas Anderson, más conocido en el mundo de los hacker como Neo, está en el punto de mira del temible agente Smith. Otros dos piratas informáticos, Trinity y Morfeo, se ponen en contacto con Neo para ayudarlo a escapar. Matrix te posee. Sigue al conejo blanco."},
+  "f38": {"sinopsis": "La película de ciencia ficción por antonomasia de la historia del cine narra los diversos periodos de la historia de la humanidad, no sólo del pasado, sino también del futuro. Hace millones de años, antes de la aparición del homo sapiens, unos primates descubren un monolito que los conduce a un estadio de inteligencia superior. Millones de años después, otro monolito, enterrado en una luna, despierta el interés de los científicos."},
+  "f39": {"sinopsis": "Un pequeño extraterrestre de otro planeta queda abandonado en la Tierra cuando su nave se olvida de él. Está completamente solo y asustado hasta que Elliott, un niño de nueve años, lo encuentra y decide esconderse en su casa para protegerlo. El chico y sus hermanos intentarán encontrar la forma de devolver al extraterrestre a su planeta antes de que lo encuentren los científicos y la policía."},
+  "f40": {"sinopsis": "Donnie es un chico americano dotado de gran inteligencia e imaginación. Tras escapar milagrosamente de una muerte casi segura, comienza a sufrir alucinaciones que lo llevan a actuar como nunca hubiera imaginado y a descubrir un mundo insólito a su alrededor."},
+  "f41": {"sinopsis": "Un niño llamado Harry Potter descubre que es un mago y asiste a la escuela de magia de Hogwarts, donde se enfrenta al malvado Lord Voldemort"},
+  "f42": {"sinopsis": "Frodo Bolsón emprende un peligroso viaje para destruir un anillo de poder y salvar la Tierra Media de la oscuridad"},
+  "f43": {"sinopsis": "En la España de 1944, una niña llamada Ofelia se adentra en un antiguo laberinto y se encuentra con un fauno que le da tres tareas para probar su inocencia"},
+  "f44": {"sinopsis": "Skeeter Bronson, un empleado de hotel, descubre que los cuentos que lee a sus sobrinos para dormir se convierten misteriosamente en realidad1. Este fenómeno cambia su vida de formas inesperadas y divertidas."},
+  "f45": {"sinopsis": "Un joven llamado Tristán promete a su amada Victoria una estrella caída, lo que lo lleva a un viaje mágico lleno de aventuras y descubrimiento"},
+  "f46": {"sinopsis": " Dorothy, una niña de Kansas, es llevada por un tornado a un mundo mágico donde debe encontrar al Mago de Oz para regresar a casa"},
+  "f47": {"sinopsis": "En el año 2065, la doctora Aki Ross lucha para salvar la Tierra de unos fantasmas extraterrestres que amenazan con extinguir toda la vida en el planeta"},
+  "f48": {"sinopsis": "Dom Cobb es un ladrón de sueños que tiene la habilidad de entrar en los sueños de las personas y robar o implantar ideas, una habilidad que usa para fines lucrativos y potencialmente redentores"},
+  "f49": {"sinopsis": "Marion Crane, una secretaria en fuga, se registra en el aislado motel Bates, donde se encuentra con su peculiar gerente, Norman Bates, desencadenando una serie de eventos espeluznantes"},
+  "f50": {"sinopsis": "Cinco criminales son reunidos para una línea de identificación y deciden comenzar a trabajar juntos. Lo que sigue es una compleja trama de engaños y venganza"},
+  "f51": {"sinopsis": "Clarice Starling, una joven agente del FBI, busca la ayuda de Hannibal Lecter, un psiquiatra y asesino en serie, para atrapar a otro asesino"},
+  "f52": {"sinopsis": "Bruce Willis interpreta a un psicólogo infantil que intenta ayudar a un niño a enfrentar la terrible verdad de sus poderes sobrenaturales"},
+  "f53": {"sinopsis": "El veterano teniente Somerset y el impulsivo detective David Mills investigan una serie de asesinatos relacionados con los siete pecados capitales"},
+  "f54": {"sinopsis": "Narra la desaparición de la mujer de Nick Dunne el día de su quinto aniversario de boda. La presión policial y mediática hace que el retrato de la feliz unión de Nick empiece a tambalearse"},
+  "f55": {"sinopsis": "Nina, una brillante bailarina de una compañía de ballet de Nueva York, vive completamente absorbida por la danza. La rivalidad con su compañera Lily y las presiones del director se agudizan a medida que se acerca el día del estreno"},
+  "f56": {"sinopsis": "Tertuliano Máximo Alfonso, un profesor de historia, descubre a un actor que resulta ser su copia idéntica en todos los sentidos"},
+  "f57": {"sinopsis": "Jack Torrance se traslada, junto a su mujer y a su hijo de 7 años, al impresionante hotel Overlook, en Colorado, para encargarse del mantenimiento del mismo durante la temporada invernal, en la que permanece cerrado y aislado por la nieve"},
+  "f58": {"sinopsis": "Regan, una niña de doce años, sufre fenómenos paranormales como la levitación o la manifestación de una fuerza sobrehumana"},
+  "f59": {"sinopsis": "Un grupo de adolescentes de los suburbios empiezan a ser perseguidos por Freddy Krueger, un asesino de aspecto terrible y con el rostro quemado que trata de acabar con ellos mientras duermen"},
+  "f60": {"sinopsis": "Narra los encuentros sobrenaturales que vivió la familia Perron en su casa de Rhode Island a principios de los 70. Los jóvenes necesitan permanecer despiertos para protegerse mutuamente"},
+  "f61": {"sinopsis": "Tres estudiantes de cine se adentran en un bosque para filmar un documental sobre la leyenda de la Bruja de Blair, pero su aventura se convierte en su peor pesadilla"},
+  "f62": {"sinopsis": "Los renombrados demonólogos Ed y Lorraine Warren viajan al norte de Londres para ayudar a una madre soltera y sus cuatro hijos en una casa plagada de espíritus malignos"},
+  "f63": {"sinopsis": "Un grupo de niños se enfrenta a un malvado payaso llamado Pennywise, que se alimenta de sus miedos y los asesina"},
+  "f64": {"sinopsis": "La historia sigue a Mark y Eleanor, un padre y su hija, cuyas vidas cambiaron cuando la pequeña de 12 años se convirtió en un vampiro"},
+  "f65": {"sinopsis": "Tras el asesinato de su padre, un joven león abandona su reino para descubrir el auténtico significado de la responsabilidad y de la valentía"},
+  "f66": {"sinopsis": "La película sigue las aventuras de los juguetes que pertenecen a un niño llamado Andy. Su favorito es un sheriff del Viejo Oeste llamado Woody"},
+  "f67": {"sinopsis": "Shrek, un ogro contracultural, feo y malhumorado, recorre el mundo en busca de aventura encontrándose con asnos, brujas, caballeros, dragones, y finalmente con una princesa tan horrible y adorable como él"},
+  "f68": {"sinopsis": "Una hermosa joven llamada Bella acepta alojarse en un castillo con una bestia a cambio de la libertad de su padre"},
+  "f69": {"sinopsis": "a moderna metrópoli mamífera de Zootrópolis es una ciudad absolutamente única. Está compuesta de barrios con diferentes hábitats como la lujosa Sahara Square y la gélida Tundratown"},
+  "f70": {"sinopsis": "Nemo es un niño de seis años curioso e impresionable que vive solo con Marlin, un padre excesivamente protector. Ha llevado una vida muy tranquila y está muy emocionado ante la perspectiva de su primer día de colegio"},
+  "f71": {"sinopsis": "Un niño de 12 años llamado Miguel se embarca en un viaje al mundo de los muertos, donde conoce a sus antepasados y descubre la historia de su familia"},
+  "f72": {"sinopsis": "El adolescente Miles Morales se convierte en Spider-Man de su realidad, cruzando su camino con cinco contrapartes de otras dimensiones para detener una amenaza para todas las realidades"},
+  "f73": {"sinopsis": "Dos jóvenes se enamoran en el verano de 1940 en Carolina del Sur. Cuando el verano termina, la pareja es separada por las convenciones sociales"},
+  "f74": {"sinopsis": "La princesa Elsa tiene el poder de congelar cosas y su hermana Anna se embarca en un viaje para encontrarla después de que Elsa huye del reino debido a sus poderes descontrolados"},
+  "f75": {"sinopsis": "En la Inglaterra del siglo XIX, las vidas de las cinco hermanas Bennet cambian con la llegada de un joven rico y su amigo, el orgulloso Sr. Darcy"},
+  "f76": {"sinopsis": "Frances Mayes, una escritora recién divorciada, compra impulsivamente una villa en la Toscana para cambiar su vida"},
+  "f77": {"sinopsis": "Jesse, un estudiante estadounidense, y Céline, una estudiante francesa, se encuentran en un tren a París y pasan una noche juntos en Viena"},
+  "f78": {"sinopsis": "Amélie, una camarera tímida, decide cambiar las vidas de aquellos a su alrededor para mejor, mientras lucha con su propia soledad"},
+  "f79": {"sinopsis": "En un laboratorio de alta seguridad durante la Guerra Fría, una mujer muda llamada Elisa forma una relación única con una criatura acuática que está siendo retenida en cautiverio"},
+  "f80": {"sinopsis": "Tom, un romántico empedernido, reflexiona sobre su relación fallida con Summer, una mujer que no cree en el amor"},
+}
 
 export var popup = {
       
