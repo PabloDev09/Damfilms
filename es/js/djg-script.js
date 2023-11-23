@@ -26,7 +26,6 @@ function filterType(type){
 for (var i in films) {  /* por cada clave presente en films hace un ciclo.*/
 
 
-
     // Rellena recientes.
     if (films[i].release >= recentYear) {
         console.log(films[i].release)

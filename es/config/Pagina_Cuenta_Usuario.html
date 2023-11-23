@@ -29,12 +29,15 @@
         <link rel="stylesheet" href="../css/navbar.css" TYPE="text/css">
        
         <link rel="stylesheet" href="Estilos/img_perfil.css" TYPE="text/css">
+
+        <link rel="stylesheet" href="../css/style.css">
+
     </head>
 
 
 
     <!--  BODY -->
-    <body>
+    <body id="bodyPerfil">
         <script src="js/img_perfil.js"></script>
 
         <!-- Navbar -->
@@ -101,7 +104,7 @@
         
                             <ul class="dropdown-menu dropdown-menu-end">
                                 <li><a class="dropdown-item" href="../config_principal.html">Ajustes</a></li>                            
-                                <li><a class="dropdown-item" href="#">Cerrar Sesión</a></li>
+                                <li><a class="dropdown-item" href="../index.html">Cerrar Sesión</a></li>
                             </ul>
                             
                         </li>
@@ -116,115 +119,114 @@
 
         <!-- Main content-->
         <main>
-            <div id="img_perfil" class="profile-pic">
-                <label class="-label" for="file">
-                  <span class="glyphicon glyphicon-camera"></span>
-                  <span>Change Image</span>
-                </label>
-                <br>
-                <input id="file" type="file" onchange="loadFile(event)"/>
-                <img src="https://ih1.redbubble.net/image.4859384777.9554/raf,360x360,075,t,fafafa:ca443f4786.jpg" id="output" width="200" />
-              </div>
-                <div style="display: grid; place-items: center;position: absolute; top: 25%; left: 25%; width:50%; color:white">
-                    
-                    <form class="row g-3">
-                        <div class="input-group flex-nowrap col-xs-3" style="width: 50;">
-                            <span class="input-group-text" id="addon-wrapping">@</span>
-                            <input type="text" class="form-control" placeholder="Nombre de usuario" aria-label="Username" aria-describedby="addon-wrapping">
-                        </div>
-                        <div class="col-md-6">
-                        <label for="inputEmail4" class="form-label">Cambiar email</label>
-                        <input type="email" class="form-control" id="inputEmail4">
-                        </div>
-                        <div class="col-md-6">
-                        <label for="inputPassword4" class="form-label">Cambiar contraseña</label>
-                        <input type="password" class="form-control" id="inputPassword4">
-                        </div>
-                        <div class="col-12">
-                        <label for="inputAddress" class="form-label">Dirección</label>
-                        <input type="text" class="form-control" id="inputAddress" placeholder="Paraje de la colina silenciosa 1234...">
-                        </div>
-                        <div class="col-12">
-                        <label for="inputAddress2" class="form-label">Dirección 2</label>
-                        <input type="text" disabled class="form-control" id="inputAddress2" placeholder="Apartamento, casa de playa,...">
-                        </div>
-                        <div class="col-md-6">
-                        <label for="inputCity" class="form-label">Ciudad</label>
-                        <input type="text" class="form-control" id="inputCity">
-                        </div>
-                        <div class="col-md-4">
-                        <label for="inputState" class="form-label">Provincia</label>
-                        <select id="inputState" class="form-select">
-                            <option selected>Elige...</option>
-                            <option>...</option>
-                        </select>
-                        </div>
-                        <div class="col-md-2">
-                        <label for="inputZip" class="form-label">CP</label>
-                        <input type="text" class="form-control" id="inputZip">
-                        </div>
-                        <div class="col-12">
-                       
-                        </div>
-                        <div>
-                            <select class="form-select form-select-lg mb-3" aria-label="Privacidad del perfil">
-                            
-                            <option value="1">Público</option>
-                            <option value="2">Privado</option>
-                            
-                            </select>
-                        </div>
-                        <div class="col-12">
-                        <button type="submit" class="btn btn-primary">Confirmar cambios</button>
-                        </div>
-                    </form>
-                    
+            <div style="height: 800px; width: 100%;">
+                <div id="img_perfil" class="profile-pic">
+                    <label class="-label" for="file">
+                    <span class="glyphicon glyphicon-camera"></span>
+                    <span>Change Image</span>
+                    </label>
+                    <br>
+                    <input id="file" type="file" onchange="loadFile(event)"/>
+                    <img src="https://ih1.redbubble.net/image.4859384777.9554/raf,360x360,075,t,fafafa:ca443f4786.jpg" id="output" width="200" />
                 </div>
+                    <div style="display: grid; place-items: center; position: absolute; top: 300px; left: 30%; width:40%; color:white">
+                        
+                        <form class="row g-3">
+                            <div class="input-group flex-nowrap col-xs-3" style="width: 50;">
+                                <span class="input-group-text" id="addon-wrapping">@</span>
+                                <input type="text" class="form-control" placeholder="Nombre de usuario" aria-label="Username" aria-describedby="addon-wrapping">
+                            </div>
+                            <div class="col-md-6">
+                            <label for="inputEmail4" class="form-label">Cambiar email</label>
+                            <input type="email" class="form-control" id="inputEmail4">
+                            </div>
+                            <div class="col-md-6">
+                            <label for="inputPassword4" class="form-label">Cambiar contraseña</label>
+                            <input type="password" class="form-control" id="inputPassword4">
+                            </div>
+                            <div class="col-12">
+                            <label for="inputAddress" class="form-label">Dirección</label>
+                            <input type="text" class="form-control" id="inputAddress" placeholder="Paraje de la colina silenciosa 1234...">
+                            </div>
+                            <div class="col-12">
+                            <label for="inputAddress2" class="form-label">Dirección 2</label>
+                            <input type="text" disabled class="form-control" id="inputAddress2" placeholder="Apartamento, casa de playa,...">
+                            </div>
+                            <div class="col-md-6">
+                            <label for="inputCity" class="form-label">Ciudad</label>
+                            <input type="text" class="form-control" id="inputCity">
+                            </div>
+                            <div class="col-md-4">
+                            <label for="inputState" class="form-label">Provincia</label>
+                            <select id="inputState" class="form-select">
+                                <option selected>Elige...</option>
+                                <option>...</option>
+                            </select>
+                            </div>
+                            <div class="col-md-2">
+                            <label for="inputZip" class="form-label">CP</label>
+                            <input type="text" class="form-control" id="inputZip">
+                            </div>
+                            <div class="col-12">
+                        
+                            </div>
+                            <div class="col-md-3">
+                                <select class="form-select form-select-lg mb-3" aria-label="Privacidad del perfil">
+                                
+                                <option value="1">Público</option>
+                                <option value="2">Privado</option>
+                                
+                                </select>
+                            </div>
+                            <div  class="col-12">
+                            <button id="botonCambios" type="submit" class="btn btn-primary">Confirmar cambios</button>
+                            </div>
+                        </form>
+                        
+                    </div>
+            </div>
         </main>
 
         <!-- FOOTER SPACE CONTROL DIV - BORRAR SI EL FOOTER INTERFIERE CON EL CONTENIDO DE TU PAGINA - SI NO ENTIENDES PREGUNTA A DAVID -->
         <div class="clear-djg"></div>
 
         <!-- Footer and infoboxes section -->
-        <footer class="container-fluid fixed-bottom footer-djg">
+        <footer id="footerPerfil" class="container-fluid footer-djg" >
+
 
             <!-- FOOTER COLUMNS ROW - THIS ROW CONTAINS THE FOOTER COLUMNS -->
-            <div class="row mx-auto pt-3 pb-1" style="font-size: 9pt;">
+            <div class="row mx-auto pt-4 pb-2" style="font-size: 9pt;">
 
-                <!-- FOOTER COOKIES COLUMN (LEFT) -->
-                <div class="col-md-4 col-lg-3  ms-md-auto align-self-end p-2 mx-auto"> 
+                
+
+                <!-- FOOTER COPYRIGHT COLUMN -->
+                <div class="col-md-2 col-lg-2  ms-md-auto align-self-end p-1 mx-auto"> 
                     <!-- INTRODUCIR TEXTO DEFINITIVO Y BORRAR LOREM IPSUM -->
-                    Lorem Ipsum es simplemente el texto de relleno de las imprentas 
-                    y archivos de texto. Lorem Ipsum ha sido el texto de relleno 
-                    estándar de las industrias desde el año 1500, cuando un impresor 
-                    (N. del T. persona que se dedica a la imprenta) desconocido usó 
-                    una galería de textos y los mezcló de tal manera que logró hacer
+                    <center><a class="footer-enlace" href="../eula.html#copyright">Copyright © 2023</a></center>
                 </div>
 
-                <!-- FOOTER COPYRIGHT COLUMN (MIDDLE)-->
-                <div class="col-md-4 col-lg-3  ms-md-auto align-self-end p-2 mx-auto"> 
+                <!-- FOOTER LINKS COLUMN (FAR RIGHT) -->
+                <div class="col-md-2 col-lg-2  ms-md-auto align-self-end p-1 mx-auto"> 
                     <!-- INTRODUCIR TEXTO DEFINITIVO Y BORRAR LOREM IPSUM -->
-                    Lorem Ipsum es simplemente el texto de relleno de las imprentas 
-                    y archivos de texto. Lorem Ipsum ha sido el texto de relleno 
-                    estándar de las industrias desde el año 1500, cuando un impresor 
-                    (N. del T. persona que se dedica a la imprenta) desconocido usó 
-                    una galería de textos y los mezcló de tal manera que logró hacer 
+                    <center><a class="footer-enlace" href="../eula.html#cookies">Cookies y seguimiento</a></center>
                 </div>
 
-                <!-- FOOTER LINKS COLUMN (RIGHT) -->
-                <div class="col-md-4 col-lg-3  ms-md-auto align-self-end p-2 mx-auto"> 
-                    <a href="#arriba">Ir arriba.<br/></a>
+                <!-- FOOTER LINKS COLUMN (FAR RIGHT) -->
+                <div class="col-md-2 col-lg-2  ms-md-auto align-self-end p-1 mx-auto"> 
                     <!-- INTRODUCIR TEXTO DEFINITIVO Y BORRAR LOREM IPSUM -->
-                    Lorem Ipsum es simplemente el texto de relleno de las imprentas 
-                    y archivos de texto. Lorem Ipsum ha sido el texto de relleno 
-                    estándar de las industrias desde el año 1500, cuando un impresor 
-                    (N. del T. persona que se dedica a la imprenta) desconocido usó 
-                    una galería de textos y los mezcló de tal manera que logró hacer
+                    <center><a class="footer-enlace" href="../eula.html#politica">Politica de datos</a></center>
+                </div>
+
+                <!-- FOOTER LINKS COLUMN (FAR RIGHT) -->
+                <div class="col-md-3 col-lg-3  ms-md-auto align-self-end p-1 mx-auto"> 
+                    <!-- INTRODUCIR TEXTO DEFINITIVO Y BORRAR LOREM IPSUM -->
+                    <center><a class="footer-enlace" href="../eula.html#terminos">Terminos y condiciones</a></center>
                 </div>
 
             </div>
 
         </footer>
+
 
 
     </body>
