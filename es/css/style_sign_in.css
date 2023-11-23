@@ -6,6 +6,7 @@ body{
     background: linear-gradient(180deg, rgba(32,32,32,1) 35%, rgba(84,84,84,1) 100%);
     background-repeat: no-repeat;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+
 }
 .MainSign-in {
     color:aliceblue 
@@ -109,7 +110,8 @@ body{
 .bloque_derecha{
     float: right;
     width: 70%;
-    background-image:url(/img/Sign-in/imagen\ fondo\ final.png);
+    height: max-content;
+    background-image:url(/img/Sign-in/FondoF.png);
     background-size: cover;
 }
 .imagen_invisible{
