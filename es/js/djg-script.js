@@ -225,7 +225,7 @@ for (var i in films) {
         </section>
 
         <section id="image">
-            <img src="img/posters/films/${films[i].poster}.jpg" align="left" width="350px" height="600" id="image">
+            <img src="img/posters/films/${films[i].poster}.jpg" align="left" width="300px" height="550" id="image">
         </section>
 
         <br>
@@ -233,7 +233,6 @@ for (var i in films) {
         <section id="buttons" align="center">
             <input type="button" id="button" value="Ver ahora"/>
             <input type="button" id="button" value="Seguir viendo"/>
-            <input type="button" id="button" value="Episodios"/>
         </section>
 
             </div> 
