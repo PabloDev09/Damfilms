@@ -1,4 +1,4 @@
-import { films } from "../js/stock.js";
+import { films, films_sinopsis } from "../js/stock.js";
 /* Small posters generation script using array variables */
 // big-box = contenedor general
 // popular-row = contenedor populares
@@ -218,15 +218,15 @@ for (var i in films) {
               <br>
 
                 <h1><font size="100" color="white">${films[i].title}</font></h1>
-                <h2><font color="FF6A1A">Géneros</font></h2>
+                <h2><font color="FF6A1A">${films[i].genre1}</font></h2>
         </header>
 
         <section id="sinopsis">
-            <p><font color ="white">Aquí va la sinopsis</font></p>
+            <p><font color ="white">${films_sinopsis[i].sinopsis}</font></p>
         </section>
 
         <section id="image">
-            <img src="img/posters/films/${films[i].poster}.jpg" align="left" width="350px" height="550" id="image">
+            <img src="img/posters/films/${films[i].poster}.jpg" align="left" width="350px" height="600" id="image">
         </section>
 
         <br>
