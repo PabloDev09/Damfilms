@@ -1,0 +1,140 @@
+body{
+    margin: 0;
+    height:auto;
+    width:auto;
+    background: rgb(0,0,0);
+    background: linear-gradient(180deg, rgba(32,32,32,1) 35%, rgba(84,84,84,1) 100%);
+    background-repeat: no-repeat;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+
+}
+.MainSign-in {
+    color:aliceblue 
+}
+.logo_sign_in{
+  margin: 5%;
+}
+.Crea_una_cuenta{
+   margin: 5%;
+}
+.Empieza{
+    margin-left: 5%;
+}
+.formulario{
+    padding-left: 20px;
+}
+.email{
+   background-color: transparent;
+}
+.enlace_inicio_sesion{
+   margin: 5%;
+}
+#form-container {
+    margin:5% ;
+    width: 50%;
+  }
+
+.label_sign_in {
+    display: block;
+    margin-bottom: 8px;
+  }
+
+.input_sign_in {
+    width: 150%;
+    padding: 8px;
+    box-sizing:border-box;
+    background-color: transparent;
+    color: white;
+    border-color: #ffffff;
+    border-radius: 5px;
+    height: 45px;
+    font-size: 18px;
+    display: flex;
+  }
+  .crear_cuenta{
+    margin: 1%;
+    margin-top: 6%;
+  }
+
+  .boton_crear_cuenta {
+    background-color: rgb(255, 145, 77);
+    color: white;
+    padding: 6%;
+    border: none;
+    border-radius: 20px;
+    width: 155%;
+    font-size: 18px;
+    display: flex;
+    justify-content: center;
+  }
+
+  .boton_crear_cuenta:hover {
+    background-color: rgb(255, 126, 51);
+    cursor: pointer;
+  }
+
+  .error-message {
+    color: red;
+    padding: 10px;
+  }
+  .boton_ojo{
+    background-color: white;
+    border-color: transparent;
+    border-radius: 20%;
+  }
+  .boton_ojo:hover{
+    background-color: rgb(255, 126, 51);
+  }
+  .continuar_con_google{
+    margin-left: 5%;
+    margin-top: 5%;
+  }
+  .continuar_con_google_boton{
+    padding: 0.1%;
+    border: none;
+    border-radius: 20px;
+    width: 80%;
+    font-size: 18px;
+    display: flex;  
+    justify-content: center;
+  }
+  .continuar_con_google_boton:hover{
+    background-color: rgba(255, 255, 255, 0.418);
+    cursor: pointer;
+  }
+.bloque-izquierda{
+    background: rgb(0,0,0);
+    background: linear-gradient(180deg, rgba(32,32,32,1) 35%, rgba(84,84,84,1) 100%);
+    position: absolute;
+    top:0;
+    left:0;
+    bottom: 0;
+    float: left;
+    width: 30%;
+    box-sizing: border-box;
+    min-width:300px;
+}
+.bloque_derecha{
+    position: absolute;
+    top:0;
+    right:0;
+    bottom: 0;
+    float: right;
+    width: 70%;
+    height: 100%;
+    z-index: -1;
+}
+.imagen_invisible{
+    width: 70%;
+}
+.enlace_log_in{
+    color: white;
+}
+.enlace_home_google{
+    text-decoration: none;
+}
+
+.imagen-fondo{
+  width: 100%;
+  height: 100%;
+}

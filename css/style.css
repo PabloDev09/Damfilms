@@ -1,0 +1,668 @@
+/* Da color gradiente al fondo*/
+
+body{
+    margin: 0px;
+    padding: 0px;
+    height:auto;
+    width:auto;
+    background: rgb(0,0,0);
+    background: linear-gradient(180deg, rgba(32,32,32,1) 35%, rgba(84,84,84,1) 100%);
+}
+/* ------------------------ FINAL SECCION DE BODY ---------------------- */
+
+/* -------------------- COMIENZO: SECCION DE FOOTER - TOCAR CON CUIDADO-------------------- */
+
+.footer-enlace{
+    text-decoration: none;
+    color:rgb(194, 189, 189);
+}
+
+a a:link {
+    text-decoration: none;
+}
+
+.antifloater-djg{
+    clear: both;
+    margin-top: auto;
+}
+
+.footer-djg{
+    color:#aaa0a0;
+    background: linear-gradient(180deg, rgba(70, 70, 70, 0.2) 0%, rgba(84, 84, 84, 0.90) 40%, rgba(32, 32, 32, 1) 100%);
+}
+/* -------------------------------- FINAL SECCION DE FOOTER -------------------------------- */
+
+/* -------------------- COMIENZO: SECCION DE CATALOGO - TOCAR CON CUIDADO -------------------- */
+
+.sin-borde{
+    border-style:none !important;
+    padding: 0 !important;
+    border: none !important;
+    background: none !important;
+    outline: none !important;
+
+}
+
+.sin-borde:focus { outline: none; }
+
+#big-box{
+    min-height: 600px;
+}
+
+
+/*------ ESTILO POSTERS AUTOMATICOS ------*/
+
+/* CONTENEDOR DE SECCIONES POSTER*/
+.movie-box-container .movie-box-container2{ 
+    width:100%;
+    margin: auto;
+    padding-top: 20px;
+    background-color: rgb(71, 185, 185);
+}
+
+/* CAJA CONTENEDORA DE OBJETO PELICULA */
+.boxes{
+    height: 244px;
+    width: 174px;
+    border-style: solid;
+    border-width: 2px;
+    border-color: rgb(255, 166, 0);
+    float:left;
+    margin: 8px 8px 8px 8px;
+    color: rgba(255, 255, 255, 0);  
+    text-align: center;  
+}
+
+.pmg-boxes-top{
+    height: 230px;
+    width: 160px;
+    border-style: solid;
+    border-width: 3px;
+    border-color: rgb(255, 166, 0);
+    float:left;
+    margin: 8px 8px 8px 8px;
+    color: rgba(255, 255, 255, 0);  
+    text-align: center; 
+}
+/* CAJA HIJA DE OBJETO POSTER*/
+
+.box-content-son{
+    position: absolute;
+    text-align:center;
+    height: 240px;
+    width: 170px;
+}
+
+/*efecto on hover de poster*/
+.box-content-son:hover{
+    z-index: 1000;
+    transition-duration: 0.3s;
+    box-shadow: 0 0 25px orange;
+    color: rgb(255, 255, 255);  
+    background-image: linear-gradient( rgba(0, 0, 0, 0.901) 35%, rgba(0, 0, 0, 0.205) 100%);
+}
+
+/*TEXTO POSTER*/
+.titulopelicula{
+    padding:10px;
+}
+.duracion{
+    font-size: 10pt;
+}
+.fechasalida{
+    font-weight: bold;
+    font-size: 9pt;
+}
+
+/*------ FIN ESTILO POSTERS AUTOMATICOS ------*/
+
+/*CAJA QUE CONTIENE LOS BOTONES DE FILTRADO*/
+#filterBox{
+    padding-left: 10px;
+    margin-top: 30px;
+    color: white;
+    width:100%;
+    height: 45px;
+}
+
+/* BOTONES DE FILTROS*/
+#genreDropDown {
+    background-color: rgb(255, 166, 0);
+    color: black;
+}
+
+/*ESTILO DE OBJETOS DE MENU FILTRO*/
+#DropDownItem{
+    font-weight: bold;
+    color: black;
+    background-color: rgb(255, 166, 0);
+}
+
+.djg-dropdown-item{
+    color: black !important;
+    background-color: rgb(250, 200, 140);
+}
+
+.djg-dropdown{
+    float:left;
+    margin-left: 10px;
+}
+
+#cleanFilterButton{
+    margin-left: 10px;
+    margin-top: 15px;
+    float: left;
+    height: auto;
+    width: 100px;
+}
+
+/* PROPIEDADES TITULOS DE CAJA */
+.tituloseccion-djg{
+    margin-left:10px;
+    margin-bottom: 0px;
+}
+
+/* Caja de peliculas con borde naranja*/
+.movie-box{
+    height: 244px;
+    width: 174px;
+    background-color: rgb(0, 0, 0);
+    border-style: solid;
+    border-width: 2px;
+    border-color: rgb(255, 166, 0);
+    float:left;
+    margin: 8px 8px 8px 8px;
+    color: white;     
+}
+
+/* Efecto resplandor para caja peliculas*/
+.movie-box :hover{
+    box-shadow: 0 0 25px orange;
+    color: black;
+}
+
+/* Caja de peliculas con borde naranja*/
+.movie-box-djg{
+    height: 244px;
+    width: 174px;
+    background-color: rgb(0, 0, 0);
+    border-style: solid;
+    border-width: 2px;
+    border-color: rgb(255, 166, 0);
+    float:left;
+    margin: 8px 8px 8px 8px;
+    color: white;     
+}
+
+/* -------------------- FINAL SECCION DE CATALOGO -------------------- */
+/* -------------------- COMIENZO: SECCION DE HOME - TOCAR CON CUIDADO -------------------- */
+.newest-carousel-control-prev-icon, .newest-carousel-control-next-icon {
+    height: 70px;
+    width: 70px;
+    outline: rgb(0, 0, 0);
+    background-size: 100%, 100%;
+}
+
+.outline{
+    text-shadow: 0.1em 0.1em 0.2em black;
+}
+.pmg-carousel{
+    border-top: 2px solid #ff8b45;
+    border-bottom: 2px solid #ff8b45; 
+    box-shadow: 0px 15px 15px black;
+}
+
+#pmg-newest{
+    margin-top: 15px;
+}
+
+#pmg-newest h2{
+    color: #fff;
+    padding-left: 10px;
+}
+
+#pmg-most-popular{
+    height: auto;
+    margin-top: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    background: rgb(255,139,69);
+    background: linear-gradient(180deg, rgba(255,139,69,0.05) 0%, rgba(255,139,69,0.1) 100%);
+}
+
+
+#pmg-most-popular h2{
+    color: #fff;
+}
+
+#pmg-most-popular-series h4{
+    color: #ff8b45;
+    padding-left: 10px;
+}
+
+.most-popular-series{
+    padding-left: 75px;
+}
+
+#pmg-most-popular-films h4{
+    color: #ff8b45; 
+    padding-left: 10px;
+}
+
+.most-popular-films{
+    padding-left: 75px;
+}
+
+#pmg-keep-watching{
+    height: auto;
+    margin-top: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    background: rgb(255,139,69);
+    background: linear-gradient(180deg, rgba(255,139,69,0.05) 0%, rgba(255,139,69,0.1) 100%);
+}
+
+#pmg-keep-watching h4{
+    color: #fff;
+}
+
+#pmg-might-like{
+    height: auto;
+    margin-top: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    background: rgb(255,139,69);
+    background: linear-gradient(180deg, rgba(255,139,69,0.05) 0%, rgba(255,139,69,0.1) 100%);
+}
+
+#pmg-might-like h2{
+    color: #fff;
+}
+
+
+#pmg-might-like-films h4{
+    color: #ff8b45; 
+    padding-left: 10px;
+}
+
+
+#pmg-might-like-series h4{
+    color: #ff8b45; 
+    padding-left: 10px;
+}
+
+
+#pmg-might-like-films h4{
+    color: #ff8b45; 
+    padding-left: 10px;
+}
+
+
+#pmg-might-like-documentals h4{
+    color: #ff8b45; 
+    padding-left: 10px;
+}
+
+.pmg-top{
+    position: relative;
+    float: right;
+    width: 0;
+    height: 0;
+    margin-top: 165px;
+    border-right: 30px solid orange;
+    border-top: 30px solid transparent;
+    border-left: 30px solid transparent;
+    border-bottom: 30px solid orange;
+   
+}
+
+.pmg-top h3{
+    font-size: 25px;
+    font-weight: 500;
+    color: black;
+    padding-left: 5px;
+}
+
+.pmg-box-content-son{
+    z-index: 1000;
+    position: absolute;
+    text-align:center;
+    height: 224px;
+    width: 154px;
+}
+
+.pmg-box-content-son:hover{
+    transition-duration: 0.3s;
+    box-shadow: 0 0 25px orange;
+    color: rgb(255, 255, 255);  
+    background-image: linear-gradient( rgba(0, 0, 0, 0.901) 35%, rgba(0, 0, 0, 0.205) 100%);
+}
+
+.resize{
+    height: 170px;
+    width: 122px;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.pmg-boxes-watching{
+    height: 170px;
+    width: 120px;
+    border-style: solid;
+    border-width: 2px;
+    border-color: rgb(255, 166, 0);
+    float: left;
+    margin: 8px 8px 8px 8px;
+    color: rgba(255, 255, 255, 0);  
+    text-align: center;  
+    border-bottom: 3px solid red !important;
+}
+
+.pmg-box-content-son-watching{
+    text-align:center;
+    height: 168px;
+    width: 116px;
+}
+
+.pmg-box-content-son-watching:hover{
+    transition-duration: 0.3s;
+    box-shadow: 0 0 25px orange;
+    color: rgb(255, 255, 255);  
+    background-image: linear-gradient( rgba(0, 0, 0, 0.901) 35%, rgba(0, 0, 0, 0.205) 100%);
+}
+
+.pmg-boxes-might-like{
+    height: 168px;
+    width: 120px;
+    border-style: solid;
+    border-width: 2px;
+    border-color: rgb(255, 166, 0);
+    float: left;
+    margin: 8px 8px 8px 8px;
+    color: rgba(255, 255, 255, 0);  
+    text-align: center;  
+}
+
+.pmg-box-content-son-might-like{
+    text-align:center;
+    height: 166px;
+    width: 116px;
+}
+
+.pmg-box-content-son-might-like:hover{
+    transition-duration: 0.3s;
+    box-shadow: 0 0 25px orange;
+    color: rgb(255, 255, 255);  
+    background-image: linear-gradient( rgba(0, 0, 0, 0.901) 35%, rgba(0, 0, 0, 0.205) 100%);
+}
+.watching-carousel-control-next-icon {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='orange' viewBox='0 0 8 8'%3E%3Cpath d='M2.75 0l-1.5 1.5 2.5 2.5-2.5 2.5 1.5 1.5 4-4-4-4z'/%3E%3C/svg%3E");
+}
+
+.watching-carousel-control-prev-icon {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='orange' viewBox='0 0 8 8'%3E%3Cpath d='M5.25 0l-4 4 4 4 1.5-1.5-2.5-2.5 2.5-2.5-1.5-1.5z'/%3E%3C/svg%3E");
+}
+
+#body{
+    margin: 50px !important;
+    column-count: 2 !important;
+    text-shadow: 2px 2px 8px grey !important;
+   }
+ 
+   #sinopsis{
+    text-shadow: 2px 2px 8px white !important;
+   }
+ 
+   #image{
+    box-shadow: 2px 2px 8px grey !important;
+    margin-bottom: 10px !important;
+    border-radius: 10px !important;
+   }
+ 
+   #button{
+    font-size: 30px !important;
+    padding: 10px 25px !important;
+    border-radius: 30px !important;
+    margin: 10px !important;
+    border: none !important;
+    box-shadow: 2px 2px 8px grey !important;
+    color: white !important;
+    background-color: #FF6A1A !important;
+}
+
+.modal-ml{
+    max-height: 200px !important;
+}
+
+/* -------------------- FINAL SECCION DE HOME -------------------- */
+/* -------------------------------- INICIO SECCION INDEX -------------------------------- */
+.MainSign-in {
+    color:aliceblue /*Change the color of the text*/
+}
+
+html {
+    scroll-behavior: smooth;
+  }
+
+.infoInicio{
+    text-align: center;
+    color: white;
+    font-size: 30px;
+}
+
+.tablaSuscripciones{
+  width: 70%;
+  margin:auto;
+}
+
+.imgcarrusel {
+    border-bottom: 5px solid black;
+}
+
+.carrusel {
+    position: relative;
+    display: inline-block;
+    z-index: 10;
+
+}
+
+#div-logo {
+    position: relative;
+    padding-top: 50px;
+    padding-left: 133px;
+    z-index: 11;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    height: 50%;
+
+}
+
+#botonInicio1 {
+    width: 50%;
+    margin-top: 180px;
+    float: left;
+    
+}
+
+#botonInicio1 a {
+    font-weight: 700;
+    font-size: 30px;
+    text-decoration: none;
+    margin-left: 200px;
+    margin-top: 375px;
+    color: white;
+    background-color: rgb(255, 166, 0);
+    padding-top: 25px;
+    padding-bottom: 25px;
+    padding-left: 90px;
+    padding-right: 90px;
+    border-radius: 50px;
+}
+
+#botonInicio1 a:hover {
+    color: rgb(255, 166, 0);
+    background-color: white;
+}
+
+#botonInicio2 {
+   width: 50%;
+   margin-top: 180px;
+   float: left;
+}
+
+#botonInicio2 a {
+    font-weight: 700;
+    margin-left: 200px;
+    font-size: 30px;
+    text-decoration: none;
+    color: white;
+    background-color: rgb(255, 166, 0);
+    padding-top: 25px;
+    padding-bottom: 25px;
+    padding-left: 100px;
+    padding-right: 100px;
+    border-radius: 50px;
+
+}
+
+#botonInicio2 a:hover {
+    color: rgb(255, 166, 0);
+    background-color: white;
+}
+
+#suscripcion_basica {
+    background-color: rgba(32,32,32,1);
+    border: 1px solid rgb(255, 166, 0);
+    width: 500px;
+    border-radius: 9%;
+    height: 680px;
+    margin-left: 5%;
+    margin-bottom: 2%;
+    float: left;
+}
+
+#suscripcion_basica p {
+    color: white;
+    width: 100%;
+    text-align: center;
+    float: left;
+}
+
+#suscripcion_basica a {
+    font-size: 30px;
+    text-decoration: none;
+    color: white;
+    background-color: rgb(255, 166, 0);
+    padding-top: 15px;
+    padding-bottom: 15px;
+    padding-left: 90px;
+    padding-right: 90px;
+    border-radius: 50px;
+    width: 100%;
+    margin-left: 100px;
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+
+#suscripcion_basica a:hover {
+    color: rgb(255, 166, 0);
+    background-color: white;
+
+}
+
+#suscripcion_estandar {
+    background-color: rgba(32,32,32,1);
+    border: 1px solid rgb(255, 166, 0);
+    color: white;
+    width: 500px;
+    border-radius: 9%;
+    height: 680px;
+    margin-left: 5%;
+    margin-bottom: 2%;
+    float: left;
+
+}
+#suscripcion_estandar p {
+    color: white;
+    width: 100%;
+    text-align: center;
+
+}
+
+#suscripcion_estandar a {
+    font-size: 30px;
+    text-decoration: none;
+    color: white;
+    background-color: rgb(255, 166, 0);
+    padding-top: 15px;
+    padding-bottom: 15px;
+    padding-left: 90px;
+    padding-right: 90px;
+    border-radius: 50px;
+    width: 100%;
+    margin-left: 100px;
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+
+#suscripcion_estandar a:hover {
+    color: rgb(255, 166, 0);
+    background-color: white;
+}
+
+#suscripcion_premium {
+    background-color: rgba(32,32,32,1);
+    border: 1px solid rgb(255, 166, 0);
+    color: white;
+    width: 500px;
+    border-radius: 9%;
+    height: 680px;
+    margin-left: 5%;
+    margin-bottom: 2%;
+    float: left;
+
+}
+#suscripcion_premium p {
+    color: white;
+    width: 100%;
+    text-align: center;
+
+}
+
+#suscripcion_premium a {
+    font-size: 30px;
+    text-decoration: none;
+    color: white;
+    background-color: rgb(255, 166, 0);
+    padding-top: 15px;
+    padding-bottom: 15px;
+    padding-left: 90px;
+    padding-right: 90px;
+    border-radius: 50px;
+    width: 100%;
+    margin-left: 100px;
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+
+#suscripcion_premium a:hover {
+    color: rgb(255, 166, 0);
+    background-color: white;
+
+}
+
+.trasparente {
+    display: block;
+    position: absolute;
+    z-index: 2;
+    color: #ffffff;
+    background-color: rgba(0, 0, 0, 0.726);
+    margin-left: 10%;
+    margin-top: 2%;
+    margin-right: 10%;
+    width: 1500px;
+    height: 1000px;
+    border-radius: 10%;
+}
+/* -------------------------------- FINAL SECCION DE INDEX -------------------------------- */

@@ -1,0 +1,201 @@
+/* ------------------------------------ SECCION DE AJUSTES ----------------------------------- */
+/* Ajustes */
+h1 {
+
+    font-size: 60px;
+    color: #fff;
+    margin: 0px 40px;
+    margin-top: 20px;
+}
+
+p {
+
+    margin: 0 40px;
+    
+    color: #fff;
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+h2 {
+
+    margin: 0 40px;
+    color: #fff;
+    font-size: 30px;
+}
+
+h3 {
+
+    margin: 0 40px;
+    color: #fff;
+    font-size: 30px;
+}
+
+h4 {
+
+    color: #fff;
+    margin-left: 40px;
+    margin-right: 36px;
+    margin-bottom: 20px;
+    display: inline-block;
+
+}
+
+#ico1 {
+
+    width: 30px;
+    
+
+}
+
+#ico2 {
+
+    width: 30px;
+    
+
+}
+
+#ajustesedad {
+    background-image: url('FONDO.png');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    color: #FFFFFF
+}
+#barrajuste {
+    border: 2px solid #ffffff;
+    margin: 15px 40px;
+    
+}
+/* Botones de toggle
+/* The switch - the box around the slider */
+#switchnino {
+    position: relative;
+    display: inline-block;
+    float: right;
+    width: 60px;
+    height: 34px;
+    }
+    
+    /* Hide default HTML checkbox */
+    #switchnino input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+    }
+    
+    /* The slider */
+    #slidernino {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+    }
+    
+    #slidernino:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+    }
+    
+    input:checked + #slidernino {
+    background-color: #f3d421;
+    }
+    
+    input:focus + #slidernino {
+    box-shadow: 0 0 1px #f3d421;
+    }
+    
+    input:checked + #slidernino:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+    }
+    
+    /* Rounded sliders */
+    #slidernino.round {
+    border-radius: 34px;
+    }
+    
+    #slidernino.round:before {
+    border-radius: 50%;
+    }
+    
+    /* The switch - the box around the slider */
+    #switchadu {
+        position: relative;
+        display: inline-block;
+        float: right;
+        width: 60px;
+        height: 34px;
+        }
+        
+        /* Hide default HTML checkbox */
+        #switchadu input {
+        opacity: 0;
+        width: 0;
+        height: 0;
+        }
+        
+        /* The slider */
+        #slideradu {
+        position: absolute;
+        cursor: pointer;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: #ccc;
+        -webkit-transition: .4s;
+        transition: .4s;
+        }
+        
+        #slideradu:before {
+        position: absolute;
+        content: "";
+        height: 26px;
+        width: 26px;
+        left: 4px;
+        bottom: 4px;
+        background-color: white;
+        -webkit-transition: .4s;
+        transition: .4s;
+        }
+        
+        input:checked + #slideradu {
+        background-color: #f321bf;
+        }
+        
+        input:focus + #slideradu {
+        box-shadow: 0 0 1px #f321bf;
+        }
+        
+        input:checked + #slideradu:before {
+        -webkit-transform: translateX(26px);
+        -ms-transform: translateX(26px);
+        transform: translateX(26px);
+        }
+        
+        /* Rounded sliders */
+        #slideradu.round {
+        border-radius: 34px;
+        }
+        
+        #slideradu.round:before {
+        border-radius: 50%;
+        }
+
+        #popupedad {
+        color: #000000;
+        }

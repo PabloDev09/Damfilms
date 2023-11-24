@@ -1,0 +1,108 @@
+h1 {
+
+    font-size: 60px;
+    color: #fff;
+    margin: 0px 40px;
+    margin-top: 20px;
+}
+
+p {
+
+    margin: 0 40px;
+    
+    color: #fff;
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+h2 {
+
+    margin: 0 40px;
+    color: #fff;
+    font-size: 30px;
+}
+
+hr {
+
+    border: 2px solid #ffffff;
+    margin: 15px 40px;
+}
+
+h4 {
+
+    color: #fff;
+    margin-left: 40px;
+    margin-right: 6px;
+    margin-bottom: 20px;
+    display: inline-block;
+
+}
+
+#ad {
+
+    color: #fff;
+}
+
+img {
+
+    width: 300px;
+    position: relative;
+    display: inline-block;
+}
+
+#im1 {
+
+    width: 30px;
+    
+
+}
+
+#im2 {
+
+
+    left: 100px;
+    display: inline-block;
+
+}
+
+:root {
+    --color-green: #ff8b45;
+    --color-red: #282828;
+    --color-button: #ffffff;
+    --color-black: #000000;
+}
+.switch-button {
+    display: inline-block;
+}
+.switch-button .switch-button__checkbox {
+    display: none;
+}
+.switch-button .switch-button__label {
+    background-color: var(--color-red);
+    width: 6rem;
+    height: 2.5rem;
+    border-radius: 3rem;
+    display: inline-block;
+    position: relative;
+    margin: 0 40px;
+}
+.switch-button .switch-button__label:before {
+    transition: .2s;
+    display: block;
+    position: absolute;
+    width: 2.5rem;
+    height: 2.5rem;
+    background-color: var(--color-button);
+    content: '';
+    border-radius: 50%;
+    box-shadow: inset 0px 0px 0px 1px var(--color-black);
+    cursor: pointer;
+}
+.switch-button .switch-button__checkbox:checked + .switch-button__label {
+    background-color: var(--color-green);
+}
+.switch-button .switch-button__checkbox:checked + .switch-button__label:before {
+    transform: translateX(3.5rem);
+}
+
+
