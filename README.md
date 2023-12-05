@@ -1,5 +1,5 @@
 ![logo](https://github.com/Virgimor/Damfilms/assets/146176550/25b45ec1-1009-470f-be65-3960d56334d2)
-# Bienvenido a Damfilms. 
+# Bienvenido a Damfilms
 Este es un proyecto colaborativo realizado por los estudiantes de primer año del curso de Desarrollo de Aplicaciones Multiplataforma (DAM) en el IES Jándula de Andújar, Jaén. Trabajando en conjunto, hemos acordado un prototipo y, con la colaboración y dedicación de todos los participantes, hemos elaborado una maqueta conforme al diseño inicial.
 
 En esta maqueta, encontrarás diversas secciones, como inicio, home, catálogo, vitrina, ajustes y EULA, cada una con sus respectivas páginas HTML.
@@ -26,7 +26,7 @@ En la sección de inicio de sesión, se dispone de un formulario con validación
 
 
 
-## Página Home (usuario registrado).
+## Página Home (usuario registrado)
 ![image](https://github.com/Virgimor/Damfilms/assets/146176550/22d588d9-03a0-4404-bb94-362fbba3bf5d)
 
 En la plataforma Damfilms, la sección principal denominada "Home" ha sido diseñada para reflejar las preferencias del usuario. Esto permite al usuario visualizar contenido adaptado a sus preferencias de contenido personales. 
