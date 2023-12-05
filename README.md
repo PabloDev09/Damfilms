@@ -3,6 +3,11 @@
 Este es un proyecto colaborativo realizado por los estudiantes de primer año del curso de Desarrollo de Aplicaciones Multiplataforma (DAM) en el IES Jándula de Andújar, Jaén. Trabajando en conjunto, hemos acordado un prototipo y, con la colaboración y dedicación de todos los participantes, hemos elaborado una maqueta conforme al diseño inicial.
 
 En esta maqueta, encontrarás diversas secciones, como inicio, home, catálogo, vitrina, ajustes y EULA, cada una con sus respectivas páginas HTML.
+
+¿Quieres verlo funcionando? Te dejamos aquí el enlace a Netlify:
+
+https://main--thunderous-profiterole-7acedd.netlify.app/home
+
 ### A continuación, se proporcionará una breve descripción de cada componente presente en el proyecto y la conceptualización detrás de cada uno de ellos.
 
 ## Página de inicio (usuario anónimo).
