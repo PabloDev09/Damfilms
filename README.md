@@ -6,7 +6,7 @@ En esta maqueta, encontrarás diversas secciones, como inicio, home, catálogo, 
 
 ¿Quieres verlo funcionando? Te dejamos aquí el enlace a Netlify:
 
-[Conoce nuestra web](https://main--thunderous-profiterole-7acedd.netlify.app/home){:target="_blank"}
+[Pincha aquí y conoce nuestra web de Damfilms](https://main--thunderous-profiterole-7acedd.netlify.app/home)
 
 ### A continuación, se proporcionará una breve descripción de cada componente presente en el proyecto y la conceptualización detrás de cada uno de ellos.
 
