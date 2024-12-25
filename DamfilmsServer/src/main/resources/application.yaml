@@ -1,0 +1,17 @@
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/damfilms?createDatabaseIfNotExist=true
+    username: root  
+    password: root
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update  
+    show-sql: true
+
+logging:
+  file:
+    name: damfilms.log
+  level:
+    root: info
+    es.iesjandula.damfilms_server: debug
