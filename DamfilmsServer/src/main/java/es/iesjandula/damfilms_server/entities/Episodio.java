@@ -16,7 +16,6 @@ import lombok.NoArgsConstructor;
 @Table(name="Episodio")
 public class Episodio 
 {
-
 	@Id
 	private Integer numero;
 	

@@ -2,6 +2,7 @@ package es.iesjandula.damfilms_server.entities;
 
 import java.util.List;
 
+import es.iesjandula.damfilms_server.entities.ids.TemporadaId;
 import jakarta.persistence.EmbeddedId;
 import jakarta.persistence.Entity;
 import jakarta.persistence.ManyToOne;

@@ -4,6 +4,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import es.iesjandula.damfilms_server.entities.Episodio;
 
-public interface EpisodioRepository extends JpaRepository<Episodio, Integer>{
+public interface IEpisodioRepository extends JpaRepository<Episodio, Integer>{
 
 }

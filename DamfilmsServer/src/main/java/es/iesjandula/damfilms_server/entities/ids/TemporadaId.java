@@ -1,4 +1,4 @@
-package es.iesjandula.damfilms_server.entities;
+package es.iesjandula.damfilms_server.entities.ids;
 
 import java.io.Serializable;
 

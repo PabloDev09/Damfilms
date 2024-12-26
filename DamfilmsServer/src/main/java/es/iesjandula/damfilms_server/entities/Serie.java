@@ -2,6 +2,7 @@ package es.iesjandula.damfilms_server.entities;
 
 import java.util.List;
 
+import es.iesjandula.damfilms_server.entities.ids.SerieId;
 import jakarta.persistence.Column;
 import jakarta.persistence.EmbeddedId;
 import jakarta.persistence.Entity;
@@ -22,13 +23,11 @@ public class Serie
 	@EmbeddedId
 	private SerieId serieId;
 	
-	@Column(length =200)
+	@Column(length = 200)
 	private String descripcion;
 	
-	
-	@Column(length =200)
+	@Column(length = 200)
 	private String clasificacion;
-	
 	
 	@ManyToOne
 	private Genero genero;

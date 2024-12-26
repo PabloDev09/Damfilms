@@ -1,4 +1,4 @@
-package es.iesjandula.damfilms_server.entities;
+package es.iesjandula.damfilms_server.entities.ids;
 
 import java.io.Serializable;
 import java.sql.Date;
@@ -14,9 +14,11 @@ import lombok.NoArgsConstructor;
 public class SerieId implements Serializable
 {
 
-	private static final long serialVersionUID = 1217003096488394025L;
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 
-	
 	private String nombre;
 	
 	private Date fechaEstreno;
