@@ -22,12 +22,12 @@ public class SpringSecurityConfig {
 
             .authorizeHttpRequests(authz -> authz
                 // Recursos públicos
-                .requestMatchers("/", "/index.html", "/Log_in.html", "/sign_in.html", "/css/**", "/eula.html").permitAll()
+                .requestMatchers("/", "/index.html","/home.html", "/Log_in.html", "/sign_in.html", "/css/**", "/eula.html").permitAll()
                 // Acceso según roles
                 .requestMatchers("/catalog-movies.html").hasRole("PREMIUM")
                 .requestMatchers("/catalog-series.html", "/catalog-documentals.html").hasAnyRole("PREMIUM", "INVITADO")
                 // Prohibir películas para usuarios invitados
-                .requestMatchers("/movies/**").not().hasRole("INVITADO")
+                .requestMatchers("/catalog-movies.html").not().hasRole("INVITADO")
                 // Requiere autenticación para cualquier otra página
                 .anyRequest().authenticated()
             )
