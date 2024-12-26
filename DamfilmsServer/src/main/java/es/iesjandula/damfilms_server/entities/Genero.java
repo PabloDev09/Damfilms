@@ -1,4 +1,4 @@
-package es.iesjandula.damfilms_server.Entitys;
+package es.iesjandula.damfilms_server.entities;
 
 
 

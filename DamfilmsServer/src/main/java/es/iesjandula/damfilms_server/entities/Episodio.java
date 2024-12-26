@@ -1,4 +1,4 @@
-package es.iesjandula.damfilms_server.Entitys;
+package es.iesjandula.damfilms_server.entities;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
