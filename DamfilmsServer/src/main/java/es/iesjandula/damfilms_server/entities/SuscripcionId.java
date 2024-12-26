@@ -1,0 +1,20 @@
+package es.iesjandula.damfilms_server.entities;
+
+import java.sql.Date;
+
+import jakarta.persistence.Column;
+import jakarta.persistence.Embeddable;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+
+@Embeddable
+public class SuscripcionId {
+
+	@Column(name= "fecha_inicio")
+	private Date FechaInicio;
+	
+	@ManyToOne
+	@JoinColumn(name = "usuario_nombre", referencedColumnName = "nombre")
+	private Usuario usuario;
+
+}
