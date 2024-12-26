@@ -1,8 +1,7 @@
-package es.iesjandula.damfilms_server.Entitys;
+package es.iesjandula.damfilms_server.entities;
 
 import java.util.List;
 
-import jakarta.persistence.Column;
 import jakarta.persistence.EmbeddedId;
 import jakarta.persistence.Entity;
 import jakarta.persistence.ManyToOne;
@@ -16,24 +15,16 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name="Serie")
-public class Serie 
+@Table(name="Temporada")
+public class Temporada 
 {
 	@EmbeddedId
-	private SerieId serieId;
-	
-	@Column(length =200)
-	private String descripcion;
-	
-	
-	@Column(length =200)
-	private String clasificacion;
-	
+	private TemporadaId temporadaId;
 	
 	@ManyToOne
-	private Genero genero;
+	private Serie serie;
 	
-	@OneToMany(mappedBy="serie")
-	private List<Temporada> temporadas;
-	
+	@OneToMany(mappedBy="temporada")
+	private List<Episodio> episodios;
+
 }
