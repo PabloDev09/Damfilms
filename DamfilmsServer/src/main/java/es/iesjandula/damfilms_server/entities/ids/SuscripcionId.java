@@ -1,7 +1,8 @@
-package es.iesjandula.damfilms_server.entities;
+package es.iesjandula.damfilms_server.entities.ids;
 
 import java.sql.Date;
 
+import es.iesjandula.damfilms_server.entities.Usuario;
 import jakarta.persistence.Column;
 import jakarta.persistence.Embeddable;
 import jakarta.persistence.JoinColumn;

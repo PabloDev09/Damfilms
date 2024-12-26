@@ -1,24 +1,27 @@
 package es.iesjandula.damfilms_server.entities.ids;
 
 import java.io.Serializable;
-import java.sql.Date;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Embeddable;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
 @Data
-@AllArgsConstructor
 @NoArgsConstructor
+@AllArgsConstructor
 @Embeddable
-public class SerieId implements Serializable
+public class EpisodioId implements Serializable
 {
-
-	private static final long serialVersionUID = 1217003096488394025L;
-
+	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -7893798935944332256L;
+	
+	private Integer numero;
+	
 	@Column(length = 150)
 	private String nombre;
-	
-	private Date fechaEstreno;
 }

@@ -8,17 +8,21 @@ import jakarta.persistence.Embeddable;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
 @Data
-@AllArgsConstructor
 @NoArgsConstructor
+@AllArgsConstructor
 @Embeddable
-public class SerieId implements Serializable
+public class DocumentalId implements Serializable
 {
-
-	private static final long serialVersionUID = 1217003096488394025L;
-
+	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 788749229808621019L;
+	
 	@Column(length = 150)
-	private String nombre;
+	private String titulo;
 	
 	private Date fechaEstreno;
 }
