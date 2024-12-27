@@ -1,7 +1,5 @@
 package es.iesjandula.damfilms_server.entities.ids;
 
-import java.io.Serializable;
-
 import jakarta.persistence.Column;
 import jakarta.persistence.Embeddable;
 import lombok.AllArgsConstructor;
@@ -12,14 +10,8 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Embeddable
-public class EpisodioId implements Serializable
-{
-	
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = -7893798935944332256L;
-	
+public class EpisodioId 
+{	
 	private Integer numero;
 	
 	@Column(length = 150)
