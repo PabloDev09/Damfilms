@@ -25,7 +25,7 @@ public class Temporada
 	@ManyToOne
 	private Serie serie;
 	
-	@OneToMany(mappedBy="temporada")
+	@OneToMany(mappedBy = "temporada")
 	private List<Episodio> episodios;
 
 }

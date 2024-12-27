@@ -21,12 +21,12 @@ import lombok.NoArgsConstructor;
 public class Genero 
 {
   @Id
-  @Column(length =25)
+  @Column(length = 25)
   private String nombre;
   
-  @Column(length =200)
+  @Column
   private String descripcion;
   
-  @OneToMany(mappedBy="genero")
+  @OneToMany(mappedBy = "genero")
   private List<Serie> series;  
 }

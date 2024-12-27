@@ -7,10 +7,10 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Data
-@AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table (name = "Suscripcion_premium")
-public class SuscripcionPremium extends Suscripcion{
+@Table (name = "suscripcion_premium")
+public class SuscripcionPremium extends Suscripcion
+{
 
 }

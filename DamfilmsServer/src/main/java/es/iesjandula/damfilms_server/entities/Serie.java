@@ -23,16 +23,16 @@ public class Serie
 	@EmbeddedId
 	private SerieId serieId;
 	
-	@Column(length = 200)
+	@Column(nullable = false)
 	private String descripcion;
 	
-	@Column(length = 200)
+	@Column(length = 5, nullable = false)
 	private String clasificacion;
 	
 	@ManyToOne
 	private Genero genero;
 	
-	@OneToMany(mappedBy="serie")
+	@OneToMany(mappedBy = "serie")
 	private List<Temporada> temporadas;
 	
 }
