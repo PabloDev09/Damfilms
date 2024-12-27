@@ -1,5 +1,6 @@
 package es.iesjandula.damfilms_server.entities;
 
+
 import java.util.List;
 
 import jakarta.persistence.Column;
@@ -17,8 +18,9 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name="Usuario")
-public class Usuario {
+@Table
+public class Usuario 
+{
 
 	  @Id
 	  @Column(length = 100)
@@ -31,7 +33,7 @@ public class Usuario {
 	  private String contrasena;
 	  
 	  @OneToOne
-	  @JoinColumn(name = "configuracion_id", referencedColumnName = "id")
+	  @JoinColumn(name = "configuracion_id", referencedColumnName = "id", nullable = false)
 	  private Configuracion configuracion;
 	  
 	  @OneToMany(mappedBy = "usuario")

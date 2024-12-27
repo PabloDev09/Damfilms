@@ -12,9 +12,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Embeddable
 public class TemporadaId
-
 {
-
 	private int numero;
 	
 	private Date fechaEstreno;

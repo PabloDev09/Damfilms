@@ -17,7 +17,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name="Genero")
+@Table
 public class Genero 
 {
   @Id
@@ -28,5 +28,5 @@ public class Genero
   private String descripcion;
   
   @OneToMany(mappedBy = "genero")
-  private List<Serie> series;  
+  private List<Serie> series;  	  
 }

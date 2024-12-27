@@ -20,13 +20,14 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Entity
 @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
-@Table(name="Suscripcion")
-public class Suscripcion {
+@Table
+public class Suscripcion 
+{
 	
 	  @EmbeddedId
 	  private SuscripcionId suscripcionId;
 	  
-	  @Column(length = 4)
+	  @Column(length = 5)
 	  private int duracion;
 	  
 	  @Column(nullable = true)

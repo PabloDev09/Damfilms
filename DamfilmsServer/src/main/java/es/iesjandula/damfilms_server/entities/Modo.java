@@ -13,15 +13,13 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name="Modo")
-public class Modo {
-
-	  @Id
-	  @Column(length =50)
-	  private String nombre;
+@Table
+public class Modo 
+{
+	@Id
+	@Column(length = 50)
+	private String nombre;
 	  
-	  @Column(length =200)
-	  private String descripcion;
-	  
-	
+	@Column(length = 200)
+	private String descripcion;
 }
