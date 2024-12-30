@@ -1,0 +1,31 @@
+package es.iesjandula.damfilms_server.entities;
+
+import java.io.Serializable;
+
+import es.iesjandula.damfilms_server.entities.Pelicula;
+import jakarta.persistence.Embeddable;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.JoinColumns;
+import jakarta.persistence.ManyToOne;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+@Embeddable
+public class PeliculaVisualizadaId implements Serializable
+{/**
+	 * 
+	 */
+	private static final long serialVersionUID = -8097421493282618511L;
+	
+	@ManyToOne
+	@JoinColumns({
+		@JoinColumn(name = "titulo_pelicula", referencedColumnName = "titulo"),
+		@JoinColumn(name = "fecha_estreno_pelicula", referencedColumnName = "fechaEstreno")
+	})
+	private Pelicula pelicula;
+
+}

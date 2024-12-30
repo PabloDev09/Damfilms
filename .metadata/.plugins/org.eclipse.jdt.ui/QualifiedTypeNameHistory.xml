@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+    <fullyQualifiedTypeName name="es.iesjandula.damfilms_server.entities.DocumentalId"/>
+    <fullyQualifiedTypeName name="es.iesjandula.damfilms_server.entities.Serie"/>
+    <fullyQualifiedTypeName name="jakarta.persistence.ManyToOne"/>
+    <fullyQualifiedTypeName name="jakarta.persistence.Column"/>
+    <fullyQualifiedTypeName name="jakarta.persistence.JoinColumns"/>
+    <fullyQualifiedTypeName name="jakarta.persistence.JoinColumn"/>
+    <fullyQualifiedTypeName name="es.iesjandula.damfilms_server.entities.ids.EpisodioId"/>
+    <fullyQualifiedTypeName name="jakarta.persistence.EmbeddedId"/>
+    <fullyQualifiedTypeName name="es.iesjandula.damfilms_server.entities.SerieId"/>
+    <fullyQualifiedTypeName name="es.iesjandula.damfilms_server.entities.TemporadaId"/>
+    <fullyQualifiedTypeName name="java.util.List"/>
+    <fullyQualifiedTypeName name="jakarta.persistence.OneToMany"/>
+    <fullyQualifiedTypeName name="java.lang.Long"/>
+    <fullyQualifiedTypeName name="es.iesjandula.damfilms_server.entities.Configuracion"/>
+    <fullyQualifiedTypeName name="es.iesjandula.damfilms_server.entities.Documental"/>
+    <fullyQualifiedTypeName name="es.iesjandula.damfilms_server.entities.ids.DocumentalId"/>
+    <fullyQualifiedTypeName name="es.iesjandula.damfilms_server.entities.DocumentalVisualizado"/>
+    <fullyQualifiedTypeName name="es.iesjandula.damfilms_server.entities.ids.DocumentalVisualizadoId"/>
+    <fullyQualifiedTypeName name="java.lang.String"/>
+    <fullyQualifiedTypeName name="java.lang.Module"/>
+    <fullyQualifiedTypeName name="es.iesjandula.damfilms_server.entities.Modo"/>
+    <fullyQualifiedTypeName name="es.iesjandula.damfilms_server.entities.Pelicula"/>
+    <fullyQualifiedTypeName name="es.iesjandula.damfilms_server.entities.ids.PeliculaId"/>
+    <fullyQualifiedTypeName name="es.iesjandula.damfilms_server.entities.PeliculaVisualizada"/>
+    <fullyQualifiedTypeName name="es.iesjandula.damfilms_server.entities.ids.PeliculaVisualizadaId"/>
+    <fullyQualifiedTypeName name="es.iesjandula.damfilms_server.entities.SerieVisualizada"/>
+    <fullyQualifiedTypeName name="es.iesjandula.damfilms_server.entities.ids.SerieVisualizadaId"/>
+    <fullyQualifiedTypeName name="es.iesjandula.damfilms_server.entities.Suscripcion"/>
+    <fullyQualifiedTypeName name="es.iesjandula.damfilms_server.entities.ids.SuscripcionId"/>
+    <fullyQualifiedTypeName name="org.springframework.data.jpa.repository.JpaRepository"/>
+    <fullyQualifiedTypeName name="es.iesjandula.damfilms_server.entities.Usuario"/>
+</qualifiedTypeNameHistroy>

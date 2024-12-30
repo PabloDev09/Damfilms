@@ -1,0 +1,38 @@
+package es.iesjandula.damfilms_server.entities.ids;
+
+import java.io.Serializable;
+
+import es.iesjandula.damfilms_server.entities.Documental;
+import es.iesjandula.damfilms_server.entities.Usuario;
+import jakarta.persistence.Embeddable;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.JoinColumns;
+import jakarta.persistence.ManyToOne;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+@Embeddable
+public class DocumentalVisualizadoId implements Serializable
+{
+	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 3689059302274136057L;
+	
+	@ManyToOne
+	@JoinColumns({
+		@JoinColumn(name = "titulo_documental", referencedColumnName = "titulo"),
+		@JoinColumn(name = "fecha_esteno_documental", referencedColumnName = "fechaEstreno")
+	})
+	private Documental documental;
+	
+	@ManyToOne
+	@JoinColumn(name = "nombre_usuario")
+	private Usuario usuario;
+
+}
