@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+
+<!-- Site language specificaction for the browser -->
+<html lang="es">
+
+    <!-- Document HEAD -->
+    <head> 
+
+        <!-- Page tab title -->
+        <title>Damfilms</title> <!-- INTRODUCE AQUI EL TITULO DE TU SECCION | BORRA ESTE COMENTARIO Ejemplo: " Damfilms - Home "-->
+
+        <!-- Page specific Javascript link -->
+        <!-- SI TIENES UN LINK A UN JAVASCRIPT PERSONAL PARA TU PAGINA INTRODUCELO AQUI | BORRA ESTE COMENTARIO -->
+       
+        <!-- Popper JS inclusion via Local File - BEFORE BOOTSTRAP SCRIPTS-->
+        <script src="js/popper.min.js"></script>
+        
+        <!-- Bootstrap stylesheet CDN -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+        <!-- Bootstrap JavaScript CDN-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+        <!-- Bootstrap icon font CDN-->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+
+        <!-- Damfilms stylesheet --> 
+        <!-- SI QUIERES PERSONALIZAR ALGO MAS ALLÁ DE LO QUE ESTABLECE BOOTSTRAP UTILIZA ESTA HOJA DE ESTILOS | ¡CUIDADO CON LOS CONFLICTOS CSS!-->
+        <link rel="stylesheet" href="../css/style.css" TYPE="text/css">
+        <!-- OBTENER ESTILOS DE LA NAVBAR!-->
+        <link rel="stylesheet" href="../css/navbar.css" TYPE="text/css">
+        <link rel="stylesheet" href="Estilos/alineacion.css">
+    </head>
+
+
+
+    <!--  BODY -->
+    <body>
+
+        <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg ">
+
+        <!-- container fluido que aloja la ROW porque las Row deben de estar en un contairer.-->
+        <div class="container-fluid">
+
+            <!-- row que contiene las 12 columnas en las que se subdivide la navbar-->
+            <div class="row" style="width:100%;">
+
+                <!-- 8 Columnas para enlaces de navegacion de la navbar-->
+                <div class="col-11 container-left">
+                     <!-- BOTON TRAS EL CUAL SE ESCONDE LOS MENUS-->
+                    <button class="navbar-toggler" id="navbar" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon navbar-dark"></span>
+                    </button>
+
+                    <!-- SECCION QUE SE COLAPSA LLAMDA navbarTogglerDemo01 -->
+                    <div class="collapse navbar-collapse" id="navbarTogglerDemo01" style="justify-content: start;">
+
+                        <a class="navbar-brand" href="../home.html"><img src="img/Logo.png"></a>
+
+                        <!-- lista de objetos que se colapsan.-->
+                        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                            <li class="nav-item-left">
+                                <a class="nav-link active" aria-current="page" href="../home.html">
+                                    <div id="home-icon">Home</div>
+                                </a>
+                            </li>
+                            <li class="nav-item-left">
+                                <a class="nav-link active" href="../catalog-series.html"> <!-- INTRODUCIR LOS ENLACES A LAS PAGINAS PERTINENTES -->
+                                    <div id="series-icon">Series</div>
+                                </a>
+                            </li>
+                            <li class="nav-item-left">
+                                <a class="nav-link active" href="../catalog-movies.html"> <!-- INTRODUCIR LOS ENLACES A LAS PAGINAS PERTINENTES -->
+                                    <div id="films-icon">Películas</div>
+                                </a>
+                            </li>
+                            <li class="nav-item-left">
+                                <a class="nav-link active" href="../catalog-documentals.html" > <!-- INTRODUCIR LOS ENLACES A LAS PAGINAS PERTINENTES -->
+                                    <div id="documentals-icon">Documentales</div>
+                                </a>
+                            </li>
+                        </ul>
+                        <!-- modulo de buscar-->
+                        <form class="d-flex">
+                            <input class="input-search me-2" type="search" placeholder="Buscar" aria-label="Search">
+                            <button class="button-search" type="submit"><img src="img/icons/lupa-64.png"></button>
+                        </form>
+
+                    </div> <!-- cierra el colapso-->
+
+                </div><!-- cierra col1 (links de navegacion)-->
+                
+                <div class="col-1 container-right" >
+                    <ul>
+                        <li class="nav-item-right dropdown">
+        
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <img src="img/icons/user-64.png">
+                            </a>
+        
+                            <ul class="dropdown-menu dropdown-menu-end">
+                                <li><a class="dropdown-item" href="../config_principal.html">Ajustes</a></li>                            
+                                <li><a class="dropdown-item" href="../index.html">Cerrar Sesión</a></li>
+                            </ul>
+                            
+                        </li>
+                    </ul>            
+
+                </div> <!-- cierra col2 (buscar + perfil)-->
+
+            </div> <!-- cierra el row-->
+                
+        </div> <!-- Cierra contenedor del Row-->         
+    </nav> <!-- cierra navbar-->
+
+        <!-- Main content-->
+        <main>
+            <div style="height: 100%; width: 100%;">
+              <center>
+                  <h1 style="color:white;">Centro de ayuda</h1>
+                  <!-- Modulo de busqueda-->
+                  <nav style="width: 70%; margin-left: 0%;">
+                    <form class="container-fluid">
+                      <div class="input-group">
+                        <span class="input-group-text" id="basic-addon1"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                            <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+                          </svg></span>
+                        <input type="text" class="form-control" placeholder="¿En que podemos ayudarte?"  aria-label="Username" aria-describedby="basic-addon1" >
+                      </div>
+                    </form>
+                  </nav>
+                  <h3 style="color:white;">Todos los temas</h3>
+                  <!-- Abre acordeón -->
+                </center>
+                  <div class="accordion" id="accordionExample" style="width: 80%; margin-left:10%;">
+                    <div class="accordion-item">
+                      <h2 class="accordion-header" >
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                          <img src="img/icons/para-empezar-icono-damfilms.png" style="height: 25px" alt=""> &nbsp; Para empezar
+                        </button>
+                      </h2>
+                      <div id="collapseOne" class="accordion-collapse collapse">
+                        <div class="accordion-body">
+                            <div class="accordion-item"><!--Abre acordeon 1.1 -->
+                              <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOnepointone" aria-expanded="false" aria-controls="collapseOnepointone">
+                                  Precio de Damfilms
+                                </button>
+                              </h2>
+                              <div id="collapseOnepointone" class="accordion-collapse collapse">
+                                <div class="accordion-body">
+                                  <h2>Precio de Damfilms</h2>
+                                  <p>El precio de la suscripción a Disney+ varía según el plan al que te suscribas:</p>
+                                  <table class="table table-bordered">
+                                    <thead>
+                                      <tr>
+                                        <th>Plan Damfilms</th>
+                                        <th>Funciones</th>
+                                        <th>Precio</th>
+                                      </tr>
+                                    </thead>
+                                      <tbody>
+                                      <tr>
+                                        <th>Plan Básico</th>
+                                        <th>
+                                          <ul>
+                                            <li>Calidad buena 720 ppp</li>
+                                              <li>Un dispositivo simultaneo</li>
+                                              <li>Sin descargas</li>
+                                          </ul>
+                                        </th>
+                                        <th>8,99€/por mes</th>
+                                      </tr>
+                                      <tr>
+                                        <th>Plan Estándar</th>
+                                        <th>
+                                          <ul>
+                                            <li>Calidad muy buena 1080 ppp</li>
+                                            <li>Tres dispositivos simultaneos</li>
+                                            <li>Descarga disponible</li>
+                                          </ul>
+                                        </th>
+                                        <th>12,50€/por mes</th>
+                                      </tr>
+                                      <tr>
+                                        <th>Plan Prémium</th>
+                                        <th>
+                                          <ul>
+                                            <li>Calidad excelente 4k + hDR</li>
+                                            <li>Cinco dispositivos simultaneos</li>
+                                            <li>Descarga disponible</li>
+                                          </ul>
+                                        </th>
+                                        <th>17,99€/por mes</th>
+                                      </tr>
+                                    </tbody>
+                                  </table>
+                                </div>
+                              </div>
+                            </div>
+                            <!--Abre acordeon 1.2 -->
+                            <div class="accordion-item">
+                              <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOnepointTwo" aria-expanded="false" aria-controls="collapseOnepointTwo">
+                                  Cómo suscribirse a Damfilms
+                                </button>
+                              </h2>
+                              <div id="collapseOnepointTwo" class="accordion-collapse collapse">
+                                <div class="accordion-body">
+                                  <h2>Cómo suscribirse a Damfilms</h2>
+                                  <p>¿Todo listo para ver tus series y películas favoritas? ¡Has venido al lugar adecuado! Suscríbete a Damfilms para empezar a ver títulos clásicos y los últimos estrenos.</p>
+                                  <h5>Navegador web en el ordenador</h5>
+                                  <ol>
+                                    <li>En un navegador web, ve a ...</li>
+                                    <li>Selecciona <b>Suscribirse ahora</b></li>
+                                    <li>Escribe tu dirección de correo electrónico</li>
+                                    <li>Introduce una contraseña</li>
+                                    <li>Elige el tipo de suscripción</li>
+                                    <li>Introduce tu información de pago</li>
+                                  </ol>
+                                </div>
+                              </div>
+                            </div>
+                            <!--Abre acordeon 1.3 -->
+                            <div class="accordion-item">
+                              <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOnepointThree" aria-expanded="false" aria-controls="collapseOnepointThree">
+                                  Crear y gestionar perfiles de Damfilms
+                                </button>
+                              </h2>
+                              <div id="collapseOnepointThree" class="accordion-collapse collapse">
+                                <div class="accordion-body">
+                                  <h2 id="Crear y gestionar perfiles de Damfilms">Crear y gestionar perfiles de Damfilms</h2>
+                                  <ul>
+                                    <li><a href="#Crear un perfil">Crear un perfil</a></li>
+                                    <li><a href="#Editar un perfil">Editar un perfil</a></li>
+                                    <li><a href="#Borrar un perfil">Borrar un perfil</a></li>
+                                  </ul>
+                                  <br>
+                                  <h4 id="Crear un perfil">Crear un perfil</h4>
+                                  <p>El perfil principal de tu cuenta de Damfilms se crea automáticamente durante el proceso de suscripción.* Si quieres crear otro perfil:</p>
+                                  <ol>
+                                    <li>Selecciona tu <b>Ajustes</b></li>
+                                    <li>Selecciona <b>Añadir perfil</b></li>
+                                    <li>Elige el icono de un personaje para tu perfil</li>
+                                    <li>Escribe un nombre de perfil</li>
+                                    <li>Selecciona <b>Confirmar cambios</b></li>
+                                  </ol>
+                                  <a href="#Crear y gestionar perfiles de Damfilms">Volver al principio</a>
+                                  <h4 id="Editar un perfil">Editar un perfil</h4>
+                                  <p>Sigue los pasos indicados a continuación para gestionar los controles parentales y funciones de tu perfil. </p>
+                                  <ol>
+                                    <li>Selecciona <b>Ajustes</b></li>
+                                    <li>Selecciona <b>Cuenta</b></li>
+                                    <li>Edita lo que quieras, como:</li>
+                                    <ul>
+                                      <li>Nombre del perfil</li>
+                                      <li>Avatar</li>
+                                    </ul>
+                                    <li>Selecciona <b>Confirmar cambios</b></li>
+                                  </ol>
+                                  <a href="#Crear y gestionar perfiles de Damfilms">Volver al principio</a>
+                                  <h4 id="Borrar un perfil">Borrar un perfil</h4>
+                                  <p>Ten en cuenta que la acción de borrar un perfil es definitiva y no se puede deshacer. En cuanto al perfil principal de tu cuenta, no puedes borrarlo, solo editarlo.</p>
+                                  <p>Sigue los pasos que te indicamos a continuación para borrar un perfil:</p>
+                                  <ol>
+                                    <li>Selecciona tu <b>Ajustes</b></li>
+                                    <li>Selecciona tu <b>Cuenta</b></li>
+                                    <li>Elige el perfil que quieras borrar</li>
+                                    <li>Selecciona <b>Borrrar perfil</b></li>
+                                    <li>Confirma tu selección</li>
+                                  </ol>
+                                  <a href="#Crear y gestionar perfiles de Damfilms">Volver al principio</a>
+                                </div>
+                              </div>
+                            </div>
+                        </div>
+                      </div>
+                    </div>
+                    <!--Abre acordeon 2 -->
+                    <div class="accordion-item">
+                      <h2 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                        <img src="img/icons/cuenta-icono-damfilms.png" style="height: 25px;" alt=""> &nbsp; Cuenta y facturación
+                        </button>
+                      </h2>
+                      <div id="collapseTwo" class="accordion-collapse collapse">
+                        <div class="accordion-body">
+                          <!--Abre acordeon 2.1 -->
+                          <div class="accordion-item">
+                            <h2 class="accordion-header">
+                              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwopointone" aria-expanded="false" aria-controls="collapseTwopointone">
+                                Cancelar Damfilms
+                              </button>
+                            </h2>
+                            <div id="collapseTwopointone" class="accordion-collapse collapse">
+                              <div class="accordion-body">
+                                <h2>Cancelar Damfilms</h2>
+                                <p>Los suscriptores de Damfilms pueden cancelar su suscripción cuando quieran y surtirá efecto al final del periodo de facturación.</p>
+                                <h4>Cancelar mi suscripción a Damfilms</h4>
+                                <ol>
+                                  <li>Inicia sesión en tu cuenta de Damfilms en un navegador web</li>
+                                  <li>Selecciona ajustes</li>
+                                  <li>Selecciona <b>Detalles de suscripción</b></li>
+                                  <li>Selecciona <b>Cancelar suscripción</b></li>
+                                  <li>Selecciona <b>Cancelarla</b></li>
+                                </ol>
+                                <p>Seguirás teniendo acceso a Damfilms hasta el final del ciclo de facturación, pero ya no se te volverá a cobrar.</p>
+                              </div>
+                            </div>
+                          </div>
+                          <!--Abre acordeon 2.1 -->
+                          <div class="accordion-item">
+                            <h2 class="accordion-header">
+                              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwopointTwo" aria-expanded="false" aria-controls="collapseTwopointTwo">
+                                Cambiar tu plan Damfilms
+                              </button>
+                            </h2>
+                            <div id="collapseTwopointTwo" class="accordion-collapse collapse">
+                              <div class="accordion-body">
+                                <h2>Cambiar tu plan Damfilms</h2>
+                                <p>Si te interesa cambiar de plan de suscripción, puedes gestionarlo directamente desde tu página Cuenta. También puedes elegirlo en el momento de suscribirte a Damfilms. Tendrás la posibilidad de elegir uno de los siguientes planes de suscripción a Damfilms:</p>
+                                <ul>
+                                  <li><b>Plan Básico:</b> suscripción mensual</li>
+                                  <li><b>Plan Estándar:</b> suscripción mensual</li>
+                                  <li><b>Plan Prémium:</b> suscripción mensual</li>
+                                </ul>
+                                <h5>¿Cómo cambio mi suscripción?</h5>
+                                <p>Para hacer cambios en una suscripción a Damfilms:</p>
+                                <ol>
+                                  <li>Inicia sesión en tu cuenta de Damfilms en un navegador web</li>
+                                  <li>Selecciona <b>Ajustes</b></li>
+                                  <li>Selecciona <b>Detalles de suscripción</b></li>
+                                  <li>En el apartado <b>Plan actual</b>, selecciona <b>cambiar</b></li>
+                                  <li>Selecciona el plan al que quieras pasarte</li>
+                                </ol>
+                              </div>
+                            </div>
+                          </div>
+                          <!--Abre acordeon 2.3 -->
+                          <div class="accordion-item">
+                            <h2 class="accordion-header">
+                              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwopointThree" aria-expanded="false" aria-controls="collapseTwopointThree">
+                                Tarjetas de suscripción a Damfilms
+                              </button>
+                            </h2>
+                            <div id="collapseTwopointThree" class="accordion-collapse collapse">
+                              <div class="accordion-body">
+                                <h2>Tarjetas de suscripción a Damfilms</h2>
+                                <p>Una tarjeta de suscripción a Disney+ es un vale físico o digital que puedes adquirir y canjear online por una suscripción a Damfilms.</p>
+                                <p>Las tarjetas de suscripción no caducan y la suscripción a Damfilms no se activa hasta que se canjea la tarjeta. Por lo tanto, los destinatarios tienen la flexibilidad de iniciar su suscripción cuando lo deseen.</p>
+                                <p>Si quieres adquirir o canjear una tarjeta de suscripción, ten en cuenta los siguientes requisitos que hay que cumplir:</p>
+                                <ul>
+                                  <li>Solo pueden canjear las tarjetas de suscripción los nuevos suscriptores de Damfilms y aquellos sin suscripción activa. Si ya tienes una suscripción activa a Damfilms, no puedes usar el importe de la tarjeta para ella.</li>
+                                  <li>Las tarjetas de suscripción deben canjearse en el mismo país donde se hayan adquirido.</li>
+                                </ul>
+                              </div>
+                            </div>
+                          </div><!--Cierra acordeon 2.3 -->
+                        </div>
+                      </div>
+                    </div>
+                    <!--Abre acordeon 3 -->
+                    <div class="accordion-item">
+                      <h2 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="true" aria-controls="collapseFive">
+                        <img src="img/icons/resolver-un-problema-icono-damfilms.png" style="height: 25px;" alt=""> &nbsp; Resover un problema
+                        </button>
+                      </h2>
+                      <div id="collapseFive" class="accordion-collapse collapse">
+                        <div class="accordion-body">
+                          <!--Abre acordeon 3.1 -->
+                          <div class="accordion-item">
+                            <h2 class="accordion-header">
+                              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThreepointone" aria-expanded="false" aria-controls="collapseThreepointone">
+                                No se ha aceptado o procesado el pago
+                              </button>
+                            </h2>
+                            <div id="collapseThreepointone" class="accordion-collapse collapse">
+                              <div class="accordion-body">
+                                <h2>No se ha aceptado o procesado el pago</h2>
+                                <p>Si no se acepta o procesa tu pago, es posible que veas el siguiente mensaje de error:</p>
+                                <p><i>No hemos podido completar tu pago con los datos de la tarjeta que nos proporcionaste. Vuelve a escribir los datos de la tarjeta o usa otra forma de pago.</i></p>
+                                <p>Para solucionar este error, prueba a cambiar tus datos de pago. Si así no se resuelve la incidencia, consulta las posibles causas y las soluciones para arreglarlo:</p>
+                                <ul>
+                                  <li>Los datos de facturación son incorrectos o están incompletos. Comprueba que has escrito correctamente el número de tarjeta, el CVV (código de seguridad en el reverso de la tarjeta) y la fecha de caducidad.</li>
+                                  <li>La tarjeta de crédito o débito ha caducado</li>
+                                  <li>La tarjeta de débito no tiene fondos suficientes o la tarjeta de crédito ha sido rechazada</li>
+                                  <li>La dirección de facturación parece que no coincide con el país o región desde el que intentas suscribirte</li>
+                                  <li>La VPN se activa al escribir los datos de pago: prueba a apagarla</li>
+                                  <li>No se admite el emisor de la tarjeta de débito o crédito</li>
+                                </ul>
+                              </div>
+                            </div>
+                          </div>
+                          <!--Abre acordeon 3.2 -->
+                          <div class="accordion-item">
+                            <h2 class="accordion-header">
+                              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThreepointTwo" aria-expanded="true" aria-controls="collapseThreepointTwo">
+                                Recomendaciones sobre la velocidad de internet
+                              </button>
+                            </h2>
+                            <div id="collapseThreepointTwo" class="accordion-collapse collapse">
+                              <div class="accordion-body">
+                                <h2>Recomendaciones sobre la velocidad de internet</h2>
+                                <p>Una conexión a internet lenta o inestable puede afectar a la calidad de reproducción en Damfilms. Para disfrutar de la mejor experiencia posible viendo todos tus favoritos en Damfilms, recomendamos las siguientes velocidades:</p>
+                                <ul>
+                                  <li><b>5.0 Mbps</b> para contenidos de alta definición</li>
+                                  <li><b>25.0 Mbps</b> para contenidos de 4K UHD</li>
+                                </ul>
+                                <P>Prueba la velocidad de tu conexión para ver si cumple con estas recomendaciones.</P>
+                              </div>
+                            </div>
+                          </div>
+                          <!--Abre acordeon 3.3 -->
+                          <div class="accordion-item">
+                            <h2 class="accordion-header">
+                              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThreepointThree" aria-expanded="false" aria-controls="collapseThreepointThree">
+                                Pruebas de conexión a internet
+                              </button>
+                            </h2>
+                            <div id="collapseThreepointThree" class="accordion-collapse collapse">
+                              <div class="accordion-body">
+                                <h2 id="Pruebas de conexión a internet">Pruebas de conexión a internet</h2>
+                                <p>Una conexión estable a internet es la mejor manera de disfrutar de Disney+.</p>
+                                <p>Para probar la velocidad de tu conexión a internet y asegurarte de que cumple nuestras recomendaciones, primero selecciona tu tipo de dispositivo:</p>
+                                <ul>
+                                  <li><a href="#Ordenadores y dispositivos móviles">Ordenadores y dispositivos móviles</a></li>
+                                  <li><a href="#Consolas de videojuegos y dispositivios conectados al televisor">Consolas de videojuegos y dispositivios conectados al televisor</a></li>
+                                  <li><a href="#Smart TV">Smart TV</a></li>
+                                </ul>
+                                <p>Si tu dispositivo no tiene una aplicación de prueba de velocidad integrada o un navegador, puedes hacer una prueba de velocidad en otro dispositivo mientras estás cerca de él. Eso sí, recuerda conectarlo a la misma red.</p>
+                                <h4 id="Ordenadores y dispositivos móviles">Ordenadores y dispositivos móviles</h4>
+                                <ol>
+                                  <li>Abre el navegador</li>
+                                  <li>Ve a "speedof.me"</li>
+                                  <li>Selecciona <b>Start test (iniciar prueba)</b></li>
+                                  <li>Compara los resultados con nuestras <b>recomendaciones</b></li>
+                                </ol>
+                                <a href="#Pruebas de conexión a internet">Volver al principio</a>
+                                <br>
+                                <h4 id="Consolas de videojuegos y dispositivios conectados al televisor">Consolas de videojuegos y dispositivos conectados al televisor</h4>
+                                <ul>
+                                  <li><b>Play Station</b></li>
+                                  <ol>
+                                    <li>En el menú principal (XMB), ve a <b>Configuración</b></li>
+                                    <li>Ve a <b>Red</b> > <b>Probar conexión a internet</b></li>
+                                    <li>Compara los resultados con nuestras <b>recomendaciones</b></li>
+                                  </ol>
+                                  <li><b>Xbox</b></li>
+                                  <ol>
+                                    <li>En la pantalla de inicio, selecciona <b>Configuración</b></li>
+                                    <li>Selecciona <b>Red</b> > <b>Configuración de red</b> > <b>Probar conexión a red</b></li>
+                                    <li>Compara los resultados con nuestras <b>recomendaciones</b></li>
+                                  </ol>
+                                </ul>
+                                <a href="#Pruebas de conexión a internet">Volver al principio</a>
+                                <br>
+                                <h4 id="Smart TV">Smart TV</h4>
+                                <ul>
+                                  <li><b>Smart TV de Samsumg</b></li>
+                                  <ol>
+                                    <li>Abre el <b>navegador de internet</b> en el Smart Hub</li>
+                                    <li>Escribe "prueba de velocidad" en la pestaña de búsqueda</li>
+                                    <li>Selecciona <b>Iniciar prueba</b></li>
+                                    <li>Compara los resultados con nuestras <b>recomendaciones</b></li>
+                                  </ol>
+                                  <li><b>TV LG</b></li>
+                                  <ol>
+                                    <li>Abre el navegador en el menú de LG</li>
+                                    <li>Busca "speedof.me"</li>
+                                    <li>Selecciona <b>Start test (iniciar prueba)</b></li>
+                                    <li>Compara los resultados con nuestras <b>recomendaciones</b></li>
+                                  </ol>
+                                </ul>
+                                <a href="#Pruebas de conexión a internet">Volver al principio</a>
+                              </div>
+                            </div>
+                          </div>
+                          <!--Abre acordeon 3.4 -->
+                          <div class="accordion-item">
+                            <h2 class="accordion-header">
+                              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThreepointFour" aria-expanded="true" aria-controls="collapseThreepointFour">
+                                Gestionar las velocidades de conexión a internet
+                              </button>
+                            </h2>
+                            <div id="collapseThreepointFour" class="accordion-collapse collapse">
+                              <div class="accordion-body">
+                                <h2>Gestionar las velocidades de conexión a internet</h2>
+                                <p>Si tienes problemas de conexión o no puedes ver las series y películas que tanto te gustan en Damfilms, lo primero que debes hacer es una <b>prueba de velocidad</b> para comprobar la potencia de tu conexión. Ponte en contacto con tu proveedor de servicios de internet para que te comente qué opciones tienes si los resultados de la prueba no cumplen con <b>nuestras velocidades recomendadas</b>.</p>
+                                <p>Si has superado la prueba de velocidad y sigues teniendo problemas de conectividad, prueba estos pasos complementarios:</p>
+                                <ol>
+                                  <li>Cierra todas las aplicaciones o programas</li>
+                                  <li>Si utilizas una conexión inalámbrica, acerca tu dispositivo al router wifi</li>
+                                  <li>Apaga todos los dispositivos conectados a tu red doméstica</li>
+                                  <li><b>Reinicia tu dispositivo, módem y router</b></li>
+                                  <li>Abre Damfç y reproduce un vídeo para probar la conexión</li>
+                                </ol>
+                              </div>
+                            </div>
+                          </div>
+                          <!--Abre acordeon 3.5 -->
+                          <div class="accordion-item">
+                            <h2 class="accordion-header">
+                              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThreepointFive" aria-expanded="true" aria-controls="collapseThreepointFive">
+                                Cómo reiniciar un dispositivo
+                              </button>
+                            </h2>
+                            <div id="collapseThreepointFive" class="accordion-collapse collapse">
+                              <div class="accordion-body">
+                                <h2>Cómo reiniciar un dispositivo</h2>
+                                <p>Para actualizar la conexión, puede ser útil apagar el dispositivo y volver a encenderlo.</p>
+                                <p>Para reiniciar tu dispositivo, sigue estos pasos:</p>
+                                <ol>
+                                  <li>Apaga el dispositivo que estás usando para ver Damfilms</li>
+                                  <li>Apaga el módem y el router y desconéctalos de la fuente de energía</li>
+                                  <li>Espera al menos 30 segundos y reinicia el módem, el router y el dispositivo</li>
+                                  <li>Abre Damfilms y vuelve a intentar ver el vídeo</li>
+                                </ol>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- Cierra acordeón -->
+                  <center>
+                  <h3 style="color:white;">¿Necesitas más ayuda?</h3>
+                  <p style="color:white;">Estamos disponibles para atenderte de 08:00 a 24:00 los siete días de la semana</p>
+                  <!-- Tarjeta -->
+                  <div class="card" style="width: 30%; margin-left:-2%;">
+                    <div class="card-body" >
+                      <h4><img src="img/icons/comentarios-icono-damfilms.png" style="height: 35px;" alt=""> Comentarios</h4>
+                      <p>¿Cómo podemos mejorar Damfimls? ¡Cuéntanoslo en nuestro formulario de comentarios!</p>
+                      <button type="button" class="btn-1" data-bs-toggle="modal" data-bs-target="#exampleModal" border:none;>
+                        Enviar comentario
+                      </button>
+                    </div>
+                  </div>
+                  <!-- Modal -->
+                  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h1 class="modal-title fs-5" id="exampleModalLabel">Dinos qué opinas</h1>
+                          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                          Tus opiniones nos ayudan a mejorar. Aunque no podamos contestar a los comentarios, nuestros equipos los leen todos. No incluyas datos personales que puedan identificarte directa o indirectamente (tu nombre o datos de contacto) ni datos sensibles como los referentes a tu estado de salud. Cualquier dato personal que decidas incluir es voluntario y no se utilizará para ningún fin que no sea examinar tus comentarios.
+                        </div>
+                        <form>
+                          <div class="mb-3" style="width: 90%;">
+                            <label for="message-text">Comentario:</label>
+                            <textarea class="form-control" id="message-text"></textarea>
+                          </div>
+                        </form>
+                        <div class="modal-footer">
+                          <button type="button" class="btn-3" data-bs-dismiss="modal">Cerrar</button>
+                          <button type="button" class="btn-2" data-bs-dismiss="modal">Enviar</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  </center>
+            </div>
+        </main>
+
+        <!-- FOOTER SPACE CONTROL DIV - BORRAR SI EL FOOTER INTERFIERE CON EL CONTENIDO DE TU PAGINA - SI NO ENTIENDES PREGUNTA A DAVID -->
+        <div class="clear-djg"></div>
+
+        <!-- Footer and infoboxes section -->
+        <footer class="container-fluid footer-djg" >
+
+
+          <!-- FOOTER COLUMNS ROW - THIS ROW CONTAINS THE FOOTER COLUMNS -->
+          <div class="row mx-auto pt-4 pb-2" style="font-size: 9pt;">
+
+              
+
+              <!-- FOOTER COPYRIGHT COLUMN -->
+              <div class="col-md-2 col-lg-2  ms-md-auto align-self-end p-1 mx-auto"> 
+                  <!-- INTRODUCIR TEXTO DEFINITIVO Y BORRAR LOREM IPSUM -->
+                  <center><a class="footer-enlace" href="../eula.html#copyright">Copyright © 2023</a></center>
+              </div>
+
+              <!-- FOOTER LINKS COLUMN (FAR RIGHT) -->
+              <div class="col-md-2 col-lg-2  ms-md-auto align-self-end p-1 mx-auto"> 
+                  <!-- INTRODUCIR TEXTO DEFINITIVO Y BORRAR LOREM IPSUM -->
+                  <center><a class="footer-enlace" href="../eula.html#cookies">Cookies y seguimiento</a></center>
+              </div>
+
+              <!-- FOOTER LINKS COLUMN (FAR RIGHT) -->
+              <div class="col-md-2 col-lg-2  ms-md-auto align-self-end p-1 mx-auto"> 
+                  <!-- INTRODUCIR TEXTO DEFINITIVO Y BORRAR LOREM IPSUM -->
+                  <center><a class="footer-enlace" href="../eula.html#politica">Politica de datos</a></center>
+              </div>
+
+              <!-- FOOTER LINKS COLUMN (FAR RIGHT) -->
+              <div class="col-md-3 col-lg-3  ms-md-auto align-self-end p-1 mx-auto"> 
+                  <!-- INTRODUCIR TEXTO DEFINITIVO Y BORRAR LOREM IPSUM -->
+                  <center><a class="footer-enlace" href="../eula.html#terminos">Terminos y condiciones</a></center>
+              </div>
+
+          </div>
+
+      </footer>
+
+
+
+    </body>
+    
+</html>
