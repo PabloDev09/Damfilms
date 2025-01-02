@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 
 <!-- Site language specificaction for the browser -->
-<html lang="es">
+<html xmlns:th="http://www.thymeleaf.org" lang="es">
 
     <!-- Document HEAD -->
     <head> 
@@ -44,12 +44,12 @@
               <img style="width: 1250px; height: 250px;" src="img/Logo_inicio.png">
             </div>
             <div id="botonInicio1">
-            <a href="Log_in.html">
+            <a th:href="@{/login}">
               Iniciar Sesión
             </a>
             </div>
           <div id="botonInicio2">
-            <a href="#infoInicio">
+            <a th:href="@{/register}">
               Registrarse
             </a>
           </div>
