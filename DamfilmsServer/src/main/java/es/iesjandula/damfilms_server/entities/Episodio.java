@@ -1,8 +1,11 @@
 package es.iesjandula.damfilms_server.entities;
 
+import es.iesjandula.damfilms_server.entities.ids.EpisodioId;
 import jakarta.persistence.Column;
+import jakarta.persistence.EmbeddedId;
 import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.JoinColumns;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
@@ -13,16 +16,22 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name="Episodio")
+@Table
 public class Episodio 
 {
-
-	@Id
-	private Integer numero;
+	@EmbeddedId
+	private EpisodioId episodioId;
 	
 	@ManyToOne
+	@JoinColumns
+	(
+		{
+			@JoinColumn(name = "temporada_numero", nullable = false, referencedColumnName = "numero"),
+			@JoinColumn(name = "temporada_fecha_estreno", nullable = false, referencedColumnName = "fechaEstreno")
+		}
+	)
 	private Temporada temporada;
 	
-	@Column
+	@Column(nullable = false)
 	private Integer duracion;
 }
