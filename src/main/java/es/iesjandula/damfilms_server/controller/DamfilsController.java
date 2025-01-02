@@ -56,7 +56,7 @@ public class DamfilsController {
 		
 	}
 	
-	@RequestMapping(method = RequestMethod.POST, value = "/peliculas-visualizadas")
+	@RequestMapping(method = RequestMethod.GET, value = "/peliculas-visualizadas")
 	public String listaPelicualasVisualizadas() 
 	{
 		return null;
@@ -70,7 +70,7 @@ public class DamfilsController {
 		
 	}
 	
-	@RequestMapping(method = RequestMethod.POST, value = "/documentales-visualizadas")
+	@RequestMapping(method = RequestMethod.GET, value = "/documentales-visualizadas")
 	public String listaDocumentalesVisualizadas() 
 	{
 		return null;
@@ -84,7 +84,7 @@ public class DamfilsController {
 		
 	}
 	
-	@RequestMapping(method = RequestMethod.POST, value = "/series-visualizadas")
+	@RequestMapping(method = RequestMethod.GET, value = "/series-visualizadas")
 	public String listaSeriesVisualizadas() 
 	{
 		return null;
