@@ -1,15 +1,22 @@
 package es.iesjandula.damfilms_server.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import es.iesjandula.damfilms_server.repositories.IPeliculaRepository;
+import es.iesjandula.damfilms_server.repositories.ISerieRepository;
 
 @Controller
 public class SpringSecurityController {
 	
+	@Autowired
 	private IPeliculaRepository iPeliculaRepository ;
+	
+	@Autowired
+	private ISerieRepository iSerieRepository;
+	
 
     /* Ruta por defecto, redirige a index.html */
     @RequestMapping("/")
@@ -31,7 +38,10 @@ public class SpringSecurityController {
 
     /* Ruta para el catálogo de series */
     @RequestMapping("/catalog-series.html")
-    public String catalogSeries() {
+    public String catalogSeries(Model model) {
+    	model.addAttribute("ultimasLllegadas", iSerieRepository.findTop10ByOrderByFechaEstrenoDesc()) ;
+    	model.addAttribute("mejorClasificadas", iSerieRepository.findTop10ByOrderByClasificacionDesc()) ;
+    	model.addAttribute("todasLasPeliculas", iSerieRepository.findAll()) ;
         return "catalog-series.html";
     }
 
