@@ -5,6 +5,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import es.iesjandula.damfilms_server.repositories.IDocumentalRepository;
 import es.iesjandula.damfilms_server.repositories.IPeliculaRepository;
 import es.iesjandula.damfilms_server.repositories.ISerieRepository;
 
@@ -16,6 +17,9 @@ public class SpringSecurityController {
 	
 	@Autowired
 	private ISerieRepository iSerieRepository;
+	
+	@Autowired
+	private IDocumentalRepository iDocumentalRepository;
 	
 
     /* Ruta por defecto, redirige a index.html */
@@ -56,7 +60,10 @@ public class SpringSecurityController {
 
     /* Ruta para el catálogo de documentales */
     @RequestMapping("/catalog-documentals.html")
-    public String catalogDocumentals() {
+    public String catalogDocumentals(Model model) {
+    	model.addAttribute("ultimasLllegadas", iDocumentalRepository.findTop10ByOrderByFechaEstrenoDesc()) ;
+    	model.addAttribute("mejorClasificadas", iDocumentalRepository.findTop10ByOrderByClasificacionDesc()) ;
+    	model.addAttribute("todasLasPeliculas", iDocumentalRepository.findAll()) ;
         return "catalog-documentals.html";
     }
 
