@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 
 <!-- Site language specificaction for the browser -->
-<html lang="es">
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
 
     <!-- Document HEAD -->
     <head> 
@@ -13,7 +13,7 @@
         <!-- SI TIENES UN LINK A UN JAVASCRIPT PERSONAL PARA TU PAGINA INTRODUCELO AQUI | BORRA ESTE COMENTARIO -->
        
         <!-- Popper JS inclusion via Local File - BEFORE BOOTSTRAP SCRIPTS-->
-        <script src="js/popper.min.js"></script>
+        <script th:src="@{/js/popper.min.js}" type="text/Javascript"></script>
         
         <!-- Bootstrap stylesheet CDN -->
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
@@ -24,9 +24,9 @@
 
         <!-- Damfilms stylesheet --> 
         <!-- SI QUIERES PERSONALIZAR ALGO MAS ALLÁ DE LO QUE ESTABLECE BOOTSTRAP UTILIZA ESTA HOJA DE ESTILOS | ¡CUIDADO CON LOS CONFLICTOS CSS!-->
-        <link rel="stylesheet" href="css/style.css" TYPE="text/css">
+        <link rel="stylesheet" th:href="@{/css/style.css}" type="text/css">
         <!-- OBTENER ESTILOS DE LA NAVBAR!-->
-        <link rel="stylesheet" href="css/navbar.css" TYPE="text/css">
+        <link rel="stylesheet" th:href="@{/css/navbar.css}" TYPE="text/css">
     </head>
 
 
@@ -53,27 +53,27 @@
                     <!-- SECCION QUE SE COLAPSA LLAMDA navbarTogglerDemo01 -->
                     <div class="collapse navbar-collapse" id="navbarTogglerDemo01" style="justify-content: start;">
 
-                        <a class="navbar-brand" href="home.html"><img src="img/Logo.png"></a>
+                        <a class="navbar-brand" th:href="@{/home.html}"><img th:src="@{/img/Logo.png}"></a>
 
                         <!-- lista de objetos que se colapsan.-->
                         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                             <li class="nav-item-left">
-                                <a class="nav-link active" aria-current="page" href="home.html">
+                                <a class="nav-link active" aria-current="page" th:href="@{/home.html}">
                                     <div id="home-icon">Home</div>
                                 </a>
                             </li>
                             <li class="nav-item-left">
-                                <a class="nav-link active" href="catalog-series.html"> <!-- INTRODUCIR LOS ENLACES A LAS PAGINAS PERTINENTES -->
+                                <a class="nav-link active" th:href="@{/catalog-series.html}"> <!-- INTRODUCIR LOS ENLACES A LAS PAGINAS PERTINENTES -->
                                     <div id="series-icon">Series</div>
                                 </a>
                             </li>
                             <li class="nav-item-left">
-                                <a class="nav-link active" href="catalog-movies.html"> <!-- INTRODUCIR LOS ENLACES A LAS PAGINAS PERTINENTES -->
+                                <a class="nav-link active" th:href="@{/catalog-movies.html}"> <!-- INTRODUCIR LOS ENLACES A LAS PAGINAS PERTINENTES -->
                                     <div id="films-icon">Películas</div>
                                 </a>
                             </li>
                             <li class="nav-item-left">
-                                <a class="nav-link active" href="catalog-documentals.html" > <!-- INTRODUCIR LOS ENLACES A LAS PAGINAS PERTINENTES -->
+                                <a class="nav-link active" th:href="@{/catalog-documentals.html}" > <!-- INTRODUCIR LOS ENLACES A LAS PAGINAS PERTINENTES -->
                                     <div id="documentals-icon">Documentales</div>
                                 </a>
                             </li>
@@ -81,7 +81,7 @@
                         <!-- modulo de buscar-->
                         <form class="d-flex">
                             <input class="input-search me-2" type="search" placeholder="Buscar" aria-label="Search">
-                            <button class="button-search" type="submit"><img src="img/icons/lupa-64.png"></button>
+                            <button class="button-search" type="submit"><img th:src="@{/img/icons/lupa-64.png}"></button>
                         </form>
 
                     </div> <!-- cierra el colapso-->
@@ -93,12 +93,12 @@
                         <li class="nav-item-right dropdown">
         
                             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                <img src="img/icons/user-64.png">
+                                <img th:src="@{/img/icons/user-64.png}">
                             </a>
         
                             <ul class="dropdown-menu dropdown-menu-end">
-                                <li><a class="dropdown-item" href="config_principal.html">Ajustes</a></li>                            
-                                <li><a class="dropdown-item" href="index.html">Cerrar Sesión</a></li>
+                                <li><a class="dropdown-item" th:href="@{/config_principal.html}">Ajustes</a></li>                            
+                                <li><a class="dropdown-item" th:href="@{/index.html}">Cerrar Sesión</a></li>
                             </ul>
                             
                         </li>
@@ -235,25 +235,25 @@
                 <!-- FOOTER COPYRIGHT COLUMN -->
                 <div class="col-md-2 col-lg-2  ms-md-auto align-self-end p-1 mx-auto"> 
                     <!-- INTRODUCIR TEXTO DEFINITIVO Y BORRAR LOREM IPSUM -->
-                    <center><a class="footer-enlace" href="eula.html#copyright">Copyright © 2023</a></center>
+                    <center><a class="footer-enlace" th:href="@{/eula.html#copyright}">Copyright © 2023</a></center>
                 </div>
 
                 <!-- FOOTER LINKS COLUMN (FAR RIGHT) -->
                 <div class="col-md-2 col-lg-2  ms-md-auto align-self-end p-1 mx-auto"> 
                     <!-- INTRODUCIR TEXTO DEFINITIVO Y BORRAR LOREM IPSUM -->
-                    <center><a class="footer-enlace" href="eula.html#cookies">Cookies y seguimiento</a></center>
+                    <center><a class="footer-enlace" th:href="@{/eula.html#cookies}">Cookies y seguimiento</a></center>
                 </div>
 
                 <!-- FOOTER LINKS COLUMN (FAR RIGHT) -->
                 <div class="col-md-2 col-lg-2  ms-md-auto align-self-end p-1 mx-auto"> 
                     <!-- INTRODUCIR TEXTO DEFINITIVO Y BORRAR LOREM IPSUM -->
-                    <center><a class="footer-enlace" href="eula.html#politica">Politica de datos</a></center>
+                    <center><a class="footer-enlace" th:href="@{/eula.html#politica}">Politica de datos</a></center>
                 </div>
 
                 <!-- FOOTER LINKS COLUMN (FAR RIGHT) -->
                 <div class="col-md-3 col-lg-3  ms-md-auto align-self-end p-1 mx-auto"> 
                     <!-- INTRODUCIR TEXTO DEFINITIVO Y BORRAR LOREM IPSUM -->
-                    <center><a class="footer-enlace" href="eula.html#terminos">Terminos y condiciones</a></center>
+                    <center><a class="footer-enlace" th:href="@{/eula.html#terminos}">Terminos y condiciones</a></center>
                 </div>
 
             </div>
