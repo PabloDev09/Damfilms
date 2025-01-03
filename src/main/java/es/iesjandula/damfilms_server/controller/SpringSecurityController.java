@@ -45,7 +45,7 @@ public class SpringSecurityController {
     public String catalogSeries(Model model) {
     	model.addAttribute("ultimasLllegadas", iSerieRepository.findTop10ByOrderByFechaEstrenoDesc()) ;
     	model.addAttribute("mejorClasificadas", iSerieRepository.findTop10ByOrderByClasificacionDesc()) ;
-    	model.addAttribute("todasLasPeliculas", iSerieRepository.findAll()) ;
+    	model.addAttribute("todasLasSeries", iSerieRepository.findAll()) ;
         return "catalog-series.html";
     }
 
@@ -63,7 +63,7 @@ public class SpringSecurityController {
     public String catalogDocumentals(Model model) {
     	model.addAttribute("ultimasLllegadas", iDocumentalRepository.findTop10ByOrderByFechaEstrenoDesc()) ;
     	model.addAttribute("mejorClasificadas", iDocumentalRepository.findTop10ByOrderByClasificacionDesc()) ;
-    	model.addAttribute("todasLasPeliculas", iDocumentalRepository.findAll()) ;
+    	model.addAttribute("todosLosDocumentales", iDocumentalRepository.findAll()) ;
         return "catalog-documentals.html";
     }
 

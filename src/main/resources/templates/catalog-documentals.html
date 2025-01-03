@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 
 <!-- Site language specificaction for the browser -->
-<html lang="es">
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
 
     <!-- Document HEAD -->
     <head> 
@@ -10,7 +10,7 @@
         <title>Damfilms - Catalogo</title> <!-- INTRODUCE AQUI EL TITULO DE TU SECCION | BORRA ESTE COMENTARIO Ejemplo: " Damfilms - Home "-->
      
         <!-- Popper JS inclusion via Local File - BEFORE BOOTSTRAP SCRIPTS-->
-        <script src="js/popper.min.js" type="text/Javascript"></script>
+        <script th:src="@{/js/popper.min.js}" type="text/Javascript"></script>
         <!--<script src="res/stock.js" type="module"></script> COMENTADO POR SI ACASO, NO BORRAR -->
         
 
@@ -24,9 +24,9 @@
 
         <!-- Damfilms stylesheet --> 
         <!-- SI QUIERES PERSONALIZAR ALGO MAS ALLÁ DE LO QUE ESTABLECE BOOTSTRAP UTILIZA ESTA HOJA DE ESTILOS | ¡CUIDADO CON LOS CONFLICTOS CSS!-->
-        <link rel="stylesheet" href="css/style.css" type="text/css">
+        <link rel="stylesheet" th:href="@{/css/style.css}" type="text/css">
         <!-- OBTENER ESTILOS DE LA NAVBAR!-->
-        <link rel="stylesheet" href="css/navbar.css" TYPE="text/css">
+        <link rel="stylesheet" th:href="@{/css/navbar.css}" TYPE="text/css">
 
         
     </head>
@@ -54,27 +54,27 @@
                         <!-- SECCION QUE SE COLAPSA LLAMDA navbarTogglerDemo01 -->
                         <div class="collapse navbar-collapse" id="navbarTogglerDemo01" style="justify-content: start;">
     
-                            <a class="navbar-brand" href="home.html"><img src="img/Logo.png"></a>
+                            <a class="navbar-brand" th:href="@{/home.html}"><img th:src="@{/img/Logo.png}"></a>
     
                             <!-- lista de objetos que se colapsan.-->
                             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                                 <li class="nav-item-left">
-                                    <a class="nav-link active" aria-current="page" href="home.html">
+                                    <a class="nav-link active" aria-current="page" th:href="@{/home.html}">
                                         <div id="home-icon">Home</div>
                                     </a>
                                 </li>
                                 <li class="nav-item-left">
-                                    <a class="nav-link active" href="catalog-series.html"> <!-- INTRODUCIR LOS ENLACES A LAS PAGINAS PERTINENTES -->
+                                    <a class="nav-link active" th:href="@{/catalog-series.html}"> <!-- INTRODUCIR LOS ENLACES A LAS PAGINAS PERTINENTES -->
                                         <div id="series-icon">Series</div>
                                     </a>
                                 </li>
                                 <li class="nav-item-left">
-                                    <a class="nav-link active" href="catalog-movies.html"> <!-- INTRODUCIR LOS ENLACES A LAS PAGINAS PERTINENTES -->
+                                    <a class="nav-link active" th:href="@{/catalog-movies.html}"> <!-- INTRODUCIR LOS ENLACES A LAS PAGINAS PERTINENTES -->
                                         <div id="films-icon">Películas</div>
                                     </a>
                                 </li>
                                 <li class="nav-item-left">
-                                    <a class="nav-link active presente" href="catalog-documentals.html" > <!-- INTRODUCIR LOS ENLACES A LAS PAGINAS PERTINENTES -->
+                                    <a class="nav-link active presente" th:href="@{/catalog-documentals.html}" > <!-- INTRODUCIR LOS ENLACES A LAS PAGINAS PERTINENTES -->
                                         <div id="documentals-icon-active">Documentales</div>
                                     </a>
                                 </li>
@@ -82,7 +82,7 @@
                             <!-- modulo de buscar-->
                             <form class="d-flex">
                                 <input class="input-search me-2" type="search" placeholder="Buscar" aria-label="Search">
-                                <button class="button-search" type="submit"><img src="img/icons/lupa-64.png"></button>
+                                <button class="button-search" type="submit"><img th:src="@{/img/icons/lupa-64.png}"></button>
                             </form>
     
                         </div> <!-- cierra el colapso-->
@@ -98,8 +98,8 @@
                                 </a>
             
                                 <ul class="pmg-dropdown-menu dropdown-menu dropdown-menu-end">
-                                    <li><a class="pmg-dropdown-item dropdown-item" href="config_principal.html">Ajustes</a></li>                            
-                                    <li><a class="pmg-dropdown-item dropdown-item" href="index.html">Cerrar Sesión</a></li>
+                                    <li><a class="pmg-dropdown-item dropdown-item" th:href="@{/config_principal.html}">Ajustes</a></li>                            
+                                    <li><a class="pmg-dropdown-item dropdown-item" th:href="@{/index.html}">Cerrar Sesión</a></li>
                                 </ul>
                                 
                             </li>
@@ -150,7 +150,20 @@
                         <h4 class="tituloseccion-djg" style="color:white;">Ultimas llegadas</h4> <!-- Titulo sección ultimas llegadas-->       
                         
                         <!-- Aquí se inyectan los objetos de peliculas recientes -->
-                        <div id="newest-row" ></div>
+                        <div id="newest-row" >
+                        	<div class="col-3">
+                        		<div class="col-3" th:each="documental : ${ultimasLlegadas}">
+                        			<div class="card">
+                        				<img class="card-img-top" th:src="@{/img/posters/documentales/} + ${documental.titulo + ' .jpg'}" alt="Imagen del documental">
+                        				<div class="card-body">
+                        					<h5 class="card-title" th:text="${documental.titulo}"></h5>
+                        					<p class="card-text" th:text="${documental.descripcion}"></p>
+                        					<p class="card-text" th:text="'Duracion: ' + ${documental.duracion} + ' min'"></p>
+                        				</div>
+                        			</div>
+                        		</div>
+                        	</div>
+                        </div>
                     </div>
 
                     <div class="antifloater-djg"></div> <!-- FLOAT CLEARING DIV -->
@@ -160,7 +173,20 @@
                         <h4 class="tituloseccion-djg" style="color:white;">Lo mas popular</h4>
                         
                         <!-- Aquí se inyectan los objetos de peliculas populares-->
-                        <div id="popular-row"></div>
+                        <div id="popular-row">
+                        	<div class="row">
+				                <div class="col-3" th:each="documental : ${mejorClasificadas}">
+				                    <div class="card">
+				                        <img class="card-img-top" th:src="@{/img/posters/documentales} + ${documental.titulo + '.jpg'}" alt="Imagen del documental">
+				                        <div class="card-body">
+				                            <h5 class="card-title" th:text="${documental.titulo}"></h5>
+				                            <p class="card-text" th:text="${documental.descripcion}"></p>
+				                            <p class="card-text" th:text="'Duración: ' + ${documental.duracion} + ' min'"></p>
+				                        </div>
+				                    </div>
+				                </div>
+				            </div>
+                        </div>
                     </div>
 
                     <div class="antifloater-djg"></div> <!-- FLOAT CLEARING DIV -->
@@ -169,7 +195,20 @@
                     <div classs="wrapper">
                         <h4 class="tituloseccion-djg" style="color:white;">Explora!</h4>
                         <!-- Aqui se inyectan los objetos de peliculas sin filtrar ni discriminar -->
-                        <div id="explore-row"></div>
+                        <div id="explore-row">
+                        	<div class="row">
+				                <div class="col-3" th:each="documental : ${todosLosDocumentales}">
+				                    <div class="card">
+				                        <img class="card-img-top" th:src="@{/img/posters/documentales} + ${documental.titulo + '.jpg'}" alt="Imagen del documental">
+				                        <div class="card-body">
+				                            <h5 class="card-title" th:text="${documental.titulo}"></h5>
+				                            <p class="card-text" th:text="${documental.descripcion}"></p>
+				                            <p class="card-text" th:text="'Duración: ' + ${documental.duracion} + ' min'"></p>
+				                        </div>
+				                    </div>
+				                </div>
+				            </div>
+                        </div>
                     </div>
                 </div>
 
@@ -195,25 +234,25 @@
                 <!-- FOOTER COPYRIGHT COLUMN -->
                 <div class="col-md-2 col-lg-2  ms-md-auto align-self-end p-1 mx-auto"> 
                     <!-- INTRODUCIR TEXTO DEFINITIVO Y BORRAR LOREM IPSUM -->
-                    <center><a class="footer-enlace" href="eula.html#copyright">Copyright © 2023</a></center>
+                    <center><a class="footer-enlace" th:href="@{/eula.html#copyright}">Copyright © 2023</a></center>
                 </div>
 
                 <!-- FOOTER LINKS COLUMN (FAR RIGHT) -->
                 <div class="col-md-2 col-lg-2  ms-md-auto align-self-end p-1 mx-auto"> 
                     <!-- INTRODUCIR TEXTO DEFINITIVO Y BORRAR LOREM IPSUM -->
-                    <center><a class="footer-enlace" href="eula.html#cookies">Cookies y seguimiento</a></center>
+                    <center><a class="footer-enlace" th:href="@{/eula.html#cookies}">Cookies y seguimiento</a></center>
                 </div>
 
                 <!-- FOOTER LINKS COLUMN (FAR RIGHT) -->
                 <div class="col-md-2 col-lg-2  ms-md-auto align-self-end p-1 mx-auto"> 
                     <!-- INTRODUCIR TEXTO DEFINITIVO Y BORRAR LOREM IPSUM -->
-                    <center><a class="footer-enlace" href="eula.html#politica">Politica de datos</a></center>
+                    <center><a class="footer-enlace" th:href="@{/eula.html#politica}">Politica de datos</a></center>
                 </div>
 
                 <!-- FOOTER LINKS COLUMN (FAR RIGHT) -->
                 <div class="col-md-3 col-lg-3  ms-md-auto align-self-end p-1 mx-auto"> 
                     <!-- INTRODUCIR TEXTO DEFINITIVO Y BORRAR LOREM IPSUM -->
-                    <center><a class="footer-enlace" href="eula.html#terminos">Terminos y condiciones</a></center>
+                    <center><a class="footer-enlace" th:href="@{/eula.html#terminos}">Terminos y condiciones</a></center>
                 </div>
 
             </div>
@@ -221,7 +260,7 @@
         </footer>
 
                 <!-- Page specific Javascript link that needs to load after html render-->
-                <script src="js/djg-script-docu.js" type="module"></script>
+                <script th:src="@{/js/djg-script-docu.js}" type="module"></script>
 
     </body>
 </html>
