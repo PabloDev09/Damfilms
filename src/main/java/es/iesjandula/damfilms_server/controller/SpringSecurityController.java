@@ -4,8 +4,12 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import es.iesjandula.damfilms_server.repositories.IPeliculaRepository;
+
 @Controller
 public class SpringSecurityController {
+	
+	private IPeliculaRepository iPeliculaRepository ;
 
     /* Ruta por defecto, redirige a index.html */
     @RequestMapping("/")
@@ -33,7 +37,10 @@ public class SpringSecurityController {
 
     /* Ruta para el catálogo de películas */
     @RequestMapping("/catalog-movies.html")
-    public String catalogMovies() {
+    public String catalogMovies(Model model) {
+    	model.addAttribute("ultimasLllegadas", iPeliculaRepository.findTop10ByOrderByFechaEstrenoDesc()) ;
+    	model.addAttribute("mejorClasificadas", iPeliculaRepository.findTop10ByOrderByClasificacionDesc()) ;
+    	model.addAttribute("todasLasPeliculas", iPeliculaRepository.findAll()) ;
         return "catalog-movies.html";
     }
 
