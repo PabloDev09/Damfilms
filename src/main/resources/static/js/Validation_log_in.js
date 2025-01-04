@@ -1,4 +1,3 @@
-
 function validarFormulario() {
   // Obtener los valores de los campos
   var email = document.getElementById('email').value;

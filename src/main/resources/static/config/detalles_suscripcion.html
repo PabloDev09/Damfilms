@@ -24,12 +24,10 @@
 
         <!-- Damfilms stylesheet --> 
         <!-- SI QUIERES PERSONALIZAR ALGO MAS ALLÁ DE LO QUE ESTABLECE BOOTSTRAP UTILIZA ESTA HOJA DE ESTILOS | ¡CUIDADO CON LOS CONFLICTOS CSS!-->
-        <link rel="stylesheet" href="Estilos/preferencias.css" TYPE="text/css">
+        <link rel="stylesheet" href="../css/style.css" TYPE="text/css">
         <!-- OBTENER ESTILOS DE LA NAVBAR!-->
         <link rel="stylesheet" href="../css/navbar.css" TYPE="text/css">
-
-        <link rel="stylesheet" href="../css/style.css">
-
+        <link rel="stylesheet" href="estilos/alineacion.css">
     </head>
 
 
@@ -114,82 +112,80 @@
         </div> <!-- Cierra contenedor del Row-->         
     </nav> <!-- cierra navbar-->
 
-        <!-- Main content-->
-        <main id="ajustesedad">
+        <!-- -->
+        <main>
             <div style="height: 100%; width: 100%;">
-
-                <h1 class="display-7"><a style="text-decoration:none; color:white" href="../config.html">Ajustes</a></h1>
-                <h3 class="display-7">Clasificación por edades</h3>
-                <hr id="barrajuste">
-                
-                
-                
-                <h4> Modo infantil <i class="bi bi-balloon" id="ico1"></i></h4>
-                <br>
-                <div style= "bottom: 0; display: flex;width: 100vh;">
-                <h4> Permitir solo contenido destinado a público infantil </h4>
-                <audio id="sound1" src="images/kids.mp3" preload="auto"></audio>
-                <label class="switch" id="switchnino" onclick="document.getElementById('sound1').play();">
-                    <input type="checkbox">
-                    <span class="slider round" id="slidernino"></span>
-                </label>
-                </div>
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>
-                
-                    <h4> Contenido adulto <i class="bi bi-arrow-through-heart" id="ico2"></i></h4> 
+                <center>
+                    <h1 style="color:white;">Detalles de la suscripción</h1>
                     <br>
-                <div style= "bottom: 0; display: flex;width: 100vh;">
-                    <h4> Permitir contendido de caracter sexual o gráfico </h4> 
-                <label class="switch" data-bs-toggle="modal" class="btn btn-primary" data-bs-target="#popupedad" id="switchadu">
-                        <input type="checkbox">
-                        <span class="slider round" id="slideradu"></span>
-                </label>
-                </div> 
-                <!-- Modal -->
-                <div class="modal fade" id="popupedad" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                    <div class="modal-dialog">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                        <h1 class="modal-title fs-5" id="exampleModalLabel">CONFIRMAR CONTRASEÑA</h1>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <!-- Tarjeta 1 -->
+                    <div class="card" style="width: 40%; margin-left: 0%; --bs-card-bg: #252525;">
+                        <div class="card-body" >
+                            <h3 style="font-size: 35px; color: #d6631c;">DAMFILMS</h3>
                         </div>
-                        <div class="modal-body">
-                            <form>
-                                <div class="mb-3">
-                                <label for="exampleInputEmail1" class="form-label">Dirección de correo</label>
-                                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-                                <div id="emailHelp" class="form-text">Tambien puedes usar el nombre de usuario.</div>
-                                </div>
-                                <div class="mb-3">
-                                <label for="exampleInputPassword1" class="form-label">Contraseña</label>
-                                <input type="password" class="form-control" id="exampleInputPassword1">
-                                </div>
-                                <div class="mb-3 form-check">
-                                </div>
-                                <button type="submit" class="btn btn-primary">Confirmar</button>
-                            </form>
+                    </div>
+                    <br>
+                    <!-- Tarjeta 2 -->
+                    <div class="card" style="width: 40%; margin-left: 0%; --bs-card-bg: #252525;">
+                        <div class="card-body">
+                            <p>
+                                <span style="font-size: 20px; color:white" class="inicio"> Plan actual: Estandar </span>
+                            </p>
+                            <br>
+                            <p> 
+                                <span style="font-size: 20px; color:white" class="inicio"> 12,99/mes </span>
+                                <span class="final" style="font-size: 20px;"><a style="color: #d6631c;" href="">Cambiar</a></span> 
+                            </p>
                         </div>
-                    
                     </div>
+                    <br>
+                    <!-- Tarjeta 3 -->
+                    <div class="card" style="width: 40%; margin-left: 0%; --bs-card-bg: #252525;">
+                        <div class="card-body">
+                            <p style="font-size: 20px; color:white" class="inicio">Método de pago</p>
+                            <p style="font-size: 20px; color:white" class="final">VISA **** **** ****</p>
+                        </div>
                     </div>
-                </div>
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>
-    
+                    <br>
+                    <!-- Tarjeta 4 -->
+                    <div class="card" style="width: 40%; margin-left: 0%; --bs-card-bg: #252525;">
+                        <div class="card-body" >
+                            <p style="font-size: 20px; color:white" class="inicio">Próxima fecha de facturación</p>
+                            <p style="font-size: 20px; color:white" class="final">fecha en cuestion</p>
+                        </div>
+                    </div>
+                    <br>
+                    <!-- Tarjeta 5 -->
+                    <div class="card" style="width: 40%; margin-left: 0%; --bs-card-bg: #252525;">
+                        <div class="card-body" >
+                            <button style="font-size: 20px" type="button" class="btn-4" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                Cancelar suscripción
+                            </button>
+                        </div>
+                    </div>
+                    <!-- Modal -->
+                    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                            <h1 class="modal-title fs-5" id="exampleModalLabel">¿No quieres ver ningun título más?</h1>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <p>Bueno, si algo hemos aprendido del cine es que, a veces, las relaciones hay que dejarlas ir.
+                                Eso sí, ¡te echaremos de menos! 😥</p>
+                                <p>La cancelación se hará efectiva al finalizar el periodo de facturación actual el 23 de noviembre.</p>
+                            </div>
+                            <div class="modal-footer">
+                            <button  type="button" class="btn-3" data-bs-dismiss="modal">Mantenerla</button>
+                            <button type="button" class="btn-2" data-bs-dismiss="modal">Cancelarla</button>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                </center>
             </div>
         </main>
-
         <!-- FOOTER SPACE CONTROL DIV - BORRAR SI EL FOOTER INTERFIERE CON EL CONTENIDO DE TU PAGINA - SI NO ENTIENDES PREGUNTA A DAVID -->
         <div class="clear-djg"></div>
 

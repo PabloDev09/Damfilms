@@ -1,0 +1,183 @@
+/* General Styles */
+.body_Log_in {
+    margin: 0;
+    height: 100%;
+    width: 100%;
+    background: linear-gradient(180deg, rgba(32, 32, 32, 1) 35%, rgba(84, 84, 84, 1) 100%);
+    background-repeat: no-repeat;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: white;
+    font-size: 18px;
+    overflow: hidden;
+}
+
+.input_log_in {
+    width: 100%;
+    padding: 8px;
+    box-sizing: border-box;
+    background-color: transparent;
+    color: white;
+    border: 1px solid #ffffff;
+    border-radius: 5px;
+    height: 45px;
+    font-size: 18px;
+    display: flex;
+}
+
+.label_log_in {
+    display: block;
+    margin-bottom: 8px;
+    padding-top: 20px;
+}
+
+#form-container {
+    width: 90%;
+    max-width: 400px;
+    padding: 20px;
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+}
+
+.container {
+	margin-top: 5%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 90vh;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.boton_inicio_sesion {
+    background-color: rgb(255, 145, 77);
+    color: white;
+    border: none;
+    border-radius: 20px;
+    padding: 4%;
+    font-size: 18px;
+    margin-top: 8%;
+    justify-content: center;
+    width: 100%;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.boton_inicio_sesion:hover {
+    background-color: rgb(255, 126, 51);
+}
+
+.Iniciar_sesión {
+    font-size: 30px;
+    text-align: center;
+}
+
+.logo_log_in {
+    padding: 30px;
+}
+
+.no_tienes_cuenta {
+    margin-top: 9%;
+    text-align: center;
+}
+
+.registrate_log_in {
+    color: white;
+}
+
+.error-message {
+    color: red;
+    padding: 5px;
+    text-align: center;
+}
+
+.boton_ojo {
+    background-color: white;
+    border: none;
+    border-radius: 20%;
+    cursor: pointer;
+}
+
+.boton_ojo:hover {
+    background-color: rgb(255, 126, 51);
+}
+
+/* -------------------- Responsive Styles -------------------- */
+@media (max-width: 768px) {
+    .body_Log_in {
+        font-size: 16px;
+    }
+
+    #form-container {
+        width: 95%;
+        padding: 15px;
+    }
+
+    .boton_inicio_sesion {
+        font-size: 16px;
+        padding: 3%;
+    }
+
+    .Iniciar_sesión {
+        font-size: 24px;
+    }
+
+    .logo_log_in {
+        padding: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .body_Log_in {
+        font-size: 14px;
+    }
+
+    .input_log_in {
+        height: 40px;
+        font-size: 16px;
+    }
+
+    .boton_inicio_sesion {
+        font-size: 14px;
+        padding: 2%;
+    }
+
+    .Iniciar_sesión {
+        font-size: 20px;
+    }
+
+    .logo_log_in {
+        padding: 15px;
+    }
+
+    .no_tienes_cuenta {
+        margin-top: 5%;
+    }
+}
+
+/* -------------------- Footer Section -------------------- */
+.footer-enlace {
+    text-decoration: none;
+    color: rgb(194, 189, 189);
+}
+
+.footer-djg {
+    color: #aaa0a0;
+    background: linear-gradient(180deg, rgba(70, 70, 70, 0.2) 0%, rgba(84, 84, 84, 0.9) 40%, rgba(32, 32, 32, 1) 100%);
+    text-align: center;
+    font-size: 14px;
+    padding: 10px 0;
+}
+
+@media (max-width: 768px) {
+    .footer-djg {
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 480px) {
+    .footer-djg {
+        font-size: 10px;
+        padding: 5px 0;
+    }
+}
