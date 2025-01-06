@@ -25,7 +25,7 @@ public class Pelicula
 	@Column
 	private Integer duracion;
 	
-	@Column(length = 10, nullable = false)
+	@Column(length = 50, nullable = false)
 	private String clasificacion;
 	
 	@ManyToOne

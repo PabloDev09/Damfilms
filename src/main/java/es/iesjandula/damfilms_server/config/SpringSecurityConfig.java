@@ -22,24 +22,24 @@ public class SpringSecurityConfig {
 
             .authorizeHttpRequests(authz -> authz
                 // Recursos públicos
-                .requestMatchers("/","/eula.html", "/index.html","/home.html", "/Log_in.html", "/sign_in.html", "/css/**", "/img/**","/js/**","/static/**","/eula.html").permitAll()
+                .requestMatchers("/","/eula", "/inicio","/home", "/login", "/signin", "/css/**", "/img/**","/js/**","/static/**","/eula.html").permitAll()
                 // Acceso según roles
-                .requestMatchers("/catalog-movies.html").hasRole("PREMIUM")
-                .requestMatchers("/catalog-series.html", "/catalog-documentals.html").hasAnyRole("PREMIUM", "INVITADO")
+                .requestMatchers("/peliculas").hasRole("PREMIUM")
+                .requestMatchers("/series", "/documentales").hasAnyRole("PREMIUM", "INVITADO")
                 // Prohibir películas para usuarios invitados
-                .requestMatchers("/catalog-movies.html").not().hasRole("INVITADO")
+                .requestMatchers("/peliculas").not().hasRole("INVITADO")
                 // Requiere autenticación para cualquier otra página
                 .anyRequest().authenticated()
             )
 
             // Configuración de login
             .formLogin(login -> login
-                .loginPage("/Log_in.html")
+                .loginPage("/login")
             )
 
             // Configuración de logout
             .logout(logout -> logout
-                .logoutSuccessUrl("/index.html")
+                .logoutSuccessUrl("/inicio")
             );
 
         return http.build();

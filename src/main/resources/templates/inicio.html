@@ -73,12 +73,11 @@
             <h1 style="text-align: center; color: rgb(255, 166, 0); width: 100%; margin-bottom: 40px; font-size: 50px;">
                 SUSCRIPCIONES
             </h1>
-
-            <div id="suscripcion_basica">
-                <p style="margin-top: 3%; font-size: 50px;">Básico</p>
-                <p style="font-size: 80px; font-weight: 700;">8,99€</p>
-                <p style="font-size: 30px; margin-bottom: 25px;">cuota mensual</p>
-                <a th:href="@{/sign_in}" style="margin-top: 10px; margin-bottom: 10px;">Empezar</a>
+		<div style="display: flex; align-items: center; justify-content: space-evenly;">
+            <div id="suscripcion_gratuita">
+                <p style="margin-top: 3%; font-size: 50px;">Gratuita</p>
+                <p style="font-size: 80px; font-weight: 700;">0,00€</p>
+                <a th:href="@{/signin}" style="margin-top: 10px; margin-bottom: 10px;">Empezar</a>
                 <hr style="width: 80%; color: white; margin-left: 10%; margin-top: 25px; margin-right: 10%; border: 3px solid white;">
                 <p style="font-size: 30px;">Calidad buena</p>
                 <p style="font-size: 30px;">720 ppp</p>
@@ -86,23 +85,10 @@
                 <p style="margin-bottom: 10%; font-size: 30px;">Sin descargas</p>
             </div>
 
-            <div id="suscripcion_estandar">
-                <p style="margin-top: 3%; font-size: 50px;">Estándar</p>
-                <p style="font-size: 80px; font-weight: 700;">12,50€</p>
-                <p style="font-size: 30px; margin-bottom: 25px;">cuota mensual</p>
-                <a th:href="@{/sign_in}">Empezar</a>
-                <hr style="width: 80%; margin-left: 10%; margin-right: 10%; margin-top: 25px; border: 3px solid white;">
-                <p style="font-size: 30px;">Calidad muy buena</p>
-                <p style="font-size: 30px;">1080 ppp</p>
-                <p style="font-size: 30px;">Tres dispositivos simultáneos</p>
-                <p style="margin-bottom: 10%; font-size: 30px;">Con descargas</p>
-            </div>
-
             <div id="suscripcion_premium">
                 <p style="margin-top: 3%; font-size: 50px;">Premium</p>
                 <p style="font-size: 80px; font-weight: 700;">17,99€</p>
-                <p style="font-size: 30px; margin-bottom: 25px;">cuota mensual</p>
-                <a th:href="@{/sign_in}">Empezar</a>
+                <a th:href="@{/signin}">Empezar</a>
                 <hr style="width: 80%; color: white; margin-top: 25px; margin-left: 10%; margin-right: 10%; border: 3px solid white;">
                 <p style="font-size: 30px;">Calidad excelente</p>
                 <p style="font-size: 30px;">4K + HDR</p>
@@ -112,22 +98,24 @@
         </div>
     </main>
 
+	<div class="clear-djg"></div>
+
     <footer class="container-fluid fixed-bottom footer-djg">
         <div class="row mx-auto pt-4 pb-2" style="font-size: 9pt;">
             <div class="col-md-2 col-lg-3 ms-md-auto align-self-end p-1 mx-auto">
                 <center><a class="footer-enlace" href="#arribaX">Volver arriba</a></center>
             </div>
             <div class="col-md-2 col-lg-2 ms-md-auto align-self-end p-1 mx-auto">
-                <center><a class="footer-enlace" th:href="@{/eula.html#copyright}">Copyright © 2023</a></center>
+                <center><a class="footer-enlace" th:href="@{/eula#copyright}">Copyright © 2023</a></center>
             </div>
             <div class="col-md-2 col-lg-2 ms-md-auto align-self-end p-1 mx-auto">
-                <center><a class="footer-enlace" th:href="@{/eula.html#cookies}">Cookies y seguimiento</a></center>
+                <center><a class="footer-enlace" th:href="@{/eula#cookies}">Cookies y seguimiento</a></center>
             </div>
             <div class="col-md-2 col-lg-2 ms-md-auto align-self-end p-1 mx-auto">
-                <center><a class="footer-enlace" th:href="@{/eula.html#politica}">Política de datos</a></center>
+                <center><a class="footer-enlace" th:href="@{/eula#politica}">Política de datos</a></center>
             </div>
             <div class="col-md-3 col-lg-3 ms-md-auto align-self-end p-1 mx-auto">
-                <center><a class="footer-enlace" th:href="@{/eula.html#terminos}">Términos y condiciones</a></center>
+                <center><a class="footer-enlace" th:href="@{/eula#terminos}">Términos y condiciones</a></center>
             </div>
         </div>
     </footer>

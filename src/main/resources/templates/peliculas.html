@@ -7,12 +7,14 @@
     <head> 
 
         <!-- Page tab title -->
-        <title>Damfilms - Catalogo</title> <!-- INTRODUCE AQUI EL TITULO DE TU SECCION | BORRA ESTE COMENTARIO Ejemplo: " Damfilms - Home "-->
+        <title>Damfilms - Peliculas</title> <!-- INTRODUCE AQUI EL TITULO DE TU SECCION | BORRA ESTE COMENTARIO Ejemplo: " Damfilms - Home "-->
      
         <!-- Popper JS inclusion via Local File - BEFORE BOOTSTRAP SCRIPTS-->
         <script th:src="@{/js/popper.min.js}" type="text/Javascript"></script>
         <!--<script src="res/stock.js" type="module"></script> COMENTADO POR SI ACASO, NO BORRAR -->
         
+        <!-- script función manu.-->
+        <script th:src="@{/js/scripts.js}" type="module"></script>
 
         
         <!-- Bootstrap stylesheet CDN -->
@@ -27,13 +29,14 @@
         <link rel="stylesheet" th:href="@{/css/style.css}" type="text/css">
         <!-- OBTENER ESTILOS DE LA NAVBAR!-->
         <link rel="stylesheet" th:href="@{/css/navbar.css}" TYPE="text/css">
-
+        <!-- HOJA DE ESTILOS DE MODAL VITRINA-->
         
     </head>
 
 
     <!-- Document of the BODY -->
     <body>
+        <div id="modalBox"></div> <!-- aqui se inyectan los modales a llamar-->
         <div id="arribaX"></div>
         <!-- Navbar -->
         <nav class="navbar navbar-expand-lg ">
@@ -70,12 +73,12 @@
                                 </li>
                                 <li class="nav-item-left">
                                     <a class="nav-link active" th:href="@{/catalog-movies.html}"> <!-- INTRODUCIR LOS ENLACES A LAS PAGINAS PERTINENTES -->
-                                        <div id="films-icon">Películas</div>
+                                        <div id="films-icon-active">Películas</div>
                                     </a>
                                 </li>
                                 <li class="nav-item-left">
-                                    <a class="nav-link active presente" th:href="@{/catalog-documentals.html}" > <!-- INTRODUCIR LOS ENLACES A LAS PAGINAS PERTINENTES -->
-                                        <div id="documentals-icon-active">Documentales</div>
+                                    <a class="nav-link active" th:href="@{/catalog-documentals.html}" > <!-- INTRODUCIR LOS ENLACES A LAS PAGINAS PERTINENTES -->
+                                        <div id="documentals-icon">Documentales</div>
                                     </a>
                                 </li>
                             </ul>
@@ -94,7 +97,7 @@
                             <li class="nav-item-right dropdown">
             
                                 <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                    <img src="img/icons/user-64.png">
+                                    <img th:src="@{/img/icons/user-64.png}">
                                 </a>
             
                                 <ul class="pmg-dropdown-menu dropdown-menu dropdown-menu-end">
@@ -110,11 +113,8 @@
                 </div> <!-- cierra el row-->
                     
             </div> <!-- Cierra contenedor del Row-->         
-    
-    
-    
         </nav> <!-- cierra navbar-->
-          
+      
 
         <!-- Main document content-->
         <main>
@@ -125,25 +125,45 @@
                 <div id="filterBox">
 
                     <!-- Genero button-->
-                    <div class="dropdown">
+                    <div class="djg-dropdown dropdown">
 
                         <!-- Button actual body and title-->
                         <button type="button" class="btn btn-secondary dropdown-toggle" id="genreDropDown" data-bs-toggle="dropdown" aria-expanded="false">Género</button>
                         
                         <!-- Dropdown menu content-->
-                        <ul class="dropdown-menu " id="DropDownItem" >
-                            <li><button id="historicButton" type="button" class="dropdown-item djg-dropdown-item dd-entry">Histórico</button></li>
-                            <li><button id="biographicButton" type="button" class="dropdown-item djg-dropdown-item">Biográfico</button></li>
-                            <li><button id="scienceButton" type="button" class="dropdown-item djg-dropdown-item" >Naturaleza y ciencia</button></li>
-                            <li><button id="denounceButton" type="button" class="dropdown-item djg-dropdown-item" >Denuncia social</button></li>
-                            <li><button id="reportButton" type="button" class="dropdown-item djg-dropdown-item" >Reportaje</button></li>
-                            <li><button id="showAllButton" type="button" class="dropdown-item" >Mostrar todo</button></li>
+                        <ul class="dropdown-menu" id="DropDownItem">
+                            <li><button id="actionButton" type="button" class="dropdown-item djg-dropdown-item">Acción</button></li>
+                            <li><button id="dramaButton" type="button" class="dropdown-item djg-dropdown-item">Drama</button></li>
+                            <li><button id="comedyButton" type="button" class="dropdown-item djg-dropdown-item" >Comedia</button></li>
+                            <li><button id="adventureButton" type="button" class="dropdown-item djg-dropdown-item" >Aventura</button></li>
+                            <li><button id="scifiButton" type="button" class="dropdown-item djg-dropdown-item">Ciencia Ficción</button></li>
+                            <li><button id="fantasyButton" type="button" class="dropdown-item djg-dropdown-item">Fantasía</button></li>
+                            <li><button id="thrillerButton" type="button" class="dropdown-item djg-dropdown-item">Suspense</button></li>
+                            <li><button id="horrorButton" type="button" class="dropdown-item djg-dropdown-item">Terror</button></li>
+                            <li><button id="romanceButton" type="button" class="dropdown-item djg-dropdown-item" >Romance</button></li>
+                            <li><button id="allGenreButton" type="button" class="dropdown-item" >Mostrar todo</button></li>
                         </ul>
-                    </div>                 
+                    </div>
+
+                    <!-- BOTON DE TIPO-->
+                    <div class="djg-dropdown dropdown">
+                        <!-- Button actual body and title-->
+                        <button type="button" class="btn btn-secondary dropdown-toggle" id="genreDropDown" data-bs-toggle="dropdown" aria-expanded="false">Tipo</button>
+                        
+                        <!-- Dropdown menu content-->
+                        <ul class="dropdown-menu" id="DropDownItem">
+                            <li><button id="animationButton" type="button" class="dropdown-item djg-dropdown-item">Animación</button></li>
+                            <li><button id="liveButton" type="button" class="dropdown-item djg-dropdown-item">Live action</button></li>
+                            <li><button id="allTypeButton" type="button" class="dropdown-item">Mostrar todo</button></li>
+                            <!--<li><button id="allTypeButton" type="button" class="dropdown-item">Todo</button></li>-->
+                        </ul>
+                    </div>
+                    
+                    <div id="cleanFilterButton" type="button">Limpiar filtro.</div>
                 </div>
 
                 
-                <div class="container-fluid mx" id="big-box" ><!-- CAJA DE PELICULAS-->
+                <div class="container-fluid mx" id="big-box"><!-- CAJA DE PELICULAS-->
                     
                     <!-- CAJA CONTENEDORA ULTIMAS LLEGADAS --> 
                     <div classs="wrapper">           
@@ -152,13 +172,13 @@
                         <!-- Aquí se inyectan los objetos de peliculas recientes -->
                         <div id="newest-row" >
                         	<div class="col-3">
-                        		<div class="col-3" th:each="documental : ${ultimasLlegadas}">
+                        		<div class="col-3" th:each="pelicula : ${ultimasLlegadas}">
                         			<div class="card">
-                        				<img class="card-img-top" th:src="@{/img/posters/documentales/} + ${documental.titulo + ' .jpg'}" alt="Imagen del documental">
+                        				<img class="card-img-top" th:src="@{/img/posters/films/} + ${pelicula.titulo + ' .jpg'}" alt="Imagen de la película">
                         				<div class="card-body">
-                        					<h5 class="card-title" th:text="${documental.titulo}"></h5>
-                        					<p class="card-text" th:text="${documental.descripcion}"></p>
-                        					<p class="card-text" th:text="'Duracion: ' + ${documental.duracion} + ' min'"></p>
+                        					<h5 class="card-title" th:text="${pelicula.titulo}"></h5>
+                        					<p class="card-text" th:text="${pelicula.descripcion}"></p>
+                        					<p class="card-text" th:text="'Duracion: ' + ${pelicula.duracion} + ' min'"></p>
                         				</div>
                         			</div>
                         		</div>
@@ -175,13 +195,13 @@
                         <!-- Aquí se inyectan los objetos de peliculas populares-->
                         <div id="popular-row">
                         	<div class="row">
-				                <div class="col-3" th:each="documental : ${mejorClasificadas}">
+				                <div class="col-3" th:each="pelicula : ${mejorClasificadas}">
 				                    <div class="card">
-				                        <img class="card-img-top" th:src="@{/img/posters/documentales} + ${documental.titulo + '.jpg'}" alt="Imagen del documental">
+				                        <img class="card-img-top" th:src="@{/img/posters/films} + ${pelicula.titulo + '.jpg'}" alt="Imagen de la película">
 				                        <div class="card-body">
-				                            <h5 class="card-title" th:text="${documental.titulo}"></h5>
-				                            <p class="card-text" th:text="${documental.descripcion}"></p>
-				                            <p class="card-text" th:text="'Duración: ' + ${documental.duracion} + ' min'"></p>
+				                            <h5 class="card-title" th:text="${pelicula.titulo}"></h5>
+				                            <p class="card-text" th:text="${pelicula.descripcion}"></p>
+				                            <p class="card-text" th:text="'Duración: ' + ${pelicula.duracion} + ' min'"></p>
 				                        </div>
 				                    </div>
 				                </div>
@@ -197,13 +217,13 @@
                         <!-- Aqui se inyectan los objetos de peliculas sin filtrar ni discriminar -->
                         <div id="explore-row">
                         	<div class="row">
-				                <div class="col-3" th:each="documental : ${todosLosDocumentales}">
+				                <div class="col-3" th:each="pelicula : ${todasLasPeliculas}">
 				                    <div class="card">
-				                        <img class="card-img-top" th:src="@{/img/posters/documentales} + ${documental.titulo + '.jpg'}" alt="Imagen del documental">
+				                        <img class="card-img-top" th:src="@{/img/posters/films} + ${pelicula.titulo + '.jpg'}" alt="Imagen de la película">
 				                        <div class="card-body">
-				                            <h5 class="card-title" th:text="${documental.titulo}"></h5>
-				                            <p class="card-text" th:text="${documental.descripcion}"></p>
-				                            <p class="card-text" th:text="'Duración: ' + ${documental.duracion} + ' min'"></p>
+				                            <h5 class="card-title" th:text="${pelicula.titulo}"></h5>
+				                            <p class="card-text" th:text="${pelicula.descripcion}"></p>
+				                            <p class="card-text" th:text="'Duración: ' + ${pelicula.duracion} + ' min'"></p>
 				                        </div>
 				                    </div>
 				                </div>
@@ -219,48 +239,49 @@
         </main>
 
         <!-- Footer and infoboxes section -->
-        <footer class="container-fluid fixed-bottom footer-djg" >
+<!--Footer-->
+            <footer class="container-fluid fixed-bottom footer-djg" >
 
 
-            <!-- FOOTER COLUMNS ROW - THIS ROW CONTAINS THE FOOTER COLUMNS -->
-            <div class="row mx-auto pt-4 pb-2" style="font-size: 9pt;">
-
-                <!-- FOOTER COOKIES COLUMN -->
-                <div class="col-md-2 col-lg-3  ms-md-auto align-self-end p-1 mx-auto"> 
-                    <!-- INTRODUCIR TEXTO DEFINITIVO Y BORRAR LOREM IPSUM -->
-                    <center><a class="footer-enlace" href="#arribaX">Volver arriba</a></center>
+                <!-- FOOTER COLUMNS ROW - THIS ROW CONTAINS THE FOOTER COLUMNS -->
+                <div class="row mx-auto pt-4 pb-2" style="font-size: 9pt;">
+    
+                    <!-- FOOTER COOKIES COLUMN -->
+                    <div class="col-md-2 col-lg-3  ms-md-auto align-self-end p-1 mx-auto"> 
+                        <!-- INTRODUCIR TEXTO DEFINITIVO Y BORRAR LOREM IPSUM -->
+                        <center><a class="footer-enlace" href="#arribaX">Volver arriba</a></center>
+                    </div>
+    
+                    <!-- FOOTER COPYRIGHT COLUMN -->
+                    <div class="col-md-2 col-lg-2  ms-md-auto align-self-end p-1 mx-auto"> 
+                        <!-- INTRODUCIR TEXTO DEFINITIVO Y BORRAR LOREM IPSUM -->
+                        <center><a class="footer-enlace" th:href="@{/eula#copyright}">Copyright Â© 2023</a></center>
+                    </div>
+    
+                    <!-- FOOTER LINKS COLUMN (FAR RIGHT) -->
+                    <div class="col-md-2 col-lg-2  ms-md-auto align-self-end p-1 mx-auto"> 
+                        <!-- INTRODUCIR TEXTO DEFINITIVO Y BORRAR LOREM IPSUM -->
+                        <center><a class="footer-enlace" th:href="@{/eula#cookies}">Cookies y seguimiento</a></center>
+                    </div>
+    
+                    <!-- FOOTER LINKS COLUMN (FAR RIGHT) -->
+                    <div class="col-md-2 col-lg-2  ms-md-auto align-self-end p-1 mx-auto"> 
+                        <!-- INTRODUCIR TEXTO DEFINITIVO Y BORRAR LOREM IPSUM -->
+                        <center><a class="footer-enlace" th:href="@{/eula#politica}">Politica de datos</a></center>
+                    </div>
+    
+                    <!-- FOOTER LINKS COLUMN (FAR RIGHT) -->
+                    <div class="col-md-3 col-lg-3  ms-md-auto align-self-end p-1 mx-auto"> 
+                        <!-- INTRODUCIR TEXTO DEFINITIVO Y BORRAR LOREM IPSUM -->
+                        <center><a class="footer-enlace" th:href="@{/eula#terminos}">Terminos y condiciones</a></center>
+                    </div>
+    
                 </div>
-
-                <!-- FOOTER COPYRIGHT COLUMN -->
-                <div class="col-md-2 col-lg-2  ms-md-auto align-self-end p-1 mx-auto"> 
-                    <!-- INTRODUCIR TEXTO DEFINITIVO Y BORRAR LOREM IPSUM -->
-                    <center><a class="footer-enlace" th:href="@{/eula.html#copyright}">Copyright © 2023</a></center>
-                </div>
-
-                <!-- FOOTER LINKS COLUMN (FAR RIGHT) -->
-                <div class="col-md-2 col-lg-2  ms-md-auto align-self-end p-1 mx-auto"> 
-                    <!-- INTRODUCIR TEXTO DEFINITIVO Y BORRAR LOREM IPSUM -->
-                    <center><a class="footer-enlace" th:href="@{/eula.html#cookies}">Cookies y seguimiento</a></center>
-                </div>
-
-                <!-- FOOTER LINKS COLUMN (FAR RIGHT) -->
-                <div class="col-md-2 col-lg-2  ms-md-auto align-self-end p-1 mx-auto"> 
-                    <!-- INTRODUCIR TEXTO DEFINITIVO Y BORRAR LOREM IPSUM -->
-                    <center><a class="footer-enlace" th:href="@{/eula.html#politica}">Politica de datos</a></center>
-                </div>
-
-                <!-- FOOTER LINKS COLUMN (FAR RIGHT) -->
-                <div class="col-md-3 col-lg-3  ms-md-auto align-self-end p-1 mx-auto"> 
-                    <!-- INTRODUCIR TEXTO DEFINITIVO Y BORRAR LOREM IPSUM -->
-                    <center><a class="footer-enlace" th:href="@{/eula.html#terminos}">Terminos y condiciones</a></center>
-                </div>
-
-            </div>
-
-        </footer>
+    
+            </footer>
 
                 <!-- Page specific Javascript link that needs to load after html render-->
-                <script th:src="@{/js/djg-script-docu.js}" type="module"></script>
+                <script th:src="@{/js/djg-script.js}" type="module"></script>
 
     </body>
 </html>

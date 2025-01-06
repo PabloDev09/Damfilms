@@ -24,69 +24,69 @@ public class SpringSecurityController {
 
     /* Ruta por defecto, redirige a index.html */
     @RequestMapping("/")
-    public String indexDefault() {
-        return "index.html";
+    public String inicioDefault() {
+        return "inicio.html";
     }
 
     /* Ruta para la página de inicio */
-    @RequestMapping("/index.html")
-    public String index() {
-        return "index.html";
+    @RequestMapping("/inicio")
+    public String inicio() {
+        return "inicio.html";
     }
 
     /* Ruta para la página principal (home) */
-    @RequestMapping("/home.html")
+    @RequestMapping("/home")
     public String home() {
         return "home.html";
     }
 
     /* Ruta para el catálogo de series */
-    @RequestMapping("/catalog-series.html")
-    public String catalogSeries(Model model) {
+    @RequestMapping("/series")
+    public String series(Model model) {
     	model.addAttribute("ultimasLllegadas", iSerieRepository.findTop10ByOrderByFechaEstrenoDesc()) ;
     	model.addAttribute("mejorClasificadas", iSerieRepository.findTop10ByOrderByClasificacionDesc()) ;
     	model.addAttribute("todasLasSeries", iSerieRepository.findAll()) ;
-        return "catalog-series.html";
+        return "series.html";
     }
 
     /* Ruta para el catálogo de películas */
-    @RequestMapping("/catalog-movies.html")
-    public String catalogMovies(Model model) {
-    	model.addAttribute("ultimasLllegadas", iPeliculaRepository.findTop10ByOrderByFechaEstrenoDesc()) ;
+    @RequestMapping("/peliculas")
+    public String peliculas(Model model) {
+    	model.addAttribute("ultimasLlegadas", iPeliculaRepository.findTop10ByOrderByFechaEstrenoDesc()) ;
     	model.addAttribute("mejorClasificadas", iPeliculaRepository.findTop10ByOrderByClasificacionDesc()) ;
     	model.addAttribute("todasLasPeliculas", iPeliculaRepository.findAll()) ;
-        return "catalog-movies.html";
+        return "peliculas.html";
     }
 
     /* Ruta para el catálogo de documentales */
-    @RequestMapping("/catalog-documentals.html")
-    public String catalogDocumentals(Model model) {
+    @RequestMapping("/documentales")
+    public String documentales(Model model) {
     	model.addAttribute("ultimasLllegadas", iDocumentalRepository.findTop10ByOrderByFechaEstrenoDesc()) ;
     	model.addAttribute("mejorClasificadas", iDocumentalRepository.findTop10ByOrderByClasificacionDesc()) ;
     	model.addAttribute("todosLosDocumentales", iDocumentalRepository.findAll()) ;
-        return "catalog-documentals.html";
+        return "documentales.html";
     }
 
     /* Ruta para la página de registro */
-    @RequestMapping("/sign_in.html")
+    @RequestMapping("/signin")
     public String signIn() {
-        return "sign_in.html";
+        return "signin.html";
     }
 
     /* Ruta para la página de inicio de sesión */
-    @RequestMapping("/Log_in.html")
+    @RequestMapping("/login")
     public String logIn() {
-        return "Log_in.html";
+        return "login.html";
     }
 
     /* Ruta para la página de configuración principal */
-    @RequestMapping("/config-principal.html")
-    public String configPrincipal() {
-        return "config-principal.html";
+    @RequestMapping("/configuracion")
+    public String configuracion() {
+        return "configuracion.html";
     }
 
     /* Ruta para la página de acuerdo de licencia de usuario final (EULA) */
-    @RequestMapping("/eula.html")
+    @RequestMapping("/eula")
     public String eula() {
         return "eula.html";
     }
@@ -95,6 +95,6 @@ public class SpringSecurityController {
     @RequestMapping("/login-error.html")
     public String loginError(Model model) {
         model.addAttribute("loginError", true);
-        return "Log_in.html";
+        return "login.html";
     }
 }

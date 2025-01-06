@@ -1,13 +1,11 @@
 .container-sm {
-
     width: 200px;
     height: 200px;
     display: inline-block;
     background: linear-gradient(to right bottom, rgba(75, 75, 75, 0.4), rgba(26, 26, 26, 0.9));
     border-radius: 8px;
     margin: 20px;
-    cursor: pointer;
-    
+    cursor: pointer;  
 }
 
 img{

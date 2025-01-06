@@ -1,6 +1,6 @@
 package es.iesjandula.damfilms_server.repositories;
 
-import java.sql.Date;
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -8,8 +8,6 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
-import es.iesjandula.damfilms_server.dtos.DocumentalDescripcion;
-import es.iesjandula.damfilms_server.dtos.DocumentalDetalle;
 import es.iesjandula.damfilms_server.dtos.PeliculaDescripcion;
 import es.iesjandula.damfilms_server.dtos.PeliculaDetallada;
 import es.iesjandula.damfilms_server.entities.Pelicula;
