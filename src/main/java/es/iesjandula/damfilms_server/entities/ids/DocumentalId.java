@@ -1,6 +1,5 @@
 package es.iesjandula.damfilms_server.entities.ids;
 
-
 import java.util.Date;
 
 import jakarta.persistence.Column;
@@ -13,10 +12,10 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Embeddable
-public class DocumentalId 
+public class DocumentalId
 {
 	@Column(length = 150)
 	private String titulo;
-	
+
 	private Date fechaEstreno;
 }

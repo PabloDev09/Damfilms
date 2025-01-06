@@ -4,9 +4,8 @@ import es.iesjandula.damfilms_server.entities.ids.EpisodioId;
 import jakarta.persistence.Column;
 import jakarta.persistence.EmbeddedId;
 import jakarta.persistence.Entity;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.JoinColumns;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.MapsId;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -22,15 +21,12 @@ public class Episodio
 	@EmbeddedId
 	private EpisodioId episodioId;
 	
+	@MapsId(value = "temporada")
 	@ManyToOne
-	@JoinColumns
-	(
-		{
-			@JoinColumn(name = "temporada_numero", nullable = false, referencedColumnName = "numero"),
-			@JoinColumn(name = "temporada_fecha_estreno", nullable = false, referencedColumnName = "fechaEstreno")
-		}
-	)
 	private Temporada temporada;
+
+	@Column(length = 150, nullable = false)
+	private String nombre;
 	
 	@Column(length = 3, nullable = false)
 	private int duracion;

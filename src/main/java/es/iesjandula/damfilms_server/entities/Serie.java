@@ -19,22 +19,22 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Entity
 @Table
-public class Serie 
+public class Serie
 {
 	@EmbeddedId
 	private SerieId serieId;
-	
+
 	@Column(nullable = false)
 	private String descripcion;
-	
+
 	@Column(length = 50, nullable = false)
 	private String clasificacion;
-	
+
 	@ManyToOne
-	@JoinColumn(name = "genero_nombre", referencedColumnName = "nombre" , nullable = false)
+	@JoinColumn(name = "genero_nombre", referencedColumnName = "nombre", nullable = false)
 	private Genero genero;
-	
+
 	@OneToMany(mappedBy = "serie")
 	private List<Temporada> temporadas;
-	
+
 }

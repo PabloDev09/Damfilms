@@ -12,11 +12,11 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-public class SerieVisualizada 
+public class SerieVisualizada
 {
 	@EmbeddedId
 	private SerieVisualizadaId serieVisualizadaId;
-	
+
 	@Column(length = 5, nullable = false)
 	private int episodiosVistos;
 }

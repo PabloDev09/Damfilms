@@ -21,21 +21,19 @@ import lombok.NoArgsConstructor;
 @Entity
 @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 @Table
-public class Suscripcion 
+public class Suscripcion
 {
-	
-	  @EmbeddedId
-	  private SuscripcionId suscripcionId;
-	  
-	  @Column(length = 5)
-	  private int duracion;
-	  
-	  @Column(nullable = true)
-	  private Date fechaFin;
-	  
-	  @MapsId(value = "usuario")
-	  @ManyToOne
-	  private Usuario usuario;
+
+	@EmbeddedId
+	private SuscripcionId suscripcionId;
+
+	@Column(length = 5)
+	private int duracion;
+
+	@Column(nullable = true)
+	private Date fechaFin;
+
+	@MapsId(value = "usuario")
+	@ManyToOne
+	private Usuario usuario;
 }
-
-

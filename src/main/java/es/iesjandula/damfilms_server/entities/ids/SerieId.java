@@ -14,6 +14,6 @@ import lombok.NoArgsConstructor;
 public class SerieId
 {
 	private String nombre;
-	
+
 	private Date fechaEstreno;
 }

@@ -14,6 +14,6 @@ import lombok.NoArgsConstructor;
 public class TemporadaId
 {
 	private int numero;
-	
+
 	private Date fechaEstreno;
 }

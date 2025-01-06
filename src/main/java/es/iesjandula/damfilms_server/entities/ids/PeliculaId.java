@@ -16,6 +16,6 @@ public class PeliculaId
 {
 	@Column(length = 150)
 	private String titulo;
-	
+
 	private Date fechaEstreno;
 }

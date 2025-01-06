@@ -19,21 +19,21 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Entity
 @Table
-public class Temporada 
+public class Temporada
 {
 	@EmbeddedId
 	private TemporadaId temporadaId;
-	
+
 	@ManyToOne
 	@JoinColumns
 	(
-		{
+		{ 
 			@JoinColumn(name = "nombre_serie", nullable = false, referencedColumnName = "nombre"),
-			@JoinColumn(name = "fecha_estreno_serie", nullable = false, referencedColumnName = "fechaEstreno")
+			@JoinColumn(name = "fecha_estreno_serie", nullable = false, referencedColumnName = "fechaEstreno") 
 		}
 	)
 	private Serie serie;
-	
+
 	@OneToMany(mappedBy = "temporada")
 	private List<Episodio> episodios;
 

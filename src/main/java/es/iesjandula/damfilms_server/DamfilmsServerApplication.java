@@ -14,7 +14,7 @@ public class DamfilmsServerApplication implements CommandLineRunner
 {
 	
 	@Autowired
-	private IGestorParseo parseoFicheros;
+	private IGestorParseo iParseoFicheros;
 
 	public static void main(String[] args) 
 	{
@@ -24,11 +24,16 @@ public class DamfilmsServerApplication implements CommandLineRunner
 	@Transactional(readOnly = false)
 	public void run(String... args) throws Exception 
 	{
+		this.iParseoFicheros.parseaFichero(Constants.CSV_GENEROS);
+		this.iParseoFicheros.parseaFichero(Constants.CSV_SERIES);
+		this.iParseoFicheros.parseaFichero(Constants.CSV_DOCUMENTALES);
+		this.iParseoFicheros.parseaFichero(Constants.CSV_PELICULAS);
+		this.iParseoFicheros.parseaFichero(Constants.CSV_MODOS);
+		this.iParseoFicheros.parseaFichero(Constants.CSV_CONFIGURACIONES);
+		this.iParseoFicheros.parseaFichero(Constants.CSV_USUARIOS);
+		this.iParseoFicheros.parseaFichero(Constants.CSV_PELICULAS_VISUALIZADAS);
 		
-		this.parseoFicheros.parseaFichero(Constants.CSV_GENEROS);
-		this.parseoFicheros.parseaFichero(Constants.CSV_SERIES);
-		this.parseoFicheros.parseaFichero(Constants.CSV_DOCUMENTALES);
-		this.parseoFicheros.parseaFichero(Constants.CSV_PELICULAS);
+		
 		
 	}
 

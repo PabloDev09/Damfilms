@@ -1,7 +1,5 @@
 package es.iesjandula.damfilms_server.entities;
 
-
-
 import java.util.List;
 
 import jakarta.persistence.Column;
@@ -18,15 +16,15 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Entity
 @Table
-public class Genero 
+public class Genero
 {
 	@Id
-  	@Column(length = 25)
+	@Column(length = 25)
 	private String nombre;
-  
+
 	@Column(length = 200, nullable = false)
 	private String descripcion;
-  
+
 	@OneToMany(mappedBy = "genero")
-	private List<Serie> series;  	  
+	private List<Serie> series;
 }

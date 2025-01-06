@@ -13,7 +13,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Embeddable
-public class SuscripcionId 
+public class SuscripcionId
 {
 	@ManyToOne
 	private Usuario usuario;

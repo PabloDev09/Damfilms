@@ -1,9 +1,8 @@
 package es.iesjandula.damfilms_server.entities.ids;
 
-import java.io.Serializable;
-
-import jakarta.persistence.Column;
+import es.iesjandula.damfilms_server.entities.Temporada;
 import jakarta.persistence.Embeddable;
+import jakarta.persistence.ManyToOne;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -12,16 +11,11 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Embeddable
-public class EpisodioId implements Serializable
+public class EpisodioId
 {
-	
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = -7893798935944332256L;
-	
+
 	private Integer numero;
-	
-	@Column(length = 150)
-	private String nombre;
+
+	@ManyToOne
+	private Temporada temporada;
 }

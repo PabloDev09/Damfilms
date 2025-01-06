@@ -14,21 +14,21 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-public class Pelicula 
+public class Pelicula
 {
 	@EmbeddedId
 	private PeliculaId peliculaId;
-	
+
 	@Column(length = 200, nullable = false)
 	private String descripcion;
-	
+
 	@Column(length = 4, nullable = false)
 	private int duracion;
-	
+
 	@Column(length = 50, nullable = false)
 	private String clasificacion;
-	
+
 	@ManyToOne
-	@JoinColumn(name = "genero_nombre", referencedColumnName = "nombre" , nullable = false)
+	@JoinColumn(name = "genero_nombre", referencedColumnName = "nombre", nullable = false)
 	private Genero genero;
 }
