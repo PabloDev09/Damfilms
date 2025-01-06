@@ -10,6 +10,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Entity
 @Table
-public class SuscripcionGratuita extends Suscripcion{
+public class SuscripcionGratuita extends Suscripcion
+{
 
 }

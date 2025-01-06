@@ -1,4 +1,4 @@
-package es.iesjandula.damfilms_server.iml;
+package es.iesjandula.damfilms_server.parsers.impl;
 
 import java.util.Optional;
 import java.util.Scanner;
@@ -11,7 +11,7 @@ import es.iesjandula.damfilms_server.entities.DocumentalVisualizado;
 import es.iesjandula.damfilms_server.entities.Usuario;
 import es.iesjandula.damfilms_server.entities.ids.DocumentalId;
 import es.iesjandula.damfilms_server.entities.ids.DocumentalVisualizadoId;
-import es.iesjandula.damfilms_server.interfaces.IParseoDocumentalVisualizado;
+import es.iesjandula.damfilms_server.parsers.interfaces.IParseo;
 import es.iesjandula.damfilms_server.repositories.IDocumentalRepository;
 import es.iesjandula.damfilms_server.repositories.IDocumentalVisualizadoRepository;
 import es.iesjandula.damfilms_server.repositories.IUsuarioRepository;
@@ -21,79 +21,79 @@ import lombok.extern.log4j.Log4j2;
 
 @Service
 @Log4j2
-public class ParseoDocumentalVisualizado implements IParseoDocumentalVisualizado
+public class ParseoDocumentalVisualizadoImpl implements IParseo<DocumentalVisualizado>
 {
-	
+
 	@Autowired
 	private IDocumentalVisualizadoRepository documentalVisualizadoRepository;
-	
+
 	@Autowired
 	private IDocumentalRepository documentalRepository;
-	
+
 	@Autowired
 	private IUsuarioRepository usuarioRepository;
 
 	@Override
-	public void parseaFichero(Scanner scanner) throws DamfilmsServerException 
+	public void parseaFichero(Scanner scanner) throws DamfilmsServerException
 	{
 		// TODO Auto-generated method stub
-		
+
 		scanner.nextLine();
-		
-		while(scanner.hasNextLine()) 
+
+		while(scanner.hasNextLine())
 		{
 			String lineaDelFichero = scanner.nextLine();
-			
+
 			String[] lineaDelFicheroTroceada = lineaDelFichero.split(",");
-			
-			
+
+
 			DocumentalVisualizadoId documentalVisualizadoId = new DocumentalVisualizadoId();
-			
+
 			DocumentalId documentalId = new DocumentalId();
-			
+
 			documentalId.setTitulo(lineaDelFicheroTroceada[0]);
-			try 
+			try
 			{
 				documentalId.setFechaEstreno(DatesUtil.crearFechaDesdeString(lineaDelFicheroTroceada[1]));
 
 			}
-			catch (DamfilmsServerException damfilmsServerException) 
+			catch (DamfilmsServerException damfilmsServerException)
 			{
 				damfilmsServerException.printStackTrace();
-			
+
 			}
-			
+
 			Optional<Documental> optionalDocumental = this.documentalRepository.findById(documentalId);
-			
-			if(!optionalDocumental.isPresent()) 
+
+			if(!optionalDocumental.isPresent())
 			{
 				String mensajeError = "No existe el documental";
 				log.error(mensajeError);
 				throw new DamfilmsServerException(5, mensajeError);
 			}
-			
+
 			documentalVisualizadoId.setDocumental(optionalDocumental.get());
-			
+
 			Optional<Usuario> optionalUsurio = this.usuarioRepository.findById(lineaDelFicheroTroceada[2]);
-			
-			if(!optionalUsurio.isPresent()) 
+
+			if(!optionalUsurio.isPresent())
 			{
 				String mensajeError = "No existe el usuario";
 				log.error(mensajeError);
 				throw new DamfilmsServerException(6, mensajeError);
 			}
-			
+
 			documentalVisualizadoId.setUsuario(optionalUsurio.get());
-			
+
 			DocumentalVisualizado documentalVisualizado = new DocumentalVisualizado();
-			
+
 			documentalVisualizado.setDocumentalVisualizadoId(documentalVisualizadoId);
-			documentalVisualizado.setTiempoVisto(lineaDelFicheroTroceada[3]);
-			
+			documentalVisualizado.setTiempoVisto(Integer.parseInt(lineaDelFicheroTroceada[3]));
+
 			this.documentalVisualizadoRepository.saveAndFlush(documentalVisualizado);
-			
+
 		}
-		
+
 	}
 
 }

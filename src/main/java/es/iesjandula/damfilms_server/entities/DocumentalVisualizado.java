@@ -17,7 +17,7 @@ public class DocumentalVisualizado
 	@EmbeddedId
 	private DocumentalVisualizadoId documentalVisualizadoId;
 	
-	@Column(length = 10, nullable = false)
-	private String tiempoVisto;
+	@Column(length = 3, nullable = false)
+	private int tiempoVisto;
 
 }

@@ -26,7 +26,7 @@ public interface IPeliculaRepository extends JpaRepository<Pelicula, PeliculaId>
 	@Query("SELECT new es.iesjandula.damfilms_server.dtos.PeliculaDetallada(p.peliculaId.titulo, p.duracion, p.peliculaId.fechaEstreno) "
 			+ "FROM Pelicula p "
 			+ "WHERE p.peliculaId.titulo = :titulo AND p.peliculaId.fechaEstreno = :fechaEstreno")
-	PeliculaDetallada encontrarPeliculaDetallado(@Param("titulo") String titulo,
+	PeliculaDetallada encontrarPeliculaDetallada(@Param("titulo") String titulo,
 												   @Param("fechaEstreno") Date fechaEstreno);
 	
 	@Query("SELECT new es.iesjandula.damfilms_server.dtos.PeliculaDescripcion(p.peliculaId.titulo, g.nombre, p.descripcion) "

@@ -20,13 +20,13 @@ import lombok.NoArgsConstructor;
 @Table
 public class Genero 
 {
-  @Id
-  @Column(length = 25)
-  private String nombre;
+	@Id
+  	@Column(length = 25)
+	private String nombre;
   
-  @Column
-  private String descripcion;
+	@Column(length = 200, nullable = false)
+	private String descripcion;
   
-  @OneToMany(mappedBy = "genero")
-  private List<Serie> series;  	  
+	@OneToMany(mappedBy = "genero")
+	private List<Serie> series;  	  
 }

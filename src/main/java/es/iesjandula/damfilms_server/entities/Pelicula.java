@@ -22,8 +22,8 @@ public class Pelicula
 	@Column(length = 200, nullable = false)
 	private String descripcion;
 	
-	@Column
-	private Integer duracion;
+	@Column(length = 4, nullable = false)
+	private int duracion;
 	
 	@Column(length = 50, nullable = false)
 	private String clasificacion;

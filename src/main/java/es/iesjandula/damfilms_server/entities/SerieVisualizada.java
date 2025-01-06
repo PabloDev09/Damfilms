@@ -17,6 +17,6 @@ public class SerieVisualizada
 	@EmbeddedId
 	private SerieVisualizadaId serieVisualizadaId;
 	
-	@Column(length = 10, nullable = false)
-	private String tiempoVisto;
+	@Column(length = 5, nullable = false)
+	private int episodiosVistos;
 }

@@ -6,7 +6,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.transaction.annotation.Transactional;
 
-import es.iesjandula.damfilms_server.interfaces.IGestorParseo;
+import es.iesjandula.damfilms_server.parsers.interfaces.IGestorParseo;
 import es.iesjandula.damfilms_server.utils.Constants;
 
 @SpringBootApplication
@@ -22,13 +22,13 @@ public class DamfilmsServerApplication implements CommandLineRunner
 	}
 
 	@Transactional(readOnly = false)
-	public void run(String... args) throws Exception {
-		// TODO Auto-generated method stub
+	public void run(String... args) throws Exception 
+	{
 		
-		this.parseoFicheros.parseaFichero(Constants.GENEROS);
-		this.parseoFicheros.parseaFichero(Constants.SERIES);
-		this.parseoFicheros.parseaFichero(Constants.DOCUMENTALES);
-		this.parseoFicheros.parseaFichero(Constants.PELICULAS);
+		this.parseoFicheros.parseaFichero(Constants.CSV_GENEROS);
+		this.parseoFicheros.parseaFichero(Constants.CSV_SERIES);
+		this.parseoFicheros.parseaFichero(Constants.CSV_DOCUMENTALES);
+		this.parseoFicheros.parseaFichero(Constants.CSV_PELICULAS);
 		
 	}
 

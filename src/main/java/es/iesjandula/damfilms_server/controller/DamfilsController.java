@@ -32,19 +32,19 @@ import lombok.extern.log4j.Log4j2;
 public class DamfilsController {
 	
 	@Autowired
-	private IDocumentalRepository documentalRepository;
+	private IDocumentalRepository iDocumentalRepository;
 	
 	@Autowired
-	private IPeliculaRepository peliculaRepository;
+	private IPeliculaRepository iPeliculaRepository;
 	
 	@Autowired 
-	private IDocumentalVisualizadoRepository documentalVisualizadoRepository;
+	private IDocumentalVisualizadoRepository iDocumentalVisualizadoRepository;
 	
 	@Autowired
-	private IPeliculaVisualizadaRepository peliculaVisualizadaRepository;
+	private IPeliculaVisualizadaRepository iPeliculaVisualizadaRepository;
 	
 	@Autowired
-	private ISerieVisualizadaRepository serieVisualizadaRepository;
+	private ISerieVisualizadaRepository iSerieVisualizadaRepository;
 	
 	@RequestMapping(method = RequestMethod.GET, value = "/documentales")
 	public ResponseEntity<?> listaDocumentales() 
@@ -55,7 +55,7 @@ public class DamfilsController {
 			
 			List<Documental> listaDocumentales;
 			
-			if(this.documentalRepository.findAll().isEmpty()) 
+			if(this.iDocumentalRepository.findAll().isEmpty()) 
 			{
 				String mensajeError = "No se ha encontrado ningún documental";
 				log.error(mensajeError);
@@ -63,7 +63,7 @@ public class DamfilsController {
 				
 			}
 			
-			listaDocumentales = this.documentalRepository.findAll();
+			listaDocumentales = this.iDocumentalRepository.findAll();
 			
 			return ResponseEntity.ok(listaDocumentales);
 			
@@ -84,14 +84,14 @@ public class DamfilsController {
 	}
 	
 	@RequestMapping(method = RequestMethod.GET, value = "/documentales/detalle")
-	public ResponseEntity<?> detallesDocumental(@RequestParam(name = "titulo", required = true) String titulo,
+	public ResponseEntity<?> detalleDocumental(@RequestParam(name = "titulo", required = true) String titulo,
 									 			@RequestParam(name = "fechaEstreno", required = true) Date fechaEstreno) 
 	{
 		
 		try 
 		{
 			
-			if(this.documentalRepository.encontrarDocumentalDetallado(titulo, fechaEstreno)==null) 
+			if(this.iDocumentalRepository.encontrarDocumentalDetallado(titulo, fechaEstreno)==null) 
 			{
 				String mensajeError = "No se ha encontrado ningún documental con ese titulo y fecha de estreno";
 				log.error(mensajeError);
@@ -100,7 +100,7 @@ public class DamfilsController {
 			}
 			
 			DocumentalDetalle documentalDetalle = new DocumentalDetalle();
-			documentalDetalle = this.documentalRepository.encontrarDocumentalDetallado(titulo, fechaEstreno);
+			documentalDetalle = this.iDocumentalRepository.encontrarDocumentalDetallado(titulo, fechaEstreno);
 			
 			return ResponseEntity.ok(documentalDetalle);
 			
@@ -127,7 +127,7 @@ public class DamfilsController {
 		try 
 		{
 			
-			if(this.documentalRepository.encontrarDocumentalDescripcion(titulo, fechaEstreno)==null) 
+			if(this.iDocumentalRepository.encontrarDocumentalDescripcion(titulo, fechaEstreno)==null) 
 			{
 				String mensajeError = "No se ha encontrado ningún documental con ese titulo y fecha de estreno";
 				log.error(mensajeError);
@@ -136,7 +136,7 @@ public class DamfilsController {
 			}
 			
 			DocumentalDescripcion documentalDescripcion = new DocumentalDescripcion();
-			documentalDescripcion = this.documentalRepository.encontrarDocumentalDescripcion(titulo, fechaEstreno);
+			documentalDescripcion = this.iDocumentalRepository.encontrarDocumentalDescripcion(titulo, fechaEstreno);
 			
 			return ResponseEntity.ok(documentalDescripcion);
 			
@@ -162,9 +162,9 @@ public class DamfilsController {
 		try 
 		{
 			
-			List<Pelicula> listaDocumentales;
+			List<Pelicula> listaPeliculas;
 			
-			if(this.peliculaRepository.findAll().isEmpty()) 
+			if(this.iPeliculaRepository.findAll().isEmpty()) 
 			{
 				String mensajeError = "No se ha encontrado ninguna película";
 				log.error(mensajeError);
@@ -172,9 +172,9 @@ public class DamfilsController {
 				
 			}
 			
-			listaDocumentales = this.peliculaRepository.findAll();
+			listaPeliculas = this.iPeliculaRepository.findAll();
 			
-			return ResponseEntity.ok(listaDocumentales);
+			return ResponseEntity.ok(listaPeliculas);
 			
 		}
 		catch (DamfilmsServerException damfilmsServerException) 
@@ -192,13 +192,13 @@ public class DamfilsController {
 	}
 	
 	@RequestMapping(method = RequestMethod.GET, value = "/peliculas/detalle")
-	public ResponseEntity<?> detallesPelicula(@RequestParam(name = "titulo", required = true) String titulo,
+	public ResponseEntity<?> detallePelicula(@RequestParam(name = "titulo", required = true) String titulo,
 											  @RequestParam(name = "fechaEstreno", required = true) Date fechaEstreno)  
 	{
 		try 
 		{
 			
-			if(this.peliculaRepository.encontrarPeliculaDetallado(titulo, fechaEstreno)==null) 
+			if(this.iPeliculaRepository.encontrarPeliculaDetallada(titulo, fechaEstreno)==null) 
 			{
 				String mensajeError = "No se ha encontrado ninguna película con ese titulo y fecha de estreno";
 				log.error(mensajeError);
@@ -207,7 +207,7 @@ public class DamfilsController {
 			}
 			
 			PeliculaDetallada peliculaDetallada = new PeliculaDetallada();
-			peliculaDetallada = this.peliculaRepository.encontrarPeliculaDetallado(titulo, fechaEstreno);
+			peliculaDetallada = this.iPeliculaRepository.encontrarPeliculaDetallada(titulo, fechaEstreno);
 			
 			return ResponseEntity.ok(peliculaDetallada);
 			
@@ -234,7 +234,7 @@ public class DamfilsController {
 		try 
 		{
 			
-			if(this.peliculaRepository.encontrarPeliculaDescripcion(titulo, fechaEstreno)==null) 
+			if(this.iPeliculaRepository.encontrarPeliculaDescripcion(titulo, fechaEstreno)==null) 
 			{
 				String mensajeError = "No se ha encontrado ninguna película con ese titulo y fecha de estreno";
 				log.error(mensajeError);
@@ -243,7 +243,7 @@ public class DamfilsController {
 			}
 			
 			PeliculaDescripcion peliculaDescripcion = new PeliculaDescripcion();
-			peliculaDescripcion = this.peliculaRepository.encontrarPeliculaDescripcion(titulo, fechaEstreno);
+			peliculaDescripcion = this.iPeliculaRepository.encontrarPeliculaDescripcion(titulo, fechaEstreno);
 			
 			return ResponseEntity.ok(peliculaDescripcion);
 			
@@ -263,15 +263,15 @@ public class DamfilsController {
 		
 	}
 	
-	@RequestMapping(method = RequestMethod.GET, value = "/peliculas-visualizadas")
-	public ResponseEntity<?> listaPelicualasVisualizadas() 
+	@RequestMapping(method = RequestMethod.GET, value = "/peliculas/visualizadas")
+	public ResponseEntity<?> listaPeliculasVisualizadas() 
 	{
 		try 
 		{
 			
-			List<PeliculaVisualizada> listaDocumentales;
+			List<PeliculaVisualizada> listaPeliculasVisualizadas;
 			
-			if(this.peliculaVisualizadaRepository.findAll().isEmpty()) 
+			if(this.iPeliculaVisualizadaRepository.findAll().isEmpty()) 
 			{
 				String mensajeError = "No se ha encontrado ninguna película visualizada";
 				log.error(mensajeError);
@@ -279,9 +279,9 @@ public class DamfilsController {
 				
 			}
 			
-			listaDocumentales = this.peliculaVisualizadaRepository.findAll();
+			listaPeliculasVisualizadas = this.iPeliculaVisualizadaRepository.findAll();
 			
-			return ResponseEntity.ok(listaDocumentales);
+			return ResponseEntity.ok(listaPeliculasVisualizadas);
 			
 		}
 		catch (DamfilmsServerException damfilmsServerException) 
@@ -299,15 +299,15 @@ public class DamfilsController {
 		
 	}
 	
-	@RequestMapping(method = RequestMethod.GET, value = "/documentales-visualizadas")
-	public ResponseEntity<?> listaDocumentalesVisualizadas() 
+	@RequestMapping(method = RequestMethod.GET, value = "/documentales/visualizados")
+	public ResponseEntity<?> listaDocumentalesVisualizados() 
 	{
 		try 
 		{
 			
-			List<DocumentalVisualizado> listaDocumentales;
+			List<DocumentalVisualizado> listaDocumentalesVisualizados;
 			
-			if(this.documentalVisualizadoRepository.findAll().isEmpty()) 
+			if(this.iDocumentalVisualizadoRepository.findAll().isEmpty()) 
 			{
 				String mensajeError = "No se ha encontrado ningún documental visualizado";
 				log.error(mensajeError);
@@ -315,9 +315,9 @@ public class DamfilsController {
 				
 			}
 			
-			listaDocumentales = this.documentalVisualizadoRepository.findAll();
+			listaDocumentalesVisualizados = this.iDocumentalVisualizadoRepository.findAll();
 			
-			return ResponseEntity.ok(listaDocumentales);
+			return ResponseEntity.ok(listaDocumentalesVisualizados);
 			
 		}
 		catch (DamfilmsServerException damfilmsServerException) 
@@ -336,15 +336,15 @@ public class DamfilsController {
 	}
 	
 	
-	@RequestMapping(method = RequestMethod.GET, value = "/series-visualizadas")
+	@RequestMapping(method = RequestMethod.GET, value = "/series/visualizadas")
 	public ResponseEntity<?> listaSeriesVisualizadas() 
 	{
 		try 
 		{
 			
-			List<SerieVisualizada> listaDocumentales;
+			List<SerieVisualizada> listaSeriesVisualizadas;
 			
-			if(this.serieVisualizadaRepository.findAll().isEmpty()) 
+			if(this.iSerieVisualizadaRepository.findAll().isEmpty()) 
 			{
 				String mensajeError = "No se ha encontrado ninguna serie visualizada";
 				log.error(mensajeError);
@@ -352,9 +352,9 @@ public class DamfilsController {
 				
 			}
 			
-			listaDocumentales = this.serieVisualizadaRepository.findAll();
+			listaSeriesVisualizadas = this.iSerieVisualizadaRepository.findAll();
 			
-			return ResponseEntity.ok(listaDocumentales);
+			return ResponseEntity.ok(listaSeriesVisualizadas);
 			
 		}
 		catch (DamfilmsServerException damfilmsServerException) 

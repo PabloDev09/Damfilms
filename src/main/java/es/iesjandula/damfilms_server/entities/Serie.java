@@ -27,7 +27,7 @@ public class Serie
 	@Column(nullable = false)
 	private String descripcion;
 	
-	@Column(length = 5, nullable = false)
+	@Column(length = 50, nullable = false)
 	private String clasificacion;
 	
 	@ManyToOne

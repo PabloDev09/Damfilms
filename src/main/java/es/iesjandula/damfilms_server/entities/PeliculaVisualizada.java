@@ -18,7 +18,7 @@ public class PeliculaVisualizada
 	@EmbeddedId
 	private PeliculaVisualizadaId peliculaVisualizadaId;
 	
-	@Column(length = 10, nullable = false)
-	private String tiempoVisto;
+	@Column(length = 3, nullable = false)
+	private int tiempoVisto;
 
 }

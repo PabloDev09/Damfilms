@@ -32,6 +32,6 @@ public class Episodio
 	)
 	private Temporada temporada;
 	
-	@Column(nullable = false)
-	private Integer duracion;
+	@Column(length = 3, nullable = false)
+	private int duracion;
 }
