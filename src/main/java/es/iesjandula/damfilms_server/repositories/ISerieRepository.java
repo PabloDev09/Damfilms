@@ -22,12 +22,15 @@ public interface ISerieRepository extends JpaRepository<Serie, SerieId>
 	
 	@Query("SELECT s FROM Serie s ORDER BY s.clasificacion DESC")
 	List<Serie> findTop10ByOrderByClasificacionDesc() ;
+	
+	// Para encontrar una serie por su ID
+	@Query("SELECT s FROM Serie s WHERE s.id = :serieId")
+	Optional<Serie> findById(@Param("serieId") Long serieId);
 
-	Optional<Serie> findById(Long serieId);
+	// Para encontrar series por género
+	@Query("SELECT s FROM Serie s WHERE s.genero = :genero")
+	List<Serie> findByGenero(@Param("genero") String genero);
 
-	List<Serie> findByGenero(String genero);
-
-	Serie findByTituloAndFechaEstreno(String titulo, Date fechaEstreno);
 
 	@Query("SELECT new es.iesjandula.damfilms_server.dtos.SerieDetalleDTO(s.serieId.titulo, s.fechaEstreno, s.temporadas) "
 		       + "FROM Serie s "
