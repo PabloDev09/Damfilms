@@ -1,6 +1,7 @@
 package es.iesjandula.damfilms_server.dtos;
 
-import java.sql.Date;
+
+import java.util.Date;
 import java.util.List;
 
 import es.iesjandula.damfilms_server.entities.Temporada;
@@ -11,9 +12,11 @@ import lombok.NoArgsConstructor;
 
 @Data
 @NoArgsConstructor
-@AllArgsConstructor 
+@AllArgsConstructor
 public class SerieDetalle {
     private String titulo;
     private Date fechaEstreno;
     private List<Temporada> temporadas;
+    
+    
 }

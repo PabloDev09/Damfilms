@@ -1,6 +1,6 @@
 package es.iesjandula.damfilms_server.repositories;
 
-import java.sql.Date;
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -32,15 +32,15 @@ public interface ISerieRepository extends JpaRepository<Serie, SerieId>
 	List<Serie> findByGenero(@Param("genero") String genero);
 
 
-	@Query("SELECT new es.iesjandula.damfilms_server.dtos.SerieDetalleDTO(s.serieId.titulo, s.fechaEstreno, s.temporadas) "
+	@Query("SELECT new es.iesjandula.damfilms_server.dtos.SerieDetalle(s.serieId.nombre, s.serieId.fechaEstreno, s.temporadas) "
 		       + "FROM Serie s "
-		       + "WHERE s.serieId.titulo = :titulo AND s.fechaEstreno = :fechaEstreno")
+		       + "WHERE s.serieId.nombre = :titulo AND s.serieId.fechaEstreno = :fechaEstreno")
 		SerieDetalle encontrarSerieDetallada(@Param("titulo") String titulo,
 		                                        @Param("fechaEstreno") Date fechaEstreno);
 
-		@Query("SELECT new es.iesjandula.damfilms_server.dtos.SerieDescripcionDTO(s.serieId.titulo, g.nombre, s.descripcion, s.temporadas) "
-		       + "FROM Serie s JOIN s.genero g "
-		       + "WHERE s.serieId.titulo = :titulo AND s.fechaEstreno = :fechaEstreno")
+		@Query("SELECT new es.iesjandula.damfilms_server.dtos.SerieDescripcion(s.serieId.nombre, s.descripcion, s.temporadas) "
+		       + "FROM Serie s "
+		       + "WHERE s.serieId.nombre = :titulo AND s.serieId.fechaEstreno = :fechaEstreno")
 		SerieDescripcion encontrarSerieDescripcion(@Param("titulo") String titulo,
 		                                              @Param("fechaEstreno") Date fechaEstreno);
 
