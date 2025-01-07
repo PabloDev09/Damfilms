@@ -13,12 +13,12 @@ import es.iesjandula.damfilms_server.entities.Episodio;
 public interface IEpisodioRepository extends JpaRepository<Episodio, Integer>
 {
 	// Para encontrar un episodio por su ID y el ID de la serie
-	@Query("SELECT e FROM Episodio e WHERE e.id = :episodioId AND e.serie.id = :serieId")
-	Episodio findByIdAndSerieId(@Param("episodioId") Long episodioId, @Param("serieId") Long serieId);
+//	@Query("SELECT e FROM Episodio e WHERE e.id = :episodioId AND e.serie.SerieId = :serieId")
+//	Episodio findByIdAndSerieId(@Param("episodioId") Long episodioId, @Param("serieId") Long serieId);
 
 	// Para encontrar episodios por el ID de la temporada
-	@Query("SELECT e FROM Episodio e WHERE e.temporada.id = :temporadaId")
-	List<Episodio> findByTemporadaId(@Param("temporadaId") Long temporadaId);
+//	@Query("SELECT e FROM Episodio e WHERE e.temporada.id = :temporadaId")
+//	List<Episodio> findByTemporadaId(@Param("temporadaId") Long temporadaId);
 
 
 }

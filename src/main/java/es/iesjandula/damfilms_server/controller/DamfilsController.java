@@ -6,7 +6,6 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -19,7 +18,6 @@ import es.iesjandula.damfilms_server.dtos.SerieDescripcion;
 import es.iesjandula.damfilms_server.dtos.SerieDetalle;
 import es.iesjandula.damfilms_server.entities.Documental;
 import es.iesjandula.damfilms_server.entities.DocumentalVisualizado;
-import es.iesjandula.damfilms_server.entities.Episodio;
 import es.iesjandula.damfilms_server.entities.Pelicula;
 import es.iesjandula.damfilms_server.entities.PeliculaVisualizada;
 import es.iesjandula.damfilms_server.entities.Serie;
@@ -389,39 +387,7 @@ public class DamfilsController {
 		}
 		
 	}
-	/** episodio */
-	  @RequestMapping(method = RequestMethod.GET, value = "/serie/{serieId}/episodio/{episodioId}")
-	    public ResponseEntity<?> getEpisodioById(@RequestParam(name = "serieId") Long serieId, 
-	    									@RequestParam(name = "episodioId") Long episodioId) {
-	        try {
-	            Episodio episodio = iEpisodioRepository.findByIdAndSerieId(episodioId, serieId);
-	            if (episodio == null) {
-	                throw new DamfilmsServerException(1, "Episodio no encontrado para la serie especificada");
-	            }
-	            return ResponseEntity.ok(episodio);
-	        } catch (DamfilmsServerException e) {
-	            return ResponseEntity.status(404).body(e.getBodyExceptionMessage());
-	        } catch (Exception e) {
-	            return ResponseEntity.status(500).body("Error interno del servidor");
-	        }
-	    }
-	  
-	  
-	    @RequestMapping(method = RequestMethod.GET, value = "/temporadas/{temporadaId}/episodios")
-	    public ResponseEntity<?> getEpisodiosByTemporada(@RequestParam(name = "temporadaId") Long temporadaId) {
-	        try {
-	            List<Episodio> episodios = iEpisodioRepository.findByTemporadaId(temporadaId);
-	            if (episodios.isEmpty()) {
-	                throw new DamfilmsServerException(2, "No se encontraron episodios para la temporada especificada");
-	            }
-	            return ResponseEntity.ok(episodios);
-	        } catch (DamfilmsServerException e) {
-	            return ResponseEntity.status(404).body(e.getBodyExceptionMessage());
-	        } catch (Exception e) {
-	            return ResponseEntity.status(500).body("Error interno del servidor");
-	        }
-	    }
-	    
+  
 	    /** Temporada */
 	    
 	    @RequestMapping(method = RequestMethod.GET, value = "/temporadas/{temporadaId}")
@@ -454,10 +420,10 @@ public class DamfilsController {
 	        }
 	    }
 	    
-	    @RequestMapping(method = RequestMethod.GET, value = "/series/{serieId}")
-	    public ResponseEntity<?> getSerieById(@RequestParam(name = "serieId") Long serieId) {
+	    @RequestMapping(method = RequestMethod.GET, value = "/series/{nombre}")
+	    public ResponseEntity<?> getSerieById(@RequestParam(name = "nombre") String nombre) {
 	        try {
-	            Serie serie = iSerieRepository.findById(serieId).orElse(null);
+	            Serie serie = iSerieRepository.findById( nombre).orElse(null);
 	            if (serie == null) {
 	                throw new DamfilmsServerException(5, "Serie no encontrada");
 	            }
@@ -470,7 +436,7 @@ public class DamfilsController {
 	    }
 
 	    @RequestMapping(method = RequestMethod.GET, value = "/series/{genero}")
-	    public ResponseEntity<?> getSeriesByGenero(@RequestParam(name = "Genero") String genero) {
+	    public ResponseEntity<?> getSeriesByGenero(@RequestParam(name = "genero") String genero) {
 	        try {
 	            List<Serie> series = iSerieRepository.findByGenero(genero);
 	            if (series.isEmpty()) {
@@ -484,13 +450,12 @@ public class DamfilsController {
 	        }
 	    }
 	    @RequestMapping(method = RequestMethod.GET, value = "/series/detalle")
-	    public ResponseEntity<?> getDetalleSerie(@RequestParam(name = "titulo", required = true) String titulo,
-	                                             @RequestParam(name = "fechaEstreno", required = true) Date fechaEstreno) 
+	    public ResponseEntity<?> getDetalleSerie(@RequestParam(name = "nombre", required = true) String nombre) 
 	    {
 	        try 
 	        {
 	            // Verificar si la serie existe
-	            if (this.iSerieRepository.encontrarSerieDetallada(titulo, fechaEstreno) == null) 
+	            if (this.iSerieRepository.encontrarSerieDetallada(nombre) == null) 
 	            {
 	                String mensajeError = "No se ha encontrado ninguna serie con ese título y fecha de estreno";
 	                log.error(mensajeError);
@@ -499,7 +464,7 @@ public class DamfilsController {
 
 	            // Crear un DTO para la serie detallada
 	            SerieDetalle serieDetalle = new SerieDetalle();
-	            serieDetalle = this.iSerieRepository.encontrarSerieDetallada(titulo, fechaEstreno);
+	            serieDetalle = this.iSerieRepository.encontrarSerieDetallada(nombre);
 				
 				
 	            // Retornar la respuesta con la serie detallada
@@ -521,13 +486,12 @@ public class DamfilsController {
 	    
 
 @RequestMapping(method = RequestMethod.GET, value = "/series/descripcion")
-public ResponseEntity<?> getDescripcionSerie(@RequestParam(name = "titulo", required = true) String titulo,
-                                              @RequestParam(name = "fechaEstreno", required = true) Date fechaEstreno) 
+public ResponseEntity<?> getDescripcionSerie(@RequestParam(name = "nombre", required = true) String nombre) 
 {
     try 
     {
         // Verificar si la serie existe
-        if (this.iSerieRepository.encontrarSerieDescripcion(titulo, fechaEstreno) == null) 
+        if (this.iSerieRepository.encontrarSerieDescripcion(nombre) == null) 
         {
             String mensajeError = "No se ha encontrado ninguna serie con ese título y fecha de estreno";
             log.error(mensajeError);
@@ -536,7 +500,7 @@ public ResponseEntity<?> getDescripcionSerie(@RequestParam(name = "titulo", requ
 
         // Crear un DTO para la descripción de la serie
         SerieDescripcion serieDescripcion = new SerieDescripcion();
-        serieDescripcion = this.iSerieRepository.encontrarSerieDescripcion(titulo, fechaEstreno);
+        serieDescripcion = this.iSerieRepository.encontrarSerieDescripcion(nombre);
 
         // Retornar la respuesta con la descripción de la serie
         return ResponseEntity.ok(serieDescripcion);

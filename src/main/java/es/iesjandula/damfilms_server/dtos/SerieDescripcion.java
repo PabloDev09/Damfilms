@@ -12,7 +12,9 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class SerieDescripcion {
+	
     private String titulo;
     private String descripcion;
-    private List<Temporada> temporadas;
+    
+    
 }
