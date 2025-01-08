@@ -22,7 +22,7 @@ public class SpringSecurityConfig {
 
             .authorizeHttpRequests(authz -> authz
                 // Recursos públicos
-                .requestMatchers("/","/eula", "/inicio","/home", "/login", "/signin", "/css/**", "/img/**","/js/**","/static/**","/eula.html").permitAll()
+                .requestMatchers("/","/eula", "/inicio","/home", "/login", "/signin", "/css/**", "/img/**","/js/**","/static/**","/eula.html","/modo","/usuarios","/configuracion","/suscripciones").permitAll()
                 // Acceso según roles
                 .requestMatchers("/peliculas").hasRole("PREMIUM")
                 .requestMatchers("/series", "/documentales").hasAnyRole("PREMIUM", "INVITADO")

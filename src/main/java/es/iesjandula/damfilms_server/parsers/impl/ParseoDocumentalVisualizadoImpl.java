@@ -75,6 +75,10 @@ public class ParseoDocumentalVisualizadoImpl implements IParseo<DocumentalVisual
 
 			documentalVisualizadoId.setDocumental(optionalDocumental.get());
 
+			DocumentalVisualizado documentalVisualizado = new DocumentalVisualizado();
+
+			documentalVisualizado.setDocumentalVisualizadoId(documentalVisualizadoId);
+			
 			Optional<Usuario> optionalUsurio = this.usuarioRepository.findById(lineaDelFicheroTroceada[2]);
 
 			if(!optionalUsurio.isPresent())
@@ -83,12 +87,8 @@ public class ParseoDocumentalVisualizadoImpl implements IParseo<DocumentalVisual
 				log.error(mensajeError);
 				throw new DamfilmsServerException(6, mensajeError);
 			}
-
-			documentalVisualizadoId.setUsuario(optionalUsurio.get());
-
-			DocumentalVisualizado documentalVisualizado = new DocumentalVisualizado();
-
-			documentalVisualizado.setDocumentalVisualizadoId(documentalVisualizadoId);
+			
+			documentalVisualizado.setUsuario(optionalUsurio.get());
 			documentalVisualizado.setTiempoVisto(Integer.parseInt(lineaDelFicheroTroceada[3]));
 
 			this.documentalVisualizadoRepository.saveAndFlush(documentalVisualizado);

@@ -6,6 +6,7 @@ import java.util.Map;
 import org.apache.commons.lang3.exception.ExceptionUtils;
 
 import lombok.AllArgsConstructor;
+import lombok.Data;
 import lombok.NoArgsConstructor;
 
 /**
@@ -15,6 +16,7 @@ import lombok.NoArgsConstructor;
  * posible stack trace asociado a una excepción original.
  * -----------------------------------------------------------------------------------------------------------------
  */
+@Data
 @AllArgsConstructor
 @NoArgsConstructor
 public class DamfilmsServerException extends Exception

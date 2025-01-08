@@ -8,7 +8,6 @@ import org.springframework.stereotype.Service;
 
 import es.iesjandula.damfilms_server.entities.Genero;
 import es.iesjandula.damfilms_server.entities.Serie;
-import es.iesjandula.damfilms_server.entities.ids.SerieId;
 import es.iesjandula.damfilms_server.parsers.interfaces.IParseo;
 import es.iesjandula.damfilms_server.repositories.IGeneroRepository;
 import es.iesjandula.damfilms_server.repositories.ISerieRepository;
@@ -41,24 +40,13 @@ public class ParseoSerieImpl implements IParseo<Serie>
 
 			String[] lineaDelFicheroTroceada = lineaDelFichero.split(Constants.CSV_DELIMITER);
 
-			SerieId serieId = new SerieId();
-
-			serieId.setNombre(lineaDelFicheroTroceada[0]);
-			try
-			{
-				serieId.setFechaEstreno(DatesUtil.crearFechaDesdeString(lineaDelFicheroTroceada[1]));
-
-			}
-			catch (DamfilmsServerException damfilmsServerException)
-			{
-				damfilmsServerException.printStackTrace();
-
-			}
 
 			Serie serie = new Serie();
 
-			serie.setSerieId(serieId);
+			serie.setNombre(lineaDelFicheroTroceada[0]);
+			serie.setFechaEstreno(DatesUtil.crearFechaDesdeString(lineaDelFicheroTroceada[1]));
 			serie.setDescripcion(lineaDelFicheroTroceada[2]);
+
 			serie.setClasificacion(Integer.valueOf(lineaDelFicheroTroceada[3]));
 			Optional<Genero> optionalGenero = this.iGeneroRepository.findById(lineaDelFicheroTroceada[4]);
 

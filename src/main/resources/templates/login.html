@@ -31,26 +31,38 @@
         </header>
 
             <!--Formulario-->
+            <!-- Formulario -->
             <div class="container">
-                <div id="form-container">
-                    <p class="Iniciar_sesión"><b>Iniciar sesión</b><p>
-                    <label for="email" class="label_log_in">Email</label>
-                    <input type="text" class="input_log_in" id="email" name="email">
-                    <div class="error-message" id="email-error"></div>
-                
-                    <label for="password" class="label_log_in">Contraseña</label>
-                    <div style="display: flex;">
-                    <input type="password" class="input_log_in" id="password" name="password">
-                    <button id="show-password" onclick="togglePasswordVisibility()" class="boton_ojo"><img src="img/sign-in/eye.svg"></button>
-                    </div>
-                    <div class="error-message" id="password-error"></div>
-                
-                    <button onclick="validarFormulario()" class="boton_inicio_sesion ">Iniciar sesión</button>
-                    <div class="no_tienes_cuenta">
-                        <p>¿Todavía no tienes cuenta?   <a th:href="@{/signin}" class="registrate_log_in">Regístrate</a></p>
-                    </div>
-                </div>
+    <div id="form-container">
+        <form id="login-form" th:action="@{/login}" th:method="post" onsubmit="return validarFormulario()">
+            <p class="Iniciar_sesión"><b>Iniciar sesión</b></p>
+            
+            <!-- Campo de email -->
+            <label for="email" class="label_log_in">Email</label>
+            <input type="text" class="input_log_in" id="email" name="email" th:value="${email}" required>
+            <div class="error-message" id="email-error"></div>
+            
+            <!-- Campo de contraseña -->
+            <label for="password" class="label_log_in">Contraseña</label>
+            <div style="display: flex;">
+                <input type="password" class="input_log_in" id="password" name="password" th:value="${password}" required>
+                <button type="button" id="show-password" onclick="togglePasswordVisibility()" class="boton_ojo">
+                    <img th:src="@{/img/sign-in/eye.svg}" alt="Mostrar/Ocultar contraseña">
+                </button>
             </div>
+            <div class="error-message" id="password-error"></div>
+            
+            <!-- Botón de inicio de sesión -->
+            <button type="submit" class="boton_inicio_sesion">Iniciar sesión</button>
+            
+            <!-- Enlace de registro -->
+            <div class="no_tienes_cuenta">
+                <p>¿Todavía no tienes cuenta? <a th:href="@{/signin}" class="registrate_log_in">Regístrate</a></p>
+            </div>
+        </form>
+    </div>
+</div>
+
             <!--Final del formulario-->
 
             <!--Footer-->

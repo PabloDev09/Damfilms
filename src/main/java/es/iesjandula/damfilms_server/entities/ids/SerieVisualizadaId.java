@@ -26,7 +26,5 @@ public class SerieVisualizadaId
 	)
 	private Serie serie;
 	
-	@ManyToOne
-	@JoinColumn(name = "usuario_nombre")
-	private Usuario usuario;
+	private String usuario;
 }
