@@ -1,63 +1,63 @@
 titulo,fechaEstreno,descripcion,duracion,clasificacion,genero_nombre
-Jungla de Cristal,1988-01-01,Acción,132,16+,Acción
-Mad Max: Furia en el Camino,2015-01-01,Acción,120,16+,Acción
-Torrente,1999-01-01,Comedia,136,18+,Comedia
-John Wick,2014-01-01,Acción,101,16+,Acción
-Misión Imposible: Protocolo Fantasma,2011-01-01,Acción,133,12+,Acción
-Gladiador,2000-01-01,Acción,155,16+,Acción
-El Caballero de la Noche,2008-01-01,Acción,152,16+,Acción
-Kill Bill: Volumen 1,2003-01-01,Acción,111,18+,Acción
-Abajo el periscopio,1996-01-01,Comedia,133,7+,Comedia
-Resacón en Las Vegas,2009-01-01,Comedia,100,18+,Comedia
-Borat,2006-01-01,Comedia,84,18+,Comedia
-La Máscara,1994-01-01,Comedia,101,7+,Comedia
-Cazafantasmas,1984-01-01,Comedia,105,7+,Comedia
-Déjame salir,2017-01-01,Terror,104,16+,Terror
-¡Aterriza como puedas!,1980-01-01,Comedia,100,12+,Comedia
-Amigos Intocables,2011-01-01,Comedia,112,12+,Comedia
-Forrest Gump,1994-01-01,Drama,142,12+,Drama
-El Padrino,1972-01-01,Drama,175,18+,Drama
-Titanic,1997-01-01,Drama,195,12+,Drama
-La Lista de Schindler,1993-01-01,Drama,195,18+,Drama
-El Renacido,2015-01-01,Drama,156,16+,Drama
-El Club de la lucha,1999-01-01,Drama,139,18+,Drama
-La Vida es Bella,1997-01-01,Drama,116,7+,Drama
-Manchester junto al Mar,2016-01-01,Drama,137,16+,Drama
-Piratas del Caribe: La Maldición del Perla Negra,2003-01-01,Aventura,143,12+,Aventura
-Indiana Jones: En busca del Arca Perdida,1981-01-01,Aventura,115,12+,Aventura
-El Señor de los Anillos: La Comunidad del Anillo,2001-01-01,Aventura,178,12+,Aventura
-Jumanji,1995-01-01,Aventura,104,7+,Aventura
-Jurassic Park,1993-01-01,Aventura,127,12+,Aventura
-La historia interminable,1984-01-01,Aventura,102,7+,Aventura
-Up,2009-01-01,Aventura,96,TP,Aventura
-Los Goonies,1985-01-01,Aventura,114,12+,Aventura
-Blade Runner,1982-01-01,Ciencia Ficción,117,16+,Ciencia Ficción
-Interestelar,2014-01-01,Ciencia Ficción,169,12+,Ciencia Ficción
-La Guerra de las Galaxias,1977-01-01,Ciencia Ficción,121,7+,Ciencia Ficción
-El Quinto Elemento,1997-01-01,Ciencia Ficción,126,12+,Ciencia Ficción
-Matrix,1999-01-01,Ciencia Ficción,136,16+,Ciencia Ficción
-2001: Una Odisea del Espacio,1968-01-01,Ciencia Ficción,149,12+,Ciencia Ficción
-E.T. el Extraterrestre,1982-01-01,Ciencia Ficción,115,TP,Ciencia Ficción
-Donnie Darko,2001-01-01,Ciencia Ficción,113,16+,Ciencia Ficción
-Harry Potter y la Piedra Filosofal,2001-01-01,Fantasía,152,7+,Fantasía
-El Laberinto del Fauno,2006-01-01,Fantasía,118,16+,Fantasía
-Cuentos que no son cuentos,2008-01-01,Fantasía,99,7+,Fantasía
-Stardust: El Misterio de la Estrella,2007-01-01,Fantasía,127,12+,Fantasía
-El Mago de Oz,1939-01-01,Fantasía,101,TP,Fantasía
-Final Fantasy: The spirits within,2001-01-01,Fantasía,106,12+,Fantasía
-El Origen,2010-01-01,Fantasía,148,16+,Fantasía
-Psicosis,1960-01-01,Suspense,109,16+,Suspense
-Sospechosos Habituales,1995-01-01,Suspense,106,16+,Suspense
-El Silencio de los Corderos,1991-01-01,Suspense,118,18+,Suspense
-El Sexto Sentido,1999-01-01,Suspense,107,12+,Suspense
-Seven,1995-01-01,Suspense,127,18+,Suspense
-Perdida,2014-01-01,Suspense,149,16+,Suspense
-El Cisne Negro,2010-01-01,Suspense,108,18+,Suspense
-El Resplandor,1980-01-01,Terror,146,18+,Terror
-El Exorcista,1973-01-01,Terror,122,18+,Terror
-Pesadilla en Elm Street,1984-01-01,Terror,91,18+,Terror
-El Rey León,1994-01-01,Drama,88,TP,Drama
-Frozen,2013-01-01,Drama,105,TP,Drama
-Spider-Man: Un Nuevo Universo,2018-01-01,Acción,117,7+,Acción
-Diario de una Pasión,2004-01-01,Romance,123,12+,Romance
-Amélie,2001-01-01,Romance,122,7+,Romance
+Jungla de Cristal,1988-01-01,Acción,132,16,Acción
+Mad Max: Furia en el Camino,2015-01-01,Acción,120,16,Acción
+Torrente,1999-01-01,Comedia,136,18,Comedia
+John Wick,2014-01-01,Acción,101,16,Acción
+Misión Imposible: Protocolo Fantasma,2011-01-01,Acción,133,12,Acción
+Gladiador,2000-01-01,Acción,155,16,Acción
+El Caballero de la Noche,2008-01-01,Acción,152,16,Acción
+Kill Bill: Volumen 1,2003-01-01,Acción,111,18,Acción
+Abajo el periscopio,1996-01-01,Comedia,133,7,Comedia
+Resacón en Las Vegas,2009-01-01,Comedia,100,18,Comedia
+Borat,2006-01-01,Comedia,84,18,Comedia
+La Máscara,1994-01-01,Comedia,101,7,Comedia
+Cazafantasmas,1984-01-01,Comedia,105,7,Comedia
+Déjame salir,2017-01-01,Terror,104,16,Terror
+¡Aterriza como puedas!,1980-01-01,Comedia,100,12,Comedia
+Amigos Intocables,2011-01-01,Comedia,112,12,Comedia
+Forrest Gump,1994-01-01,Drama,142,12,Drama
+El Padrino,1972-01-01,Drama,175,18,Drama
+Titanic,1997-01-01,Drama,195,12,Drama
+La Lista de Schindler,1993-01-01,Drama,195,18,Drama
+El Renacido,2015-01-01,Drama,156,16,Drama
+El Club de la lucha,1999-01-01,Drama,139,18,Drama
+La Vida es Bella,1997-01-01,Drama,116,7,Drama
+Manchester junto al Mar,2016-01-01,Drama,137,16,Drama
+Piratas del Caribe: La Maldición del Perla Negra,2003-01-01,Aventura,143,12,Aventura
+Indiana Jones: En busca del Arca Perdida,1981-01-01,Aventura,115,12,Aventura
+El Señor de los Anillos: La Comunidad del Anillo,2001-01-01,Aventura,178,12,Aventura
+Jumanji,1995-01-01,Aventura,104,7,Aventura
+Jurassic Park,1993-01-01,Aventura,127,12,Aventura
+La historia interminable,1984-01-01,Aventura,102,7,Aventura
+Up,2009-01-01,Aventura,96,0,Aventura
+Los Goonies,1985-01-01,Aventura,114,12,Aventura
+Blade Runner,1982-01-01,Ciencia Ficción,117,16,Ciencia Ficción
+Interestelar,2014-01-01,Ciencia Ficción,169,12,Ciencia Ficción
+La Guerra de las Galaxias,1977-01-01,Ciencia Ficción,121,7,Ciencia Ficción
+El Quinto Elemento,1997-01-01,Ciencia Ficción,126,12,Ciencia Ficción
+Matrix,1999-01-01,Ciencia Ficción,136,16,Ciencia Ficción
+2001: Una Odisea del Espacio,1968-01-01,Ciencia Ficción,149,12,Ciencia Ficción
+E.T. el Extraterrestre,1982-01-01,Ciencia Ficción,115,0,Ciencia Ficción
+Donnie Darko,2001-01-01,Ciencia Ficción,113,16,Ciencia Ficción
+Harry Potter y la Piedra Filosofal,2001-01-01,Fantasía,152,7,Fantasía
+El Laberinto del Fauno,2006-01-01,Fantasía,118,16,Fantasía
+Cuentos que no son cuentos,2008-01-01,Fantasía,99,7,Fantasía
+Stardust: El Misterio de la Estrella,2007-01-01,Fantasía,127,12,Fantasía
+El Mago de Oz,1939-01-01,Fantasía,101,0,Fantasía
+Final Fantasy: The spirits within,2001-01-01,Fantasía,106,12,Fantasía
+El Origen,2010-01-01,Fantasía,148,16,Fantasía
+Psicosis,1960-01-01,Suspense,109,16,Suspense
+Sospechosos Habituales,1995-01-01,Suspense,106,16,Suspense
+El Silencio de los Corderos,1991-01-01,Suspense,118,18,Suspense
+El Sexto Sentido,1999-01-01,Suspense,107,12,Suspense
+Seven,1995-01-01,Suspense,127,18,Suspense
+Perdida,2014-01-01,Suspense,149,16,Suspense
+El Cisne Negro,2010-01-01,Suspense,108,18,Suspense
+El Resplandor,1980-01-01,Terror,146,18,Terror
+El Exorcista,1973-01-01,Terror,122,18,Terror
+Pesadilla en Elm Street,1984-01-01,Terror,91,18,Terror
+El Rey León,1994-01-01,Drama,88,0,Drama
+Frozen,2013-01-01,Drama,105,0,Drama
+Spider-Man: Un Nuevo Universo,2018-01-01,Acción,117,7,Acción
+Diario de una Pasión,2004-01-01,Romance,123,12,Romance
+Amélie,2001-01-01,Romance,122,7,Romance

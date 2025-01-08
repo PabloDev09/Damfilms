@@ -10,7 +10,8 @@ import es.iesjandula.damfilms_server.repositories.IPeliculaRepository;
 import es.iesjandula.damfilms_server.repositories.ISerieRepository;
 
 @Controller
-public class SpringSecurityController {
+public class ThymeleafController 
+{
 	
 	@Autowired
 	private IPeliculaRepository iPeliculaRepository ;
@@ -61,7 +62,7 @@ public class SpringSecurityController {
     /* Ruta para el catálogo de documentales */
     @RequestMapping("/documentales")
     public String documentales(Model model) {
-    	model.addAttribute("ultimasLllegadas", iDocumentalRepository.findTop10ByOrderByFechaEstrenoDesc()) ;
+    	model.addAttribute("ultimasLlegadas", iDocumentalRepository.findTop10ByOrderByFechaEstrenoDesc()) ;
     	model.addAttribute("mejorClasificadas", iDocumentalRepository.findTop10ByOrderByClasificacionDesc()) ;
     	model.addAttribute("todosLosDocumentales", iDocumentalRepository.findAll()) ;
         return "documentales.html";

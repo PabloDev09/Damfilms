@@ -12,6 +12,7 @@ import es.iesjandula.damfilms_server.entities.ids.PeliculaId;
 import es.iesjandula.damfilms_server.parsers.interfaces.IParseo;
 import es.iesjandula.damfilms_server.repositories.IGeneroRepository;
 import es.iesjandula.damfilms_server.repositories.IPeliculaRepository;
+import es.iesjandula.damfilms_server.utils.Constants;
 import es.iesjandula.damfilms_server.utils.DamfilmsServerException;
 import es.iesjandula.damfilms_server.utils.DatesUtil;
 import lombok.extern.log4j.Log4j2;
@@ -38,7 +39,7 @@ public class ParseoPeliculaImpl implements IParseo<Pelicula>
 		{
 			String lineaDelFichero = scanner.nextLine();
 
-			String[] lineaDelFicheroTroceada = lineaDelFichero.split(",");
+			String[] lineaDelFicheroTroceada = lineaDelFichero.split(Constants.CSV_DELIMITER);
 
 			PeliculaId peliculaId = new PeliculaId();
 
@@ -59,7 +60,7 @@ public class ParseoPeliculaImpl implements IParseo<Pelicula>
 			pelicula.setPeliculaId(peliculaId);
 			pelicula.setDescripcion(lineaDelFicheroTroceada[2]);
 			pelicula.setDuracion(Integer.valueOf(lineaDelFicheroTroceada[3]));
-			pelicula.setClasificacion(lineaDelFicheroTroceada[4]);
+			pelicula.setClasificacion(Integer.valueOf(lineaDelFicheroTroceada[4]));
 			Optional<Genero> optionalGenero = this.iGeneroRepository.findById(lineaDelFicheroTroceada[5]);
 
 			if(!optionalGenero.isPresent())

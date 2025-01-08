@@ -15,6 +15,7 @@ import es.iesjandula.damfilms_server.parsers.interfaces.IParseo;
 import es.iesjandula.damfilms_server.repositories.ISerieRepository;
 import es.iesjandula.damfilms_server.repositories.ISerieVisualizadaRepository;
 import es.iesjandula.damfilms_server.repositories.IUsuarioRepository;
+import es.iesjandula.damfilms_server.utils.Constants;
 import es.iesjandula.damfilms_server.utils.DamfilmsServerException;
 import es.iesjandula.damfilms_server.utils.DatesUtil;
 import lombok.extern.log4j.Log4j2;
@@ -44,7 +45,7 @@ public class ParseoSerieVisualizadaImpl implements IParseo<SerieVisualizada>
 		{
 			String lineaDelFichero = scanner.nextLine();
 
-			String[] lineaDelFicheroTroceada = lineaDelFichero.split(",");
+			String[] lineaDelFicheroTroceada = lineaDelFichero.split(Constants.CSV_DELIMITER);
 
 			SerieVisualizadaId serieVisualizadaId = new SerieVisualizadaId();
 

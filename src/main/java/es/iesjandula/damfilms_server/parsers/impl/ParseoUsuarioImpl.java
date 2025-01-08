@@ -11,6 +11,7 @@ import es.iesjandula.damfilms_server.entities.Usuario;
 import es.iesjandula.damfilms_server.parsers.interfaces.IParseo;
 import es.iesjandula.damfilms_server.repositories.IConfiguracionRepository;
 import es.iesjandula.damfilms_server.repositories.IUsuarioRepository;
+import es.iesjandula.damfilms_server.utils.Constants;
 import es.iesjandula.damfilms_server.utils.DamfilmsServerException;
 import lombok.extern.log4j.Log4j2;
 
@@ -36,7 +37,7 @@ public class ParseoUsuarioImpl implements IParseo<Usuario>
 		{
 			String lineaDelFichero = scanner.nextLine();
 
-			String[] lineaDelFicheroTroceada = lineaDelFichero.split(",");
+			String[] lineaDelFicheroTroceada = lineaDelFichero.split(Constants.CSV_DELIMITER);
 
 			Usuario usuario = new Usuario();
 

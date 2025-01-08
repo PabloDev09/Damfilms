@@ -27,8 +27,8 @@ public class Serie
 	@Column(nullable = false)
 	private String descripcion;
 
-	@Column(length = 50, nullable = false)
-	private String clasificacion;
+	@Column(length = 3, nullable = false)
+	private int clasificacion;
 
 	@ManyToOne
 	@JoinColumn(name = "genero_nombre", referencedColumnName = "nombre", nullable = false)

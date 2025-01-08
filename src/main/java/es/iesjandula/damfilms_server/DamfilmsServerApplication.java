@@ -32,6 +32,9 @@ public class DamfilmsServerApplication implements CommandLineRunner
 		this.iParseoFicheros.parseaFichero(Constants.CSV_CONFIGURACIONES);
 		this.iParseoFicheros.parseaFichero(Constants.CSV_USUARIOS);
 		this.iParseoFicheros.parseaFichero(Constants.CSV_PELICULAS_VISUALIZADAS);
+		this.iParseoFicheros.parseaFichero(Constants.CSV_DOCUMENTALES);
+		this.iParseoFicheros.parseaFichero(Constants.CSV_SERIES_VISUALIZADAS);
+		
 		
 		
 		

@@ -25,8 +25,8 @@ public class Documental
 	@Column(length = 4, nullable = false)
 	private int duracion;
 
-	@Column(length = 50, nullable = false)
-	private String clasificacion;
+	@Column(length = 3, nullable = false)
+	private int clasificacion;
 
 	@ManyToOne
 	@JoinColumn(name = "genero_nombre", referencedColumnName = "nombre", nullable = false)
