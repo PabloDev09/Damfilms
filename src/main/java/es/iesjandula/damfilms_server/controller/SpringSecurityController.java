@@ -66,7 +66,15 @@ public class SpringSecurityController {
     	model.addAttribute("todosLosDocumentales", iDocumentalRepository.findAll()) ;
         return "documentales.html";
     }
-
+    @RequestMapping("/modo")
+    public String modo() {
+        return "modo.html";
+    }
+    @RequestMapping("/usuarios")
+    public String usuarios() {
+        return "usuarios.html";
+    }
+    
     /* Ruta para la página de registro */
     @RequestMapping("/signin")
     public String signIn() {

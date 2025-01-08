@@ -29,6 +29,4 @@ public class Configuracion
 	@JoinColumn(name = "modo_nombre", referencedColumnName = "nombre")
 	private Modo modo;
 	
-	@OneToMany(mappedBy = "configuracion")
-	private List<Usuario> usuarios;
 }
