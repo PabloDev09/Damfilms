@@ -73,6 +73,10 @@ public class ParseoPeliculaVisualizadaImpl implements IParseo<PeliculaVisualizad
 
 			peliculaVisualizadaId.setPelicula(optionalPelicula.get());
 
+			PeliculaVisualizada peliculaVisualizada = new PeliculaVisualizada();
+
+			peliculaVisualizada.setPeliculaVisualizadaId(peliculaVisualizadaId);
+			
 			Optional<Usuario> optionalUsurio = this.iUsuarioRepository.findById(lineaDelFicheroTroceada[2]);
 
 			if(!optionalUsurio.isPresent())
@@ -81,12 +85,8 @@ public class ParseoPeliculaVisualizadaImpl implements IParseo<PeliculaVisualizad
 				log.error(mensajeError);
 				throw new DamfilmsServerException(4, mensajeError);
 			}
-
-			peliculaVisualizadaId.setUsuario(optionalUsurio.get());
-
-			PeliculaVisualizada peliculaVisualizada = new PeliculaVisualizada();
-
-			peliculaVisualizada.setPeliculaVisualizadaId(peliculaVisualizadaId);
+			
+			peliculaVisualizada.setUsuario(optionalUsurio.get());
 			peliculaVisualizada.setTiempoVisto(Integer.parseInt(lineaDelFicheroTroceada[3]));
 
 			this.iPeliculaVisualizadaRepository.saveAndFlush(peliculaVisualizada);

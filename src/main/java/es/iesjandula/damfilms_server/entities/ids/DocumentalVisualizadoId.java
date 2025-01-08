@@ -26,7 +26,5 @@ public class DocumentalVisualizadoId
 	)
 	private Documental documental;
 	
-	@ManyToOne
-	@JoinColumn(name = "usuario_nombre")
-	private Usuario usuario;
+	private String usuario;
 }

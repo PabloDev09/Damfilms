@@ -59,6 +59,10 @@ public class ParseoSerieVisualizadaImpl implements IParseo<SerieVisualizada>
 
 			serieVisualizadaId.setSerie(optionalSerie.get());
 
+			SerieVisualizada serieVisualizada = new SerieVisualizada();
+
+			serieVisualizada.setSerieVisualizadaId(serieVisualizadaId);
+			
 			Optional<Usuario> optionalUsurio = this.iUsuarioRepository.findById(lineaDelFicheroTroceada[1]);
 
 			if(!optionalUsurio.isPresent())
@@ -67,12 +71,8 @@ public class ParseoSerieVisualizadaImpl implements IParseo<SerieVisualizada>
 				log.error(mensajeError);
 				throw new DamfilmsServerException(8, mensajeError);
 			}
-
-			serieVisualizadaId.setUsuario(optionalUsurio.get());
-
-			SerieVisualizada serieVisualizada = new SerieVisualizada();
-
-			serieVisualizada.setSerieVisualizadaId(serieVisualizadaId);
+			
+			serieVisualizada.setUsuario(optionalUsurio.get());
 			serieVisualizada.setEpisodiosVistos(Integer.parseInt(lineaDelFicheroTroceada[2]));
 
 			this.iSerieVisualizadaRepository.saveAndFlush(serieVisualizada);

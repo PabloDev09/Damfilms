@@ -26,7 +26,5 @@ public class PeliculaVisualizadaId
 	)
 	private Pelicula pelicula;
 	
-	@ManyToOne
-	@JoinColumn(name = "usuario_nombre")
-	private Usuario usuario;
+	private String usuario;
 }
