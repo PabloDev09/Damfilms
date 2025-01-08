@@ -34,7 +34,6 @@ import es.iesjandula.damfilms_server.entities.ids.SuscripcionId;
 import es.iesjandula.damfilms_server.repositories.IConfiguracionRepository;
 import es.iesjandula.damfilms_server.repositories.IDocumentalRepository;
 import es.iesjandula.damfilms_server.repositories.IDocumentalVisualizadoRepository;
-import es.iesjandula.damfilms_server.repositories.IEpisodioRepository;
 import es.iesjandula.damfilms_server.repositories.IModoRepository;
 import es.iesjandula.damfilms_server.repositories.IPeliculaRepository;
 import es.iesjandula.damfilms_server.repositories.IPeliculaVisualizadaRepository;
@@ -53,9 +52,6 @@ public class DamfilsController {
 	@Autowired
 	private IDocumentalRepository iDocumentalRepository;
 	
-    @Autowired
-    private IEpisodioRepository iEpisodioRepository;
-    
     @Autowired
     private ITemporadaRepository iTemporadaRepository;
     
@@ -99,7 +95,7 @@ public class DamfilsController {
 			{
 				String mensajeError = "No se ha encontrado ningún documental";
 				log.error(mensajeError);
-				throw new DamfilmsServerException(1, mensajeError);
+				throw new DamfilmsServerException(101, mensajeError);
 				
 			}
 			
@@ -135,7 +131,7 @@ public class DamfilsController {
 			{
 				String mensajeError = "No se ha encontrado ningún documental con ese titulo y fecha de estreno";
 				log.error(mensajeError);
-				throw new DamfilmsServerException(2, mensajeError);
+				throw new DamfilmsServerException(102, mensajeError);
 				
 			}
 			
@@ -171,7 +167,7 @@ public class DamfilsController {
 			{
 				String mensajeError = "No se ha encontrado ningún documental con ese titulo y fecha de estreno";
 				log.error(mensajeError);
-				throw new DamfilmsServerException(3, mensajeError);
+				throw new DamfilmsServerException(103, mensajeError);
 				
 			}
 			
@@ -208,7 +204,7 @@ public class DamfilsController {
 			{
 				String mensajeError = "No se ha encontrado ninguna película";
 				log.error(mensajeError);
-				throw new DamfilmsServerException(4, mensajeError);
+				throw new DamfilmsServerException(104, mensajeError);
 				
 			}
 			
@@ -242,7 +238,7 @@ public class DamfilsController {
 			{
 				String mensajeError = "No se ha encontrado ninguna película con ese titulo y fecha de estreno";
 				log.error(mensajeError);
-				throw new DamfilmsServerException(5, mensajeError);
+				throw new DamfilmsServerException(105, mensajeError);
 				
 			}
 			
@@ -278,7 +274,7 @@ public class DamfilsController {
 			{
 				String mensajeError = "No se ha encontrado ninguna película con ese titulo y fecha de estreno";
 				log.error(mensajeError);
-				throw new DamfilmsServerException(6, mensajeError);
+				throw new DamfilmsServerException(106, mensajeError);
 				
 			}
 			
@@ -304,10 +300,17 @@ public class DamfilsController {
 	}
 	
 	@RequestMapping(method = RequestMethod.GET, value = "/peliculas/visualizadas")
-	public ResponseEntity<?> listaPeliculasVisualizadas() 
+	public ResponseEntity<?> listaPeliculasVisualizadas(@RequestParam(name = "usuario", required = true) String usuario) 
 	{
 		try 
 		{
+			
+			if(this.iPeliculaVisualizadaRepository.encontrarUsuario(usuario) == null) 
+			{
+				String mensajeError = "No se ha encontrado ninguna usuario con ese nombre";
+				log.error(mensajeError);
+				throw new DamfilmsServerException(107, mensajeError);
+			}
 			
 			List<PeliculaVisualizada> listaPeliculasVisualizadas;
 			
@@ -315,7 +318,7 @@ public class DamfilsController {
 			{
 				String mensajeError = "No se ha encontrado ninguna película visualizada";
 				log.error(mensajeError);
-				throw new DamfilmsServerException(4, mensajeError);
+				throw new DamfilmsServerException(108, mensajeError);
 				
 			}
 			
@@ -326,7 +329,15 @@ public class DamfilsController {
 		}
 		catch (DamfilmsServerException damfilmsServerException) 
 		{
-			return ResponseEntity.status(404).body(damfilmsServerException.getBodyExceptionMessage());
+			if(damfilmsServerException.getCode()==107) 
+			{
+				return ResponseEntity.status(404).body(damfilmsServerException.getBodyExceptionMessage());
+			} 
+			else 
+			{
+				return ResponseEntity.status(405).body(damfilmsServerException.getBodyExceptionMessage());
+			}
+			
 		}
 		catch (Exception exception) 
 		{
@@ -340,10 +351,17 @@ public class DamfilsController {
 	}
 	
 	@RequestMapping(method = RequestMethod.GET, value = "/documentales/visualizados")
-	public ResponseEntity<?> listaDocumentalesVisualizados() 
+	public ResponseEntity<?> listaDocumentalesVisualizados(@RequestParam(name = "usuario", required = true) String usuario) 
 	{
 		try 
 		{
+			
+			if(this.iDocumentalVisualizadoRepository.encontrarUsuario(usuario) == null) 
+			{
+				String mensajeError = "No se ha encontrado ninguna usuario con ese nombre";
+				log.error(mensajeError);
+				throw new DamfilmsServerException(109, mensajeError);
+			}
 			
 			List<DocumentalVisualizado> listaDocumentalesVisualizados;
 			
@@ -351,7 +369,7 @@ public class DamfilsController {
 			{
 				String mensajeError = "No se ha encontrado ningún documental visualizado";
 				log.error(mensajeError);
-				throw new DamfilmsServerException(4, mensajeError);
+				throw new DamfilmsServerException(110, mensajeError);
 				
 			}
 			
@@ -362,7 +380,16 @@ public class DamfilsController {
 		}
 		catch (DamfilmsServerException damfilmsServerException) 
 		{
-			return ResponseEntity.status(404).body(damfilmsServerException.getBodyExceptionMessage());
+			
+			if(damfilmsServerException.getCode()==109) 
+			{
+				return ResponseEntity.status(404).body(damfilmsServerException.getBodyExceptionMessage());
+			} 
+			else 
+			{
+				return ResponseEntity.status(405).body(damfilmsServerException.getBodyExceptionMessage());
+			}		
+			
 		}
 		catch (Exception exception) 
 		{
@@ -377,10 +404,17 @@ public class DamfilsController {
 	
 	
 	@RequestMapping(method = RequestMethod.GET, value = "/series/visualizadas")
-	public ResponseEntity<?> listaSeriesVisualizadas() 
+	public ResponseEntity<?> listaSeriesVisualizadas(@RequestParam(name = "usuario", required = true) String usuario) 
 	{
 		try 
 		{
+			
+			if(this.iSerieVisualizadaRepository.encontrarUsuario(usuario) == null) 
+			{
+				String mensajeError = "No se ha encontrado ninguna usuario con ese nombre";
+				log.error(mensajeError);
+				throw new DamfilmsServerException(111, mensajeError);
+			}
 			
 			List<SerieVisualizada> listaSeriesVisualizadas;
 			
@@ -388,7 +422,7 @@ public class DamfilsController {
 			{
 				String mensajeError = "No se ha encontrado ninguna serie visualizada";
 				log.error(mensajeError);
-				throw new DamfilmsServerException(4, mensajeError);
+				throw new DamfilmsServerException(112, mensajeError);
 				
 			}
 			
@@ -399,7 +433,14 @@ public class DamfilsController {
 		}
 		catch (DamfilmsServerException damfilmsServerException) 
 		{
-			return ResponseEntity.status(404).body(damfilmsServerException.getBodyExceptionMessage());
+			if(damfilmsServerException.getCode()==111) 
+			{
+				return ResponseEntity.status(404).body(damfilmsServerException.getBodyExceptionMessage());
+			} 
+			else 
+			{
+				return ResponseEntity.status(405).body(damfilmsServerException.getBodyExceptionMessage());
+			}
 		}
 		catch (Exception exception) 
 		{
