@@ -22,6 +22,7 @@ import es.iesjandula.damfilms_server.dtos.SerieDetalle;
 import es.iesjandula.damfilms_server.entities.Configuracion;
 import es.iesjandula.damfilms_server.entities.Documental;
 import es.iesjandula.damfilms_server.entities.DocumentalVisualizado;
+import es.iesjandula.damfilms_server.entities.Episodio;
 import es.iesjandula.damfilms_server.entities.Modo;
 import es.iesjandula.damfilms_server.entities.Pelicula;
 import es.iesjandula.damfilms_server.entities.PeliculaVisualizada;
@@ -29,9 +30,11 @@ import es.iesjandula.damfilms_server.entities.Serie;
 import es.iesjandula.damfilms_server.entities.SerieVisualizada;
 import es.iesjandula.damfilms_server.entities.Temporada;
 import es.iesjandula.damfilms_server.entities.Usuario;
+import es.iesjandula.damfilms_server.entities.ids.EpisodioId;
 import es.iesjandula.damfilms_server.repositories.IConfiguracionRepository;
 import es.iesjandula.damfilms_server.repositories.IDocumentalRepository;
 import es.iesjandula.damfilms_server.repositories.IDocumentalVisualizadoRepository;
+import es.iesjandula.damfilms_server.repositories.IEpisodioRepository;
 import es.iesjandula.damfilms_server.repositories.IModoRepository;
 import es.iesjandula.damfilms_server.repositories.IPeliculaRepository;
 import es.iesjandula.damfilms_server.repositories.IPeliculaVisualizadaRepository;
@@ -54,6 +57,9 @@ public class DamfilsController {
     
     @Autowired
     private ISerieRepository iSerieRepository;
+    
+    @Autowired
+    private IEpisodioRepository iEpisodioRepository;
 	
 	@Autowired
 	private IPeliculaRepository iPeliculaRepository;
@@ -447,35 +453,61 @@ public class DamfilsController {
 		
 	}
   
-	    /** Temporada */
+	  // ==================== Temporada ====================
 	    
 	    @RequestMapping(method = RequestMethod.GET, value = "/temporadas/{temporadaId}")
 	    public ResponseEntity<?> getTemporadaById(@RequestParam(name = "temporadaId") Long temporadaId) {
 	        try {
 	            Temporada temporada = iTemporadaRepository.findById(temporadaId).orElse(null);
-	            if (temporada == null) {
-	                throw new DamfilmsServerException(3, "Temporada no encontrada");
+	            if (temporada == null)
+	            {
+	                String mensajeError = "Temporada no encontrada";
+	                log.error(mensajeError);
+	                throw new DamfilmsServerException(4, mensajeError);
+	              
 	            }
 	            return ResponseEntity.ok(temporada);
-	        } catch (DamfilmsServerException e) {
+	        } 
+	        catch (DamfilmsServerException e) 
+	        {
 	            return ResponseEntity.status(404).body(e.getBodyExceptionMessage());
-	        } catch (Exception e) {
-	            return ResponseEntity.status(500).body("Error interno del servidor");
+	        } 
+	        catch (Exception exception) 
+	        {
+	        	
+	            String mensajeError = "Error interno del servidor";
+	            DamfilmsServerException damfilmsServerException = new DamfilmsServerException(100, mensajeError, exception);
+	            
+	            log.error(mensajeError);
+	            return ResponseEntity.status(500).body(damfilmsServerException.getBodyExceptionMessage());
 	        }
 	    }
 
 	    @RequestMapping(method = RequestMethod.GET, value = "/series/{serieId}/temporadas")
 	    public ResponseEntity<?> getTemporadasBySerie(@RequestParam(name = "serieId") Long serieId) {
-	        try {
+	        try 
+	        {
 	            List<Temporada> temporadas = iTemporadaRepository.findBySerieId(serieId);
-	            if (temporadas.isEmpty()) {
-	                throw new DamfilmsServerException(4, "No se encontraron temporadas para la serie especificada");
+	            if (temporadas.isEmpty()) 
+	            {
+	                String mensajeError = "No se encontraron temporadas para la serie especificada";
+	                log.error(mensajeError);
+	                throw new DamfilmsServerException(4, mensajeError);
 	            }
 	            return ResponseEntity.ok(temporadas);
-	        } catch (DamfilmsServerException e) {
+	        } 
+	        catch (DamfilmsServerException e) 
+	        {
 	            return ResponseEntity.status(404).body(e.getBodyExceptionMessage());
-	        } catch (Exception e) {
-	            return ResponseEntity.status(500).body("Error interno del servidor");
+	        } 
+	        catch (Exception exception) 
+	        {
+	        	
+	            String mensajeError = "Error interno del servidor";
+	            DamfilmsServerException damfilmsServerException = new DamfilmsServerException(100, mensajeError, exception);
+	            
+	            log.error(mensajeError);
+	            return ResponseEntity.status(500).body(damfilmsServerException.getBodyExceptionMessage());
 	        }
 	    }
 	    
@@ -483,29 +515,54 @@ public class DamfilsController {
 	    public ResponseEntity<?> getSerieById(@RequestParam(name = "nombre") String nombre) {
 	        try {
 	            Serie serie = iSerieRepository.findById( nombre).orElse(null);
-	            if (serie == null) {
-	                throw new DamfilmsServerException(5, "Serie no encontrada");
+	            if (serie == null) 
+	            {
+	                String mensajeError = "Serie no encontrada";
+	                log.error(mensajeError);
+	                throw new DamfilmsServerException(4, mensajeError);
 	            }
 	            return ResponseEntity.ok(serie);
-	        } catch (DamfilmsServerException e) {
+	        } catch (DamfilmsServerException e) 
+	        {
 	            return ResponseEntity.status(404).body(e.getBodyExceptionMessage());
-	        } catch (Exception e) {
-	            return ResponseEntity.status(500).body("Error interno del servidor");
+	        } 
+	        catch (Exception exception) 
+	        {
+	        	
+	            String mensajeError = "Error interno del servidor";
+	            DamfilmsServerException damfilmsServerException = new DamfilmsServerException(100, mensajeError, exception);
+	            
+	            log.error(mensajeError);
+	            return ResponseEntity.status(500).body(damfilmsServerException.getBodyExceptionMessage());
 	        }
 	    }
 
 	    @RequestMapping(method = RequestMethod.GET, value = "/series/{genero}")
 	    public ResponseEntity<?> getSeriesByGenero(@RequestParam(name = "genero") String genero) {
-	        try {
+	        try 
+	        {
 	            List<Serie> series = iSerieRepository.findByGenero(genero);
-	            if (series.isEmpty()) {
-	                throw new DamfilmsServerException(6, "No se encontraron series para el género especificado");
+	            
+	            if (series.isEmpty()) 
+	            {
+	                String mensajeError = "No se encontraron series para el género especificado";
+	                log.error(mensajeError);
+	                throw new DamfilmsServerException(5, mensajeError);
 	            }
 	            return ResponseEntity.ok(series);
-	        } catch (DamfilmsServerException e) {
-	            return ResponseEntity.status(404).body(e.getBodyExceptionMessage());
-	        } catch (Exception e) {
-	            return ResponseEntity.status(500).body("Error interno del servidor");
+	        } 
+	        catch (DamfilmsServerException error)
+	        {
+	            return ResponseEntity.status(404).body(error.getBodyExceptionMessage());
+	        } 
+	        catch (Exception exception) 
+	        {
+	        	
+	            String mensajeError = "Error interno del servidor";
+	            DamfilmsServerException damfilmsServerException = new DamfilmsServerException(100, mensajeError, exception);
+	            
+	            log.error(mensajeError);
+	            return ResponseEntity.status(500).body(damfilmsServerException.getBodyExceptionMessage());
 	        }
 	    }
 	    @RequestMapping(method = RequestMethod.GET, value = "/series/detalle")
@@ -577,6 +634,69 @@ public class DamfilsController {
 	        return ResponseEntity.status(500).body(damfilmsServerException.getBodyExceptionMessage());
 	    }
 	}
+	
+    // ==================== episodio ====================
+	
+	@RequestMapping(method = RequestMethod.GET, value = "/episodios/detalle")
+	public ResponseEntity<?> getDetalleEpisodio(
+	        @RequestParam(name = "episodioNumero", required = true) Integer episodioNumero,
+	        @RequestParam(name = "serieNombre", required = true) String serieNombre) {
+	    try {
+	        // Buscar episodio
+	        Episodio episodio = this.iEpisodioRepository.findByIdAndSerieNombre(episodioNumero, serieNombre);
+	        if (episodio == null) 
+	        {
+	            String mensajeError = "No se encontró ningún episodio con el número especificado en la serie " + serieNombre;
+	            log.error(mensajeError);
+	            throw new DamfilmsServerException(5, mensajeError);
+	        }
+
+	        // Retornar el episodio detallado
+	        return ResponseEntity.ok(episodio);
+	        
+	    } 
+	    catch (DamfilmsServerException damfilmsServerException)
+	    {
+	        return ResponseEntity.status(404).body(damfilmsServerException.getBodyExceptionMessage());
+	    }
+	    catch (Exception exception)
+	    {
+	        String mensajeError = "Error interno del servidor";
+	        DamfilmsServerException damfilmsServerException = new DamfilmsServerException(100, mensajeError, exception);
+
+	        log.error(mensajeError, exception);
+	        return ResponseEntity.status(500).body(damfilmsServerException.getBodyExceptionMessage());
+	    }
+	}
+
+	@RequestMapping(method = RequestMethod.GET, value = "/episodios/temporada")
+	public ResponseEntity<?> getEpisodiosPorTemporada(
+	        @RequestParam(name = "temporadaNumero", required = true) Integer temporadaNumero,
+	        @RequestParam(name = "serieNombre", required = true) String serieNombre) {
+	    try {
+	        // Buscar episodios
+	        List<Episodio> episodios = iEpisodioRepository.findByTemporadaId(temporadaNumero, serieNombre);
+	        if (episodios == null || episodios.isEmpty()) 
+	        {
+	            String mensajeError = "No se encontraron episodios para la temporada " + temporadaNumero + " de la serie " + serieNombre;
+	            log.error(mensajeError);
+	            throw new DamfilmsServerException(5, mensajeError);
+	        }
+
+	        // Retornar la lista de episodios
+	        return ResponseEntity.ok(episodios);
+	    } catch (DamfilmsServerException damfilmsServerException)
+	    {
+	        return ResponseEntity.status(404).body(damfilmsServerException.getBodyExceptionMessage());
+	    } 	    catch (Exception exception)
+	    {
+	        String mensajeError = "Error interno del servidor";
+	        DamfilmsServerException damfilmsServerException = new DamfilmsServerException(100, mensajeError, exception);
+
+	        log.error(mensajeError, exception);
+	        return ResponseEntity.status(500).body(damfilmsServerException.getBodyExceptionMessage());
+	    }
+	 } 
     // ==================== Modo ====================
 
 	// Endpoint para cambiar el modo de una configuración

@@ -8,17 +8,19 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 import es.iesjandula.damfilms_server.entities.Episodio;
+import es.iesjandula.damfilms_server.entities.ids.TemporadaId;
 
 @Repository
 public interface IEpisodioRepository extends JpaRepository<Episodio, Integer>
 {
 	// Para encontrar un episodio por su ID y el ID de la serie
-//	@Query("SELECT e FROM Episodio e WHERE e.id = :episodioId AND e.serie.SerieId = :serieId")
-//	Episodio findByIdAndSerieId(@Param("episodioId") Long episodioId, @Param("serieId") Long serieId);
+	@Query("SELECT e FROM Episodio e WHERE e.episodioId.numero = :episodioNumero AND e.temporada.serie.nombre = :serieNombre")
+	Episodio findByIdAndSerieNombre(@Param("episodioNumero") Integer episodioNumero, @Param("serieNombre") String serieNombre);
+
 
 	// Para encontrar episodios por el ID de la temporada
-//	@Query("SELECT e FROM Episodio e WHERE e.temporada.id = :temporadaId")
-//	List<Episodio> findByTemporadaId(@Param("temporadaId") Long temporadaId);
+	@Query("SELECT e FROM Episodio e WHERE e.temporada.temporadaId.numero = :temporadaNumero AND e.temporada.temporadaId.serie.nombre = :serieNombre")
+	List<Episodio> findByTemporadaId(@Param("temporadaNumero") Integer temporadaNumero, @Param("serieNombre") String serieNombre);
 
 
 }
