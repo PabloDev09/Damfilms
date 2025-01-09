@@ -78,7 +78,7 @@ public class ParseoPeliculaVisualizadaImpl implements IParseo<PeliculaVisualizad
 
 			peliculaVisualizada.setPeliculaVisualizadaId(peliculaVisualizadaId);
 			
-			Optional<Usuario> optionalUsurio = this.iUsuarioRepository.findById(lineaDelFicheroTroceada[2]);
+			Optional<Usuario> optionalUsurio = this.iUsuarioRepository.findById(Long.parseLong(lineaDelFicheroTroceada[2]));
 
 			if(!optionalUsurio.isPresent())
 			{

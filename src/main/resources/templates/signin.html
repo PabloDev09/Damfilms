@@ -58,7 +58,7 @@
                 </div>
             </div>
             <!--Final del formulario-->           
-
+			<p th:if="${registerError}" th:text="${registerErrorMessage}" class="error"></p>
             <!--Enlace a inicio de sesion-->
             <p class="enlace_inicio_sesion">¿Ya tienes una cuenta?   <a class="enlace_log_in" href="/login.html">Inicia sesión</a></p>
           </div>

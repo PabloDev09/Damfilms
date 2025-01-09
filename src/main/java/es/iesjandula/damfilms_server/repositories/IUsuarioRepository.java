@@ -11,11 +11,12 @@ import es.iesjandula.damfilms_server.dtos.UsuarioLogin;
 import es.iesjandula.damfilms_server.entities.Usuario;
 
 @Repository
-public interface IUsuarioRepository extends JpaRepository<Usuario, String>
+public interface IUsuarioRepository extends JpaRepository<Usuario, Long>
 {
-	public Optional<Usuario> findByNombre(String nombre);
+	Usuario findByNombre(String nombre);
 	
 	public Optional<Usuario> findByCorreo(String correo);
+	
 	
 	@Query("SELECT new es.iesjandula.damfilms_server.dtos.UsuarioLogin(u.correo, u.contrasena) "
 			+ "FROM Usuario u "

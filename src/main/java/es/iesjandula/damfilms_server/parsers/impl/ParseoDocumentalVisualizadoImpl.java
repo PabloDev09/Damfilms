@@ -79,7 +79,7 @@ public class ParseoDocumentalVisualizadoImpl implements IParseo<DocumentalVisual
 
 			documentalVisualizado.setDocumentalVisualizadoId(documentalVisualizadoId);
 			
-			Optional<Usuario> optionalUsurio = this.usuarioRepository.findById(lineaDelFicheroTroceada[2]);
+			Optional<Usuario> optionalUsurio = this.usuarioRepository.findById(Long.parseLong(lineaDelFicheroTroceada[2]));
 
 			if(!optionalUsurio.isPresent())
 			{

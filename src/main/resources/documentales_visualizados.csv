@@ -1,21 +1,21 @@
-titulo,fechaEstreno,nombre_usuario,tiempoVisto
-The Vietnam War,2017-01-01,JuanPerez,45
-Apollo 11,2019-01-01,MariaLopez,93
-Amy,2015-01-01,CarlosSanchez,64
-Steve Jobs: The Man in the Machine,2015-01-01,AnaMartinez,80
-Planet Earth II,2016-01-01,LuisGarcia,30
-An Inconvenient Truth,2006-01-01,LauraGomez,96
-The True Cost,2015-01-01,PedroRuiz,50
-Blackfish,2013-01-01,MartaHernandez,83
-Hoop Dreams,1994-01-01,SergioDiaz,100
-Salesman,1969-01-01,IsabelFernandez,75
-The Dust Bowl,2012-01-01,JavierMoreno,60
-Man on Wire,2008-01-01,ElenaVega,94
-The Farthest: Voyager in Space,2017-01-01,PabloTorres,120
-Citizenfour,2014-01-01,LuciaRamos,114
-March of the Penguins,2005-01-01,RaulLopez,40
-Senna,2010-01-01,ClaudiaPerez,106
-The Cove,2009-01-01,DiegoJimenez,60
-Restrepo,2010-01-01,CarmenSoto,50
-The Act of Killing,2012-01-01,AdrianNavarro,120
-Free Solo,2018-01-01,PatriciaCastro,100
+titulo,fechaEstreno,idUsuario,tiempoVisto
+The Vietnam War,2017-01-01,1,45
+Apollo 11,2019-01-01,2,93
+Amy,2015-01-01,3,64
+Steve Jobs: The Man in the Machine,2015-01-01,4,80
+Planet Earth II,2016-01-01,5,30
+An Inconvenient Truth,2006-01-01,6,96
+The True Cost,2015-01-01,7,50
+Blackfish,2013-01-01,8,83
+Hoop Dreams,1994-01-01,9,100
+Salesman,1969-01-01,10,75
+The Dust Bowl,2012-01-01,11,60
+Man on Wire,2008-01-01,12,94
+The Farthest: Voyager in Space,2017-01-01,13,120
+Citizenfour,2014-01-01,14,114
+March of the Penguins,2005-01-01,15,40
+Senna,2010-01-01,16,106
+The Cove,2009-01-01,17,60
+Restrepo,2010-01-01,18,50
+The Act of Killing,2012-01-01,19,120
+Free Solo,2018-01-01,20,100

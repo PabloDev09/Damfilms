@@ -1,20 +1,24 @@
 package es.iesjandula.damfilms_server.config;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.web.server.ErrorPage;
 import org.springframework.boot.web.server.WebServerFactoryCustomizer;
 import org.springframework.boot.web.servlet.server.ConfigurableServletWebServerFactory;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpStatus;
+import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
-import org.springframework.security.core.userdetails.User;
-import org.springframework.security.provisioning.InMemoryUserDetailsManager;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 
 @Configuration
 @EnableWebSecurity
 public class SpringSecurityConfig {
+	
+	@Autowired
+	private MyUserDetailsService myUserDetailsService ;
 
     @Bean
     public SecurityFilterChain filterChain(final HttpSecurity http) throws Exception {
@@ -45,15 +49,27 @@ public class SpringSecurityConfig {
         return http.build();
     }
 
-    @Bean
-    public InMemoryUserDetailsManager userDetailsService() {
-        return new InMemoryUserDetailsManager(
-            User.withUsername("premium").password("{noop}premium").roles("PREMIUM").build(),
-            User.withUsername("invitado").password("{noop}invitado").roles("INVITADO").build(),
-            User.withUsername("admin").password("{noop}admin").roles("ADMIN").build(),
-            User.withUsername("user").password("{noop}user").roles("USER").build()
-        );
-    }
+	@Bean
+	public BCryptPasswordEncoder passwordEncoder()
+	{
+		// Usaremos 'BCryptPasswordEncoder' como forma de cifrar las contraseñas
+		return new BCryptPasswordEncoder() ;
+	}
+
+	/**
+	 * Este método devuelve una instancia de DaoAuthenticationProvider que indica 
+	 * cómo se controlan los usuarios (UserDetailsService) y cómo se codifican las contraseñas (PasswordEnconder) 
+	 */
+	@Bean
+	public DaoAuthenticationProvider authenticationProvider()
+	{
+		DaoAuthenticationProvider authProvider = new DaoAuthenticationProvider() ;
+		
+		authProvider.setUserDetailsService(this.myUserDetailsService) ;
+		authProvider.setPasswordEncoder(this.passwordEncoder()) ;
+		
+		return authProvider ;
+	}
 
     /**
      * Configuración de páginas de error personalizadas

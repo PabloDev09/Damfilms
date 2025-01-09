@@ -1,7 +1,6 @@
 package es.iesjandula.damfilms_server.entities.ids;
 
 import es.iesjandula.damfilms_server.entities.Pelicula;
-import es.iesjandula.damfilms_server.entities.Usuario;
 import jakarta.persistence.Embeddable;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.JoinColumns;
@@ -26,5 +25,5 @@ public class PeliculaVisualizadaId
 	)
 	private Pelicula pelicula;
 	
-	private String usuario;
+	private Long usuario;
 }

@@ -1,7 +1,6 @@
 package es.iesjandula.damfilms_server.entities.ids;
 
 import es.iesjandula.damfilms_server.entities.Documental;
-import es.iesjandula.damfilms_server.entities.Usuario;
 import jakarta.persistence.Embeddable;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.JoinColumns;
@@ -26,5 +25,5 @@ public class DocumentalVisualizadoId
 	)
 	private Documental documental;
 	
-	private String usuario;
+	private Long usuario;
 }

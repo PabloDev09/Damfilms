@@ -1,43 +1,43 @@
-nombre,nombre_usuario,episodiosVistos
-The Big Bang Theory,JuanPerez,10
-The Boys,MariaLopez,5
-Breaking Bad,CarlosSanchez,20
-Brooklyn Nine-Nine,AnaMartinez,12
-The IT Crowd,LuisGarcia,8
-CSI New York,LauraGomez,15
-Death Note,PedroRuiz,16
-Friends,MartaHernandez,10
-Futurama,SergioDiaz,5
-Dr. House,IsabelFernandez,10
-Miraculous Ladybug,JavierMoreno,8
-The Mandalorian,ElenaVega,8
-The Mentalist,PabloTorres,15
-The Office,LuciaRamos,10
-Perception,RaulLopez,6
-Seinfeld,ClaudiaPerez,10
-Sherlock,DiegoJimenez,5
-South Park,CarmenSoto,30
-Game of Thrones,AdrianNavarro,12
-Vikings,PatriciaCastro,7
-Walker Texas Rangers,JuanPerez,5
-The Big Bang Theory,MariaLopez,15
-The Boys,CarlosSanchez,6
-Breaking Bad,AnaMartinez,18
-Brooklyn Nine-Nine,LuisGarcia,20
-The IT Crowd,LauraGomez,5
-CSI New York,PedroRuiz,14
-Death Note,MartaHernandez,16
-Friends,SergioDiaz,9
-Futurama,IsabelFernandez,13
-Dr. House,JavierMoreno,18
-Miraculous Ladybug,ElenaVega,6
-The Mandalorian,PabloTorres,7
-The Mentalist,LuciaRamos,12
-The Office,RaulLopez,10
-Perception,ClaudiaPerez,6
-Seinfeld,DiegoJimenez,15
-Sherlock,CarmenSoto,5
-South Park,AdrianNavarro,35
-Game of Thrones,PatriciaCastro,10
-Vikings,JuanPerez,10
-Walker Texas Rangers,MariaLopez,3
+nombre,idUsuario,episodiosVistos
+The Big Bang Theory,1,10
+The Boys,2,5
+Breaking Bad,3,20
+Brooklyn Nine-Nine,4,12
+The IT Crowd,5,8
+CSI New York,6,15
+Death Note,7,16
+Friends,8,10
+Futurama,9,5
+Dr. House,10,10
+Miraculous Ladybug,11,8
+The Mandalorian,12,8
+The Mentalist,13,15
+The Office,14,10
+Perception,15,6
+Seinfeld,16,10
+Sherlock,17,5
+South Park,18,30
+Game of Thrones,19,12
+Vikings,1,7
+Walker Texas Rangers,2,5
+The Big Bang Theory,3,15
+The Boys,4,6
+Breaking Bad,5,18
+Brooklyn Nine-Nine,6,20
+The IT Crowd,7,5
+CSI New York,8,14
+Death Note,9,16
+Friends,10,9
+Futurama,11,13
+Dr. House,12,18
+Miraculous Ladybug,13,6
+The Mandalorian,14,7
+The Mentalist,15,12
+The Office,16,10
+Perception,17,6
+Seinfeld,18,15
+Sherlock,19,5
+South Park,1,35
+Game of Thrones,2,10
+Vikings,3,10
+Walker Texas Rangers,4,3

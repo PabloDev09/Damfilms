@@ -27,10 +27,8 @@ import es.iesjandula.damfilms_server.entities.Pelicula;
 import es.iesjandula.damfilms_server.entities.PeliculaVisualizada;
 import es.iesjandula.damfilms_server.entities.Serie;
 import es.iesjandula.damfilms_server.entities.SerieVisualizada;
-import es.iesjandula.damfilms_server.entities.Suscripcion;
 import es.iesjandula.damfilms_server.entities.Temporada;
 import es.iesjandula.damfilms_server.entities.Usuario;
-import es.iesjandula.damfilms_server.entities.ids.SuscripcionId;
 import es.iesjandula.damfilms_server.repositories.IConfiguracionRepository;
 import es.iesjandula.damfilms_server.repositories.IDocumentalRepository;
 import es.iesjandula.damfilms_server.repositories.IDocumentalVisualizadoRepository;
@@ -39,7 +37,6 @@ import es.iesjandula.damfilms_server.repositories.IPeliculaRepository;
 import es.iesjandula.damfilms_server.repositories.IPeliculaVisualizadaRepository;
 import es.iesjandula.damfilms_server.repositories.ISerieRepository;
 import es.iesjandula.damfilms_server.repositories.ISerieVisualizadaRepository;
-import es.iesjandula.damfilms_server.repositories.ISuscripcionRepository;
 import es.iesjandula.damfilms_server.repositories.ITemporadaRepository;
 import es.iesjandula.damfilms_server.repositories.IUsuarioRepository;
 import es.iesjandula.damfilms_server.utils.DamfilmsServerException;
@@ -78,9 +75,6 @@ public class DamfilsController {
 	
 	@Autowired
 	private IConfiguracionRepository configuracionRepository;
-	
-	@Autowired
-	private ISuscripcionRepository suscripcionRepository;
 	
 	@RequestMapping(method = RequestMethod.GET, value = "/documentales")
 	public ResponseEntity<?> listaDocumentales() 
@@ -593,14 +587,14 @@ public class DamfilsController {
 	    {
 	    	
 	        // Verifica si el usuario existe
-	        Optional<Usuario> usuarioExistente = usuarioRepository.findById(usuario);
-	        if (!usuarioExistente.isPresent()) 
+	        Usuario usuarioExistente = usuarioRepository.findByNombre(usuario);
+	        if (usuarioExistente == null) 
 	        {
 	            throw new DamfilmsServerException(404, "Usuario no encontrado");
 	        }
 
 	        // Obtiene la configuración asociada al usuario
-	        Configuracion configuracionActual = usuarioExistente.get().getConfiguracion();
+	        Configuracion configuracionActual = usuarioExistente.getConfiguracion();
 	        if (configuracionActual == null) 
 	        {
 	            throw new DamfilmsServerException(404, "Configuración no encontrada para el usuario");
@@ -637,14 +631,14 @@ public class DamfilsController {
 	    try 
 	    {
 	        // Verifica si el usuario existe
-	        Optional<Usuario> usuarioOpt = usuarioRepository.findById(usuario);
-	        if (!usuarioOpt.isPresent()) 
+	    	Usuario usuarioOpt = usuarioRepository.findByNombre(usuario);
+	        if (usuarioOpt == null) 
 	        {
 	            throw new DamfilmsServerException(404, "Usuario no encontrado");
 	        }
 
 	        // Obtiene la configuración asociada al usuario
-	        Configuracion configuracionActual = usuarioOpt.get().getConfiguracion();
+	        Configuracion configuracionActual = usuarioOpt.getConfiguracion();
 	        if (configuracionActual == null) 
 	        {
 	            throw new DamfilmsServerException(404, "Configuración no encontrada para el usuario");
@@ -670,9 +664,9 @@ public class DamfilsController {
     {
         try 
         {
-            Optional<Usuario> usuarioOpt = usuarioRepository.findById(usuario);
-            if (!usuarioOpt.isPresent()) 
-            {
+        	Usuario usuarioOpt = usuarioRepository.findByNombre(usuario);
+	        if (usuarioOpt == null) 
+	        {
                 throw new DamfilmsServerException(404, "Usuario no encontrado");
             }
             
@@ -683,7 +677,7 @@ public class DamfilsController {
             }
             
 
-            Usuario usuarioEnt = usuarioOpt.get();
+            Usuario usuarioEnt = usuarioOpt;
             usuarioEnt.setConfiguracion(configuracionNueva);
             configuracionRepository.save(configuracionNueva);
 
@@ -698,72 +692,73 @@ public class DamfilsController {
         }
     }
 
-    @RequestMapping(method = RequestMethod.GET, value = "/configuracion")
-    public ResponseEntity<?> verConfiguracion(@RequestParam String usuario) {
-        try {
-            Optional<Usuario> usuarioOpt = usuarioRepository.findByNombre(usuario);
-            if (!usuarioOpt.isPresent()) {
-                return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Usuario no encontrado");
-            }
-
-            Configuracion configuracionActual = usuarioOpt.get().getConfiguracion();
-            log.info("Configuración actual para usuario {}: {}", usuario, configuracionActual);
-            return ResponseEntity.ok(configuracionActual);
-        } catch (Exception exception) {
-            log.error("Error inesperado al obtener configuración: {}", exception.getMessage());
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
-                    .body("Ocurrió un error al obtener la configuración");
-        }
-    }
+//    @RequestMapping(method = RequestMethod.GET, value = "/configuracion")
+//    public ResponseEntity<?> verConfiguracion(@RequestParam String usuario) {
+//        try {
+//            Optional<Usuario> usuarioOpt = usuarioRepository.findByNombre(usuario);
+//            if (!usuarioOpt.isPresent()) {
+//                return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Usuario no encontrado");
+//            }
+//
+//            Configuracion configuracionActual = usuarioOpt.get().getConfiguracion();
+//            log.info("Configuración actual para usuario {}: {}", usuario, configuracionActual);
+//            return ResponseEntity.ok(configuracionActual);
+//        } catch (Exception exception) {
+//            log.error("Error inesperado al obtener configuración: {}", exception.getMessage());
+//            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+//                    .body("Ocurrió un error al obtener la configuración");
+//        }
+//    }
 
 
     // ==================== Usuario ====================
-    @RequestMapping(method = RequestMethod.POST, value = "/usuarios")
-    public ResponseEntity<?> crearUsuario(@RequestBody Usuario nuevoUsuario) 
-    {
-        try 
-        {
-            // Comprobar si ya existe un usuario con el mismo nombre
-            Optional<Usuario> usuarioExistente = usuarioRepository.findByNombre(nuevoUsuario.getNombre());
-            if (usuarioExistente.isPresent()) {
-                // Si el usuario existe, devolver un error
-                log.error("Ya existe un usuario con el nombre: {}", nuevoUsuario.getNombre());
-                return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Ya existe un usuario con ese nombre.");
-            }
-            
-            // Comprobar si ya existe un usuario con el mismo email
-            Optional<Usuario> usuarioEmailExistente = usuarioRepository.findByCorreo(nuevoUsuario.getCorreo());
-            if (usuarioEmailExistente.isPresent()) {
-                // Si el usuario existe, devolver un error
-                log.error("Ya existe un usuario con el correo: {}", nuevoUsuario.getCorreo());
-                return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Ya existe un usuario con ese correo.");
-            }
-
-
-            // Si no existe, guardar el nuevo usuario
-            usuarioRepository.save(nuevoUsuario);
-            log.info("Usuario creado exitosamente: {}", nuevoUsuario.getNombre());
-            return ResponseEntity.status(HttpStatus.CREATED).body("Usuario creado exitosamente.");
-        } 
-        catch (Exception ex) 
-        {
-            log.error("Error al crear usuario: {}", ex.getMessage());
-            DamfilmsServerException customException = new DamfilmsServerException(500, "Error al crear usuario", ex);
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(customException.getBodyExceptionMessage());
-        }
-    }
+//    @RequestMapping(method = RequestMethod.POST, value = "/usuarios")
+//    public ResponseEntity<?> crearUsuario(@RequestBody Usuario nuevoUsuario) 
+//    {
+//        try 
+//        {
+//            // Comprobar si ya existe un usuario con el mismo nombre
+//            Optional<Usuario> usuarioExistente = usuarioRepository.findByNombre(nuevoUsuario.getNombre());
+//            if (usuarioExistente.isPresent()) {
+//                // Si el usuario existe, devolver un error
+//                log.error("Ya existe un usuario con el nombre: {}", nuevoUsuario.getNombre());
+//                return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Ya existe un usuario con ese nombre.");
+//            }
+//            
+//            // Comprobar si ya existe un usuario con el mismo email
+//            Optional<Usuario> usuarioEmailExistente = usuarioRepository.findByCorreo(nuevoUsuario.getCorreo());
+//            if (usuarioEmailExistente.isPresent()) {
+//                // Si el usuario existe, devolver un error
+//                log.error("Ya existe un usuario con el correo: {}", nuevoUsuario.getCorreo());
+//                return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Ya existe un usuario con ese correo.");
+//            }
+//
+//
+//            // Si no existe, guardar el nuevo usuario
+//            usuarioRepository.save(nuevoUsuario);
+//            log.info("Usuario creado exitosamente: {}", nuevoUsuario.getNombre());
+//            return ResponseEntity.status(HttpStatus.CREATED).body("Usuario creado exitosamente.");
+//        } 
+//        catch (Exception ex) 
+//        {
+//            log.error("Error al crear usuario: {}", ex.getMessage());
+//            DamfilmsServerException customException = new DamfilmsServerException(500, "Error al crear usuario", ex);
+//            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(customException.getBodyExceptionMessage());
+//        }
+//    }
 
     @RequestMapping(method = RequestMethod.DELETE, value = "/usuarios")
     public ResponseEntity<?> eliminarUsuario(@RequestParam String nombre) 
     {
-        try 
+        try
         {
-            if (!usuarioRepository.existsById(nombre)) 
+        	Long id = usuarioRepository.findByNombre(nombre).getId();
+            if (!usuarioRepository.existsById(id)) 
             {
                 throw new DamfilmsServerException(404, "Usuario no encontrado");
             }
 
-            usuarioRepository.deleteById(nombre);
+            usuarioRepository.deleteById(id);
             log.info("Usuario eliminado exitosamente: {}", nombre);
             return ResponseEntity.ok("Usuario eliminado exitosamente.");
         } 
@@ -775,155 +770,155 @@ public class DamfilsController {
         }
     }
     
-    @RequestMapping(method = RequestMethod.PUT, value = "/usuarios")
-    public ResponseEntity<?> cambiarUsuario(@RequestBody Usuario usuarioModificado, @RequestParam String nombreUsuario) {
-        try {
-            // Comprobar si el usuario existe por nombre
-            Optional<Usuario> usuarioExistente = usuarioRepository.findByNombre(nombreUsuario);
-            if (usuarioExistente.isEmpty()) {
-                log.error("Usuario con nombre {} no encontrado.", usuarioModificado.getNombre());
-                return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Usuario no encontrado.");
-            }
-
-            // Comprobar si el correo ya está en uso por otro usuario
-            Optional<Usuario> usuarioConCorreoExistente = usuarioRepository.findByCorreo(usuarioModificado.getCorreo());
-            if (usuarioConCorreoExistente.isPresent() && !usuarioConCorreoExistente.get().getCorreo().equals(usuarioModificado.getCorreo())) {
-                log.error("Ya existe un usuario con el correo: {}", usuarioModificado.getCorreo());
-                return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("El correo electrónico ya está registrado por otro usuario.");
-            }
-
-            // Actualizar el usuario
-            Usuario usuarioActualizado = usuarioExistente.get();
-            usuarioActualizado.setNombre(usuarioModificado.getNombre());
-            usuarioActualizado.setCorreo(usuarioModificado.getCorreo());
-            usuarioActualizado.setContrasena(usuarioModificado.getContrasena());
-            usuarioActualizado.setConfiguracion(usuarioModificado.getConfiguracion());  // Si es necesario
-
-            // Guardar el usuario modificado
-            usuarioRepository.save(usuarioActualizado);
-            log.info("Usuario actualizado exitosamente: {}", usuarioModificado.getNombre());
-            return ResponseEntity.ok("Usuario actualizado exitosamente.");
-        } catch (Exception ex) {
-            log.error("Error al actualizar usuario: {}", ex.getMessage());
-            DamfilmsServerException customException = new DamfilmsServerException(500, "Error al actualizar usuario", ex);
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(customException.getBodyExceptionMessage());
-        }
-    }
+//    @RequestMapping(method = RequestMethod.PUT, value = "/usuarios")
+//    public ResponseEntity<?> cambiarUsuario(@RequestBody Usuario usuarioModificado, @RequestParam String nombreUsuario) {
+//        try {
+//            // Comprobar si el usuario existe por nombre
+//            Optional<Usuario> usuarioExistente = usuarioRepository.findByNombre(nombreUsuario);
+//            if (usuarioExistente.isEmpty()) {
+//                log.error("Usuario con nombre {} no encontrado.", usuarioModificado.getNombre());
+//                return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Usuario no encontrado.");
+//            }
+//
+//            // Comprobar si el correo ya está en uso por otro usuario
+//            Optional<Usuario> usuarioConCorreoExistente = usuarioRepository.findByCorreo(usuarioModificado.getCorreo());
+//            if (usuarioConCorreoExistente.isPresent() && !usuarioConCorreoExistente.get().getCorreo().equals(usuarioModificado.getCorreo())) {
+//                log.error("Ya existe un usuario con el correo: {}", usuarioModificado.getCorreo());
+//                return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("El correo electrónico ya está registrado por otro usuario.");
+//            }
+//
+//            // Actualizar el usuario
+//            Usuario usuarioActualizado = usuarioExistente.get();
+//            usuarioActualizado.setNombre(usuarioModificado.getNombre());
+//            usuarioActualizado.setCorreo(usuarioModificado.getCorreo());
+//            usuarioActualizado.setContrasena(usuarioModificado.getContrasena());
+//            usuarioActualizado.setConfiguracion(usuarioModificado.getConfiguracion());  // Si es necesario
+//
+//            // Guardar el usuario modificado
+//            usuarioRepository.save(usuarioActualizado);
+//            log.info("Usuario actualizado exitosamente: {}", usuarioModificado.getNombre());
+//            return ResponseEntity.ok("Usuario actualizado exitosamente.");
+//        } catch (Exception ex) {
+//            log.error("Error al actualizar usuario: {}", ex.getMessage());
+//            DamfilmsServerException customException = new DamfilmsServerException(500, "Error al actualizar usuario", ex);
+//            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(customException.getBodyExceptionMessage());
+//        }
+//    }
 
     // ==================== Suscripcion ====================
     
-    @RequestMapping(method = RequestMethod.POST, value = "/suscripciones")
-    public ResponseEntity<?> crearSuscripcion(@RequestParam String nombreUsuario) 
-    {
-        try 
-        {
-            // Comprobar si el usuario existe
-            Optional<Usuario> usuarioExistente = usuarioRepository.findByNombre(nombreUsuario);
-            if (usuarioExistente.isEmpty()) 
-            {
-                log.error("Usuario con nombre {} no encontrado.", nombreUsuario);
-                return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Usuario no encontrado.");
-            }
-
-            // Obtener el usuario
-            Usuario usuario = usuarioExistente.get();
-
-            // Crear el SuscripcionId (clave compuesta)
-            SuscripcionId suscripcionId = new SuscripcionId();
-            suscripcionId.setUsuario(usuario);
-            suscripcionId.setFechaInicio(java.sql.Date.valueOf(java.time.LocalDate.now()));  
-
-            // Crear nueva suscripción
-            Suscripcion nuevaSuscripcion = new Suscripcion();
-            nuevaSuscripcion.setSuscripcionId(suscripcionId);
-            nuevaSuscripcion.setDuracion(30);  
-            nuevaSuscripcion.setFechaFin(java.sql.Date.valueOf(java.time.LocalDate.now().plusDays(30)));  
-
-            // Guardar la suscripción
-            suscripcionRepository.save(nuevaSuscripcion);
-            log.info("Suscripción creada exitosamente para el usuario: {}", usuario.getNombre());
-            return ResponseEntity.status(HttpStatus.CREATED).body("Suscripción creada exitosamente.");
-        } 
-        catch (Exception ex) 
-        {
-            log.error("Error al crear suscripción: {}", ex.getMessage());
-            DamfilmsServerException customException = new DamfilmsServerException(500, "Error al crear suscripción", ex);
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(customException.getBodyExceptionMessage());
-        }
-    }
+//    @RequestMapping(method = RequestMethod.POST, value = "/suscripciones")
+//    public ResponseEntity<?> crearSuscripcion(@RequestParam String nombreUsuario) 
+//    {
+//        try 
+//        {
+//            // Comprobar si el usuario existe
+//            Optional<Usuario> usuarioExistente = usuarioRepository.findByNombre(nombreUsuario);
+//            if (usuarioExistente.isEmpty()) 
+//            {
+//                log.error("Usuario con nombre {} no encontrado.", nombreUsuario);
+//                return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Usuario no encontrado.");
+//            }
+//
+//            // Obtener el usuario
+//            Usuario usuario = usuarioExistente.get();
+//
+//            // Crear el SuscripcionId (clave compuesta)
+//            SuscripcionId suscripcionId = new SuscripcionId();
+//            suscripcionId.setUsuario(usuario);
+//            suscripcionId.setFechaInicio(java.sql.Date.valueOf(java.time.LocalDate.now()));  
+//
+//            // Crear nueva suscripción
+//            Suscripcion nuevaSuscripcion = new Suscripcion();
+//            nuevaSuscripcion.setSuscripcionId(suscripcionId);
+//            nuevaSuscripcion.setDuracion(30);  
+//            nuevaSuscripcion.setFechaFin(java.sql.Date.valueOf(java.time.LocalDate.now().plusDays(30)));  
+//
+//            // Guardar la suscripción
+//            suscripcionRepository.save(nuevaSuscripcion);
+//            log.info("Suscripción creada exitosamente para el usuario: {}", usuario.getNombre());
+//            return ResponseEntity.status(HttpStatus.CREATED).body("Suscripción creada exitosamente.");
+//        } 
+//        catch (Exception ex) 
+//        {
+//            log.error("Error al crear suscripción: {}", ex.getMessage());
+//            DamfilmsServerException customException = new DamfilmsServerException(500, "Error al crear suscripción", ex);
+//            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(customException.getBodyExceptionMessage());
+//        }
+//    }
 
     
-    @RequestMapping(method = RequestMethod.GET, value = "/suscripciones")
-    public ResponseEntity<?> verSuscripcion(@RequestParam String nombreUsuario) {
-        try {
-            // Comprobar si el usuario existe
-            Optional<Usuario> usuarioExistente = usuarioRepository.findByNombre(nombreUsuario);
-            if (usuarioExistente.isEmpty()) {
-                log.error("Usuario con nombre {} no encontrado.", nombreUsuario);
-                return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Usuario no encontrado.");
-            }
+//    @RequestMapping(method = RequestMethod.GET, value = "/suscripciones")
+//    public ResponseEntity<?> verSuscripcion(@RequestParam String nombreUsuario) {
+//        try {
+//            // Comprobar si el usuario existe
+//            Optional<Usuario> usuarioExistente = usuarioRepository.findByNombre(nombreUsuario);
+//            if (usuarioExistente.isEmpty()) {
+//                log.error("Usuario con nombre {} no encontrado.", nombreUsuario);
+//                return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Usuario no encontrado.");
+//            }
+//
+//            // Obtener el usuario
+//            Usuario usuario = usuarioExistente.get();
+//
+//            // Obtener suscripción del usuario
+//            Optional<Suscripcion> suscripcionExistente = suscripcionRepository.findByUsuario(usuario);
+//            if (suscripcionExistente.isEmpty()) {
+//                log.error("No se encontró una suscripción para el usuario: {}", nombreUsuario);
+//                return ResponseEntity.status(HttpStatus.NOT_FOUND).body("No se encontró una suscripción para el usuario.");
+//            }
+//
+//            // Retornar la suscripción encontrada
+//            Suscripcion suscripcion = suscripcionExistente.get();
+//            log.info("Suscripción encontrada para el usuario: {}", nombreUsuario);
+//            return ResponseEntity.ok(suscripcion);
+//        } catch (Exception ex) {
+//            log.error("Error al ver suscripción: {}", ex.getMessage());
+//            DamfilmsServerException customException = new DamfilmsServerException(500, "Error al ver suscripción", ex);
+//            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(customException.getBodyExceptionMessage());
+//        }
+//    }
 
-            // Obtener el usuario
-            Usuario usuario = usuarioExistente.get();
-
-            // Obtener suscripción del usuario
-            Optional<Suscripcion> suscripcionExistente = suscripcionRepository.findByUsuario(usuario);
-            if (suscripcionExistente.isEmpty()) {
-                log.error("No se encontró una suscripción para el usuario: {}", nombreUsuario);
-                return ResponseEntity.status(HttpStatus.NOT_FOUND).body("No se encontró una suscripción para el usuario.");
-            }
-
-            // Retornar la suscripción encontrada
-            Suscripcion suscripcion = suscripcionExistente.get();
-            log.info("Suscripción encontrada para el usuario: {}", nombreUsuario);
-            return ResponseEntity.ok(suscripcion);
-        } catch (Exception ex) {
-            log.error("Error al ver suscripción: {}", ex.getMessage());
-            DamfilmsServerException customException = new DamfilmsServerException(500, "Error al ver suscripción", ex);
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(customException.getBodyExceptionMessage());
-        }
-    }
-
-    @RequestMapping(method = RequestMethod.DELETE, value = "/suscripciones")
-    public ResponseEntity<?> cancelarSuscripcion(@RequestParam String nombreUsuario) {
-        try {
-            // Comprobar si el usuario existe
-            Optional<Usuario> usuarioExistente = usuarioRepository.findByNombre(nombreUsuario);
-            if (usuarioExistente.isEmpty()) {
-                log.error("Usuario con nombre {} no encontrado.", nombreUsuario);
-                return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Usuario no encontrado.");
-            }
-
-            // Obtener el usuario
-            Usuario usuario = usuarioExistente.get();
-
-            // Obtener suscripción del usuario
-            Optional<Suscripcion> suscripcionExistente = suscripcionRepository.findByUsuario(usuario);
-            if (suscripcionExistente.isEmpty()) {
-                log.error("No se encontró una suscripción para el usuario: {}", nombreUsuario);
-                return ResponseEntity.status(HttpStatus.NOT_FOUND).body("No se encontró una suscripción para el usuario.");
-            }
-
-            Suscripcion suscripcion = suscripcionExistente.get();
-
-            // Si la suscripción es premium, cambiarla a normal
-            if (suscripcion.getDuracion() > 30) {  
-                suscripcion.setDuracion(30);  
-                suscripcionRepository.save(suscripcion);
-                log.info("Suscripción premium cambiada a normal para el usuario: {}", nombreUsuario);
-                return ResponseEntity.ok("Suscripción cambiada a normal exitosamente.");
-            } else {
-                // Si es una suscripción normal, eliminarla
-                suscripcionRepository.delete(suscripcion);
-                log.info("Suscripción eliminada exitosamente para el usuario: {}", nombreUsuario);
-                return ResponseEntity.ok("Suscripción eliminada exitosamente.");
-            }
-        } catch (Exception ex) {
-            log.error("Error al cancelar suscripción: {}", ex.getMessage());
-            DamfilmsServerException customException = new DamfilmsServerException(500, "Error al cancelar suscripción", ex);
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(customException.getBodyExceptionMessage());
-        }
-    }
+//    @RequestMapping(method = RequestMethod.DELETE, value = "/suscripciones")
+//    public ResponseEntity<?> cancelarSuscripcion(@RequestParam String nombreUsuario) {
+//        try {
+//            // Comprobar si el usuario existe
+//            Optional<Usuario> usuarioExistente = usuarioRepository.findByNombre(nombreUsuario);
+//            if (usuarioExistente.isEmpty()) {
+//                log.error("Usuario con nombre {} no encontrado.", nombreUsuario);
+//                return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Usuario no encontrado.");
+//            }
+//
+//            // Obtener el usuario
+//            Usuario usuario = usuarioExistente.get();
+//
+//            // Obtener suscripción del usuario
+//            Optional<Suscripcion> suscripcionExistente = suscripcionRepository.findByUsuario(usuario);
+//            if (suscripcionExistente.isEmpty()) {
+//                log.error("No se encontró una suscripción para el usuario: {}", nombreUsuario);
+//                return ResponseEntity.status(HttpStatus.NOT_FOUND).body("No se encontró una suscripción para el usuario.");
+//            }
+//
+//            Suscripcion suscripcion = suscripcionExistente.get();
+//
+//            // Si la suscripción es premium, cambiarla a normal
+//            if (suscripcion.getDuracion() > 30) {  
+//                suscripcion.setDuracion(30);  
+//                suscripcionRepository.save(suscripcion);
+//                log.info("Suscripción premium cambiada a normal para el usuario: {}", nombreUsuario);
+//                return ResponseEntity.ok("Suscripción cambiada a normal exitosamente.");
+//            } else {
+//                // Si es una suscripción normal, eliminarla
+//                suscripcionRepository.delete(suscripcion);
+//                log.info("Suscripción eliminada exitosamente para el usuario: {}", nombreUsuario);
+//                return ResponseEntity.ok("Suscripción eliminada exitosamente.");
+//            }
+//        } catch (Exception ex) {
+//            log.error("Error al cancelar suscripción: {}", ex.getMessage());
+//            DamfilmsServerException customException = new DamfilmsServerException(500, "Error al cancelar suscripción", ex);
+//            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(customException.getBodyExceptionMessage());
+//        }
+//    }
 
 
     
