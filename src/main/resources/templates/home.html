@@ -4,48 +4,75 @@
     <head>
         <title>Damfilms - Home</title>
 
+        <!-- =============================== -->
+        <!-- SECCIÓN DE RECURSOS Y ESTILOS -->
+        <!-- =============================== -->
+
+        <!-- Incluir un enlace a un archivo JavaScript específico para la página -->
+        <!-- SI TIENES UN LINK A UN JAVASCRIPT PERSONAL PARA TU PÁGINA INTRODUCELO AQUÍ -->
+
+        <!-- Incluir Popper JS desde un archivo local (antes de Bootstrap) -->
         <script th:src="@{/js/popper.min.js}"></script>
         
+        <!-- Incluir Bootstrap CSS y JS desde un CDN con integridad y crossorigin -->
         <link th:href="@{https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css}" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
         <script th:src="@{https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js}" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+
+        <!-- Incluir íconos de Bootstrap desde CDN -->
         <link th:href="@{https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css}" rel="stylesheet">
         
+        <!-- Configuración de la vista responsive -->
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
+        <!-- Incluir archivos CSS personalizados -->
         <link th:href="@{/css/style.css}" rel="stylesheet" type="text/css">
         <link th:href="@{/css/navbar.css}" rel="stylesheet" type="text/css">
     </head>
 
     <body>
+        <!-- ===================== -->
+        <!-- SECCIÓN SUPERIOR -->
+        <!-- ===================== -->
+
         <div id="arribaX"></div>
         
+        <!-- ===================== -->
+        <!-- BARRA DE NAVEGACIÓN -->
+        <!-- ===================== -->
         <nav class="navbar navbar-expand-lg">
             <div class="container-fluid">
                 <div class="row" style="width:100%;">
+                    <!-- Columna izquierda con opciones del menú -->
                     <div class="col-11 container-left">
+                        <!-- Botón para dispositivos pequeños -->
                         <button class="navbar-toggler" id="navbar" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
                             <span class="navbar-toggler-icon navbar-dark"></span>
                         </button>
                         
+                        <!-- Menú principal -->
                         <div class="collapse navbar-collapse" id="navbarTogglerDemo01" style="justify-content: start;">
                             <a class="navbar-brand" href="#"><img th:src="@{/img/Logo.png}" alt="Logo"></a>
                             
                             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                                <!-- Enlace a Home -->
                                 <li class="nav-item-left">
                                     <a class="nav-link active" aria-current="page" th:href="@{/home.html}">
                                         <div id="home-icon-active">Home</div>
                                     </a>
                                 </li>
+                                <!-- Enlace a Series -->
                                 <li class="nav-item-left">
                                     <a class="nav-link active" th:href="@{/catalog-series.html}">
                                         <div id="series-icon">Series</div>
                                     </a>
                                 </li>
+                                <!-- Enlace a Películas -->
                                 <li class="nav-item-left">
                                     <a class="nav-link active" th:href="@{/catalog-movies.html}">
                                         <div id="films-icon">Películas</div>
                                     </a>
                                 </li>
+                                <!-- Enlace a Documentales -->
                                 <li class="nav-item-left">
                                     <a class="nav-link active" th:href="@{/catalog-documentals.html}">
                                         <div id="documentals-icon">Documentales</div>
@@ -53,6 +80,7 @@
                                 </li>
                             </ul>
                             
+                            <!-- Formulario de búsqueda -->
                             <form class="d-flex" th:action="@{/search}" method="get">
                                 <input class="input-search me-2" type="search" name="query" placeholder="Buscar" aria-label="Search">
                                 <button class="button-search" type="submit"><img th:src="@{/img/icons/lupa-64.png}" alt="Buscar"></button>
@@ -60,6 +88,7 @@
                         </div>
                     </div>
                     
+                    <!-- Columna derecha con icono de usuario -->
                     <div class="col-1 container-right">
                         <ul>
                             <li class="nav-item-right dropdown">
@@ -77,22 +106,30 @@
             </div>
         </nav>
 
+        <!-- ===================== -->
+        <!-- CONTENIDO PRINCIPAL -->
+        <!-- ===================== -->
         <main>
             <div id="pmg-newest">
                 <h2 class="outline">Novedades</h2>
+                <!-- Carrusel de novedades -->
                 <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
                     <div class="carousel-inner pmg-carousel">
+                        <!-- Primer elemento del carrusel -->
                         <div class="carousel-item active">
                             <img th:src="@{/img/banners/banner-georgia.gif}" class="d-block w-100" alt="...">
                         </div>
+                        <!-- Segundo elemento del carrusel -->
                         <div class="carousel-item">
                             <img th:src="@{/img/banners/Stranger_things.PNG}" class="d-block w-100" alt="...">
                         </div>
                     </div>
+                    <!-- Botón para ir al elemento anterior -->
                     <button class="newest-carousel-control-prev carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
                         <span class="newest-carousel-control-prev-icon carousel-control-prev-icon" aria-hidden="true"></span>
                         <span class="visually-hidden">Previous</span>
                     </button>
+                    <!-- Botón para ir al siguiente elemento -->
                     <button class="newest-carousel-control-next carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">
                         <span class="newest-carousel-control-next-icon carousel-control-next-icon" aria-hidden="true"></span>
                         <span class="visually-hidden">Next</span>
@@ -101,11 +138,16 @@
             </div>
         </main>
 
+        <!-- ===================== -->
+        <!-- PIE DE PÁGINA -->
+        <!-- ===================== -->
         <footer class="container-fluid fixed-bottom footer-djg">
             <div class="row mx-auto pt-4 pb-2" style="font-size: 9pt;">
+                <!-- Enlace para volver arriba -->
                 <div class="col-md-2 col-lg-3 ms-md-auto align-self-end p-1 mx-auto">
                     <center><a class="footer-enlace" href="#arribaX">Volver arriba</a></center>
                 </div>
+                <!-- Otros enlaces legales -->
                 <div class="col-md-2 col-lg-2 ms-md-auto align-self-end p-1 mx-auto">
                     <center><a class="footer-enlace" th:href="@{/eula#copyright}">Copyright © 2023</a></center>
                 </div>
@@ -121,6 +163,9 @@
             </div>
         </footer>
 
+        <!-- ===================== -->
+        <!-- SCRIPTS ADICIONALES -->
+        <!-- ===================== -->
         <script th:src="@{/js/pmg-script.js}" type="module"></script>
     </body>
 </html>
