@@ -37,7 +37,7 @@ public class Usuario
 	private String contrasena;
 
 	@ManyToOne
-	@JoinColumn(name = "configuracion_id", referencedColumnName = "id", nullable = false)
+	@JoinColumn(name = "configuracion_id", referencedColumnName = "id")
 	private Configuracion configuracion;
 
 	@OneToMany(mappedBy = "usuario")
