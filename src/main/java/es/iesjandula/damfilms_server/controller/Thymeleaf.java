@@ -27,6 +27,6 @@ public class Thymeleaf
 			return "home";	
 		}
 		
-		return "l";
+		return "login.html";
 	}
 }

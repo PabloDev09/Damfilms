@@ -48,7 +48,7 @@ public class ThymeleafController
         return "signin.html";
     }
     
-    @RequestMapping(method=RequestMethod.POST, value= "/register")
+    @RequestMapping(method=RequestMethod.POST, value= "/signin")
     public String processRegistration(UserRegistrationDto userDto, Model model)
     {
         // Comprobamos si el usuario ya existe

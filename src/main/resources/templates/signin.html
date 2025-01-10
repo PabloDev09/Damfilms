@@ -37,15 +37,14 @@
 
             <!--Formulario-->
             <div id="form-container">
-            
-      
-              <label for="nombre" class="label_sign_in">Nombre</label>
-              <input type="text" class="input_sign_in" id="nombre" name="nombre">
-              <div class="error-message" id="nombre-error"></div>
+      		<form th:action="@{/signin}" method="post">
+              <label for="username" class="label_sign_in">Nombre</label>
+              <input type="text" class="input_sign_in" id="username" name="username">
+              <div class="error-message" id="username-error"></div>
 
-              <label for="email" class="label_sign_in">Email</label>
-              <input type="text" class="input_sign_in" id="email" name="email">
-              <div class="error-message" id="email-error"></div>
+              <label for="correo" class="label_sign_in">Email</label>
+              <input type="text" class="input_sign_in" id="correo" name="correo">
+              <div class="correo-message" id="correo-error"></div>
           
               <label for="password" class="label_sign_in">Contraseña</label>
               <div style="display: flex;">
@@ -54,8 +53,11 @@
               </div>
               <div class="error-message" id="password-error"></div>
                 <div class="crear_cuenta">
-                  <button onclick="validarFormulario()" class="boton_crear_cuenta">Regístrate</button>
+               
+					<input type="submit" value="Register" onclick="validarFormulario()"class="boton_crear_cuenta" />
                 </div>
+				
+			</form>
             </div>
             <!--Final del formulario-->           
 			<p th:if="${registerError}" th:text="${registerErrorMessage}" class="error"></p>

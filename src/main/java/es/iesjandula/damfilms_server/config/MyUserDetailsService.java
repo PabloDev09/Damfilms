@@ -2,6 +2,7 @@ package es.iesjandula.damfilms_server.config;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
@@ -47,7 +48,7 @@ public class MyUserDetailsService implements UserDetailsService
 	 */
     public boolean existsByUsername(String username)
     {
-        return this.iUsuarioRepository.findByNombre(username) != null ;
+        return this.iUsuarioRepository.findByCorreo(username).isPresent();
     }
 
     /**
@@ -66,6 +67,7 @@ public class MyUserDetailsService implements UserDetailsService
     	// Primero creamos el usuario ...
         Usuario user = new Usuario() ;
         user.setNombre(userRegistrationDto.getUsername()) ;
+        user.setCorreo(userRegistrationDto.getCorreo());
         user.setContrasena(encodedPassword) ;
         user.setActive(true) ;
         
@@ -157,19 +159,21 @@ public class MyUserDetailsService implements UserDetailsService
 	
 	@Override
 	@Transactional
-	public UserDetails loadUserByUsername(String userName) throws UsernameNotFoundException
+	public UserDetails loadUserByUsername(String correo) throws UsernameNotFoundException
 	{
 		// Busca el usuario por su "username" que viene por parámetro
-		Usuario user = this.iUsuarioRepository.findByNombre(userName) ;
+		Optional<Usuario> userOptional = this.iUsuarioRepository.findByCorreo(correo) ;
 
 		// Si el usuario no existe, lanzaremos una excepción
-		if (user == null)
+		if (userOptional.isEmpty())
 		{
 			throw new UsernameNotFoundException("Usuario no encontrado") ;
 		}
 		
+		Usuario usuario = userOptional.get();
+		
 		// Buscamos los roles asociados al usuario
-		List<UserRole> userRoles = this.iUserRoleRepository.findByidUsuario(user) ;
+		List<UserRole> userRoles = this.iUserRoleRepository.findByidUsuario(usuario) ;
 
 		// Llamamos a este método para que en base a los roles (entendidos por nuestra aplicación),
 		// los convierta en GrantedAuthority, que es lo que entiende Spring Security en cuanto a roles
@@ -177,7 +181,7 @@ public class MyUserDetailsService implements UserDetailsService
 
 		// Con el usuario y sus lista de authorities, obtenemos los detalles del usuario
 		// Es una especie de usuario, pero entendida por Spring Security
-		return this.getUserDetails(user, authorities) ;
+		return this.getUserDetails(usuario, authorities) ;
 	}
 
 	/**
@@ -213,7 +217,7 @@ public class MyUserDetailsService implements UserDetailsService
 		boolean credentialsNonExpired = true ;
 		boolean accountNonLocked	  = true ;
 		
-		return new org.springframework.security.core.userdetails.User(user.getNombre(),
+		return new org.springframework.security.core.userdetails.User(user.getCorreo(),
 																	  user.getContrasena(),
 																	  user.getActive(),
 																	  accountNonExpired, 

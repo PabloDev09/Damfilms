@@ -5,7 +5,7 @@ function validarFormulario() {
 
   // Expresiones regulares para validaciones
   var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  var passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{5,}$/;
+  var passwordRegex = /[a-zA-Z0-9]{3,8}/;
 
   // Validar email
   if (!emailRegex.test(email)) {
