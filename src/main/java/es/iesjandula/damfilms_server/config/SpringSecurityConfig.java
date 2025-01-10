@@ -39,6 +39,7 @@ public class SpringSecurityConfig {
             // Configuración de login
             .formLogin(login -> login
                 .loginPage("/login")
+                .defaultSuccessUrl("/home", true) // Redirección después de login
             )
 
             // Configuración de logout
