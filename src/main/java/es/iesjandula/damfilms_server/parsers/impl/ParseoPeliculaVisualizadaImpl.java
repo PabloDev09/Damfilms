@@ -9,7 +9,6 @@ import org.springframework.stereotype.Service;
 import es.iesjandula.damfilms_server.entities.Pelicula;
 import es.iesjandula.damfilms_server.entities.PeliculaVisualizada;
 import es.iesjandula.damfilms_server.entities.Usuario;
-import es.iesjandula.damfilms_server.entities.ids.PeliculaId;
 import es.iesjandula.damfilms_server.entities.ids.PeliculaVisualizadaId;
 import es.iesjandula.damfilms_server.parsers.interfaces.IParseo;
 import es.iesjandula.damfilms_server.repositories.IPeliculaRepository;
@@ -17,7 +16,6 @@ import es.iesjandula.damfilms_server.repositories.IPeliculaVisualizadaRepository
 import es.iesjandula.damfilms_server.repositories.IUsuarioRepository;
 import es.iesjandula.damfilms_server.utils.Constants;
 import es.iesjandula.damfilms_server.utils.DamfilmsServerException;
-import es.iesjandula.damfilms_server.utils.DatesUtil;
 import lombok.extern.log4j.Log4j2;
 
 @Service
@@ -47,38 +45,20 @@ public class ParseoPeliculaVisualizadaImpl implements IParseo<PeliculaVisualizad
 
 			String[] lineaDelFicheroTroceada = lineaDelFichero.split(Constants.CSV_DELIMITER);
 
-			PeliculaVisualizadaId peliculaVisualizadaId = new PeliculaVisualizadaId();
-
-			PeliculaId peliculaId = new PeliculaId();
-
-			peliculaId.setTitulo(lineaDelFicheroTroceada[0]);
-			try
-			{
-				peliculaId.setFechaEstreno(DatesUtil.crearFechaDesdeString(lineaDelFicheroTroceada[1]));
-
-			}
-			catch (DamfilmsServerException damfilmsServerException)
-			{
-
-				damfilmsServerException.printStackTrace();
-			}
-
-			Optional<Pelicula> optionalPelicula = this.iPeliculaRepository.findById(peliculaId);
+			PeliculaVisualizada peliculaVisualizada = new PeliculaVisualizada();
+			
+			Optional<Pelicula> optionalPelicula = this.iPeliculaRepository.findById(Long.parseLong(lineaDelFicheroTroceada[0]));
 
 			if(!optionalPelicula.isPresent())
 			{
-				String mensajeError = "No existe la película";
+				String mensajeError = "No existe la pelicula";
 				log.error(mensajeError);
 				throw new DamfilmsServerException(3, mensajeError);
 			}
 
-			peliculaVisualizadaId.setPelicula(optionalPelicula.get());
-
-			PeliculaVisualizada peliculaVisualizada = new PeliculaVisualizada();
-
-			peliculaVisualizada.setPeliculaVisualizadaId(peliculaVisualizadaId);
+			peliculaVisualizada.setPelicula(optionalPelicula.get());
 			
-			Optional<Usuario> optionalUsurio = this.iUsuarioRepository.findById(Long.parseLong(lineaDelFicheroTroceada[2]));
+			Optional<Usuario> optionalUsurio = this.iUsuarioRepository.findById(Long.parseLong(lineaDelFicheroTroceada[1]));
 
 			if(!optionalUsurio.isPresent())
 			{
@@ -88,7 +68,10 @@ public class ParseoPeliculaVisualizadaImpl implements IParseo<PeliculaVisualizad
 			}
 			
 			peliculaVisualizada.setUsuario(optionalUsurio.get());
-			peliculaVisualizada.setTiempoVisto(Integer.parseInt(lineaDelFicheroTroceada[3]));
+			PeliculaVisualizadaId peliculaVisualizadaId = new PeliculaVisualizadaId(optionalPelicula.get().getId(), optionalUsurio.get().getId());
+			
+			peliculaVisualizada.setPeliculaVisualizadaId(peliculaVisualizadaId);
+			peliculaVisualizada.setTiempoVisto(Integer.parseInt(lineaDelFicheroTroceada[2]));
 
 			this.iPeliculaVisualizadaRepository.saveAndFlush(peliculaVisualizada);
 

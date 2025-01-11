@@ -11,26 +11,25 @@ import org.springframework.stereotype.Repository;
 import es.iesjandula.damfilms_server.dtos.DocumentalDescripcion;
 import es.iesjandula.damfilms_server.dtos.DocumentalDetalle;
 import es.iesjandula.damfilms_server.entities.Documental;
-import es.iesjandula.damfilms_server.entities.ids.DocumentalId;
 
 @Repository
-public interface IDocumentalRepository extends JpaRepository<Documental, DocumentalId>
+public interface IDocumentalRepository extends JpaRepository<Documental, Long>
 {
-	@Query("SELECT d FROM Documental d ORDER BY d.documentalId.fechaEstreno DESC")
+	@Query("SELECT d FROM Documental d ORDER BY d.fechaEstreno DESC")
 	List<Documental> findTop10ByOrderByFechaEstrenoDesc() ;
 	
 	@Query("SELECT d FROM Documental d ORDER BY d.clasificacion DESC")
 	List<Documental> findTop10ByOrderByClasificacionDesc() ;
 	
-	@Query("SELECT new es.iesjandula.damfilms_server.dtos.DocumentalDetalle(d.documentalId.titulo, d.duracion, d.documentalId.fechaEstreno) "
+	@Query("SELECT new es.iesjandula.damfilms_server.dtos.DocumentalDetalle(d.titulo, d.duracion, d.fechaEstreno) "
 			+ "FROM Documental d "
-			+ "WHERE d.documentalId.titulo = :titulo AND d.documentalId.fechaEstreno = :fechaEstreno")
+			+ "WHERE d.titulo = :titulo AND d.fechaEstreno = :fechaEstreno")
 	DocumentalDetalle encontrarDocumentalDetallado(@Param("titulo") String titulo,
 											@Param("fechaEstreno") Date fechaEstreno);
 	
-	@Query("SELECT new es.iesjandula.damfilms_server.dtos.DocumentalDescripcion(d.documentalId.titulo, g.nombre, d.descripcion) "
+	@Query("SELECT new es.iesjandula.damfilms_server.dtos.DocumentalDescripcion(d.titulo, g.nombre, d.descripcion) "
 			+ "FROM Documental d JOIN d.genero g "
-			+ "WHERE d.documentalId.titulo = :titulo AND d.documentalId.fechaEstreno = :fechaEstreno")
+			+ "WHERE d.titulo = :titulo AND d.fechaEstreno = :fechaEstreno")
 	DocumentalDescripcion encontrarDocumentalDescripcion(@Param("titulo") String titulo,
 													 @Param("fechaEstreno") Date fechaEstreno);
 

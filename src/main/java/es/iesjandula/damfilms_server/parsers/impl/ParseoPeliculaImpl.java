@@ -8,7 +8,6 @@ import org.springframework.stereotype.Service;
 
 import es.iesjandula.damfilms_server.entities.Genero;
 import es.iesjandula.damfilms_server.entities.Pelicula;
-import es.iesjandula.damfilms_server.entities.ids.PeliculaId;
 import es.iesjandula.damfilms_server.parsers.interfaces.IParseo;
 import es.iesjandula.damfilms_server.repositories.IGeneroRepository;
 import es.iesjandula.damfilms_server.repositories.IPeliculaRepository;
@@ -41,12 +40,12 @@ public class ParseoPeliculaImpl implements IParseo<Pelicula>
 
 			String[] lineaDelFicheroTroceada = lineaDelFichero.split(Constants.CSV_DELIMITER);
 
-			PeliculaId peliculaId = new PeliculaId();
+			Pelicula pelicula = new Pelicula();
 
-			peliculaId.setTitulo(lineaDelFicheroTroceada[0]);
+			pelicula.setTitulo(lineaDelFicheroTroceada[0]);
 			try
 			{
-				peliculaId.setFechaEstreno(DatesUtil.crearFechaDesdeString(lineaDelFicheroTroceada[1]));
+				pelicula.setFechaEstreno(DatesUtil.crearFechaDesdeString(lineaDelFicheroTroceada[1]));
 
 			}
 			catch (DamfilmsServerException damfilmsServerException)
@@ -54,10 +53,6 @@ public class ParseoPeliculaImpl implements IParseo<Pelicula>
 
 				damfilmsServerException.printStackTrace();
 			}
-
-			Pelicula pelicula = new Pelicula();
-
-			pelicula.setPeliculaId(peliculaId);
 			pelicula.setDescripcion(lineaDelFicheroTroceada[2]);
 			pelicula.setDuracion(Integer.valueOf(lineaDelFicheroTroceada[3]));
 			pelicula.setClasificacion(Integer.valueOf(lineaDelFicheroTroceada[4]));
