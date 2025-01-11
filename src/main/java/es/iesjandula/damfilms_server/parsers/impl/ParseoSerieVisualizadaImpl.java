@@ -45,7 +45,7 @@ public class ParseoSerieVisualizadaImpl implements IParseo<SerieVisualizada>
 
 			String[] lineaDelFicheroTroceada = lineaDelFichero.split(Constants.CSV_DELIMITER);
 
-			SerieVisualizadaId serieVisualizadaId = new SerieVisualizadaId();
+			SerieVisualizada serieVisualizada = new SerieVisualizada();
 
 			Optional<Serie> optionalSerie = this.iSerieRepository.findById(lineaDelFicheroTroceada[0]);
 
@@ -56,11 +56,7 @@ public class ParseoSerieVisualizadaImpl implements IParseo<SerieVisualizada>
 				throw new DamfilmsServerException(7, mensajeError);
 			}
 
-			serieVisualizadaId.setSerie(optionalSerie.get());
-
-			SerieVisualizada serieVisualizada = new SerieVisualizada();
-
-			serieVisualizada.setSerieVisualizadaId(serieVisualizadaId);
+			serieVisualizada.setSerie(optionalSerie.get());
 			
 			Optional<Usuario> optionalUsuario = this.iUsuarioRepository.findById(Long.parseLong(lineaDelFicheroTroceada[1]));
 
@@ -72,6 +68,10 @@ public class ParseoSerieVisualizadaImpl implements IParseo<SerieVisualizada>
 			}
 			
 			serieVisualizada.setUsuario(optionalUsuario.get());
+			
+			SerieVisualizadaId serieVisualizadaId = new SerieVisualizadaId(optionalSerie.get().getId(), optionalUsuario.get().getId());
+			serieVisualizada.setSerieVisualizadaId(serieVisualizadaId);
+			
 			serieVisualizada.setEpisodiosVistos(Integer.parseInt(lineaDelFicheroTroceada[2]));
 
 			this.iSerieVisualizadaRepository.saveAndFlush(serieVisualizada);

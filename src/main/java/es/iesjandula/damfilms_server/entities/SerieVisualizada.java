@@ -19,12 +19,17 @@ public class SerieVisualizada
 {
 	@EmbeddedId
 	private SerieVisualizadaId serieVisualizadaId;
-
-	@Column(length = 5, nullable = false)
-	private int episodiosVistos;
+	
+	@ManyToOne
+	@JoinColumn(name = "serie_id", referencedColumnName = "id")
+	private Serie serie;
 	
 	@ManyToOne
 	@JoinColumn(name = "usuario_nombre")
 	@MapsId("usuario")
 	private Usuario usuario;
+
+	@Column(length = 5, nullable = false)
+	private int episodiosVistos;
+	
 }
