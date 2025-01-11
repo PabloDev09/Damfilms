@@ -1,7 +1,6 @@
 package es.iesjandula.damfilms_server.repositories;
 
 import java.util.List;
-import java.util.Optional;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
@@ -20,9 +19,6 @@ public interface ISerieRepository extends JpaRepository<Serie, String>
 	
 	@Query("SELECT s FROM Serie s ORDER BY s.clasificacion DESC")
 	List<Serie> findTop10ByOrderByClasificacionDesc() ;
-	
-	// Para encontrar una serie por su ID
-	Optional<Serie> findById(String titulo);
 
 	// Para encontrar series por género
 	@Query("SELECT s FROM Serie s WHERE s.genero = :genero")

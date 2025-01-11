@@ -1,6 +1,6 @@
 package es.iesjandula.damfilms_server.entities;
 
-import java.sql.Date;
+import java.util.Date;
 
 import es.iesjandula.damfilms_server.entities.ids.SuscripcionId;
 import jakarta.persistence.Column;
@@ -27,9 +27,12 @@ public class Suscripcion
 	@EmbeddedId
 	private SuscripcionId suscripcionId;
 
+	@Column(length = 10)
+	private String tipo;
+	
 	@Column(length = 5)
 	private int duracion;
-
+	
 	@Column(nullable = true)
 	private Date fechaFin;
 

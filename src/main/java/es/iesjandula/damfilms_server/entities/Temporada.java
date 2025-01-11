@@ -6,7 +6,6 @@ import es.iesjandula.damfilms_server.entities.ids.TemporadaId;
 import jakarta.persistence.EmbeddedId;
 import jakarta.persistence.Entity;
 import jakarta.persistence.JoinColumn;
-import jakarta.persistence.JoinColumns;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.MapsId;
 import jakarta.persistence.OneToMany;
@@ -27,9 +26,7 @@ public class Temporada
 	
 	@MapsId(value="serie")
 	@ManyToOne
- 
-	@JoinColumn(name = "nombre_serie", nullable = false, referencedColumnName = "nombre")
-
+	@JoinColumn(name = "serie_nombre", referencedColumnName = "nombre")
 	private Serie serie;
 
 	@OneToMany(mappedBy = "temporada")

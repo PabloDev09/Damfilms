@@ -78,16 +78,17 @@ public class ParseoPeliculaVisualizadaImpl implements IParseo<PeliculaVisualizad
 
 			peliculaVisualizada.setPeliculaVisualizadaId(peliculaVisualizadaId);
 			
-			Optional<Usuario> optionalUsurio = this.iUsuarioRepository.findById(Long.parseLong(lineaDelFicheroTroceada[2]));
+			Optional<Usuario> optionalUsuario = this.iUsuarioRepository.findById(Long.parseLong(lineaDelFicheroTroceada[2]));
+			
 
-			if(!optionalUsurio.isPresent())
+			if(!optionalUsuario.isPresent())
 			{
 				String mensajeError = "No existe el usuario";
 				log.error(mensajeError);
 				throw new DamfilmsServerException(4, mensajeError);
 			}
 			
-			peliculaVisualizada.setUsuario(optionalUsurio.get());
+			peliculaVisualizada.setUsuario(optionalUsuario.get());
 			peliculaVisualizada.setTiempoVisto(Integer.parseInt(lineaDelFicheroTroceada[3]));
 
 			this.iPeliculaVisualizadaRepository.saveAndFlush(peliculaVisualizada);

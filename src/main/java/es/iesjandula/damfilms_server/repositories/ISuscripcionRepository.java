@@ -13,4 +13,6 @@ import es.iesjandula.damfilms_server.entities.ids.SuscripcionId;
 public interface ISuscripcionRepository extends JpaRepository<Suscripcion, SuscripcionId>
 {
 	public Optional<Suscripcion> findByUsuario(Usuario Usuario);
+	
+	public Optional<Suscripcion> findByTipo(String tipo);
 }

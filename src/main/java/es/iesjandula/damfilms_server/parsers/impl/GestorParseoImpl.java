@@ -12,12 +12,15 @@ import org.springframework.stereotype.Service;
 import es.iesjandula.damfilms_server.entities.Configuracion;
 import es.iesjandula.damfilms_server.entities.Documental;
 import es.iesjandula.damfilms_server.entities.DocumentalVisualizado;
+import es.iesjandula.damfilms_server.entities.Episodio;
 import es.iesjandula.damfilms_server.entities.Genero;
 import es.iesjandula.damfilms_server.entities.Modo;
 import es.iesjandula.damfilms_server.entities.Pelicula;
 import es.iesjandula.damfilms_server.entities.PeliculaVisualizada;
 import es.iesjandula.damfilms_server.entities.Serie;
 import es.iesjandula.damfilms_server.entities.SerieVisualizada;
+import es.iesjandula.damfilms_server.entities.Suscripcion;
+import es.iesjandula.damfilms_server.entities.Temporada;
 import es.iesjandula.damfilms_server.entities.Usuario;
 import es.iesjandula.damfilms_server.parsers.interfaces.IGestorParseo;
 import es.iesjandula.damfilms_server.parsers.interfaces.IParseo;
@@ -36,6 +39,12 @@ public class GestorParseoImpl implements IGestorParseo
 	
 	@Autowired
 	IParseo<Serie> iParseoSerie;
+	
+	@Autowired
+	IParseo<Temporada> iParseoTemporada;
+	
+	@Autowired
+	IParseo<Episodio> iParseoEpisodio;
 	
 	@Autowired
 	IParseo<Genero> iParseoGenero;
@@ -57,6 +66,9 @@ public class GestorParseoImpl implements IGestorParseo
 	
 	@Autowired
 	IParseo<DocumentalVisualizado> iParseoDocumentalVisualizado;
+	
+	@Autowired
+	IParseo<Suscripcion> iParseoSuscripcion;
 	
 	@Override
 	public void parseaFichero(String nombreFichero) throws DamfilmsServerException 
@@ -85,6 +97,20 @@ public class GestorParseoImpl implements IGestorParseo
 			this.iParseoSerie.parseaFichero(scannerSeries);
 
 			scannerSeries.close();
+			break;
+		case Constants.CSV_TEMPORADAS:
+			Scanner scannerTemporadas = this.abrirFichero(nombreFichero);
+
+			this.iParseoTemporada.parseaFichero(scannerTemporadas);
+
+			scannerTemporadas.close();
+			break;
+		case Constants.CSV_EPISODIOS:
+			Scanner scannerEpisodios = this.abrirFichero(nombreFichero);
+
+			this.iParseoEpisodio.parseaFichero(scannerEpisodios);
+
+			scannerEpisodios.close();
 			break;
 
 		case Constants.CSV_GENEROS:
@@ -142,7 +168,13 @@ public class GestorParseoImpl implements IGestorParseo
 
 			scannerSerieVisualizada.close();
 			break;
+		case Constants.CSV_SUSCRIPCIONES:
+			Scanner scannerSuscripcion = this.abrirFichero(nombreFichero);
 
+			this.iParseoSuscripcion.parseaFichero(scannerSuscripcion);
+
+			scannerSuscripcion.close();
+			break;
 		default:
 			throw new DamfilmsServerException(4, "Fichero" + nombreFichero + "no encontrado");
 		}

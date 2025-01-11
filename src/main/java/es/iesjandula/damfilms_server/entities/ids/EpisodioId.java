@@ -13,9 +13,8 @@ import lombok.NoArgsConstructor;
 @Embeddable
 public class EpisodioId
 {
-
-	private Integer numero;
-
 	@ManyToOne
 	private Temporada temporada;
+	
+	private int numero;
 }

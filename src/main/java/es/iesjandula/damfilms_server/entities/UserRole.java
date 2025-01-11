@@ -1,5 +1,6 @@
 package es.iesjandula.damfilms_server.entities;
 
+import es.iesjandula.damfilms_server.entities.ids.UserRoleId;
 import jakarta.persistence.EmbeddedId;
 import jakarta.persistence.Entity;
 import jakarta.persistence.JoinColumn;
