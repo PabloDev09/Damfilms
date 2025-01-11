@@ -82,7 +82,7 @@ public class DamfilsController {
 	@Autowired
 	private IConfiguracionRepository configuracionRepository;
 	
-	@RequestMapping(method = RequestMethod.GET, value = "/documentales")
+	@RequestMapping(method = RequestMethod.GET, value = "/documentales_list")
 	public ResponseEntity<?> listaDocumentales() 
 	{
 		
@@ -192,7 +192,7 @@ public class DamfilsController {
 		
 	}
 	
-	@RequestMapping(method = RequestMethod.GET, value = "/peliculas")
+	@RequestMapping(method = RequestMethod.GET, value = "/peliculas_list")
 	public ResponseEntity<?> listaPeliculas() 
 	{
 		try 

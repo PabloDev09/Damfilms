@@ -8,7 +8,6 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 import es.iesjandula.damfilms_server.entities.Episodio;
-import es.iesjandula.damfilms_server.entities.ids.TemporadaId;
 
 @Repository
 public interface IEpisodioRepository extends JpaRepository<Episodio, Integer>

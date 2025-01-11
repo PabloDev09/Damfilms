@@ -102,7 +102,7 @@ public class ThymeleafController
     /* Ruta para el catálogo de series */
     @RequestMapping("/series")
     public String series(Model model) {
-    	model.addAttribute("ultimasLllegadas", iSerieRepository.findTop10ByOrderByFechaEstrenoDesc()) ;
+    	model.addAttribute("ultimasLlegadas", iSerieRepository.findTop10ByOrderByFechaEstrenoDesc()) ;
     	model.addAttribute("mejorClasificadas", iSerieRepository.findTop10ByOrderByClasificacionDesc()) ;
     	model.addAttribute("todasLasSeries", iSerieRepository.findAll()) ;
         return "series.html";
