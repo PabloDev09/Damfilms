@@ -53,27 +53,27 @@
                         <!-- SECCION QUE SE COLAPSA LLAMDA navbarTogglerDemo01 -->
                         <div class="collapse navbar-collapse" id="navbarTogglerDemo01" style="justify-content: start;">
     
-                            <a class="navbar-brand" th:href="@{/home.html}"><img th:src="@{/img/Logo.png}"></a>
+                            <a class="navbar-brand" th:href="@{/home}"><img th:src="@{/img/Logo.png}"></a>
     
                             <!-- lista de objetos que se colapsan.-->
                             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                                 <li class="nav-item-left">
-                                    <a class="nav-link active" aria-current="page" th:href="@{/home.html}">
+                                    <a class="nav-link active" aria-current="page" th:href="@{/home}">
                                         <div id="home-icon">Home</div>
                                     </a>
                                 </li>
                                 <li class="nav-item-left">
-                                    <a class="nav-link active" th:href="@{/catalog-series.html}"> <!-- INTRODUCIR LOS ENLACES A LAS PAGINAS PERTINENTES -->
+                                    <a class="nav-link active" th:href="@{/series}"> <!-- INTRODUCIR LOS ENLACES A LAS PAGINAS PERTINENTES -->
                                         <div id="series-icon-active">Series</div>
                                     </a>
                                 </li>
                                 <li class="nav-item-left">
-                                    <a class="nav-link active" th:href="@{/catalog-movies.html}"> <!-- INTRODUCIR LOS ENLACES A LAS PAGINAS PERTINENTES -->
+                                    <a class="nav-link active" th:href="@{/peliculas}"> <!-- INTRODUCIR LOS ENLACES A LAS PAGINAS PERTINENTES -->
                                         <div id="films-icon">Películas</div>
                                     </a>
                                 </li>
                                 <li class="nav-item-left">
-                                    <a class="nav-link active" th:href="@{/catalog-documentals.html}" > <!-- INTRODUCIR LOS ENLACES A LAS PAGINAS PERTINENTES -->
+                                    <a class="nav-link active" th:href="@{/documentales}" > <!-- INTRODUCIR LOS ENLACES A LAS PAGINAS PERTINENTES -->
                                         <div id="documentals-icon">Documentales</div>
                                     </a>
                                 </li>
@@ -97,8 +97,8 @@
                                 </a>
             
                                 <ul class="pmg-dropdown-menu dropdown-menu dropdown-menu-end">
-                                    <li><a class="pmg-dropdown-item dropdown-item" th:href="@{/config_principal.html}">Ajustes</a></li>                            
-                                    <li><a class="pmg-dropdown-item dropdown-item" th:href="@{/index.html}">Cerrar Sesión</a></li>
+                                    <li><a class="pmg-dropdown-item dropdown-item" th:href="@{/configuracion}">Ajustes</a></li>                            
+                                    <li><a class="pmg-dropdown-item dropdown-item" th:href="@{/inicio}">Cerrar Sesión</a></li>
                                 </ul>
                                 
                             </li>
@@ -167,18 +167,18 @@
                         
                         <!-- Aquí se inyectan los objetos de peliculas recientes -->
                         <div id="newest-row" >
-                            <div class="col-3">
-                        		<div class="col-3" th:each="serie : ${ultimasLlegadas}">
-                        			<div class="card">
-                        				<img class="card-img-top" th:src="@{/img/posters/series/} + ${serie.titulo + ' .jpg'}" alt="Imagen de la serie">
-                        				<div class="card-body">
-                        					<h5 class="card-title" th:text="$serie.titulo}"></h5>
-                        					<p class="card-text" th:text="${serie.descripcion}"></p>
-                        					<p class="card-text" th:text="'Duracion: ' + ${serie.duracion} + ' min'"></p>
-                        				</div>
-                        			</div>
-                        		</div>
-                        	</div>
+                        	<div class="row">
+				                <div class="col" th:each="serie : ${ultimasLlegadas}">
+				                    <div class="box-content">
+				                        <img class="boxes" th:src="@{/img/posters/series/} + ${serie.titulo + '.jpg'}" alt="Imagen de la serie">
+				                        <div class="box-content-son">
+				                            <h5 class="titulopelicula" th:text="${serie.titulo}"></h5>
+				                            <p class="duracion" th:text="${serie.descripcion}"></p>
+				                            <p class="fechasalida" th:text="${serie.fechaEstreno}"></p>
+				                        </div>
+				                    </div>
+				                </div>
+				            </div>
                         </div>
                     </div>
 
@@ -191,13 +191,13 @@
                         <!-- Aquí se inyectan los objetos de peliculas populares-->
                         <div id="popular-row">
                         	<div class="row">
-				                <div class="col-3" th:each="serie : ${mejorClasificadas}">
-				                    <div class="card">
-				                        <img class="card-img-top" th:src="@{/img/posters/series} + ${serie.titulo + '.jpg'}" alt="Imagen de la serie">
-				                        <div class="card-body">
-				                            <h5 class="card-title" th:text="${serie.titulo}"></h5>
-				                            <p class="card-text" th:text="${serie.descripcion}"></p>
-				                            <p class="card-text" th:text="'Duración: ' + ${serie.duracion} + ' min'"></p>
+				                <div class="col" th:each="serie : ${mejorClasificadas}">
+				                    <div class="box-content">
+				                        <img class="boxes" th:src="@{/img/posters/series/} + ${serie.titulo + '.jpg'}" alt="Imagen de la serie">
+				                        <div class="box-content-son">
+				                            <h5 class="titulopelicula" th:text="${serie.titulo}"></h5>
+				                            <p class="duracion" th:text="${serie.descripcion}"></p>
+				                            <p class="fechasalida" th:text="${serie.fechaEstreno}"></p>
 				                        </div>
 				                    </div>
 				                </div>
@@ -213,13 +213,13 @@
                         <!-- Aqui se inyectan los objetos de peliculas sin filtrar ni discriminar -->
                         <div id="explore-row">
                         	<div class="row">
-				                <div class="col-3" th:each="serie : ${todasLasSeries}">
-				                    <div class="card">
-				                        <img class="card-img-top" th:src="@{/img/posters/series} + ${serie.titulo + '.jpg'}" alt="Imagen de la serie">
-				                        <div class="card-body">
+				                <div class="col" th:each="serie : ${todasLasSeries}">
+				                    <div class="box-content">
+				                        <img class="boxes" th:src="@{/img/posters/series/} + ${serie.titulo + '.jpg'}" alt="Imagen de la serie">
+				                        <div class="box-content-son">
 				                            <h5 class="card-title" th:text="${serie.titulo}"></h5>
 				                            <p class="card-text" th:text="${serie.descripcion}"></p>
-				                            <p class="card-text" th:text="'Duración: ' + ${serie.duracion} + ' min'"></p>
+				                            <p class="fechasalida" th:text="${serie.fechaEstreno}"></p>
 				                        </div>
 				                    </div>
 				                </div>

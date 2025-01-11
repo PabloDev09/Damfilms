@@ -48,7 +48,7 @@ public class ThymeleafController
         return "signin.html";
     }
     
-    @RequestMapping(method=RequestMethod.POST, value= "/register")
+    @RequestMapping(method=RequestMethod.POST, value= "/signin")
     public String processRegistration(UserRegistrationDto userDto, Model model)
     {
         // Comprobamos si el usuario ya existe
@@ -102,7 +102,7 @@ public class ThymeleafController
     /* Ruta para el catálogo de series */
     @RequestMapping("/series")
     public String series(Model model) {
-    	model.addAttribute("ultimasLllegadas", iSerieRepository.findTop10ByOrderByFechaEstrenoDesc()) ;
+    	model.addAttribute("ultimasLlegadas", iSerieRepository.findTop10ByOrderByFechaEstrenoDesc()) ;
     	model.addAttribute("mejorClasificadas", iSerieRepository.findTop10ByOrderByClasificacionDesc()) ;
     	model.addAttribute("todasLasSeries", iSerieRepository.findAll()) ;
         return "series.html";

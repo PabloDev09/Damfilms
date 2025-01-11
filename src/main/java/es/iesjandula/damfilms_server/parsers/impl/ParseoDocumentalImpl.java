@@ -8,7 +8,6 @@ import org.springframework.stereotype.Service;
 
 import es.iesjandula.damfilms_server.entities.Documental;
 import es.iesjandula.damfilms_server.entities.Genero;
-import es.iesjandula.damfilms_server.entities.ids.DocumentalId;
 import es.iesjandula.damfilms_server.parsers.interfaces.IParseo;
 import es.iesjandula.damfilms_server.repositories.IDocumentalRepository;
 import es.iesjandula.damfilms_server.repositories.IGeneroRepository;
@@ -40,13 +39,13 @@ public class ParseoDocumentalImpl implements IParseo<Documental>
 			String lineaDelFichero = scanner.nextLine();
 
 			String[] lineaDelFicheroTroceada = lineaDelFichero.split(Constants.CSV_DELIMITER);
-
-			DocumentalId documentalId = new DocumentalId();
-
-			documentalId.setTitulo(lineaDelFicheroTroceada[0]);
+			
+			Documental documental = new Documental();
+			
+			documental.setTitulo(lineaDelFicheroTroceada[0]);
 			try
 			{
-				documentalId.setFechaEstreno(DatesUtil.crearFechaDesdeString(lineaDelFicheroTroceada[1]));
+				documental.setFechaEstreno(DatesUtil.crearFechaDesdeString(lineaDelFicheroTroceada[1]));
 
 			}
 			catch (DamfilmsServerException damfilmsServerException)
@@ -55,9 +54,6 @@ public class ParseoDocumentalImpl implements IParseo<Documental>
 
 			}
 
-			Documental documental = new Documental();
-
-			documental.setDocumentalId(documentalId);
 			documental.setDescripcion(lineaDelFicheroTroceada[2]);
 			documental.setDuracion(Integer.valueOf(lineaDelFicheroTroceada[3]));
 			documental.setClasificacion(Integer.valueOf(lineaDelFicheroTroceada[4]));

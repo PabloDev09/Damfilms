@@ -26,7 +26,7 @@ public class SpringSecurityConfig {
 
             .authorizeHttpRequests(authz -> authz
                 // Recursos públicos
-                .requestMatchers("/","/eula", "/inicio","/home", "/login", "/signin", "/css/**", "/img/**","/js/**","/static/**","/eula.html","/modo","/usuarios","/configuracion","/suscripciones").permitAll()
+                .requestMatchers("/","/eula", "/inicio","/home","/series","/peliculas","/documentales", "/login", "/signin", "/css/**", "/img/**","/js/**","/static/**","/modo","/usuarios","/configuracion","/suscripciones").permitAll()
                 // Acceso según roles
                 .requestMatchers("/peliculas").hasRole("PREMIUM")
                 .requestMatchers("/series", "/documentales").hasAnyRole("PREMIUM", "INVITADO")
@@ -39,6 +39,7 @@ public class SpringSecurityConfig {
             // Configuración de login
             .formLogin(login -> login
                 .loginPage("/login")
+                .defaultSuccessUrl("/home") // Redirección después de login
             )
 
             // Configuración de logout

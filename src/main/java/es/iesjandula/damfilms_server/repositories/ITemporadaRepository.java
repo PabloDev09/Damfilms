@@ -14,8 +14,8 @@ import es.iesjandula.damfilms_server.entities.ids.TemporadaId;
 public interface ITemporadaRepository extends JpaRepository<Temporada, TemporadaId>
 {
 	// Para encontrar temporadas por el nombre de la serie
-	@Query("SELECT t FROM Temporada t WHERE t.serie.nombre = :nombre")
-	List<Temporada> findBySerieId(@Param("nombre") String nombre);
+	@Query("SELECT t FROM Temporada t WHERE t.serie.id = :serieId")
+	List<Temporada> findBySerieId(@Param("serieId") Long serieId);
 
 
 }

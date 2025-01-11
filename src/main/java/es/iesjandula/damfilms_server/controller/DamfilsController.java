@@ -30,7 +30,7 @@ import es.iesjandula.damfilms_server.entities.Serie;
 import es.iesjandula.damfilms_server.entities.SerieVisualizada;
 import es.iesjandula.damfilms_server.entities.Temporada;
 import es.iesjandula.damfilms_server.entities.Usuario;
-import es.iesjandula.damfilms_server.entities.ids.EpisodioId;
+import es.iesjandula.damfilms_server.entities.ids.TemporadaId;
 import es.iesjandula.damfilms_server.repositories.IConfiguracionRepository;
 import es.iesjandula.damfilms_server.repositories.IDocumentalRepository;
 import es.iesjandula.damfilms_server.repositories.IDocumentalVisualizadoRepository;
@@ -74,15 +74,15 @@ public class DamfilsController {
 	private ISerieVisualizadaRepository iSerieVisualizadaRepository;
 	
 	@Autowired
-	private IUsuarioRepository usuarioRepository;
+	private IUsuarioRepository iUsuarioRepository;
 
 	@Autowired
-	private IModoRepository modoRepository;
+	private IModoRepository iModoRepository;
 	
 	@Autowired
-	private IConfiguracionRepository configuracionRepository;
+	private IConfiguracionRepository iConfiguracionRepository;
 	
-	@RequestMapping(method = RequestMethod.GET, value = "/documentales")
+	@RequestMapping(method = RequestMethod.GET, value = "/documentales_list")
 	public ResponseEntity<?> listaDocumentales() 
 	{
 		
@@ -192,7 +192,7 @@ public class DamfilsController {
 		
 	}
 	
-	@RequestMapping(method = RequestMethod.GET, value = "/peliculas")
+	@RequestMapping(method = RequestMethod.GET, value = "/peliculas_list")
 	public ResponseEntity<?> listaPeliculas() 
 	{
 		try 
@@ -455,8 +455,8 @@ public class DamfilsController {
   
 	  // ==================== Temporada ====================
 	    
-	    @RequestMapping(method = RequestMethod.GET, value = "/temporadas/{temporadaId}")
-	    public ResponseEntity<?> getTemporadaById(@RequestParam(name = "temporadaId") Long temporadaId) {
+	    @RequestMapping(method = RequestMethod.GET, value = "/temporadas")
+	    public ResponseEntity<?> getTemporadaById(@RequestParam(name = "temporadaId") TemporadaId temporadaId) {
 	        try {
 	            Temporada temporada = iTemporadaRepository.findById(temporadaId).orElse(null);
 	            if (temporada == null)
@@ -707,7 +707,7 @@ public class DamfilsController {
 	    {
 	    	
 	        // Verifica si el usuario existe
-	        Usuario usuarioExistente = usuarioRepository.findByNombre(usuario);
+	        Usuario usuarioExistente = iUsuarioRepository.findByNombre(usuario);
 	        if (usuarioExistente == null) 
 	        {
 	            throw new DamfilmsServerException(404, "Usuario no encontrado");
@@ -721,7 +721,7 @@ public class DamfilsController {
 	        }
 
 	        // Verifica si el modo existe
-	        Optional<Modo> modoExistente = modoRepository.findById(nombreModo);
+	        Optional<Modo> modoExistente = iModoRepository.findById(nombreModo);
 	        if (!modoExistente.isPresent()) 
 	        {
 	            throw new DamfilmsServerException(404, "Modo no encontrado");
@@ -729,7 +729,7 @@ public class DamfilsController {
 
 	        // Cambia el modo en la configuración
 	        configuracionActual.setModo(modoExistente.get());
-	        configuracionRepository.save(configuracionActual);
+	        iConfiguracionRepository.save(configuracionActual);
 
 	        log.info("Modo cambiado exitosamente en la configuración del usuario: {}", usuario);
 	        return ResponseEntity.ok("Modo cambiado exitosamente en la configuración.");
@@ -751,7 +751,7 @@ public class DamfilsController {
 	    try 
 	    {
 	        // Verifica si el usuario existe
-	    	Usuario usuarioOpt = usuarioRepository.findByNombre(usuario);
+	    	Usuario usuarioOpt = iUsuarioRepository.findByNombre(usuario);
 	        if (usuarioOpt == null) 
 	        {
 	            throw new DamfilmsServerException(404, "Usuario no encontrado");
@@ -784,13 +784,13 @@ public class DamfilsController {
     {
         try 
         {
-        	Usuario usuarioOpt = usuarioRepository.findByNombre(usuario);
+        	Usuario usuarioOpt = iUsuarioRepository.findByNombre(usuario);
 	        if (usuarioOpt == null) 
 	        {
                 throw new DamfilmsServerException(404, "Usuario no encontrado");
             }
             
-            Optional<Configuracion> configuracionIdiomaOpt = configuracionRepository.findByIdioma(configuracionNueva.getIdioma());
+            Optional<Configuracion> configuracionIdiomaOpt = iConfiguracionRepository.findByIdioma(configuracionNueva.getIdioma());
             if (!configuracionIdiomaOpt.isPresent()) 
             {
             	throw new DamfilmsServerException(404, "Idioma no encontrado");
@@ -799,7 +799,7 @@ public class DamfilsController {
 
             Usuario usuarioEnt = usuarioOpt;
             usuarioEnt.setConfiguracion(configuracionNueva);
-            configuracionRepository.save(configuracionNueva);
+            iConfiguracionRepository.save(configuracionNueva);
 
             log.info("Configuración cambiada exitosamente para usuario: {}", usuario);
             return ResponseEntity.ok("Configuración cambiada exitosamente.");
@@ -872,13 +872,13 @@ public class DamfilsController {
     {
         try
         {
-        	Long id = usuarioRepository.findByNombre(nombre).getId();
-            if (!usuarioRepository.existsById(id)) 
+        	Long id = iUsuarioRepository.findByNombre(nombre).getId();
+            if (!iUsuarioRepository.existsById(id)) 
             {
                 throw new DamfilmsServerException(404, "Usuario no encontrado");
             }
 
-            usuarioRepository.deleteById(id);
+            iUsuarioRepository.deleteById(id);
             log.info("Usuario eliminado exitosamente: {}", nombre);
             return ResponseEntity.ok("Usuario eliminado exitosamente.");
         } 

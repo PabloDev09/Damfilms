@@ -39,13 +39,13 @@
             
             <!-- Campo de email -->
             <label for="email" class="label_log_in">Email</label>
-            <input type="text" class="input_log_in" id="email" name="email" th:value="${email}" required>
+            <input type="text" class="input_log_in" id="username" name="username" required>
             <div class="error-message" id="email-error"></div>
             
             <!-- Campo de contraseña -->
             <label for="password" class="label_log_in">Contraseña</label>
             <div style="display: flex;">
-                <input type="password" class="input_log_in" id="password" name="password" th:value="${password}" required>
+                <input type="password" class="input_log_in" id="password" name="password" required>
                 <button type="button" id="show-password" onclick="togglePasswordVisibility()" class="boton_ojo">
                     <img th:src="@{/img/sign-in/eye.svg}" alt="Mostrar/Ocultar contraseña">
                 </button>

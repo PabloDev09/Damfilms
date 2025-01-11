@@ -20,13 +20,18 @@ public class PeliculaVisualizada
 
 	@EmbeddedId
 	private PeliculaVisualizadaId peliculaVisualizadaId;
-
-	@Column(length = 3, nullable = false)
-	private int tiempoVisto;
+	
+	@ManyToOne
+	@JoinColumn(name = "pelicula_id", referencedColumnName = "id")
+	@MapsId("idPelicula")
+	private Pelicula pelicula;
 	
 	@ManyToOne
 	@JoinColumn(name = "usuario_nombre")
 	@MapsId("usuario")
 	private Usuario usuario;
+
+	@Column(length = 3, nullable = false)
+	private int tiempoVisto;
 
 }

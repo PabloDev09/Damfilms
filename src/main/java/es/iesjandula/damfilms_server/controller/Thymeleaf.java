@@ -24,9 +24,9 @@ public class Thymeleaf
 	{	
 		if(this.iUsuarioRepository.encontrarUsuarioYContrasenia(email, password) != null)
 		{
-			return "home";	
+			return "home.html";	
 		}
 		
-		return "l";
+		return "login.html";
 	}
 }

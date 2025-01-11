@@ -57,27 +57,27 @@
                         <!-- SECCION QUE SE COLAPSA LLAMDA navbarTogglerDemo01 -->
                         <div class="collapse navbar-collapse" id="navbarTogglerDemo01" style="justify-content: start;">
     
-                            <a class="navbar-brand" th:href="@{/home.html}"><img th:src="@{/img/Logo.png}"></a>
+                            <a class="navbar-brand" th:href="@{/home}"><img th:src="@{/img/Logo.png}"></a>
     
                             <!-- lista de objetos que se colapsan.-->
                             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                                 <li class="nav-item-left">
-                                    <a class="nav-link active" aria-current="page" th:href="@{/home.html}">
+                                    <a class="nav-link active" aria-current="page" th:href="@{/home}">
                                         <div id="home-icon">Home</div>
                                     </a>
                                 </li>
                                 <li class="nav-item-left">
-                                    <a class="nav-link active" th:href="@{/catalog-series.html}"> <!-- INTRODUCIR LOS ENLACES A LAS PAGINAS PERTINENTES -->
+                                    <a class="nav-link active" th:href="@{/series}"> <!-- INTRODUCIR LOS ENLACES A LAS PAGINAS PERTINENTES -->
                                         <div id="series-icon">Series</div>
                                     </a>
                                 </li>
                                 <li class="nav-item-left">
-                                    <a class="nav-link active" th:href="@{/catalog-movies.html}"> <!-- INTRODUCIR LOS ENLACES A LAS PAGINAS PERTINENTES -->
+                                    <a class="nav-link active" th:href="@{/peliculas}"> <!-- INTRODUCIR LOS ENLACES A LAS PAGINAS PERTINENTES -->
                                         <div id="films-icon-active">Películas</div>
                                     </a>
                                 </li>
                                 <li class="nav-item-left">
-                                    <a class="nav-link active" th:href="@{/catalog-documentals.html}" > <!-- INTRODUCIR LOS ENLACES A LAS PAGINAS PERTINENTES -->
+                                    <a class="nav-link active" th:href="@{/documentales}" > <!-- INTRODUCIR LOS ENLACES A LAS PAGINAS PERTINENTES -->
                                         <div id="documentals-icon">Documentales</div>
                                     </a>
                                 </li>
@@ -101,8 +101,8 @@
                                 </a>
             
                                 <ul class="pmg-dropdown-menu dropdown-menu dropdown-menu-end">
-                                    <li><a class="pmg-dropdown-item dropdown-item" th:href="@{/config_principal.html}">Ajustes</a></li>                            
-                                    <li><a class="pmg-dropdown-item dropdown-item" th:href="@{/index.html}">Cerrar Sesión</a></li>
+                                    <li><a class="pmg-dropdown-item dropdown-item" th:href="@{/configuracion}">Ajustes</a></li>                            
+                                    <li><a class="pmg-dropdown-item dropdown-item" th:href="@{/inicio}">Cerrar Sesión</a></li>
                                 </ul>
                                 
                             </li>
@@ -170,7 +170,7 @@
                         <h4 class="tituloseccion-djg" style="color:white;">Ultimas llegadas</h4> <!-- Titulo sección ultimas llegadas-->       
                         
                         <!-- Aquí se inyectan los objetos de peliculas recientes -->
-                        <div id="newest-row" >
+                        <div id="row" >
                         	<div class="col-3">
                         		<div class="col-3" th:each="pelicula : ${ultimasLlegadas}">
                         			<div class="card">
