@@ -19,7 +19,7 @@ public class SerieVisualizadaId
 	@JoinColumns
 	(
 		{
-			@JoinColumn(name = "serie_nombre", referencedColumnName = "nombre"),
+			@JoinColumn(name = "serie_titulo", referencedColumnName = "titulo"),
 			@JoinColumn(name = "serie_fecha_estreno", referencedColumnName = "fechaEstreno")
 		}
 	)

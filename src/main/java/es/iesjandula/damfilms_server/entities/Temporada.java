@@ -28,7 +28,7 @@ public class Temporada
 	@MapsId(value="serie")
 	@ManyToOne
  
-	@JoinColumn(name = "nombre_serie", nullable = false, referencedColumnName = "nombre")
+	@JoinColumn(name = "nombre_titulo", nullable = false, referencedColumnName = "titulo")
 
 	private Serie serie;
 

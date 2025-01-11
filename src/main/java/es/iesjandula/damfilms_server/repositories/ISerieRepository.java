@@ -29,14 +29,14 @@ public interface ISerieRepository extends JpaRepository<Serie, String>
 	List<Serie> findByGenero(@Param("genero") String genero);
 
 
-	@Query("SELECT new es.iesjandula.damfilms_server.dtos.SerieDetalle(s.nombre, s.fechaEstreno) "
+	@Query("SELECT new es.iesjandula.damfilms_server.dtos.SerieDetalle(s.titulo, s.fechaEstreno) "
 		       + "FROM Serie s "
-		       + "WHERE s.nombre = :nombre")
-		SerieDetalle encontrarSerieDetallada(@Param("nombre") String nombre);
+		       + "WHERE s.titulo = :titulo")
+		SerieDetalle encontrarSerieDetallada(@Param("titulo") String nombre);
 
-		@Query("SELECT new es.iesjandula.damfilms_server.dtos.SerieDescripcion(s.nombre, s.descripcion) "
+		@Query("SELECT new es.iesjandula.damfilms_server.dtos.SerieDescripcion(s.titulo, s.descripcion) "
 		       + "FROM Serie s "
-		       + "WHERE s.nombre = :nombre ")
-		SerieDescripcion encontrarSerieDescripcion(@Param("nombre") String nombre);
+		       + "WHERE s.titulo = :titulo ")
+		SerieDescripcion encontrarSerieDescripcion(@Param("titulo") String nombre);
 
 }

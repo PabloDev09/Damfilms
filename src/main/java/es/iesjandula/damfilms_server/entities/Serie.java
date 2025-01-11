@@ -22,7 +22,7 @@ import lombok.NoArgsConstructor;
 public class Serie
 {
 	@Id
-	private String nombre;
+	private String titulo;
 
 	@Column(nullable = false)
     private Date fechaEstreno;
@@ -32,6 +32,9 @@ public class Serie
 
 	@Column(length = 3, nullable = false)
 	private int clasificacion;
+	
+	@Column(length = 4, nullable = false)
+	private int duracion;
 
 	@ManyToOne
 	@JoinColumn(name = "genero_nombre", referencedColumnName = "nombre", nullable = false)

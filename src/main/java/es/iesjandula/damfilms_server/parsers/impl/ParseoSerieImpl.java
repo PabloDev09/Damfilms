@@ -43,7 +43,7 @@ public class ParseoSerieImpl implements IParseo<Serie>
 
 			Serie serie = new Serie();
 
-			serie.setNombre(lineaDelFicheroTroceada[0]);
+			serie.setTitulo(lineaDelFicheroTroceada[0]);
 			serie.setFechaEstreno(DatesUtil.crearFechaDesdeString(lineaDelFicheroTroceada[1]));
 			serie.setDescripcion(lineaDelFicheroTroceada[2]);
 
