@@ -96,7 +96,7 @@ public class ThymeleafController
     /* Ruta para la página principal (home) */
     @RequestMapping("/home")
     public String home() {
-        return "home";
+        return "home.html";
     }
 
     /* Ruta para el catálogo de series */

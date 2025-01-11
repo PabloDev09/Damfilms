@@ -55,27 +55,27 @@
                     <!-- SECCION QUE SE COLAPSA LLAMDA navbarTogglerDemo01 -->
                     <div class="collapse navbar-collapse" id="navbarTogglerDemo01" style="justify-content: start;">
 
-                        <a class="navbar-brand" th:href="@{/home.html}"><img th:src="@{/img/Logo.png}"></a>
+                        <a class="navbar-brand" th:href="@{/home}"><img th:src="@{/img/Logo.png}"></a>
 
                         <!-- lista de objetos que se colapsan.-->
                         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                             <li class="nav-item-left">
-                                <a class="nav-link active" aria-current="page" th:href="@{/home.html}">
+                                <a class="nav-link active" aria-current="page" th:href="@{/home}">
                                     <div id="home-icon">Home</div>
                                 </a>
                             </li>
                             <li class="nav-item-left">
-                                <a class="nav-link active" th:href="@{/catalog-series.html}"> <!-- INTRODUCIR LOS ENLACES A LAS PAGINAS PERTINENTES -->
+                                <a class="nav-link active" th:href="@{/series}"> <!-- INTRODUCIR LOS ENLACES A LAS PAGINAS PERTINENTES -->
                                     <div id="series-icon">Series</div>
                                 </a>
                             </li>
                             <li class="nav-item-left">
-                                <a class="nav-link active" th:href="@{/catalog-movies.html}"> <!-- INTRODUCIR LOS ENLACES A LAS PAGINAS PERTINENTES -->
+                                <a class="nav-link active" th:href="@{/peliculas}"> <!-- INTRODUCIR LOS ENLACES A LAS PAGINAS PERTINENTES -->
                                     <div id="films-icon">Películas</div>
                                 </a>
                             </li>
                             <li class="nav-item-left">
-                                <a class="nav-link active" th:href="@{/catalog-documentals.html}" > <!-- INTRODUCIR LOS ENLACES A LAS PAGINAS PERTINENTES -->
+                                <a class="nav-link active" th:href="@{/documentales}" > <!-- INTRODUCIR LOS ENLACES A LAS PAGINAS PERTINENTES -->
                                     <div id="documentals-icon">Documentales</div>
                                 </a>
                             </li>
@@ -99,8 +99,8 @@
                             </a>
         
                             <ul class="dropdown-menu dropdown-menu-end">
-                                <li><a class="dropdown-item" th:href="@{/config_principal.html}">Ajustes</a></li>                            
-                                <li><a class="dropdown-item" th:href="@{/index.html}">Cerrar Sesión</a></li>
+                                <li><a class="dropdown-item" th:href="@{/configuracion}">Ajustes</a></li>                            
+                                <li><a class="dropdown-item" th:href="@{/inicio}">Cerrar Sesión</a></li>
                             </ul>
                             
                         </li>
@@ -123,13 +123,13 @@
 
                     <p id="p1"> ¡Explora todas las posibilidades que tiene <span> DamFilms </span> para que te sientas cómodo!</p>
 
-                    <a th:href="@{/config/Pagina_Cuenta_Usuario.html}"><div class="container-sm" id="div1"><img th:src="@{/config/images/icons8-cuenta-90.png}"> <p> Cuenta </p></div></a>
+                    <a th:href="@{/config/cuenta_usuario.html}"><div class="container-sm" id="div1"><img th:src="@{/config/images/icons8-cuenta-90.png}"> <p> Cuenta </p></div></a>
                     <a th:href="@{/config/accesibilidad.html}"><div class="container-sm" id="d2"><img th:src="@{/config/images/icons8-accesibilidad-96 (1).png}"> <p> Accesibilidad </p></div></a>
                     <a th:href="@{/config/Tema.html}"><div class="container-sm" id="d3"><img th:src="@{/config/images/icons8-luna-brillante-90.png}"> <p> Temas </p></div></a>
                     <a th:href="@{/config/Detalles_Suscripcion.html}"><div class="container-sm" id="d4"><img th:src="@{/config/images/icons8-aceptar-100.png}"> <p> Suscripción</p></div></a> <br>
                     <a th:href="@{/config/tarjeta_regalo.html}"><div class="container-sm" id="div5"><img th:src="@{/config/images/icons8-regalo-100.png}"> <p> Tarjetas</p></div></a>
                     <a th:href="@{/config/Centro_Ayuda.html}"><div class="container-sm"><img th:src="@{/config/images/icons8-ayuda-100.png}"> <p> Ayuda</p></div></a>
-                    <a th:href="@{/config/ajustesedad.html}"><div class="container-sm"><img th:src="@{/config/images/icons8-niños-100.png}"> <p> Preferencias </p></div></a>
+                    <a th:href="@{/config/ajustes_edad.html}"><div class="container-sm"><img th:src="@{/config/images/icons8-niños-100.png}"> <p> Preferencias </p></div></a>
                 
                 </center>
             </div>
