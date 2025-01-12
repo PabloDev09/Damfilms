@@ -233,10 +233,9 @@ public class ThymeleafController
 
 	/* Ruta para la página de configuración principal */
 	@RequestMapping("/configuracion")
-	public String configuracion()
-	{
-		return "configuracion.html";
-	}
+    public String configuracion() {
+        return "configuracion.html";
+    }
 
 	/* Ruta para la página de acuerdo de licencia de usuario final (EULA) */
 	@RequestMapping("/eula")
