@@ -932,7 +932,8 @@ public class DamfilsController
 
 			log.info("Tipos enviados exitosamente: {}", tiposSuscripcion);
 			return ResponseEntity.ok(tiposSuscripcion);
-		} catch (DamfilmsServerException ex)
+		} 
+		catch (DamfilmsServerException ex)
 		{
 			log.error("Error al encontrar tipos de suscripcion: {}", ex.getMessage());
 			DamfilmsServerException customException = new DamfilmsServerException(500, "Error al cambiar configuración",

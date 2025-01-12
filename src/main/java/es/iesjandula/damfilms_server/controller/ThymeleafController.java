@@ -6,6 +6,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import es.iesjandula.damfilms_server.config.MyUserDetailsService;
 import es.iesjandula.damfilms_server.dtos.UserRegistrationDto;
@@ -13,6 +14,7 @@ import es.iesjandula.damfilms_server.repositories.IDocumentalRepository;
 import es.iesjandula.damfilms_server.repositories.IPeliculaRepository;
 import es.iesjandula.damfilms_server.repositories.IRoleRepository;
 import es.iesjandula.damfilms_server.repositories.ISerieRepository;
+import es.iesjandula.damfilms_server.repositories.IUsuarioRepository;
 import es.iesjandula.damfilms_server.utils.DamfilmsServerException;
 
 @Controller
@@ -36,6 +38,9 @@ public class ThymeleafController
 	@Autowired
 	private IRoleRepository iRoleRepository;
 
+	@Autowired
+	private IUsuarioRepository iUsuarioRepository;
+	
 	/* Ruta por defecto, redirige a index.html */
 	@RequestMapping("/")
 	public String inicioDefault()
@@ -95,7 +100,22 @@ public class ThymeleafController
 
 		return "login.html";
 	}
+	
 
+	@RequestMapping(method = RequestMethod.POST, value = "/login")
+	public String userReview(
+			@RequestParam("email") String email,
+			@RequestParam("password") String password,
+			Model model)
+	{	
+		if(this.iUsuarioRepository.encontrarCorreoYContrasenia(email, password) != null)
+		{
+			return "home.html";	
+		}
+		
+		return "login.html";
+	}
+	
 	@RequestMapping("/cuenta_usuario.html")
 	public String update(Model model)
 	{

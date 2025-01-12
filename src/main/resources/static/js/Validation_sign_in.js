@@ -1,4 +1,33 @@
+ async function obtenerTiposSuscripciones() {
+            try {
+                const response = await fetch('/suscripciones/tipos');
+                if (!response.ok) {
+                    throw new Error('Error al obtener los tipos de suscripción');
+                }
+                const tiposSuscripcion = await response.json();
+                const select = document.getElementById('roles');
+                if (tiposSuscripcion && tiposSuscripcion.length > 0) {
+                    select.innerHTML = '';
+                    tiposSuscripcion.forEach(tipo => {
+                        const option = document.createElement('option');
+                        option.value = tipo;
+                        option.textContent = tipo.toUpperCase();
+                        select.appendChild(option);
+                    });
+                } else {
+                    const option = document.createElement('option');
+                    option.value = '';
+                    option.textContent = 'No hay tipos de suscripción disponibles';
+                    select.appendChild(option);
+                }
+            } catch (error) {
+                console.error('Error al obtener los tipos de suscripción:', error);
+            }
+        }
 
+
+window.onload = obtenerTiposSuscripciones;
+        
 function validarFormulario() {
   // Obtener los valores de los campos
   var email = document.getElementById('email').value;
