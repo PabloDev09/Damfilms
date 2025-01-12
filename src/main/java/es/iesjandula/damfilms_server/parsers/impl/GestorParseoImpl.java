@@ -18,7 +18,6 @@ import es.iesjandula.damfilms_server.entities.Pelicula;
 import es.iesjandula.damfilms_server.entities.PeliculaVisualizada;
 import es.iesjandula.damfilms_server.entities.Serie;
 import es.iesjandula.damfilms_server.entities.SerieVisualizada;
-import es.iesjandula.damfilms_server.entities.Usuario;
 import es.iesjandula.damfilms_server.parsers.interfaces.IGestorParseo;
 import es.iesjandula.damfilms_server.parsers.interfaces.IParseo;
 import es.iesjandula.damfilms_server.utils.Constants;
@@ -46,8 +45,7 @@ public class GestorParseoImpl implements IGestorParseo
 	@Autowired
 	IParseo<Modo> iParseoModo;
 	
-	@Autowired
-	IParseo<Usuario> iParseoUsuario;
+	
 	
 	@Autowired
 	IParseo<PeliculaVisualizada> iParseoPeliculaVisualizada;
@@ -111,13 +109,7 @@ public class GestorParseoImpl implements IGestorParseo
 			scannerModo.close();
 			break;
 
-		case Constants.CSV_USUARIOS:
-			Scanner scannerUsuarios = this.abrirFichero(nombreFichero);
-
-			this.iParseoUsuario.parseaFichero(scannerUsuarios);
-
-			scannerUsuarios.close();
-			break;
+		
 
 		case Constants.CSV_PELICULAS_VISUALIZADAS:
 			Scanner scannerPeliculaVisualizada = this.abrirFichero(nombreFichero);

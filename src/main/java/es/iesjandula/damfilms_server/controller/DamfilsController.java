@@ -700,117 +700,117 @@ public class DamfilsController {
     // ==================== Modo ====================
 
 	// Endpoint para cambiar el modo de una configuración
-	@RequestMapping(method = RequestMethod.PUT, value = "/modo")
-	public ResponseEntity<?> cambiarModo(@RequestParam String usuario, @RequestParam String nombreModo) 
-	{
-	    try 
-	    {
-	    	
-	        // Verifica si el usuario existe
-	        Usuario usuarioExistente = usuarioRepository.findByNombre(usuario);
-	        if (usuarioExistente == null) 
-	        {
-	            throw new DamfilmsServerException(404, "Usuario no encontrado");
-	        }
-
-	        // Obtiene la configuración asociada al usuario
-	        Configuracion configuracionActual = usuarioExistente.getConfiguracion();
-	        if (configuracionActual == null) 
-	        {
-	            throw new DamfilmsServerException(404, "Configuración no encontrada para el usuario");
-	        }
-
-	        // Verifica si el modo existe
-	        Optional<Modo> modoExistente = modoRepository.findById(nombreModo);
-	        if (!modoExistente.isPresent()) 
-	        {
-	            throw new DamfilmsServerException(404, "Modo no encontrado");
-	        }
-
-	        // Cambia el modo en la configuración
-	        configuracionActual.setModo(modoExistente.get());
-	        configuracionRepository.save(configuracionActual);
-
-	        log.info("Modo cambiado exitosamente en la configuración del usuario: {}", usuario);
-	        return ResponseEntity.ok("Modo cambiado exitosamente en la configuración.");
-	        
-	    } 
-	    catch (DamfilmsServerException ex) 
-	    {
-	        // Manejo de errores
-	        log.error("Error al cambiar el modo en la configuración: {}", ex.getMessage());
-	        DamfilmsServerException customException = new DamfilmsServerException(500, "Error al cambiar el modo en la configuración", ex);
-	        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(customException.getBodyExceptionMessage());
-	    }
-	}
-
-	// Endpoint para obtener el modo actual de una configuración asociada a un usuario
-	@RequestMapping(method = RequestMethod.GET, value = "/modo")
-	public ResponseEntity<?> verModo(@RequestParam String usuario) 
-	{
-	    try 
-	    {
-	        // Verifica si el usuario existe
-	    	Usuario usuarioOpt = usuarioRepository.findByNombre(usuario);
-	        if (usuarioOpt == null) 
-	        {
-	            throw new DamfilmsServerException(404, "Usuario no encontrado");
-	        }
-
-	        // Obtiene la configuración asociada al usuario
-	        Configuracion configuracionActual = usuarioOpt.getConfiguracion();
-	        if (configuracionActual == null) 
-	        {
-	            throw new DamfilmsServerException(404, "Configuración no encontrada para el usuario");
-	        }
-
-	        // Obtiene el modo actual de la configuración
-	        Modo modoActual = configuracionActual.getModo();
-	        log.info("Modo actual en la configuración del usuario {}: {}", usuario, modoActual.getNombre());
-	        return ResponseEntity.ok(modoActual);
-	    }
-	    catch (Exception ex) 
-	    {
-	        // Manejo de errores
-	        log.error("Error al obtener el modo en la configuración: {}", ex.getMessage());
-	        DamfilmsServerException customException = new DamfilmsServerException(500, "Error al obtener el modo en la configuración", ex);
-	        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(customException.getBodyExceptionMessage());
-	    }
-	}
-
-    // ==================== Configuración ====================
-    @RequestMapping(method = RequestMethod.PUT, value = "/configuracion")
-    public ResponseEntity<?> cambiarConfiguracion(@RequestParam String usuario, @RequestBody Configuracion configuracionNueva) 
-    {
-        try 
-        {
-        	Usuario usuarioOpt = usuarioRepository.findByNombre(usuario);
-	        if (usuarioOpt == null) 
-	        {
-                throw new DamfilmsServerException(404, "Usuario no encontrado");
-            }
-            
-            Optional<Configuracion> configuracionIdiomaOpt = configuracionRepository.findByIdioma(configuracionNueva.getIdioma());
-            if (!configuracionIdiomaOpt.isPresent()) 
-            {
-            	throw new DamfilmsServerException(404, "Idioma no encontrado");
-            }
-            
-
-            Usuario usuarioEnt = usuarioOpt;
-            usuarioEnt.setConfiguracion(configuracionNueva);
-            configuracionRepository.save(configuracionNueva);
-
-            log.info("Configuración cambiada exitosamente para usuario: {}", usuario);
-            return ResponseEntity.ok("Configuración cambiada exitosamente.");
-        } 
-        catch (DamfilmsServerException ex) 
-        {
-            log.error("Error al cambiar configuración: {}", ex.getMessage());
-            DamfilmsServerException customException = new DamfilmsServerException(500, "Error al cambiar configuración", ex);
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(customException.getBodyExceptionMessage());
-        }
-    }
+//	@RequestMapping(method = RequestMethod.PUT, value = "/modo")
+//	public ResponseEntity<?> cambiarModo(@RequestParam String usuario, @RequestParam String nombreModo) 
+//	{
+//	    try 
+//	    {
+//	    	
+//	        // Verifica si el usuario existe
+//	        Usuario usuarioExistente = usuarioRepository.findByNombre(usuario);
+//	        if (usuarioExistente == null) 
+//	        {
+//	            throw new DamfilmsServerException(404, "Usuario no encontrado");
+//	        }
+//
+//	        // Obtiene la configuración asociada al usuario
+//	        Configuracion configuracionActual = usuarioExistente.getConfiguracion();
+//	        if (configuracionActual == null) 
+//	        {
+//	            throw new DamfilmsServerException(404, "Configuración no encontrada para el usuario");
+//	        }
+//
+//	        // Verifica si el modo existe
+//	        Optional<Modo> modoExistente = modoRepository.findById(nombreModo);
+//	        if (!modoExistente.isPresent()) 
+//	        {
+//	            throw new DamfilmsServerException(404, "Modo no encontrado");
+//	        }
+//
+//	        // Cambia el modo en la configuración
+//	        configuracionActual.setModo(modoExistente.get());
+//	        configuracionRepository.save(configuracionActual);
+//
+//	        log.info("Modo cambiado exitosamente en la configuración del usuario: {}", usuario);
+//	        return ResponseEntity.ok("Modo cambiado exitosamente en la configuración.");
+//	        
+//	    } 
+//	    catch (DamfilmsServerException ex) 
+//	    {
+//	        // Manejo de errores
+//	        log.error("Error al cambiar el modo en la configuración: {}", ex.getMessage());
+//	        DamfilmsServerException customException = new DamfilmsServerException(500, "Error al cambiar el modo en la configuración", ex);
+//	        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(customException.getBodyExceptionMessage());
+//	    }
+//	}
+//
+//	// Endpoint para obtener el modo actual de una configuración asociada a un usuario
+//	@RequestMapping(method = RequestMethod.GET, value = "/modo")
+//	public ResponseEntity<?> verModo(@RequestParam String usuario) 
+//	{
+//	    try 
+//	    {
+//	        // Verifica si el usuario existe
+//	    	Usuario usuarioOpt = usuarioRepository.findByNombre(usuario);
+//	        if (usuarioOpt == null) 
+//	        {
+//	            throw new DamfilmsServerException(404, "Usuario no encontrado");
+//	        }
+//
+//	        // Obtiene la configuración asociada al usuario
+//	        Configuracion configuracionActual = usuarioOpt.getConfiguracion();
+//	        if (configuracionActual == null) 
+//	        {
+//	            throw new DamfilmsServerException(404, "Configuración no encontrada para el usuario");
+//	        }
+//
+//	        // Obtiene el modo actual de la configuración
+//	        Modo modoActual = configuracionActual.getModo();
+//	        log.info("Modo actual en la configuración del usuario {}: {}", usuario, modoActual.getNombre());
+//	        return ResponseEntity.ok(modoActual);
+//	    }
+//	    catch (Exception ex) 
+//	    {
+//	        // Manejo de errores
+//	        log.error("Error al obtener el modo en la configuración: {}", ex.getMessage());
+//	        DamfilmsServerException customException = new DamfilmsServerException(500, "Error al obtener el modo en la configuración", ex);
+//	        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(customException.getBodyExceptionMessage());
+//	    }
+//	}
+//
+//    // ==================== Configuración ====================
+//    @RequestMapping(method = RequestMethod.PUT, value = "/configuracion")
+//    public ResponseEntity<?> cambiarConfiguracion(@RequestParam String usuario, @RequestBody Configuracion configuracionNueva) 
+//    {
+//        try 
+//        {
+//        	Usuario usuarioOpt = usuarioRepository.findByNombre(usuario);
+//	        if (usuarioOpt == null) 
+//	        {
+//                throw new DamfilmsServerException(404, "Usuario no encontrado");
+//            }
+//            
+//            Optional<Configuracion> configuracionIdiomaOpt = configuracionRepository.findByIdioma(configuracionNueva.getIdioma());
+//            if (!configuracionIdiomaOpt.isPresent()) 
+//            {
+//            	throw new DamfilmsServerException(404, "Idioma no encontrado");
+//            }
+//            
+//
+//            Usuario usuarioEnt = usuarioOpt;
+//            usuarioEnt.setConfiguracion(configuracionNueva);
+//            configuracionRepository.save(configuracionNueva);
+//
+//            log.info("Configuración cambiada exitosamente para usuario: {}", usuario);
+//            return ResponseEntity.ok("Configuración cambiada exitosamente.");
+//        } 
+//        catch (DamfilmsServerException ex) 
+//        {
+//            log.error("Error al cambiar configuración: {}", ex.getMessage());
+//            DamfilmsServerException customException = new DamfilmsServerException(500, "Error al cambiar configuración", ex);
+//            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(customException.getBodyExceptionMessage());
+//        }
+//    }
 
 //    @RequestMapping(method = RequestMethod.GET, value = "/configuracion")
 //    public ResponseEntity<?> verConfiguracion(@RequestParam String usuario) {

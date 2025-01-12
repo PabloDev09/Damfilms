@@ -11,6 +11,7 @@ import es.iesjandula.damfilms_server.config.MyUserDetailsService;
 import es.iesjandula.damfilms_server.dtos.UserRegistrationDto;
 import es.iesjandula.damfilms_server.repositories.IDocumentalRepository;
 import es.iesjandula.damfilms_server.repositories.IPeliculaRepository;
+import es.iesjandula.damfilms_server.repositories.IRoleRepository;
 import es.iesjandula.damfilms_server.repositories.ISerieRepository;
 import es.iesjandula.damfilms_server.utils.DamfilmsServerException;
 
@@ -31,6 +32,9 @@ public class ThymeleafController
 	
 	@Autowired
 	private IDocumentalRepository iDocumentalRepository;
+	
+	@Autowired
+	private IRoleRepository iRoleRepository;
 	
 
     /* Ruta por defecto, redirige a index.html */
@@ -82,6 +86,53 @@ public class ThymeleafController
             model.addAttribute("registerErrorMessage", damfilmsServerException.getMessage()) ;
             
             return "signin.html" ;
+		}
+
+        return "login.html" ;
+    }
+    
+    @RequestMapping("/cuenta_usuario.html")
+    public String update(Model model)
+    {
+    	// Asociamos "user" como modelo que almacenará los datos del formulario de "register.html"
+        model.addAttribute("user", new UserRegistrationDto()) ;
+        
+        return "static/config/cuenta_usuario.html";
+    }
+    
+    @RequestMapping(method=RequestMethod.POST, value= "/update")
+    public String processRoleUpdate(UserRegistrationDto userDto, Model model)
+    {
+        // Comprobamos si el usuario no existe
+    	if (!this.myUserDetailsService.existsByUsername(userDto.getUsername()))
+        {
+    		// Si existe, añadimos al modelo "registerError" a "true" para indicar que hay un error
+            model.addAttribute("roleUpdateError", true) ;
+            
+            // Además, añadimos al modelo "registerErrorMessage" para enviar el texto "El usuario ya existe"
+            model.addAttribute("roleUpdateErrorMessage", "El usuario no existe") ;
+            
+            return "static/config/cuenta_usuario.html" ;
+        }
+
+    	// En caso de que no exista el usuario, seguimos el flujo normal de creación de usuario
+    	
+        // Ciframos la contraseña
+
+        try
+        {
+        	// Guardamos el nuevo usuario en la base de datos
+			this.myUserDetailsService.updateUser(userDto);
+		}
+        catch (DamfilmsServerException damfilmsServerException)
+        {
+    		// Si existe, añadimos al modelo "registerError" a "true" para indicar que hay un error
+            model.addAttribute("roleUpdateError", true) ;
+            
+            // Además, añadimos al modelo "registerErrorMessage" para enviar el texto del error
+            model.addAttribute("roleUpdateErrorMessage", damfilmsServerException.getMessage()) ;
+            
+            return "static/config/cuenta_usuario.html" ;
 		}
 
         return "login.html" ;
@@ -175,5 +226,12 @@ public class ThymeleafController
     public String notFound()
     {
         return "not-found.html";
+    }
+    
+    @RequestMapping("/suscripciones")
+    public String suscripciones(Model model) {
+    	model.addAttribute("suscripciones", iRoleRepository.entontrarTodosLosRoles()) ;
+    	
+        return "signin.html";
     }
 }

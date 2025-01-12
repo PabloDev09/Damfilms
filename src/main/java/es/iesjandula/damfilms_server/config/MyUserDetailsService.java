@@ -74,19 +74,19 @@ public class MyUserDetailsService implements UserDetailsService
         List<Role> rolesList = new ArrayList<Role>() ;
         
         // Lo siguiente es asociar todos los roles al usuario
-//        for (String roleString : userRegistrationDto.getRolesAsList())
-//        {
-//        	// Obtenemos la referencia al Role
-//        	Role role = this.iRoleRepository.findByRole(roleString) ;
-//        	
-//    		// Si el role no existe, lanzaremos una excepción
-//    		if (role == null)
-//    		{
-//    			throw new DamfilmsServerException("Role no encontrado") ;
-//    		}
-//    		
-//    		rolesList.add(role) ;
-//        }
+        for (String roleString : userRegistrationDto.getRolesAsList())
+        {
+        	// Obtenemos la referencia al Role
+        	Role role = this.iRoleRepository.findByRole(roleString) ;
+        	
+    		// Si el role no existe, lanzaremos una excepción
+    		if (role == null)
+    		{
+    			throw new DamfilmsServerException("Role no encontrado") ;
+    		}
+    		
+    		rolesList.add(role) ;
+        }
 
 		// ... y lo añadimos a BBDD
         this.iUsuarioRepository.saveAndFlush(user) ;

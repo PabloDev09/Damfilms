@@ -101,22 +101,19 @@ public class DamfilmsServerApplication implements CommandLineRunner
 		{
 			this.iParseoFicheros.parseaFichero(Constants.CSV_CONFIGURACIONES);
 		}
-		if(this.iUsuarioRepository.findAll().isEmpty())
-		{
-			this.iParseoFicheros.parseaFichero(Constants.CSV_USUARIOS);
-		}
-		if(this.iPeliculaVisualizadaRepository.findAll().isEmpty())
-		{
-			this.iParseoFicheros.parseaFichero(Constants.CSV_PELICULAS_VISUALIZADAS);
-		}	
-		if(this.iSerieVisualizadaRepository.findAll().isEmpty())
-		{
-			this.iParseoFicheros.parseaFichero(Constants.CSV_SERIES_VISUALIZADAS);
-		}		
-		if(this.iDocumentalVisualizadoRepository.findAll().isEmpty())
-		{
-			this.iParseoFicheros.parseaFichero(Constants.CSV_DOCUMENTALES_VISUALIZADOS);
-		}		
+		
+//		if(this.iPeliculaVisualizadaRepository.findAll().isEmpty())
+//		{
+//			this.iParseoFicheros.parseaFichero(Constants.CSV_PELICULAS_VISUALIZADAS);
+//		}	
+//		if(this.iSerieVisualizadaRepository.findAll().isEmpty())
+//		{
+//			this.iParseoFicheros.parseaFichero(Constants.CSV_SERIES_VISUALIZADAS);
+//		}		
+//		if(this.iDocumentalVisualizadoRepository.findAll().isEmpty())
+//		{
+//			this.iParseoFicheros.parseaFichero(Constants.CSV_DOCUMENTALES_VISUALIZADOS);
+//		}		
 		
 	}
 
