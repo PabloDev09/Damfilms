@@ -12,7 +12,7 @@ import es.iesjandula.damfilms_server.dtos.SerieDetalle;
 import es.iesjandula.damfilms_server.entities.Serie;
 
 @Repository
-public interface ISerieRepository extends JpaRepository<Serie, String>
+public interface ISerieRepository extends JpaRepository<Serie, Long>
 {
 	@Query("SELECT s FROM Serie s ORDER BY s.fechaEstreno DESC")
 	List<Serie> findTop10ByOrderByFechaEstrenoDesc() ;

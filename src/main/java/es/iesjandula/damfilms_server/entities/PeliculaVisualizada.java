@@ -4,7 +4,6 @@ import es.iesjandula.damfilms_server.entities.ids.PeliculaVisualizadaId;
 import jakarta.persistence.Column;
 import jakarta.persistence.EmbeddedId;
 import jakarta.persistence.Entity;
-import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.MapsId;
 import lombok.AllArgsConstructor;
@@ -21,14 +20,12 @@ public class PeliculaVisualizada
 	@EmbeddedId
 	private PeliculaVisualizadaId peliculaVisualizadaId;
 	
+	@MapsId("pelicula")
 	@ManyToOne
-	@JoinColumn(name = "pelicula_id", referencedColumnName = "id")
-	@MapsId("idPelicula")
 	private Pelicula pelicula;
-	
-	@ManyToOne
-	@JoinColumn(name = "usuario_nombre")
+
 	@MapsId("usuario")
+	@ManyToOne
 	private Usuario usuario;
 
 	@Column(length = 3, nullable = false)

@@ -1,20 +1,3 @@
-<<<<<<< HEAD
-pelicula_titulo,pelicula_fecha_estreno,id_usuario,tiempoVisto
-Mad Max: Furia en el Camino,2015-01-01,1,110
-El Caballero de la Noche,2008-01-01,1,140
-Resacón en Las Vegas,2009-01-01,2,9
-El Señor de los Anillos: La Comunidad del Anillo,2001-01-01,1,16
-El Padrino,1972-01-01,2,150
-El Resplandor,1980-01-01,1,130
-Spider-Man: Un Nuevo Universo,2018-01-01,1,110
-Forrest Gump,1994-01-01,1,130
-La Máscara,1994-01-01,1,8
-La Máscara,1994-01-01,2,9
-Torrente,1999-01-01,1,136
-El Club de la lucha,1999-01-01,1,120
-La Lista de Schindler,1993-01-01,2,180
-Piratas del Caribe: La Maldición del Perla Negra,2003-01-01,1,12
-=======
 id_pelicula,id_usuario,tiempoVisto
 2,1,110
 7,1,140
@@ -28,4 +11,3 @@ id_pelicula,id_usuario,tiempoVisto
 14,2,9
 3,1,136
 20,1,120
->>>>>>> bb8f273905f56aded87148ca086496e9497da35c

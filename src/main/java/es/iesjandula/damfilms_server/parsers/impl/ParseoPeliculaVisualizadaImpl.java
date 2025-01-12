@@ -58,7 +58,7 @@ public class ParseoPeliculaVisualizadaImpl implements IParseo<PeliculaVisualizad
 
 			peliculaVisualizada.setPelicula(optionalPelicula.get());
 			
-			Optional<Usuario> optionalUsuario = this.iUsuarioRepository.findById(Long.parseLong(lineaDelFicheroTroceada[2]));
+			Optional<Usuario> optionalUsuario = this.iUsuarioRepository.findById(Long.parseLong(lineaDelFicheroTroceada[1]));
 
 			if(!optionalUsuario.isPresent())
 			{
@@ -68,8 +68,7 @@ public class ParseoPeliculaVisualizadaImpl implements IParseo<PeliculaVisualizad
 			}
 			
 			peliculaVisualizada.setUsuario(optionalUsuario.get());
-			peliculaVisualizada.setTiempoVisto(Integer.parseInt(lineaDelFicheroTroceada[3]));
-			PeliculaVisualizadaId peliculaVisualizadaId = new PeliculaVisualizadaId(optionalPelicula.get().getId(), optionalUsuario.get().getId());
+			PeliculaVisualizadaId peliculaVisualizadaId = new PeliculaVisualizadaId(optionalPelicula.get(), optionalUsuario.get());
 			
 			peliculaVisualizada.setPeliculaVisualizadaId(peliculaVisualizadaId);
 			peliculaVisualizada.setTiempoVisto(Integer.parseInt(lineaDelFicheroTroceada[2]));

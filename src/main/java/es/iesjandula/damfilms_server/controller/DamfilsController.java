@@ -40,6 +40,7 @@ import es.iesjandula.damfilms_server.repositories.IPeliculaRepository;
 import es.iesjandula.damfilms_server.repositories.IPeliculaVisualizadaRepository;
 import es.iesjandula.damfilms_server.repositories.ISerieRepository;
 import es.iesjandula.damfilms_server.repositories.ISerieVisualizadaRepository;
+import es.iesjandula.damfilms_server.repositories.ISuscripcionRepository;
 import es.iesjandula.damfilms_server.repositories.ITemporadaRepository;
 import es.iesjandula.damfilms_server.repositories.IUsuarioRepository;
 import es.iesjandula.damfilms_server.utils.DamfilmsServerException;
@@ -82,8 +83,11 @@ public class DamfilsController {
 	@Autowired
 	private IConfiguracionRepository iConfiguracionRepository;
 	
+	@Autowired
+	private ISuscripcionRepository iSuscripcionRepository;
+	
 	@RequestMapping(method = RequestMethod.GET, value = "/documentales_list")
-	public ResponseEntity<?> listaDocumentales() 
+	public ResponseEntity<?> obtenerDocumentales() 
 	{
 		
 		try 
@@ -120,7 +124,7 @@ public class DamfilsController {
 	}
 	
 	@RequestMapping(method = RequestMethod.GET, value = "/documentales/detalle")
-	public ResponseEntity<?> detalleDocumental(@RequestParam(name = "titulo", required = true) String titulo,
+	public ResponseEntity<?> obtenerDetalleDocumental(@RequestParam(name = "titulo", required = true) String titulo,
 									 			@RequestParam(name = "fechaEstreno", required = true) Date fechaEstreno) 
 	{
 		
@@ -157,7 +161,7 @@ public class DamfilsController {
 	}
 	
 	@RequestMapping(method = RequestMethod.GET, value = "/documentales/descripcion")
-	public ResponseEntity<?> descripcionDocumental(@RequestParam(name = "titulo", required = true) String titulo,
+	public ResponseEntity<?> obtenerDescripcionDocumental(@RequestParam(name = "titulo", required = true) String titulo,
 			 									   @RequestParam(name = "fechaEstreno", required = true) Date fechaEstreno)  
 	{
 		try 
@@ -193,7 +197,7 @@ public class DamfilsController {
 	}
 	
 	@RequestMapping(method = RequestMethod.GET, value = "/peliculas_list")
-	public ResponseEntity<?> listaPeliculas() 
+	public ResponseEntity<?> obtenerPeliculas() 
 	{
 		try 
 		{
@@ -228,7 +232,7 @@ public class DamfilsController {
 	}
 	
 	@RequestMapping(method = RequestMethod.GET, value = "/peliculas/detalle")
-	public ResponseEntity<?> detallePelicula(@RequestParam(name = "titulo", required = true) String titulo,
+	public ResponseEntity<?> obtenerDetallePelicula(@RequestParam(name = "titulo", required = true) String titulo,
 											  @RequestParam(name = "fechaEstreno", required = true) Date fechaEstreno)  
 	{
 		try 
@@ -264,7 +268,7 @@ public class DamfilsController {
 	}
 	
 	@RequestMapping(method = RequestMethod.GET, value = "/peliculas/descripcion")
-	public ResponseEntity<?> descripcionPelicula(@RequestParam(name = "titulo", required = true) String titulo,
+	public ResponseEntity<?> obtenerDescripcionPelicula(@RequestParam(name = "titulo", required = true) String titulo,
 			 						  			 @RequestParam(name = "fechaEstreno", required = true) Date fechaEstreno) 
 	{
 		try 
@@ -300,31 +304,31 @@ public class DamfilsController {
 	}
 	
 	@RequestMapping(method = RequestMethod.GET, value = "/peliculas/visualizadas")
-	public ResponseEntity<?> listaPeliculasVisualizadas(@RequestParam(name = "usuario", required = true) String usuario) 
+	public ResponseEntity<?> obtenerPeliculasVisualizadasPorUsuario(@RequestParam(name = "usuario", required = true) String usuario) 
 	{
 		try 
 		{
 			
 			if(this.iPeliculaVisualizadaRepository.encontrarUsuario(usuario) == null) 
 			{
-				String mensajeError = "No se ha encontrado ninguna usuario con ese nombre";
+				String mensajeError = "No se ha encontrado ningun usuario con ese nombre";
 				log.error(mensajeError);
 				throw new DamfilmsServerException(107, mensajeError);
 			}
 			
-			List<PeliculaVisualizada> listaPeliculasVisualizadas;
+			List<PeliculaVisualizada> listaPeliculasVisualizadasPorUsuario;
 			
-			if(this.iPeliculaVisualizadaRepository.findAll().isEmpty()) 
+			if(this.iPeliculaVisualizadaRepository.encontrarPeliculasVisualizadasPorUsuario(usuario).isEmpty()) 
 			{
-				String mensajeError = "No se ha encontrado ninguna película visualizada";
+				String mensajeError = "No se ha encontrado ninguna película visualizada por ese usuario";
 				log.error(mensajeError);
 				throw new DamfilmsServerException(108, mensajeError);
 				
 			}
 			
-			listaPeliculasVisualizadas = this.iPeliculaVisualizadaRepository.findAll();
+			listaPeliculasVisualizadasPorUsuario = this.iPeliculaVisualizadaRepository.encontrarPeliculasVisualizadasPorUsuario(usuario);
 			
-			return ResponseEntity.ok(listaPeliculasVisualizadas);
+			return ResponseEntity.ok(listaPeliculasVisualizadasPorUsuario);
 			
 		}
 		catch (DamfilmsServerException damfilmsServerException) 
@@ -351,7 +355,7 @@ public class DamfilsController {
 	}
 	
 	@RequestMapping(method = RequestMethod.GET, value = "/documentales/visualizados")
-	public ResponseEntity<?> listaDocumentalesVisualizados(@RequestParam(name = "usuario", required = true) String usuario) 
+	public ResponseEntity<?> obtenerDocumentalesVisualizadosPorUsuario(@RequestParam(name = "usuario", required = true) String usuario) 
 	{
 		try 
 		{
@@ -404,7 +408,7 @@ public class DamfilsController {
 	
 	
 	@RequestMapping(method = RequestMethod.GET, value = "/series/visualizadas")
-	public ResponseEntity<?> listaSeriesVisualizadas(@RequestParam(name = "usuario", required = true) String usuario) 
+	public ResponseEntity<?> obtenerSeriesVisualizadasPorUsuario(@RequestParam(name = "usuario", required = true) String usuario) 
 	{
 		try 
 		{
@@ -456,7 +460,7 @@ public class DamfilsController {
 	  // ==================== Temporada ====================
 	    
 	    @RequestMapping(method = RequestMethod.GET, value = "/temporadas")
-	    public ResponseEntity<?> getTemporadaById(@RequestParam(name = "temporadaId") TemporadaId temporadaId) {
+	    public ResponseEntity<?> obtenerTemporadaPorId(@RequestParam(name = "temporadaId") TemporadaId temporadaId) {
 	        try {
 	            Temporada temporada = iTemporadaRepository.findById(temporadaId).orElse(null);
 	            if (temporada == null)
@@ -484,7 +488,7 @@ public class DamfilsController {
 	    }
 
 	    @RequestMapping(method = RequestMethod.GET, value = "/series/{serieId}/temporadas")
-	    public ResponseEntity<?> getTemporadasBySerie(@RequestParam(name = "serieId") Long serieId) {
+	    public ResponseEntity<?> obtenerTemporadasPorSerieId(@RequestParam(name = "serieId") Long serieId) {
 	        try 
 	        {
 	            List<Temporada> temporadas = iTemporadaRepository.findBySerieId(serieId);
@@ -511,10 +515,10 @@ public class DamfilsController {
 	        }
 	    }
 	    
-	    @RequestMapping(method = RequestMethod.GET, value = "/series/{nombre}")
-	    public ResponseEntity<?> getSerieById(@RequestParam(name = "nombre") String nombre) {
+	    @RequestMapping(method = RequestMethod.GET, value = "/series/{id}")
+	    public ResponseEntity<?> obtenerSeriePorId(@RequestParam(name = "id") Long id) {
 	        try {
-	            Serie serie = iSerieRepository.findById( nombre).orElse(null);
+	            Serie serie = iSerieRepository.findById(id).orElse(null);
 	            if (serie == null) 
 	            {
 	                String mensajeError = "Serie no encontrada";
@@ -538,7 +542,7 @@ public class DamfilsController {
 	    }
 
 	    @RequestMapping(method = RequestMethod.GET, value = "/series/{genero}")
-	    public ResponseEntity<?> getSeriesByGenero(@RequestParam(name = "genero") String genero) {
+	    public ResponseEntity<?> obtenerSeriePorGenero(@RequestParam(name = "genero") String genero) {
 	        try 
 	        {
 	            List<Serie> series = iSerieRepository.findByGenero(genero);
@@ -566,7 +570,7 @@ public class DamfilsController {
 	        }
 	    }
 	    @RequestMapping(method = RequestMethod.GET, value = "/series/detalle")
-	    public ResponseEntity<?> getDetalleSerie(@RequestParam(name = "nombre", required = true) String nombre) 
+	    public ResponseEntity<?> obtenerDetalleSerie(@RequestParam(name = "nombre", required = true) String nombre) 
 	    {
 	        try 
 	        {
@@ -602,7 +606,7 @@ public class DamfilsController {
 	    
 
 	@RequestMapping(method = RequestMethod.GET, value = "/series/descripcion")
-	public ResponseEntity<?> getDescripcionSerie(@RequestParam(name = "nombre", required = true) String nombre) 
+	public ResponseEntity<?> obtenerDescripcionSerie(@RequestParam(name = "nombre", required = true) String nombre) 
 	{
 	    try 
 	    {
@@ -635,12 +639,13 @@ public class DamfilsController {
 	    }
 	}
 	
-    // ==================== episodio ====================
+    // ==================== Episodio ====================
 	
 	@RequestMapping(method = RequestMethod.GET, value = "/episodios/detalle")
-	public ResponseEntity<?> getDetalleEpisodio(
+	public ResponseEntity<?> obtenerDetalleEpisodio(
 	        @RequestParam(name = "episodioNumero", required = true) Integer episodioNumero,
-	        @RequestParam(name = "serieNombre", required = true) String serieNombre) {
+	        @RequestParam(name = "temporadaNumero", required = true) Integer temporadaNumero,
+	        @RequestParam(name = "serieId", required = true) String serieNombre) {
 	    try {
 	        // Buscar episodio
 	        Episodio episodio = this.iEpisodioRepository.findByIdAndSerieNombre(episodioNumero, serieNombre);
@@ -732,7 +737,7 @@ public class DamfilsController {
 	        iConfiguracionRepository.save(configuracionActual);
 
 	        log.info("Modo cambiado exitosamente en la configuración del usuario: {}", usuario);
-	        return ResponseEntity.ok("Modo cambiado exitosamente en la configuración.");
+	        return ResponseEntity.ok().build();
 	        
 	    } 
 	    catch (DamfilmsServerException ex) 
@@ -802,7 +807,7 @@ public class DamfilsController {
             iConfiguracionRepository.save(configuracionNueva);
 
             log.info("Configuración cambiada exitosamente para usuario: {}", usuario);
-            return ResponseEntity.ok("Configuración cambiada exitosamente.");
+            return ResponseEntity.ok().build();
         } 
         catch (DamfilmsServerException ex) 
         {
@@ -812,6 +817,31 @@ public class DamfilsController {
         }
     }
 
+    // ==================== Suscripcion ====================
+    @RequestMapping(method = RequestMethod.GET, value = "/suscripciones/tipos")
+    public ResponseEntity<?> obtenerTiposSuscripciones() 
+    {
+        try 
+        {
+	        List<String> tiposSuscripcion;
+        	
+            tiposSuscripcion = iSuscripcionRepository.encontrarTodosLosTipos();
+            
+            if (iSuscripcionRepository.encontrarTodosLosTipos().isEmpty()) 
+            {
+            	throw new DamfilmsServerException(404, "Ningun tipo de suscripcion encontrado");
+            }	        
+            
+            log.info("Tipos enviados exitosamente: {}", tiposSuscripcion);
+            return ResponseEntity.ok(tiposSuscripcion);
+        } 
+        catch (DamfilmsServerException ex) 
+        {
+            log.error("Error al encontrar tipos de suscripcion: {}", ex.getMessage());
+            DamfilmsServerException customException = new DamfilmsServerException(500, "Error al cambiar configuración", ex);
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(customException.getBodyExceptionMessage());
+        }
+    }
 //    @RequestMapping(method = RequestMethod.GET, value = "/configuracion")
 //    public ResponseEntity<?> verConfiguracion(@RequestParam String usuario) {
 //        try {

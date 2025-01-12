@@ -52,7 +52,7 @@ public class ParseoEpisodioImpl implements IParseo<Episodio>
 			
 			TemporadaId temporadaId = new TemporadaId();
 			
-			Optional<Serie> optionalSerie = this.iSerieRepository.findById(lineaDelFicheroTroceada[0]);
+			Optional<Serie> optionalSerie = this.iSerieRepository.findById(Long.parseLong(lineaDelFicheroTroceada[0]));
 
 			if(!optionalSerie.isPresent())
 			{

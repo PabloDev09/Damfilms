@@ -47,7 +47,7 @@ public class ParseoSerieVisualizadaImpl implements IParseo<SerieVisualizada>
 
 			SerieVisualizada serieVisualizada = new SerieVisualizada();
 
-			Optional<Serie> optionalSerie = this.iSerieRepository.findById(lineaDelFicheroTroceada[0]);
+			Optional<Serie> optionalSerie = this.iSerieRepository.findById(Long.parseLong(lineaDelFicheroTroceada[0]));
 
 			if(!optionalSerie.isPresent())
 			{

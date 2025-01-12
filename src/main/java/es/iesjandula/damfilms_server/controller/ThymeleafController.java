@@ -39,7 +39,7 @@ public class ThymeleafController
         return "inicio.html";
     }
     
-    @RequestMapping("/signin.html")
+    @RequestMapping("/signin")
     public String register(Model model)
     {
     	// Asociamos "user" como modelo que almacenará los datos del formulario de "register.html"
@@ -48,7 +48,7 @@ public class ThymeleafController
         return "signin.html";
     }
     
-    @RequestMapping(method=RequestMethod.POST, value= "/signin")
+    @RequestMapping(method=RequestMethod.POST, value="/signin")
     public String processRegistration(UserRegistrationDto userDto, Model model)
     {
         // Comprobamos si el usuario ya existe
@@ -133,12 +133,6 @@ public class ThymeleafController
     public String usuarios() {
         return "usuarios.html";
     }
-    
-    /* Ruta para la página de registro */
-    @RequestMapping("/signin")
-    public String signIn() {
-        return "signin.html";
-    }
 
     /* Ruta para la página de inicio de sesión */
     @RequestMapping("/login")
@@ -159,19 +153,19 @@ public class ThymeleafController
     }
 
     /* Ruta para la página de error de inicio de sesión */
-    @RequestMapping("/login-error.html")
+    @RequestMapping("/login-error")
     public String loginError(Model model) {
         model.addAttribute("loginError", true);
         return "login.html";
     }
     
-    @RequestMapping("/forbidden.html")
+    @RequestMapping("/forbidden")
     public String forbidden()
     {
         return "forbidden.html";
     }
     
-    @RequestMapping("/not-found.html")
+    @RequestMapping("/not-found")
     public String notFound()
     {
         return "not-found.html";

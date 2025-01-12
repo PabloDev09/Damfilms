@@ -5,7 +5,6 @@ import java.util.List;
 import es.iesjandula.damfilms_server.entities.ids.TemporadaId;
 import jakarta.persistence.EmbeddedId;
 import jakarta.persistence.Entity;
-import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.MapsId;
 import jakarta.persistence.OneToMany;
@@ -26,7 +25,6 @@ public class Temporada
 	
 	@MapsId(value="serie")
 	@ManyToOne
-	@JoinColumn(name = "id_serie", nullable = false, referencedColumnName = "id")
 	private Serie serie;
 
 	@OneToMany(mappedBy = "temporada")

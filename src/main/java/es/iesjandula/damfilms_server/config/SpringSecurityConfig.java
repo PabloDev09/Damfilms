@@ -79,8 +79,8 @@ public class SpringSecurityConfig {
     @Bean
     public WebServerFactoryCustomizer<ConfigurableServletWebServerFactory> webServerFactoryCustomizer() {
         return factory -> {
-            factory.addErrorPages(new ErrorPage(HttpStatus.NOT_FOUND, "/not-found.html"));
-            factory.addErrorPages(new ErrorPage(HttpStatus.FORBIDDEN, "/forbidden.html"));
+            factory.addErrorPages(new ErrorPage(HttpStatus.NOT_FOUND, "/not-found"));
+            factory.addErrorPages(new ErrorPage(HttpStatus.FORBIDDEN, "/forbidden"));
         };
     }
 }

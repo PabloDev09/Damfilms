@@ -24,10 +24,9 @@ public class Usuario
 {
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
     private Long id ;
 
-	@Column(length = 100)
+	@Column(length = 100, nullable = false, unique = true)
 	private String nombre;
 
 	@Column(length = 150, nullable = false, unique = true)
@@ -40,10 +39,19 @@ public class Usuario
 	@JoinColumn(name = "configuracion_id", referencedColumnName = "id")
 	private Configuracion configuracion;
 
+	@Column
+    private Boolean active;
+	
 	@OneToMany(mappedBy = "usuario")
 	private List<Suscripcion> suscripciones;
 	
-	@Column
-    private Boolean active ;
+	@OneToMany(mappedBy = "usuario")
+	private List<PeliculaVisualizada> peliculasVisualizadas;
+	
+	@OneToMany(mappedBy = "usuario")
+	private List<DocumentalVisualizado> documentalesVisualizados;
+	
+	@OneToMany(mappedBy = "usuario")
+	private List<SerieVisualizada> seriesVisualizadas;
 
 }

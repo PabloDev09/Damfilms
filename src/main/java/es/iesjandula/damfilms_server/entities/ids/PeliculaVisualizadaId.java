@@ -1,6 +1,9 @@
 package es.iesjandula.damfilms_server.entities.ids;
 
+import es.iesjandula.damfilms_server.entities.Pelicula;
+import es.iesjandula.damfilms_server.entities.Usuario;
 import jakarta.persistence.Embeddable;
+import jakarta.persistence.ManyToOne;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -11,7 +14,9 @@ import lombok.NoArgsConstructor;
 @Embeddable
 public class PeliculaVisualizadaId 
 {	
-	private long idPelicula;
+	@ManyToOne
+	private Pelicula pelicula;
 	
-	private long usuario;
+	@ManyToOne
+	private Usuario usuario;
 }
