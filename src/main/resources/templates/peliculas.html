@@ -165,24 +165,24 @@
                 
                 <div class="container-fluid mx" id="big-box"><!-- CAJA DE PELICULAS-->
                     
-                    <!-- CAJA CONTENEDORA ULTIMAS LLEGADAS --> 
-                    <div classs="wrapper">           
+  <!-- CAJA CONTENEDORA ULTIMAS LLEGADAS --> 
+                    <div  classs="wrapper">           
                         <h4 class="tituloseccion-djg" style="color:white;">Ultimas llegadas</h4> <!-- Titulo sección ultimas llegadas-->       
                         
                         <!-- Aquí se inyectan los objetos de peliculas recientes -->
-                        <div id="row" >
-                        	<div class="col-3">
-                        		<div class="col-3" th:each="pelicula : ${ultimasLlegadas}">
-                        			<div class="card">
-                        				<img class="card-img-top" th:src="@{/img/posters/films/} + ${pelicula.titulo + ' .jpg'}" alt="Imagen de la película">
-                        				<div class="card-body">
-                        					<h5 class="card-title" th:text="${pelicula.titulo}"></h5>
-                        					<p class="card-text" th:text="${pelicula.descripcion}"></p>
-                        					<p class="card-text" th:text="'Duracion: ' + ${pelicula.duracion} + ' min'"></p>
-                        				</div>
-                        			</div>
-                        		</div>
-                        	</div>
+                        <div id="newest-row" >
+                        	<div class="row">
+				                <div class="col" th:each="serie : ${ultimasLlegadas}">
+				                    <div class="box-content">
+				                        <img class="boxes" th:src="@{/img/posters/films/} + ${serie.titulo + '.jpg'}" alt="Imagen de la serie">
+				                        <div class="box-content-son">
+				                            <h5 class="titulopelicula" th:text="${serie.titulo}"></h5>
+				                            <p class="duracion" th:text="${serie.descripcion}"></p>
+				                            <p class="fechasalida" th:text="${serie.fechaEstreno}"></p>
+				                        </div>
+				                    </div>
+				                </div>
+				            </div>
                         </div>
                     </div>
 
@@ -195,13 +195,13 @@
                         <!-- Aquí se inyectan los objetos de peliculas populares-->
                         <div id="popular-row">
                         	<div class="row">
-				                <div class="col-3" th:each="pelicula : ${mejorClasificadas}">
-				                    <div class="card">
-				                        <img class="card-img-top" th:src="@{/img/posters/films} + ${pelicula.titulo + '.jpg'}" alt="Imagen de la película">
-				                        <div class="card-body">
-				                            <h5 class="card-title" th:text="${pelicula.titulo}"></h5>
-				                            <p class="card-text" th:text="${pelicula.descripcion}"></p>
-				                            <p class="card-text" th:text="'Duración: ' + ${pelicula.duracion} + ' min'"></p>
+				                <div class="col" th:each="serie : ${mejorClasificadas}">
+				                    <div class="box-content">
+				                        <img class="boxes" th:src="@{/img/posters/films/} + ${serie.titulo + '.jpg'}" alt="Imagen de la serie">
+				                        <div class="box-content-son">
+				                            <h5 class="titulopelicula" th:text="${serie.titulo}"></h5>
+				                            <p class="duracion" th:text="${serie.descripcion}"></p>
+				                            <p class="fechasalida" th:text="${serie.fechaEstreno}"></p>
 				                        </div>
 				                    </div>
 				                </div>
@@ -217,13 +217,13 @@
                         <!-- Aqui se inyectan los objetos de peliculas sin filtrar ni discriminar -->
                         <div id="explore-row">
                         	<div class="row">
-				                <div class="col-3" th:each="pelicula : ${todasLasPeliculas}">
-				                    <div class="card">
-				                        <img class="card-img-top" th:src="@{/img/posters/films} + ${pelicula.titulo + '.jpg'}" alt="Imagen de la película">
-				                        <div class="card-body">
-				                            <h5 class="card-title" th:text="${pelicula.titulo}"></h5>
-				                            <p class="card-text" th:text="${pelicula.descripcion}"></p>
-				                            <p class="card-text" th:text="'Duración: ' + ${pelicula.duracion} + ' min'"></p>
+				                <div class="col" th:each="serie : ${todasLasPeliculas}">
+				                    <div class="box-content">
+				                        <img class="boxes" th:src="@{/img/posters/films/} + ${serie.titulo + '.jpg'}" alt="Imagen de la serie">
+				                        <div class="box-content-son">
+				                            <h5 class="card-title" th:text="${serie.titulo}"></h5>
+				                            <p class="card-text" th:text="${serie.descripcion}"></p>
+				                            <p class="fechasalida" th:text="${serie.fechaEstreno}"></p>
 				                        </div>
 				                    </div>
 				                </div>
