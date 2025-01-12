@@ -1,0 +1,685 @@
+{
+	"info": {
+		"_postman_id": "c7a04650-49a3-4a02-812c-b52d710bd4fb",
+		"name": "Damfilms",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "38666027"
+	},
+	"item": [
+		{
+			"name": "Endpoints Modo",
+			"item": [
+				{
+					"name": "Ver Modo",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/modo?usuario=JuanPerez",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"modo"
+							],
+							"query": [
+								{
+									"key": "usuario",
+									"value": "JuanPerez"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Cambiar Modo",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/modo?usuario=JuanPerez&nombreModo=Adulto",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"modo"
+							],
+							"query": [
+								{
+									"key": "usuario",
+									"value": "JuanPerez"
+								},
+								{
+									"key": "nombreModo",
+									"value": "Adulto"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Endpoints Usuario",
+			"item": [
+				{
+					"name": "Crear usuario",
+					"protocolProfileBehavior": {
+						"protocolVersion": "auto",
+						"followOriginalHttpMethod": false
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "\r\n{\r\n    \"nombre\": \"JuanPere\",\r\n    \"correo\": \"juan.perez@example.es\",\r\n    \"contrasena\": \"password123\",\r\n    \"configuracion\": {\r\n        \"id\": 1,\r\n        \"idioma\": \"Español\",\r\n        \"modo\": {\r\n            \"nombre\": \"Adulto\",\r\n            \"descripcion\": \"Modo estándar para todo tipo de contenidos\"\r\n        }\r\n    }\r\n}\r\n        \r\n\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/usuarios",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"usuarios"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Eliminar Usuario",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/usuarios?nombre=JuanPereasd",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"usuarios"
+							],
+							"query": [
+								{
+									"key": "nombre",
+									"value": "JuanPereasd"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Cambiar datos usuario",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "\r\n{\r\n    \"nombre\": \"JuanPerez\",\r\n    \"correo\": \"juan.perez@fadf.es\",\r\n    \"contrasena\": \"password123\",\r\n    \"configuracion\": {\r\n        \"id\": 1,\r\n        \"idioma\": \"Español\",\r\n        \"modo\": {\r\n            \"nombre\": \"Adulto\",\r\n            \"descripcion\": \"Modo estándar para todo tipo de contenidos\"\r\n        }\r\n    }\r\n}\r\n   ",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/usuarios?nombreUsuario=JuanPerez",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"usuarios"
+							],
+							"query": [
+								{
+									"key": "nombreUsuario",
+									"value": "JuanPerez"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Endpoints Configuracion",
+			"item": [
+				{
+					"name": "Ver configuracion",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/configuracion?usuario=JuanPerez",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"configuracion"
+							],
+							"query": [
+								{
+									"key": "usuario",
+									"value": "JuanPerez"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Cambiar configuracion",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": 1,\r\n    \"idioma\": \"Español\",\r\n    \"modo\": {\r\n        \"nombre\": \"Adulto\",\r\n        \"descripcion\": \"Modo estándar para todo tipo de contenidos\"\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/configuracion?usuario=JuanPerez",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"configuracion"
+							],
+							"query": [
+								{
+									"key": "usuario",
+									"value": "JuanPerez"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Endpoints Suscripcion",
+			"item": [
+				{
+					"name": "Crear Suscripcion",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/suscripciones?nombreUsuario=JuanPerez",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"suscripciones"
+							],
+							"query": [
+								{
+									"key": "nombreUsuario",
+									"value": "JuanPerez"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Ver suscripcion",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": ""
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Cancelar Suscripcion",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": ""
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Endpoints Documental",
+			"item": [
+				{
+					"name": "obtenerDocumentales",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/documentales_list",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"documentales_list"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "obtenerDetalleDocumental",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/documentales/detalle",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"documentales",
+								"detalle"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "obtenerDescripcionDocumental",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/documentales/descripcion",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"documentales",
+								"descripcion"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Endpoints Documental Visualizado",
+			"item": [
+				{
+					"name": "obtenerDocumentalesVisualizadosPorUsuario",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/documentales/visualizados",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"documentales",
+								"visualizados"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Endpoints Pelicula",
+			"item": [
+				{
+					"name": "obtenerPeliculas",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/peliculas_list",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"peliculas_list"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "obtenerDetallePelicula",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/peliculas/detalle",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"peliculas",
+								"detalle"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "obtenerDescripcionPelicula",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/peliculas/descripcion",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"peliculas",
+								"descripcion"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Endpoints Pelicula Visualizada",
+			"item": [
+				{
+					"name": "obtenerPeliculasVisualizadasPorUsuario",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/peliculas/visualizadas",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"peliculas",
+								"visualizadas"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Endpoints Serie Visualizada",
+			"item": [
+				{
+					"name": "obtenerSeriesVisualizadasPorUsuario",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/series/visualizadas",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"series",
+								"visualizadas"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Endpoints Temporada",
+			"item": [
+				{
+					"name": "obtenerTemporadaPorId",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/temporadas?temporadaId=123",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"temporadas"
+							],
+							"query": [
+								{
+									"key": "temporadaId",
+									"value": "123"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "obtenerTemporadasPorSerieId",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/series/1/temporadas",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"series",
+								"1",
+								"temporadas"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Endpoints Serie",
+			"item": [
+				{
+					"name": "obtenerSeriePorId",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/series/1",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"series",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "obtenerSeriePorGenero",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/series/accion",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"series",
+								"accion"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "obtenerDetalleSerie",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/series/detalle?nombre=BreakingBad",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"series",
+								"detalle"
+							],
+							"query": [
+								{
+									"key": "nombre",
+									"value": "BreakingBad"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "obtenerDescripcionSerie",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/series/descripcion?nombre=BreakingBad",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"series",
+								"descripcion"
+							],
+							"query": [
+								{
+									"key": "nombre",
+									"value": "BreakingBad"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Endpoints Episodio",
+			"item": [
+				{
+					"name": "obtenerEpisodiosPorTemporada",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/episodios/temporada?temporadaNumero=1&serieNombre=BreakingBad",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"episodios",
+								"temporada"
+							],
+							"query": [
+								{
+									"key": "temporadaNumero",
+									"value": "1"
+								},
+								{
+									"key": "serieNombre",
+									"value": "BreakingBad"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "obtenerDetalleEpisodio",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/episodios/detalle?episodioNumero=1&temporadaNumero=1&serieId=BreakingBad",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"episodios",
+								"detalle"
+							],
+							"query": [
+								{
+									"key": "episodioNumero",
+									"value": "1"
+								},
+								{
+									"key": "temporadaNumero",
+									"value": "1"
+								},
+								{
+									"key": "serieId",
+									"value": "BreakingBad"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

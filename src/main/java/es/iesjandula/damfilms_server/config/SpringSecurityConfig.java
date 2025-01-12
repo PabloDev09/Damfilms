@@ -26,7 +26,7 @@ public class SpringSecurityConfig {
 
             .authorizeHttpRequests(authz -> authz
                 // Recursos públicos
-                .requestMatchers("/","/eula", "/inicio", "/login", "/signin", "/css/**", "/img/**","/js/**","/static/**","/modo","/usuarios","/configuracion","/suscripciones", "/suscripciones/tipos").permitAll()
+                .requestMatchers("/","/eula", "/inicio", "/login", "/signin", "/css/**", "/img/**","/js/**","/static/**","/modo","/usuarios","/configuracion", "/suscripciones", "/suscripcion/tipos").permitAll()
                 // Acceso según roles
                 .requestMatchers("/home", "/peliculas", "/cuenta-usuario").hasAnyAuthority("PREMIUM", "GRATUITA")
                 .requestMatchers("/series", "/documentales").hasAnyAuthority("PREMIUM")
