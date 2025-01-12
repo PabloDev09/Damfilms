@@ -31,13 +31,13 @@
     <main>
         <div class="trasparente">
             <div id="div-logo">
-                <img th:src="@{/img/Logo_inicio.png}" style="width: 1250px; height: 250px;">
+                <img th:src="@{/img/Logo_inicio.png}">
             </div>
             <div id="botonInicio1">
                 <a th:href="@{/login}">Iniciar Sesión</a>
             </div>
             <div id="botonInicio2">
-                <a href="#infoInicio">Registrarse</a>
+                <a th:href="@{/signin}">Registrarse</a>
             </div>
         </div>
 

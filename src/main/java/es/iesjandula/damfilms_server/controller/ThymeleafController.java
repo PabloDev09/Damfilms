@@ -116,17 +116,17 @@ public class ThymeleafController
 		return "login.html";
 	}
 	
-	@RequestMapping("/cuenta_usuario.html")
+	@RequestMapping("/cuenta-usuario")
 	public String update(Model model)
 	{
 		// Asociamos "user" como modelo que almacenará los datos del formulario de
 		// "register.html"
 		model.addAttribute("user", new UserRegistrationDto());
 
-		return "static/config/cuenta_usuario.html";
+		return "cuenta_usuario.html";
 	}
 
-	@RequestMapping(method = RequestMethod.POST, value = "/update")
+	@RequestMapping(method = RequestMethod.POST, value = "/actualizar/usuario")
 	public String processRoleUpdate(UserRegistrationDto userDto, Model model)
 	{
 		// Comprobamos si el usuario no existe
@@ -140,7 +140,7 @@ public class ThymeleafController
 			// usuario ya existe"
 			model.addAttribute("roleUpdateErrorMessage", "El usuario no existe");
 
-			return "static/config/cuenta_usuario.html";
+			return "cuenta_usuario.html";
 		}
 
 		// En caso de que no exista el usuario, seguimos el flujo normal de creación de
@@ -162,7 +162,7 @@ public class ThymeleafController
 			// error
 			model.addAttribute("roleUpdateErrorMessage", damfilmsServerException.getMessage());
 
-			return "static/config/cuenta_usuario.html";
+			return "cuenta_usuario.html";
 		}
 
 		return "login.html";
@@ -231,12 +231,11 @@ public class ThymeleafController
 		return "login.html";
 	}
 
-	/* Ruta para la página de configuración principal */
 	@RequestMapping("/configuracion")
-	public String configuracion()
-	{
-		return "configuracion.html";
+	public String configuracion() {
+	    return "configuracion.html";
 	}
+
 
 	/* Ruta para la página de acuerdo de licencia de usuario final (EULA) */
 	@RequestMapping("/eula")

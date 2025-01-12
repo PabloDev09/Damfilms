@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org" lang="es">
+<head> 
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+    <title th:text="${pageTitle}">Damfilms</title>
+
+    <!-- Enlaces a recursos externos y locales -->
+    <script th:src="@{/js/popper.min.js}"></script>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" 
+          integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" 
+            integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+
+    <link th:href="@{/Estilos/preferencias.css}" rel="stylesheet" type="text/css">
+    <link th:href="@{/css/navbar.css}" rel="stylesheet" type="text/css">
+    <link th:href="@{/estilos/img_perfil.css}" rel="stylesheet" type="text/css">
+    <link th:href="@{/css/style.css}" rel="stylesheet">
+</head>
+
+<body id="bodyPerfil">
+    <script th:src="@{/js/img_perfil.js}"></script>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg">
+        <div class="container-fluid">
+            <div class="row" style="width:100%;">
+                <div class="col-11 container-left">
+                    <button class="navbar-toggler" id="navbar" type="button" data-bs-toggle="collapse" 
+                            data-bs-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" 
+                            aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon navbar-dark"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarTogglerDemo01" style="justify-content: start;">
+                        <a class="navbar-brand" th:href="@{/home}">
+                            <img th:src="@{/img/Logo.png}">
+                        </a>
+                        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                            <li class="nav-item-left">
+                                <a class="nav-link active" aria-current="page" th:href="@{/home}">
+                                    <div id="home-icon">Home</div>
+                                </a>
+                            </li>
+                            <li class="nav-item-left">
+                                <a class="nav-link active" th:href="@{/series}">
+                                    <div id="series-icon">Series</div>
+                                </a>
+                            </li>
+                            <li class="nav-item-left">
+                                <a class="nav-link active" th:href="@{/peliculas}">
+                                    <div id="films-icon">Películas</div>
+                                </a>
+                            </li>
+                            <li class="nav-item-left">
+                                <a class="nav-link active" th:href="@{/documentales}">
+                                    <div id="documentals-icon">Documentales</div>
+                                </a>
+                            </li>
+                        </ul>
+                        <form class="d-flex">
+                            <input class="input-search me-2" type="search" placeholder="Buscar" aria-label="Search">
+                            <button class="button-search" type="submit">
+                                <img th:src="@{/img/icons/lupa-64.png}">
+                            </button>
+                        </form>
+                    </div>
+                </div>
+                <div class="col-1 container-right">
+                    <ul>
+                        <li class="nav-item-right dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <img th:src="@{/img/icons/user-64.png}">
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-end">
+                                <li><a class="dropdown-item" th:href="@{/configuracion}">Ajustes</a></li>                            
+                                <li><a class="dropdown-item" th:href="@{/inicio}">Cerrar Sesión</a></li>
+                            </ul>
+                        </li>
+                    </ul>            
+                </div>
+            </div>
+        </div>         
+    </nav>
+
+    <!-- Main content-->
+    <main>
+        <div style="height: 108vh; width: 100%;">
+            <div id="img_perfil" class="profile-pic">
+                <label class="-label" for="file">
+                    <span class="glyphicon glyphicon-camera"></span>
+                    <span>Change Image</span>
+                </label>
+                <br>
+                <input id="file" type="file" onchange="loadFile(event)">
+                <img th:src="@{https://ih1.redbubble.net/image.4859384777.9554/raf,360x360,075,t,fafafa:ca443f4786.jpg}" id="output" width="200">
+            </div>
+            <div style="display: grid; place-items: center; position: absolute; top: 300px; left: 30%; width:40%; color:white">
+                <form th:action="@{/actualizar/usuario}" method="post" class="row g-3">
+                    <div class="col-md-6">
+                        <label for="username" class="form-label">Nombre usuario</label>
+                        <input type="text" class="form-control" id="username" name="username">
+                    </div>
+                    <div class="col-md-6">
+                        <label for="correo" class="form-label">Cambiar email</label>
+                        <input type="text" class="form-control" id="correo" name="correo">
+                    </div>
+                    <div class="col-md-6">
+                        <label for="password" class="form-label">Cambiar contraseña</label>
+                        <input type="password" class="form-control" id="password" name="password">
+                    </div>
+                    <div class="col-md-6">
+                        <label for="roles" class="form-label">Cambiar suscripción</label>
+                        <input type="text" class="form-control" id="roles" name="roles">
+                    </div>
+                    <div class="col-12">
+                        <label for="inputAddress" class="form-label">Dirección</label>
+                        <input type="text" class="form-control" id="inputAddress" placeholder="Paraje de la colina silenciosa 1234...">
+                    </div>
+                    <div class="col-12">
+                        <label for="inputAddress2" class="form-label">Dirección 2</label>
+                        <input type="text" disabled class="form-control" id="inputAddress2" placeholder="Apartamento, casa de playa,...">
+                    </div>
+                    <div class="col-md-6">
+                        <label for="inputCity" class="form-label">Ciudad</label>
+                        <input type="text" class="form-control" id="inputCity">
+                    </div>
+                    <div class="col-md-4">
+                        <label for="inputState" class="form-label">Provincia</label>
+                        <select id="inputState" class="form-select">
+                            <option selected>Elige...</option>
+                            <option>...</option>
+                        </select>
+                    </div>
+                    <div class="col-md-2">
+                        <label for="inputZip" class="form-label">CP</label>
+                        <input type="text" class="form-control" id="inputZip">
+                    </div>
+                    <div class="col-md-3">
+                        <select class="form-select form-select-lg mb-3" aria-label="Privacidad del perfil">
+                            <option value="1">Público</option>
+                            <option value="2">Privado</option>
+                        </select>
+                    </div>
+                    <div class="col-12">
+                        <button id="botonCambios" value="" type="submit" class="btn btn-primary">Confirmar cambios</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer id="footerPerfil" class="container-fluid footer-djg">
+        <div class="row mx-auto pt-4 pb-2" style="font-size: 9pt;">
+            <div class="col-md-2 col-lg-2 ms-md-auto align-self-end p-1 mx-auto"> 
+                <center><a class="footer-enlace" th:href="@{/eula.html#copyright}">Copyright © 2023</a></center>
+            </div>
+            <div class="col-md-2 col-lg-2 ms-md-auto align-self-end p-1 mx-auto"> 
+                <center><a class="footer-enlace" th:href="@{/eula.html#cookies}">Cookies y seguimiento</a></center>
+            </div>
+            <div class="col-md-2 col-lg-2 ms-md-auto align-self-end p-1 mx-auto"> 
+                <center><a class="footer-enlace" th:href="@{/eula.html#politica}">Política de datos</a></center>
+            </div>
+            <div class="col-md-3 col-lg-3 ms-md-auto align-self-end p-1 mx-auto"> 
+                <center><a class="footer-enlace" th:href="@{/eula.html#terminos}">Términos y condiciones</a></center>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
