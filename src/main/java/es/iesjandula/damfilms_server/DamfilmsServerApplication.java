@@ -15,6 +15,7 @@ import es.iesjandula.damfilms_server.repositories.IGeneroRepository;
 import es.iesjandula.damfilms_server.repositories.IModoRepository;
 import es.iesjandula.damfilms_server.repositories.IPeliculaRepository;
 import es.iesjandula.damfilms_server.repositories.IPeliculaVisualizadaRepository;
+import es.iesjandula.damfilms_server.repositories.IRoleRepository;
 import es.iesjandula.damfilms_server.repositories.ISerieRepository;
 import es.iesjandula.damfilms_server.repositories.ISerieVisualizadaRepository;
 import es.iesjandula.damfilms_server.repositories.ISuscripcionRepository;
@@ -67,6 +68,9 @@ public class DamfilmsServerApplication implements CommandLineRunner
 
 	@Autowired
 	private IGeneroRepository iGeneroRepository;
+	
+	@Autowired
+	private IRoleRepository iRoleRepository;
 
 	public static void main(String[] args)
 	{
@@ -129,19 +133,22 @@ public class DamfilmsServerApplication implements CommandLineRunner
 		{
 			this.iParseoFicheros.parseaFichero(Constants.CSV_EPISODIOS);
 		}
-
-//		if(this.iPeliculaVisualizadaRepository.findAll().isEmpty())
-//		{
-//			this.iParseoFicheros.parseaFichero(Constants.CSV_PELICULAS_VISUALIZADAS);
-//		}	
-//		if(this.iSerieVisualizadaRepository.findAll().isEmpty())
-//		{
-//			this.iParseoFicheros.parseaFichero(Constants.CSV_SERIES_VISUALIZADAS);
-//		}		
-//		if(this.iDocumentalVisualizadoRepository.findAll().isEmpty())
-//		{
-//			this.iParseoFicheros.parseaFichero(Constants.CSV_DOCUMENTALES_VISUALIZADOS);
-//		}				
+		if(this.iPeliculaVisualizadaRepository.findAll().isEmpty())
+		{
+			this.iParseoFicheros.parseaFichero(Constants.CSV_PELICULAS_VISUALIZADAS);
+		}	
+		if(this.iSerieVisualizadaRepository.findAll().isEmpty())
+		{
+			this.iParseoFicheros.parseaFichero(Constants.CSV_SERIES_VISUALIZADAS);
+		}		
+		if(this.iDocumentalVisualizadoRepository.findAll().isEmpty())
+		{
+			this.iParseoFicheros.parseaFichero(Constants.CSV_DOCUMENTALES_VISUALIZADOS);
+		}	
+		if (this.iRoleRepository.findAll().isEmpty())
+		{
+			this.iParseoFicheros.parseaFichero(Constants.CSV_TIPOS_SUSCRIPCIONES) ;
+		}
 	}
 
 }
