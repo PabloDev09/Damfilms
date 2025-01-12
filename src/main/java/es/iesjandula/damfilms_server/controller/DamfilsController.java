@@ -40,6 +40,7 @@ import es.iesjandula.damfilms_server.repositories.IEpisodioRepository;
 import es.iesjandula.damfilms_server.repositories.IModoRepository;
 import es.iesjandula.damfilms_server.repositories.IPeliculaRepository;
 import es.iesjandula.damfilms_server.repositories.IPeliculaVisualizadaRepository;
+import es.iesjandula.damfilms_server.repositories.IRoleRepository;
 import es.iesjandula.damfilms_server.repositories.ISerieRepository;
 import es.iesjandula.damfilms_server.repositories.ISerieVisualizadaRepository;
 import es.iesjandula.damfilms_server.repositories.ISuscripcionRepository;
@@ -89,6 +90,9 @@ public class DamfilsController
 	@Autowired
 	private ISuscripcionRepository iSuscripcionRepository;
 
+	@Autowired
+	private IRoleRepository iRoleRepository;
+	
 	@RequestMapping(method = RequestMethod.GET, value = "/documentales_list")
 	public ResponseEntity<?> obtenerDocumentales()
 	{
@@ -805,34 +809,8 @@ public class DamfilsController
 		}
 	}
 
-	// ==================== Suscripcion ====================
-	@RequestMapping(method = RequestMethod.GET, value = "/suscripciones/tipos")
-	public ResponseEntity<?> obtenerTiposSuscripciones()
-	{
-		try
-		{
-			List<String> tiposSuscripcion;
-
-			tiposSuscripcion = iSuscripcionRepository.encontrarTodosLosTipos();
-
-			if (iSuscripcionRepository.encontrarTodosLosTipos().isEmpty())
-			{
-				throw new DamfilmsServerException(404, "Ningun tipo de suscripcion encontrado");
-			}
-
-			log.info("Tipos enviados exitosamente: {}", tiposSuscripcion);
-			return ResponseEntity.ok(tiposSuscripcion);
-		} 
-		catch (DamfilmsServerException ex)
-		{
-			log.error("Error al encontrar tipos de suscripcion: {}", ex.getMessage());
-			DamfilmsServerException customException = new DamfilmsServerException(500, "Error al cambiar configuración",
-					ex);
-			return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
-					.body(customException.getBodyExceptionMessage());
-		}
-	}
-    @RequestMapping(method = RequestMethod.GET, value = "/configuracion")
+	
+	    @RequestMapping(method = RequestMethod.GET, value = "/configuracion")
     public ResponseEntity<?> verConfiguracion(@RequestParam String usuario) {
         try {
         	Usuario usuarioOpt = iUsuarioRepository.findByNombre(usuario);
@@ -945,7 +923,6 @@ public class DamfilsController
     }
 
 	// ==================== Suscripcion ====================
-
     @RequestMapping(method = RequestMethod.POST, value = "/suscripciones")
     public ResponseEntity<?> crearSuscripcion(@RequestParam String nombreUsuario) 
     {
@@ -1058,5 +1035,33 @@ public class DamfilsController
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(customException.getBodyExceptionMessage());
         }
     }
+    
+    @RequestMapping(method = RequestMethod.GET, value = "/suscripciones/tipos")
+	public ResponseEntity<?> obtenerTiposSuscripciones()
+	{
+		try
+		{
+			List<String> tiposSuscripcion;
+
+			tiposSuscripcion = iRoleRepository.entontrarTodosLosRoles();
+
+			if (iRoleRepository.entontrarTodosLosRoles().isEmpty())
+			{
+				throw new DamfilmsServerException(404, "Ningun tipo de suscripcion encontrado");
+			}
+
+			log.info("Tipos enviados exitosamente: {}", tiposSuscripcion);
+			return ResponseEntity.ok(tiposSuscripcion);
+		} 
+		catch (DamfilmsServerException ex)
+		{
+			log.error("Error al encontrar tipos de suscripcion: {}", ex.getMessage());
+			DamfilmsServerException customException = new DamfilmsServerException(500, "Error al cambiar configuración",
+					ex);
+			return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+					.body(customException.getBodyExceptionMessage());
+		}
+	}
+
 
 }
