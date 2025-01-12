@@ -150,15 +150,15 @@
                         <h4 class="tituloseccion-djg" style="color:white;">Ultimas llegadas</h4> <!-- Titulo sección ultimas llegadas-->       
                         
                         <!-- Aquí se inyectan los objetos de peliculas recientes -->
-                        <div id="newest-row" >
-                        	<div class="col-3">
-                        		<div class="col-3" th:each="documental : ${ultimasLlegadas}">
-                        			<div class="card">
-                        				<img class="card-img-top" th:src="@{/img/posters/documentales/} + ${documental.titulo + ' .jpg'}" alt="Imagen del documental">
-                        				<div class="card-body">
-                        					<h5 class="card-title" th:text="${documental.titulo}"></h5>
-                        					<p class="card-text" th:text="${documental.descripcion}"></p>
-                        					<p class="card-text" th:text="'Duracion: ' + ${documental.duracion} + ' min'"></p>
+                        <div id="row" >
+                        	<div class="row">
+                        		<div class="col" th:each="documental : ${ultimasLlegadas}">
+                        			<div class="box-content">
+                        				<img class="boxes" th:src="@{/img/posters/documentales/} + ${documental.titulo + '.jpg'}" alt="Imagen del documental">
+                        				<div class="box-content-son">
+                        					<h5 class="titulopelicula" th:text="${documental.titulo}"></h5>
+                        					<p class="duracion" th:text="${documental.descripcion}"></p>
+                        					<p class="fechasalida" th:text="${documental.duracion}"></p>
                         				</div>
                         			</div>
                         		</div>
@@ -175,13 +175,13 @@
                         <!-- Aquí se inyectan los objetos de peliculas populares-->
                         <div id="popular-row">
                         	<div class="row">
-				                <div class="col-3" th:each="documental : ${mejorClasificadas}">
-				                    <div class="card">
-				                        <img class="card-img-top" th:src="@{/img/posters/documentales} + ${documental.titulo + '.jpg'}" alt="Imagen del documental">
-				                        <div class="card-body">
-				                            <h5 class="card-title" th:text="${documental.titulo}"></h5>
-				                            <p class="card-text" th:text="${documental.descripcion}"></p>
-				                            <p class="card-text" th:text="'Duración: ' + ${documental.duracion} + ' min'"></p>
+				                <div class="col" th:each="documental : ${mejorClasificadas}">
+				                    <div class="box-content">
+				                        <img class="boxes" th:src="@{/img/posters/documentales} + ${documental.titulo + '.jpg'}" alt="Imagen del documental">
+				                        <div class="box-content-son">
+				                            <h5 class="titulopelicula" th:text="${documental.titulo}"></h5>
+				                            <p class="duracion" th:text="${documental.descripcion}"></p>
+				                            <p class="fechasalida" th:text="${documental.duracion}"></p>
 				                        </div>
 				                    </div>
 				                </div>
@@ -197,13 +197,13 @@
                         <!-- Aqui se inyectan los objetos de peliculas sin filtrar ni discriminar -->
                         <div id="explore-row">
                         	<div class="row">
-				                <div class="col-3" th:each="documental : ${todosLosDocumentales}">
-				                    <div class="card">
-				                        <img class="card-img-top" th:src="@{/img/posters/documentales} + ${documental.titulo + '.jpg'}" alt="Imagen del documental">
-				                        <div class="card-body">
+				                <div class="col" th:each="documental : ${todosLosDocumentales}">
+				                    <div class="box-content">
+				                        <img class="boxes" th:src="@{/img/posters/documentales} + ${documental.titulo + '.jpg'}" alt="Imagen del documental">
+				                        <div class="box-content-son">
 				                            <h5 class="card-title" th:text="${documental.titulo}"></h5>
 				                            <p class="card-text" th:text="${documental.descripcion}"></p>
-				                            <p class="card-text" th:text="'Duración: ' + ${documental.duracion} + ' min'"></p>
+				                            <p class="duracion" th:text="${documental.duracion}"></p>
 				                        </div>
 				                    </div>
 				                </div>
