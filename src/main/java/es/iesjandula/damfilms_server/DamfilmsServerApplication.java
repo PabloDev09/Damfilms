@@ -18,6 +18,7 @@ import es.iesjandula.damfilms_server.repositories.IPeliculaVisualizadaRepository
 import es.iesjandula.damfilms_server.repositories.IRoleRepository;
 import es.iesjandula.damfilms_server.repositories.ISerieRepository;
 import es.iesjandula.damfilms_server.repositories.ISerieVisualizadaRepository;
+import es.iesjandula.damfilms_server.repositories.ISuscripcionRepository;
 import es.iesjandula.damfilms_server.repositories.ITemporadaRepository;
 import es.iesjandula.damfilms_server.repositories.IUsuarioRepository;
 import es.iesjandula.damfilms_server.utils.Constants;
@@ -61,6 +62,9 @@ public class DamfilmsServerApplication implements CommandLineRunner
 
 	@Autowired
 	private IConfiguracionRepository iConfiguracionRepository;
+
+	@Autowired
+	private ISuscripcionRepository iSuscripcionRepository;
 
 	@Autowired
 	private IGeneroRepository iGeneroRepository;
@@ -116,6 +120,10 @@ public class DamfilmsServerApplication implements CommandLineRunner
 		if (this.iDocumentalVisualizadoRepository.findAll().isEmpty())
 		{
 			this.iParseoFicheros.parseaFichero(Constants.CSV_DOCUMENTALES_VISUALIZADOS);
+		}
+		if (this.iSuscripcionRepository.findAll().isEmpty())
+		{
+			this.iParseoFicheros.parseaFichero(Constants.CSV_SUSCRIPCIONES);
 		}
 		if (this.iTemporadaRepository.findAll().isEmpty())
 		{

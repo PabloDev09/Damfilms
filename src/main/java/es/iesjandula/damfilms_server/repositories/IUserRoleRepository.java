@@ -10,5 +10,5 @@ import es.iesjandula.damfilms_server.entities.ids.UserRoleId;
 
 public interface IUserRoleRepository extends JpaRepository<UserRole, UserRoleId>
 {
-	List<UserRole> findByIdUsuario(Usuario user);
+	List<UserRole> findByidUsuario(Usuario user);
 }
