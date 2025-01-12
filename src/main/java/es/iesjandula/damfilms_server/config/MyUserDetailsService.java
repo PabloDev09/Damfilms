@@ -116,7 +116,7 @@ public class MyUserDetailsService implements UserDetailsService
     	
     	Usuario foundUser = this.iUsuarioRepository.findByNombre(userRegistrationDto.getUsername());
         
-    	List<UserRole> userRoles = this.iUserRoleRepository.findByidUsuario(foundUser);
+    	List<UserRole> userRoles = this.iUserRoleRepository.findByIdUsuario(foundUser);
     	for (UserRole role : userRoles)
     	{
     		this.iUserRoleRepository.delete(role);
@@ -173,7 +173,7 @@ public class MyUserDetailsService implements UserDetailsService
 		Usuario usuario = userOptional.get();
 		
 		// Buscamos los roles asociados al usuario
-		List<UserRole> userRoles = this.iUserRoleRepository.findByidUsuario(usuario) ;
+		List<UserRole> userRoles = this.iUserRoleRepository.findByIdUsuario(usuario) ;
 
 		// Llamamos a este método para que en base a los roles (entendidos por nuestra aplicación),
 		// los convierta en GrantedAuthority, que es lo que entiende Spring Security en cuanto a roles

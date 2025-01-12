@@ -20,7 +20,6 @@ import es.iesjandula.damfilms_server.entities.PeliculaVisualizada;
 import es.iesjandula.damfilms_server.entities.Role;
 import es.iesjandula.damfilms_server.entities.Serie;
 import es.iesjandula.damfilms_server.entities.SerieVisualizada;
-import es.iesjandula.damfilms_server.entities.Suscripcion;
 import es.iesjandula.damfilms_server.entities.Temporada;
 import es.iesjandula.damfilms_server.entities.Usuario;
 import es.iesjandula.damfilms_server.parsers.interfaces.IGestorParseo;
@@ -67,10 +66,7 @@ public class GestorParseoImpl implements IGestorParseo
 	
 	@Autowired
 	IParseo<DocumentalVisualizado> iParseoDocumentalVisualizado;
-	
-	@Autowired
-	IParseo<Suscripcion> iParseoSuscripcion;
-	
+
 	@Autowired
 	IParseo<Role> iParseoRol;
 	
@@ -172,14 +168,6 @@ public class GestorParseoImpl implements IGestorParseo
 
 			scannerSerieVisualizada.close();
 			break;
-		case Constants.CSV_SUSCRIPCIONES:
-			Scanner scannerSuscripcion = this.abrirFichero(nombreFichero);
-
-			this.iParseoSuscripcion.parseaFichero(scannerSuscripcion);
-
-			scannerSuscripcion.close();
-			break;
-			
 		case Constants.CSV_TIPOS_SUSCRIPCIONES:
 			Scanner scannerTiposSuscripciones = this.abrirFichero(nombreFichero);
 

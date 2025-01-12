@@ -116,7 +116,7 @@ public class ThymeleafController
 		return "login.html";
 	}
 	
-	@RequestMapping("/cuenta_usuario.html")
+	@RequestMapping("/cuenta-usuario")
 	public String update(Model model)
 	{
 		// Asociamos "user" como modelo que almacenará los datos del formulario de
