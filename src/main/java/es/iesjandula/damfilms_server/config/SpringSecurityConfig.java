@@ -26,12 +26,11 @@ public class SpringSecurityConfig {
 
             .authorizeHttpRequests(authz -> authz
                 // Recursos públicos
-                .requestMatchers("/","/eula", "/inicio", "/login", "/signin", "/css/**", "/img/**","/js/**","/static/**", "config/**", "/modo", "/usuarios", "/configuracion", "/suscripciones", "/suscripcion/tipos").permitAll()
+                .requestMatchers("/","/eula", "/inicio", "/login", "/signin", "/css/**", "/img/**","/js/**","/static/**","/modo","/usuarios","/configuracion","/suscripciones", "/suscripciones/tipos").permitAll()
                 // Acceso según roles
-                .requestMatchers("/peliculas").hasRole("PREMIUM")
-                .requestMatchers("/home", "/series", "/documentales", "/cuenta-usuario").hasAnyRole("PREMIUM", "GRATUITA")
+                .requestMatchers("/home", "/peliculas", "/cuenta-usuario").hasAnyAuthority("PREMIUM", "GRATUITA")
+                .requestMatchers("/series", "/documentales").hasAnyAuthority("PREMIUM")
                 // Prohibir películas para usuarios invitados
-                .requestMatchers("/peliculas").not().hasRole("GRATUITA")
                 // Requiere autenticación para cualquier otra página
                 .anyRequest().authenticated()
             )
