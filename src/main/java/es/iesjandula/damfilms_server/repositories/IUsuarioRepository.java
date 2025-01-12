@@ -19,5 +19,9 @@ public interface IUsuarioRepository extends JpaRepository<Usuario, Long>
 
 	@Query("SELECT new es.iesjandula.damfilms_server.dtos.UsuarioLogin(u.correo, u.contrasena) " + "FROM Usuario u "
 			+ "WHERE u.correo = :email AND u.contrasena = :contrasenia ")
-	UsuarioLogin encontrarUsuarioYContrasenia(@Param("email") String email, @Param("contrasenia") String contrasenia);
+	UsuarioLogin encontrarCorreoYContrasenia(@Param("email") String email, @Param("contrasenia") String contrasenia);
+
+	@Query("SELECT u " + "FROM Usuario u "
+			+ "WHERE u.correo = :email AND u.contrasena = :contrasenia ")
+	Optional<Usuario> encontrarUsuarioPorCorreoYContrasenia(@Param("email") String email, @Param("contrasenia") String contrasenia);
 }

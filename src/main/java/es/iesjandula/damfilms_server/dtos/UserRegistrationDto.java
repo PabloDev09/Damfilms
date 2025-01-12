@@ -19,7 +19,7 @@ public class UserRegistrationDto
     
     private String password ;
     
-    private String roles ;
+    private String rol ;
     
     private List<String> rolesAsList ;
 
@@ -28,13 +28,13 @@ public class UserRegistrationDto
 	 * Al crearse un objeto de tipo UserRegistrationDto, usará este método set
 	 * Por ello, aprovecho este set para convertirlo a una List<String>
 	 * 
-	 * @param roles roles separados por coma
+	 * @param rol rol separados por coma
 	 */
-	public void setRoles(String roles)
+	public void setRoles(String rol)
 	{
-		this.roles = roles;
+		this.rol = rol;
 		
 		// Creamos la lista de roles en base a los elementos separados por coma
-		this.rolesAsList = Arrays.asList(this.roles.split(",")) ;
+		this.rolesAsList = Arrays.asList(this.rol.split(",")) ;
 	}
 }
