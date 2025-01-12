@@ -28,8 +28,10 @@ import es.iesjandula.damfilms_server.entities.Pelicula;
 import es.iesjandula.damfilms_server.entities.PeliculaVisualizada;
 import es.iesjandula.damfilms_server.entities.Serie;
 import es.iesjandula.damfilms_server.entities.SerieVisualizada;
+import es.iesjandula.damfilms_server.entities.Suscripcion;
 import es.iesjandula.damfilms_server.entities.Temporada;
 import es.iesjandula.damfilms_server.entities.Usuario;
+import es.iesjandula.damfilms_server.entities.ids.SuscripcionId;
 import es.iesjandula.damfilms_server.entities.ids.TemporadaId;
 import es.iesjandula.damfilms_server.repositories.IConfiguracionRepository;
 import es.iesjandula.damfilms_server.repositories.IDocumentalRepository;
@@ -38,9 +40,9 @@ import es.iesjandula.damfilms_server.repositories.IEpisodioRepository;
 import es.iesjandula.damfilms_server.repositories.IModoRepository;
 import es.iesjandula.damfilms_server.repositories.IPeliculaRepository;
 import es.iesjandula.damfilms_server.repositories.IPeliculaVisualizadaRepository;
-import es.iesjandula.damfilms_server.repositories.IRoleRepository;
 import es.iesjandula.damfilms_server.repositories.ISerieRepository;
 import es.iesjandula.damfilms_server.repositories.ISerieVisualizadaRepository;
+import es.iesjandula.damfilms_server.repositories.ISuscripcionRepository;
 import es.iesjandula.damfilms_server.repositories.ITemporadaRepository;
 import es.iesjandula.damfilms_server.repositories.IUsuarioRepository;
 import es.iesjandula.damfilms_server.utils.DamfilmsServerException;
@@ -85,7 +87,7 @@ public class DamfilsController
 	private IConfiguracionRepository iConfiguracionRepository;
 
 	@Autowired
-	private IRoleRepository iRoleRepository;
+	private ISuscripcionRepository iSuscripcionRepository;
 
 	@RequestMapping(method = RequestMethod.GET, value = "/documentales_list")
 	public ResponseEntity<?> obtenerDocumentales()
@@ -811,9 +813,9 @@ public class DamfilsController
 		{
 			List<String> tiposSuscripcion;
 
-			tiposSuscripcion = iRoleRepository.entontrarTodosLosRoles();
+			tiposSuscripcion = iSuscripcionRepository.encontrarTodosLosTipos();
 
-			if (iRoleRepository.entontrarTodosLosRoles().isEmpty())
+			if (iSuscripcionRepository.encontrarTodosLosTipos().isEmpty())
 			{
 				throw new DamfilmsServerException(404, "Ningun tipo de suscripcion encontrado");
 			}
@@ -941,4 +943,120 @@ public class DamfilsController
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(customException.getBodyExceptionMessage());
         }
     }
+
+	// ==================== Suscripcion ====================
+
+    @RequestMapping(method = RequestMethod.POST, value = "/suscripciones")
+    public ResponseEntity<?> crearSuscripcion(@RequestParam String nombreUsuario) 
+    {
+        try 
+        {
+            // Comprobar si el usuario existe
+        	Usuario usuarioExistente = iUsuarioRepository.findByNombre(nombreUsuario);
+            if (usuarioExistente==null) 
+            {
+                log.error("Usuario con nombre {} no encontrado.", nombreUsuario);
+                return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Usuario no encontrado.");
+            }
+
+            // Obtener el usuario
+            Usuario usuario = usuarioExistente;
+
+            // Crear el SuscripcionId (clave compuesta)
+            SuscripcionId suscripcionId = new SuscripcionId();
+            suscripcionId.setUsuario(usuario);
+            suscripcionId.setFechaInicio(java.sql.Date.valueOf(java.time.LocalDate.now()));  
+
+            // Crear nueva suscripción
+            Suscripcion nuevaSuscripcion = new Suscripcion();
+            nuevaSuscripcion.setSuscripcionId(suscripcionId);
+            nuevaSuscripcion.setDuracion(30);  
+            nuevaSuscripcion.setFechaFin(java.sql.Date.valueOf(java.time.LocalDate.now().plusDays(30)));  
+
+            // Guardar la suscripción
+            iSuscripcionRepository.save(nuevaSuscripcion);
+            log.info("Suscripción creada exitosamente para el usuario: {}", usuario.getNombre());
+            return ResponseEntity.status(HttpStatus.CREATED).body("Suscripción creada exitosamente.");
+        } 
+        catch (Exception ex) 
+        {
+            log.error("Error al crear suscripción: {}", ex.getMessage());
+            DamfilmsServerException customException = new DamfilmsServerException(500, "Error al crear suscripción", ex);
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(customException.getBodyExceptionMessage());
+        }
+    }
+
+    
+    @RequestMapping(method = RequestMethod.GET, value = "/suscripciones")
+    public ResponseEntity<?> verSuscripcion(@RequestParam String nombreUsuario) {
+        try {
+            // Comprobar si el usuario existe
+        	Usuario usuarioExistente = iUsuarioRepository.findByNombre(nombreUsuario);
+            if (usuarioExistente==null) {
+                log.error("Usuario con nombre {} no encontrado.", nombreUsuario);
+                return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Usuario no encontrado.");
+            }
+
+            // Obtener el usuario
+            Usuario usuario = usuarioExistente;
+
+            // Obtener suscripción del usuario
+            Optional<Suscripcion> suscripcionExistente = iSuscripcionRepository.findByUsuario(usuario);
+            if (suscripcionExistente.isEmpty()) {
+                log.error("No se encontró una suscripción para el usuario: {}", nombreUsuario);
+                return ResponseEntity.status(HttpStatus.NOT_FOUND).body("No se encontró una suscripción para el usuario.");
+            }
+
+            // Retornar la suscripción encontrada
+            Suscripcion suscripcion = suscripcionExistente.get();
+            log.info("Suscripción encontrada para el usuario: {}", nombreUsuario);
+            return ResponseEntity.ok(suscripcion);
+        } catch (Exception ex) {
+            log.error("Error al ver suscripción: {}", ex.getMessage());
+            DamfilmsServerException customException = new DamfilmsServerException(500, "Error al ver suscripción", ex);
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(customException.getBodyExceptionMessage());
+        }
+    }
+
+    @RequestMapping(method = RequestMethod.DELETE, value = "/suscripciones")
+    public ResponseEntity<?> cancelarSuscripcion(@RequestParam String nombreUsuario) {
+        try {
+            // Comprobar si el usuario existe
+        	Usuario usuarioExistente = iUsuarioRepository.findByNombre(nombreUsuario);
+            if (usuarioExistente==null) {
+                log.error("Usuario con nombre {} no encontrado.", nombreUsuario);
+                return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Usuario no encontrado.");
+            }
+
+            // Obtener el usuario
+            Usuario usuario = usuarioExistente;
+
+            // Obtener suscripción del usuario
+            Optional<Suscripcion> suscripcionExistente = iSuscripcionRepository.findByUsuario(usuario);
+            if (suscripcionExistente.isEmpty()) {
+                log.error("No se encontró una suscripción para el usuario: {}", nombreUsuario);
+                return ResponseEntity.status(HttpStatus.NOT_FOUND).body("No se encontró una suscripción para el usuario.");
+            }
+
+            Suscripcion suscripcion = suscripcionExistente.get();
+
+            // Si la suscripción es premium, cambiarla a normal
+            if (suscripcion.getDuracion() > 30) {  
+                suscripcion.setDuracion(30);  
+                iSuscripcionRepository.save(suscripcion);
+                log.info("Suscripción premium cambiada a normal para el usuario: {}", nombreUsuario);
+                return ResponseEntity.ok("Suscripción cambiada a normal exitosamente.");
+            } else {
+                // Si es una suscripción normal, eliminarla
+            	iSuscripcionRepository.delete(suscripcion);
+                log.info("Suscripción eliminada exitosamente para el usuario: {}", nombreUsuario);
+                return ResponseEntity.ok("Suscripción eliminada exitosamente.");
+            }
+        } catch (Exception ex) {
+            log.error("Error al cancelar suscripción: {}", ex.getMessage());
+            DamfilmsServerException customException = new DamfilmsServerException(500, "Error al cancelar suscripción", ex);
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(customException.getBodyExceptionMessage());
+        }
+    }
+
 }

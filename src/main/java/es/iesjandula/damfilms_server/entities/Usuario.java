@@ -43,6 +43,9 @@ public class Usuario
     private Boolean active;
 	
 	@OneToMany(mappedBy = "usuario")
+	private List<Suscripcion> suscripciones;
+	
+	@OneToMany(mappedBy = "usuario")
 	private List<PeliculaVisualizada> peliculasVisualizadas;
 	
 	@OneToMany(mappedBy = "usuario")

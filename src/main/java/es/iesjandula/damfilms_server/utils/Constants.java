@@ -2,6 +2,10 @@ package es.iesjandula.damfilms_server.utils;
 
 public class Constants
 {
+	public static final String SUSCRIPCION_PREMIUM = "PREMIUM";
+
+	public static final String SUSCRIPCION_GRATUITA = "GRATUITA";
+
 	public static final String CSV_PELICULAS = "peliculas.csv";
 
 	public static final String CSV_DOCUMENTALES = "documentales.csv";
@@ -21,6 +25,8 @@ public class Constants
 	public static final String CSV_DOCUMENTALES_VISUALIZADOS = "documentales_visualizados.csv";
 
 	public static final String CSV_SERIES_VISUALIZADAS = "series_visualizadas.csv";
+
+	public static final String CSV_SUSCRIPCIONES = "suscripciones.csv";
 
 	public static final String CSV_TEMPORADAS = "temporadas.csv";
 
