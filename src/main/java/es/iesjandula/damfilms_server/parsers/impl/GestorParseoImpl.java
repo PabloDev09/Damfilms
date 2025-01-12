@@ -17,10 +17,12 @@ import es.iesjandula.damfilms_server.entities.Genero;
 import es.iesjandula.damfilms_server.entities.Modo;
 import es.iesjandula.damfilms_server.entities.Pelicula;
 import es.iesjandula.damfilms_server.entities.PeliculaVisualizada;
+import es.iesjandula.damfilms_server.entities.Role;
 import es.iesjandula.damfilms_server.entities.Serie;
 import es.iesjandula.damfilms_server.entities.SerieVisualizada;
 import es.iesjandula.damfilms_server.entities.Suscripcion;
 import es.iesjandula.damfilms_server.entities.Temporada;
+import es.iesjandula.damfilms_server.entities.Usuario;
 import es.iesjandula.damfilms_server.parsers.interfaces.IGestorParseo;
 import es.iesjandula.damfilms_server.parsers.interfaces.IParseo;
 import es.iesjandula.damfilms_server.utils.Constants;
@@ -54,7 +56,8 @@ public class GestorParseoImpl implements IGestorParseo
 	@Autowired
 	IParseo<Modo> iParseoModo;
 	
-	
+	@Autowired
+	IParseo<Usuario> iParseoUsuario;
 	
 	@Autowired
 	IParseo<PeliculaVisualizada> iParseoPeliculaVisualizada;
@@ -67,6 +70,9 @@ public class GestorParseoImpl implements IGestorParseo
 	
 	@Autowired
 	IParseo<Suscripcion> iParseoSuscripcion;
+	
+	@Autowired
+	IParseo<Role> iParseoRol;
 	
 	@Override
 	public void parseaFichero(String nombreFichero) throws DamfilmsServerException 
@@ -135,7 +141,13 @@ public class GestorParseoImpl implements IGestorParseo
 			scannerModo.close();
 			break;
 
-		
+		case Constants.CSV_USUARIOS:
+			Scanner scannerUsuarios = this.abrirFichero(nombreFichero);
+
+			this.iParseoUsuario.parseaFichero(scannerUsuarios);
+
+			scannerUsuarios.close();
+			break;
 
 		case Constants.CSV_PELICULAS_VISUALIZADAS:
 			Scanner scannerPeliculaVisualizada = this.abrirFichero(nombreFichero);
@@ -167,6 +179,15 @@ public class GestorParseoImpl implements IGestorParseo
 
 			scannerSuscripcion.close();
 			break;
+			
+		case Constants.CSV_TIPOS_SUSCRIPCIONES:
+			Scanner scannerTiposSuscripciones = this.abrirFichero(nombreFichero);
+
+			this.iParseoRol.parseaFichero(scannerTiposSuscripciones);
+
+			scannerTiposSuscripciones.close();
+			break;
+			
 		default:
 			throw new DamfilmsServerException(4, "Fichero" + nombreFichero + "no encontrado");
 		}

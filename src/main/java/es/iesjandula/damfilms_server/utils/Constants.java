@@ -31,6 +31,8 @@ public class Constants
 	public static final String CSV_TEMPORADAS = "temporadas.csv";
 
 	public static final String CSV_EPISODIOS = "episodios.csv";
+	
+	public static final String CSV_TIPOS_SUSCRIPCIONES = "tipos_suscripciones.csv";
 
 	public static final String CSV_DELIMITER = ",";
 }
