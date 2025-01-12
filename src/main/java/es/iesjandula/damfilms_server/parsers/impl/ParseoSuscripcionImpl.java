@@ -35,7 +35,7 @@ public class ParseoSuscripcionImpl implements IParseo<Suscripcion>
 
 		scanner.nextLine();
 
-		while(scanner.hasNextLine())
+		while (scanner.hasNextLine())
 		{
 			String lineaDelFichero = scanner.nextLine();
 
@@ -44,9 +44,10 @@ public class ParseoSuscripcionImpl implements IParseo<Suscripcion>
 			Suscripcion suscripcion = new Suscripcion();
 			SuscripcionId suscripcionId = new SuscripcionId();
 
-			Optional<Usuario> optionalUsuario = this.iUsuarioRepository.findById(Long.parseLong(lineaDelFicheroTroceada[0]));
+			Optional<Usuario> optionalUsuario = this.iUsuarioRepository
+					.findById(Long.parseLong(lineaDelFicheroTroceada[0]));
 
-			if(!optionalUsuario.isPresent())
+			if (!optionalUsuario.isPresent())
 			{
 				String mensajeError = "No existe el usuario";
 				log.error(mensajeError);
@@ -55,17 +56,17 @@ public class ParseoSuscripcionImpl implements IParseo<Suscripcion>
 
 			suscripcionId.setUsuario(optionalUsuario.get());
 			suscripcionId.setFechaInicio(DatesUtil.crearFechaDesdeString(lineaDelFicheroTroceada[1]));
-			
+
 			suscripcion.setSuscripcionId(suscripcionId);
-			
+
 			suscripcion.setTipo(lineaDelFicheroTroceada[2]);
 			suscripcion.setDuracion(Integer.parseInt(lineaDelFicheroTroceada[3]));
-			
-			if(!(lineaDelFicheroTroceada[4]).trim().equals("NULL"))
+
+			if (!(lineaDelFicheroTroceada[4]).trim().equals("NULL"))
 			{
 				suscripcion.setFechaFin(DatesUtil.crearFechaDesdeString(lineaDelFicheroTroceada[4]));
 			}
-			
+
 			this.iSuscripcionRepository.saveAndFlush(suscripcion);
 		}
 

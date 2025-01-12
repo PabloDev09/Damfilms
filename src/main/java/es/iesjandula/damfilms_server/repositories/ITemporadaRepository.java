@@ -17,5 +17,4 @@ public interface ITemporadaRepository extends JpaRepository<Temporada, Temporada
 	@Query("SELECT t FROM Temporada t WHERE t.serie.id = :serieId")
 	List<Temporada> findBySerieId(@Param("serieId") Long serieId);
 
-
 }

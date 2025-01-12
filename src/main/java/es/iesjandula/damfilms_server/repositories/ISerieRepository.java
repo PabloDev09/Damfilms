@@ -15,24 +15,21 @@ import es.iesjandula.damfilms_server.entities.Serie;
 public interface ISerieRepository extends JpaRepository<Serie, Long>
 {
 	@Query("SELECT s FROM Serie s ORDER BY s.fechaEstreno DESC")
-	List<Serie> findTop10ByOrderByFechaEstrenoDesc() ;
-	
+	List<Serie> findTop10ByOrderByFechaEstrenoDesc();
+
 	@Query("SELECT s FROM Serie s ORDER BY s.clasificacion DESC")
-	List<Serie> findTop10ByOrderByClasificacionDesc() ;
+	List<Serie> findTop10ByOrderByClasificacionDesc();
 
 	// Para encontrar series por género
 	@Query("SELECT s FROM Serie s WHERE s.genero = :genero")
 	List<Serie> findByGenero(@Param("genero") String genero);
 
+	@Query("SELECT new es.iesjandula.damfilms_server.dtos.SerieDetalle(s.titulo, s.fechaEstreno) " + "FROM Serie s "
+			+ "WHERE s.titulo = :titulo")
+	SerieDetalle encontrarSerieDetallada(@Param("titulo") String nombre);
 
-	@Query("SELECT new es.iesjandula.damfilms_server.dtos.SerieDetalle(s.titulo, s.fechaEstreno) "
-		       + "FROM Serie s "
-		       + "WHERE s.titulo = :titulo")
-		SerieDetalle encontrarSerieDetallada(@Param("titulo") String nombre);
-
-		@Query("SELECT new es.iesjandula.damfilms_server.dtos.SerieDescripcion(s.titulo, s.descripcion) "
-		       + "FROM Serie s "
-		       + "WHERE s.titulo = :titulo ")
-		SerieDescripcion encontrarSerieDescripcion(@Param("titulo") String nombre);
+	@Query("SELECT new es.iesjandula.damfilms_server.dtos.SerieDescripcion(s.titulo, s.descripcion) " + "FROM Serie s "
+			+ "WHERE s.titulo = :titulo ")
+	SerieDescripcion encontrarSerieDescripcion(@Param("titulo") String nombre);
 
 }

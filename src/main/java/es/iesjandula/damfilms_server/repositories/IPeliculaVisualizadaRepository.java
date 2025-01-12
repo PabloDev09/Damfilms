@@ -16,14 +16,9 @@ public interface IPeliculaVisualizadaRepository extends JpaRepository<PeliculaVi
 {
 
 	@Query("SELECT DISTINCT new es.iesjandula.damfilms_server.dtos.UsuarioDto(u.nombre) "
-			+ "FROM PeliculaVisualizada p "
-			+ "JOIN p.usuario u "
-			+ "ON u.nombre = :nombre")
+			+ "FROM PeliculaVisualizada p " + "JOIN p.usuario u " + "ON u.nombre = :nombre")
 	UsuarioDto encontrarUsuario(@Param("nombre") String nombre);
-	
-	@Query("SELECT p "
-			+ "FROM PeliculaVisualizada p "
-			+ "JOIN p.usuario u "
-			+ "ON u.nombre = :nombre")
+
+	@Query("SELECT p " + "FROM PeliculaVisualizada p " + "JOIN p.usuario u " + "ON u.nombre = :nombre")
 	List<PeliculaVisualizada> encontrarPeliculasVisualizadasPorUsuario(@Param("nombre") String nombre);
 }

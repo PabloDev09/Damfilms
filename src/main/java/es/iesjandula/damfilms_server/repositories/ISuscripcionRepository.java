@@ -14,10 +14,10 @@ import es.iesjandula.damfilms_server.entities.ids.SuscripcionId;
 @Repository
 public interface ISuscripcionRepository extends JpaRepository<Suscripcion, SuscripcionId>
 {
-	public Optional<Suscripcion> findByUsuario(Usuario Usuario);
+	Optional<Suscripcion> findByUsuario(Usuario Usuario);
 	
-	public Optional<Suscripcion> findByTipo(String tipo);
+	Optional<Suscripcion> findByTipo(String tipo);
 	
 	@Query("SELECT DISTINCT s.tipo FROM Suscripcion s")
-	public List<String> encontrarTodosLosTipos();
+	List<String> encontrarTodosLosTipos();
 }

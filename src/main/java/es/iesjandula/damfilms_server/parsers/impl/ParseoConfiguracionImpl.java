@@ -33,7 +33,7 @@ public class ParseoConfiguracionImpl implements IParseo<Configuracion>
 
 		scanner.nextLine();
 
-		while(scanner.hasNextLine())
+		while (scanner.hasNextLine())
 		{
 			String lineaDelFichero = scanner.nextLine();
 
@@ -46,7 +46,7 @@ public class ParseoConfiguracionImpl implements IParseo<Configuracion>
 
 			Optional<Modo> optionalModo = this.iModoRepository.findById(lineaDelFicheroTroceada[2]);
 
-			if(!optionalModo.isPresent())
+			if (!optionalModo.isPresent())
 			{
 				String mensajeError = "No existe el modo";
 				log.error(mensajeError);

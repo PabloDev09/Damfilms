@@ -39,17 +39,18 @@ public class ParseoPeliculaVisualizadaImpl implements IParseo<PeliculaVisualizad
 
 		scanner.nextLine();
 
-		while(scanner.hasNextLine())
+		while (scanner.hasNextLine())
 		{
 			String lineaDelFichero = scanner.nextLine();
 
 			String[] lineaDelFicheroTroceada = lineaDelFichero.split(Constants.CSV_DELIMITER);
 
 			PeliculaVisualizada peliculaVisualizada = new PeliculaVisualizada();
-			
-			Optional<Pelicula> optionalPelicula = this.iPeliculaRepository.findById(Long.parseLong(lineaDelFicheroTroceada[0]));
 
-			if(!optionalPelicula.isPresent())
+			Optional<Pelicula> optionalPelicula = this.iPeliculaRepository
+					.findById(Long.parseLong(lineaDelFicheroTroceada[0]));
+
+			if (!optionalPelicula.isPresent())
 			{
 				String mensajeError = "No existe la pelicula";
 				log.error(mensajeError);
@@ -57,24 +58,25 @@ public class ParseoPeliculaVisualizadaImpl implements IParseo<PeliculaVisualizad
 			}
 
 			peliculaVisualizada.setPelicula(optionalPelicula.get());
-			
-			Optional<Usuario> optionalUsuario = this.iUsuarioRepository.findById(Long.parseLong(lineaDelFicheroTroceada[1]));
 
-			if(!optionalUsuario.isPresent())
+			Optional<Usuario> optionalUsuario = this.iUsuarioRepository
+					.findById(Long.parseLong(lineaDelFicheroTroceada[1]));
+
+			if (!optionalUsuario.isPresent())
 			{
 				String mensajeError = "No existe el usuario";
 				log.error(mensajeError);
 				throw new DamfilmsServerException(4, mensajeError);
 			}
-			
+
 			peliculaVisualizada.setUsuario(optionalUsuario.get());
-			PeliculaVisualizadaId peliculaVisualizadaId = new PeliculaVisualizadaId(optionalPelicula.get(), optionalUsuario.get());
-			
+			PeliculaVisualizadaId peliculaVisualizadaId = new PeliculaVisualizadaId(optionalPelicula.get(),
+					optionalUsuario.get());
+
 			peliculaVisualizada.setPeliculaVisualizadaId(peliculaVisualizadaId);
 			peliculaVisualizada.setTiempoVisto(Integer.parseInt(lineaDelFicheroTroceada[2]));
 
 			this.iPeliculaVisualizadaRepository.saveAndFlush(peliculaVisualizada);
-
 
 		}
 

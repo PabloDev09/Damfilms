@@ -34,21 +34,20 @@ public class ParseoDocumentalImpl implements IParseo<Documental>
 
 		scanner.nextLine();
 
-		while(scanner.hasNextLine())
+		while (scanner.hasNextLine())
 		{
 			String lineaDelFichero = scanner.nextLine();
 
 			String[] lineaDelFicheroTroceada = lineaDelFichero.split(Constants.CSV_DELIMITER);
-			
+
 			Documental documental = new Documental();
-			
+
 			documental.setTitulo(lineaDelFicheroTroceada[0]);
 			try
 			{
 				documental.setFechaEstreno(DatesUtil.crearFechaDesdeString(lineaDelFicheroTroceada[1]));
 
-			}
-			catch (DamfilmsServerException damfilmsServerException)
+			} catch (DamfilmsServerException damfilmsServerException)
 			{
 				damfilmsServerException.printStackTrace();
 
@@ -59,7 +58,7 @@ public class ParseoDocumentalImpl implements IParseo<Documental>
 			documental.setClasificacion(Integer.valueOf(lineaDelFicheroTroceada[4]));
 			Optional<Genero> optionalGenero = this.iGeneroRepository.findById(lineaDelFicheroTroceada[5]);
 
-			if(!optionalGenero.isPresent())
+			if (!optionalGenero.isPresent())
 			{
 				String mensajeError = "No existe el género";
 				log.error(mensajeError);

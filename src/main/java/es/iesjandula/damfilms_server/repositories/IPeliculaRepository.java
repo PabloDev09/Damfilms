@@ -17,21 +17,19 @@ public interface IPeliculaRepository extends JpaRepository<Pelicula, Long>
 {
 
 	@Query("SELECT p FROM Pelicula p ORDER BY p.fechaEstreno DESC")
-	List<Pelicula> findTop10ByOrderByFechaEstrenoDesc() ;
-	
+	List<Pelicula> findTop10ByOrderByFechaEstrenoDesc();
+
 	@Query("SELECT p FROM Pelicula p ORDER BY p.clasificacion DESC")
-	List<Pelicula> findTop10ByOrderByClasificacionDesc() ;
-	
+	List<Pelicula> findTop10ByOrderByClasificacionDesc();
+
 	@Query("SELECT new es.iesjandula.damfilms_server.dtos.PeliculaDetallada(p.titulo, p.duracion, p.fechaEstreno) "
-			+ "FROM Pelicula p "
-			+ "WHERE p.titulo = :titulo AND p.fechaEstreno = :fechaEstreno")
+			+ "FROM Pelicula p " + "WHERE p.titulo = :titulo AND p.fechaEstreno = :fechaEstreno")
 	PeliculaDetallada encontrarPeliculaDetallada(@Param("titulo") String titulo,
-												   @Param("fechaEstreno") Date fechaEstreno);
-	
+			@Param("fechaEstreno") Date fechaEstreno);
+
 	@Query("SELECT new es.iesjandula.damfilms_server.dtos.PeliculaDescripcion(p.titulo, g.nombre, p.descripcion) "
-			+ "FROM Pelicula p JOIN p.genero g "
-			+ "WHERE p.titulo = :titulo AND p.fechaEstreno = :fechaEstreno")
+			+ "FROM Pelicula p JOIN p.genero g " + "WHERE p.titulo = :titulo AND p.fechaEstreno = :fechaEstreno")
 	PeliculaDescripcion encontrarPeliculaDescripcion(@Param("titulo") String titulo,
-													   @Param("fechaEstreno") Date fechaEstreno);
-	
+			@Param("fechaEstreno") Date fechaEstreno);
+
 }

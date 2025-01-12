@@ -35,7 +35,7 @@ public class ParseoTemporadaImpl implements IParseo<Temporada>
 
 		scanner.nextLine();
 
-		while(scanner.hasNextLine())
+		while (scanner.hasNextLine())
 		{
 			String lineaDelFichero = scanner.nextLine();
 
@@ -43,10 +43,10 @@ public class ParseoTemporadaImpl implements IParseo<Temporada>
 
 			Temporada temporada = new Temporada();
 			TemporadaId temporadaId = new TemporadaId();
-			
+
 			Optional<Serie> optionalSerie = this.iSerieRepository.findById(Long.parseLong(lineaDelFicheroTroceada[0]));
 
-			if(!optionalSerie.isPresent())
+			if (!optionalSerie.isPresent())
 			{
 				String mensajeError = "No existe la serie";
 				log.error(mensajeError);

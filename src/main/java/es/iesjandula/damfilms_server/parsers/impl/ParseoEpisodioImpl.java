@@ -27,13 +27,13 @@ public class ParseoEpisodioImpl implements IParseo<Episodio>
 
 	@Autowired
 	private IEpisodioRepository iEpisodioRepository;
-	
+
 	@Autowired
 	private ITemporadaRepository iTemporadaRepository;
 
 	@Autowired
 	private ISerieRepository iSerieRepository;
-	
+
 	@Override
 	public void parseaFichero(Scanner scanner) throws DamfilmsServerException
 	{
@@ -41,7 +41,7 @@ public class ParseoEpisodioImpl implements IParseo<Episodio>
 
 		scanner.nextLine();
 
-		while(scanner.hasNextLine())
+		while (scanner.hasNextLine())
 		{
 			String lineaDelFichero = scanner.nextLine();
 
@@ -49,12 +49,12 @@ public class ParseoEpisodioImpl implements IParseo<Episodio>
 
 			Episodio episodio = new Episodio();
 			EpisodioId episodioId = new EpisodioId();
-			
+
 			TemporadaId temporadaId = new TemporadaId();
-			
+
 			Optional<Serie> optionalSerie = this.iSerieRepository.findById(Long.parseLong(lineaDelFicheroTroceada[0]));
 
-			if(!optionalSerie.isPresent())
+			if (!optionalSerie.isPresent())
 			{
 				String mensajeError = "No existe la serie";
 				log.error(mensajeError);
@@ -64,19 +64,19 @@ public class ParseoEpisodioImpl implements IParseo<Episodio>
 			temporadaId.setSerie(optionalSerie.get());
 			temporadaId.setNumero(Integer.parseInt(lineaDelFicheroTroceada[1]));
 			temporadaId.setFechaEstreno(DatesUtil.crearFechaDesdeString(lineaDelFicheroTroceada[2]));
-			
+
 			Optional<Temporada> optionalTemporada = this.iTemporadaRepository.findById(temporadaId);
 
-			if(!optionalTemporada.isPresent())
+			if (!optionalTemporada.isPresent())
 			{
 				String mensajeError = "No existe la temporada";
 				log.error(mensajeError);
 				throw new DamfilmsServerException(2, mensajeError);
 			}
-			
+
 			episodioId.setTemporada(optionalTemporada.get());
 			episodioId.setNumero(Integer.parseInt(lineaDelFicheroTroceada[3]));
-			
+
 			episodio.setEpisodioId(episodioId);
 			episodio.setNombre(lineaDelFicheroTroceada[4]);
 			episodio.setDuracion(Integer.parseInt(lineaDelFicheroTroceada[5]));

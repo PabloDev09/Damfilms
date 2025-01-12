@@ -39,7 +39,7 @@ public class ParseoSerieVisualizadaImpl implements IParseo<SerieVisualizada>
 
 		scanner.nextLine();
 
-		while(scanner.hasNextLine())
+		while (scanner.hasNextLine())
 		{
 			String lineaDelFichero = scanner.nextLine();
 
@@ -49,7 +49,7 @@ public class ParseoSerieVisualizadaImpl implements IParseo<SerieVisualizada>
 
 			Optional<Serie> optionalSerie = this.iSerieRepository.findById(Long.parseLong(lineaDelFicheroTroceada[0]));
 
-			if(!optionalSerie.isPresent())
+			if (!optionalSerie.isPresent())
 			{
 				String mensajeError = "No existe la serie";
 				log.error(mensajeError);
@@ -57,25 +57,26 @@ public class ParseoSerieVisualizadaImpl implements IParseo<SerieVisualizada>
 			}
 
 			serieVisualizada.setSerie(optionalSerie.get());
-			
-			Optional<Usuario> optionalUsuario = this.iUsuarioRepository.findById(Long.parseLong(lineaDelFicheroTroceada[1]));
 
-			if(!optionalUsuario.isPresent())
+			Optional<Usuario> optionalUsuario = this.iUsuarioRepository
+					.findById(Long.parseLong(lineaDelFicheroTroceada[1]));
+
+			if (!optionalUsuario.isPresent())
 			{
 				String mensajeError = "No existe el usuario";
 				log.error(mensajeError);
 				throw new DamfilmsServerException(8, mensajeError);
 			}
-			
+
 			serieVisualizada.setUsuario(optionalUsuario.get());
-			
-			SerieVisualizadaId serieVisualizadaId = new SerieVisualizadaId(optionalSerie.get().getId(), optionalUsuario.get().getId());
+
+			SerieVisualizadaId serieVisualizadaId = new SerieVisualizadaId(optionalSerie.get().getId(),
+					optionalUsuario.get().getId());
 			serieVisualizada.setSerieVisualizadaId(serieVisualizadaId);
-			
+
 			serieVisualizada.setEpisodiosVistos(Integer.parseInt(lineaDelFicheroTroceada[2]));
 
 			this.iSerieVisualizadaRepository.saveAndFlush(serieVisualizada);
-
 
 		}
 

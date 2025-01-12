@@ -27,7 +27,7 @@ public class ParseoModoImpl implements IParseo<Modo>
 
 		scanner.nextLine();
 
-		while(scanner.hasNextLine())
+		while (scanner.hasNextLine())
 		{
 			String lineaDelFichero = scanner.nextLine();
 

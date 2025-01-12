@@ -14,11 +14,10 @@ import es.iesjandula.damfilms_server.entities.Usuario;
 public interface IUsuarioRepository extends JpaRepository<Usuario, Long>
 {
 	Usuario findByNombre(String nombre);
-	
+
 	Optional<Usuario> findByCorreo(String correo);
-	
-	@Query("SELECT new es.iesjandula.damfilms_server.dtos.UsuarioLogin(u.correo, u.contrasena) "
-			+ "FROM Usuario u "
+
+	@Query("SELECT new es.iesjandula.damfilms_server.dtos.UsuarioLogin(u.correo, u.contrasena) " + "FROM Usuario u "
 			+ "WHERE u.correo = :email AND u.contrasena = :contrasenia ")
 	UsuarioLogin encontrarUsuarioYContrasenia(@Param("email") String email, @Param("contrasenia") String contrasenia);
 }

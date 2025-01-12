@@ -10,6 +10,6 @@ import es.iesjandula.damfilms_server.entities.Configuracion;
 @Repository
 public interface IConfiguracionRepository extends JpaRepository<Configuracion, Long>
 {
-	public Optional<Configuracion> findByIdioma(String idioma);
+	Optional<Configuracion> findByIdioma(String idioma);
 
 }

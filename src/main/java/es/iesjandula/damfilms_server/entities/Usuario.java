@@ -36,9 +36,13 @@ public class Usuario
 	private String contrasena;
 
 	@ManyToOne
+	@JoinColumn(name = "role_id", referencedColumnName = "id")
+	private Role role;
+
+	@ManyToOne
 	@JoinColumn(name = "configuracion_id", referencedColumnName = "id")
 	private Configuracion configuracion;
-
+	
 	@Column
     private Boolean active;
 	

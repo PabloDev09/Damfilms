@@ -39,7 +39,7 @@ public class ParseoDocumentalVisualizadoImpl implements IParseo<DocumentalVisual
 
 		scanner.nextLine();
 
-		while(scanner.hasNextLine())
+		while (scanner.hasNextLine())
 		{
 			String lineaDelFichero = scanner.nextLine();
 
@@ -47,9 +47,10 @@ public class ParseoDocumentalVisualizadoImpl implements IParseo<DocumentalVisual
 
 			DocumentalVisualizado documentalVisualizado = new DocumentalVisualizado();
 
-			Optional<Documental> optionalDocumental = this.documentalRepository.findById(Long.parseLong(lineaDelFicheroTroceada[0]));
+			Optional<Documental> optionalDocumental = this.documentalRepository
+					.findById(Long.parseLong(lineaDelFicheroTroceada[0]));
 
-			if(!optionalDocumental.isPresent())
+			if (!optionalDocumental.isPresent())
 			{
 				String mensajeError = "No existe el documental";
 				log.error(mensajeError);
@@ -57,22 +58,24 @@ public class ParseoDocumentalVisualizadoImpl implements IParseo<DocumentalVisual
 			}
 
 			documentalVisualizado.setDocumental(optionalDocumental.get());
-			
-			Optional<Usuario> optionalUsurio = this.usuarioRepository.findById(Long.parseLong(lineaDelFicheroTroceada[1]));
 
-			if(!optionalUsurio.isPresent())
+			Optional<Usuario> optionalUsurio = this.usuarioRepository
+					.findById(Long.parseLong(lineaDelFicheroTroceada[1]));
+
+			if (!optionalUsurio.isPresent())
 			{
 				String mensajeError = "No existe el usuario";
 				log.error(mensajeError);
 				throw new DamfilmsServerException(4, mensajeError);
 			}
-			
+
 			documentalVisualizado.setUsuario(optionalUsurio.get());
-			
-			DocumentalVisualizadoId documentalVisualizadoId = new DocumentalVisualizadoId(optionalDocumental.get().getId(), optionalUsurio.get().getId());
-			
+
+			DocumentalVisualizadoId documentalVisualizadoId = new DocumentalVisualizadoId(
+					optionalDocumental.get().getId(), optionalUsurio.get().getId());
+
 			documentalVisualizado.setDocumentalVisualizadoId(documentalVisualizadoId);
-			
+
 			documentalVisualizado.setTiempoVisto(Integer.parseInt(lineaDelFicheroTroceada[2]));
 
 			this.documentalVisualizadoRepository.saveAndFlush(documentalVisualizado);

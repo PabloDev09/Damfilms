@@ -34,7 +34,7 @@ public class ParseoPeliculaImpl implements IParseo<Pelicula>
 
 		scanner.nextLine();
 
-		while(scanner.hasNextLine())
+		while (scanner.hasNextLine())
 		{
 			String lineaDelFichero = scanner.nextLine();
 
@@ -47,8 +47,7 @@ public class ParseoPeliculaImpl implements IParseo<Pelicula>
 			{
 				pelicula.setFechaEstreno(DatesUtil.crearFechaDesdeString(lineaDelFicheroTroceada[1]));
 
-			}
-			catch (DamfilmsServerException damfilmsServerException)
+			} catch (DamfilmsServerException damfilmsServerException)
 			{
 
 				damfilmsServerException.printStackTrace();
@@ -58,7 +57,7 @@ public class ParseoPeliculaImpl implements IParseo<Pelicula>
 			pelicula.setClasificacion(Integer.valueOf(lineaDelFicheroTroceada[4]));
 			Optional<Genero> optionalGenero = this.iGeneroRepository.findById(lineaDelFicheroTroceada[5]);
 
-			if(!optionalGenero.isPresent())
+			if (!optionalGenero.isPresent())
 			{
 				String mensajeError = "No existe el género";
 				log.error(mensajeError);

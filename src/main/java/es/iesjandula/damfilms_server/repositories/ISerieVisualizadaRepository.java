@@ -12,9 +12,7 @@ import es.iesjandula.damfilms_server.entities.ids.SerieVisualizadaId;
 @Repository
 public interface ISerieVisualizadaRepository extends JpaRepository<SerieVisualizada, SerieVisualizadaId>
 {
-	@Query("SELECT new es.iesjandula.damfilms_server.dtos.UsuarioDto(u.nombre) "
-			+ "FROM SerieVisualizada sv "
-			+ "JOIN sv.usuario u "
-			+ "WHERE u.nombre = :nombre")
+	@Query("SELECT new es.iesjandula.damfilms_server.dtos.UsuarioDto(u.nombre) " + "FROM SerieVisualizada sv "
+			+ "JOIN sv.usuario u " + "WHERE u.nombre = :nombre")
 	UsuarioDto encontrarUsuario(@Param("nombre") String nombre);
 }

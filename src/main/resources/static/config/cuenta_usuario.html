@@ -134,18 +134,26 @@
                 </div>
                     <div style="display: grid; place-items: center; position: absolute; top: 300px; left: 30%; width:40%; color:white">
                         
-                        <form class="row g-3">
-                            <div class="input-group flex-nowrap col-xs-3" style="width: 50;">
+                        <form th:action="@{/update}" method="post" class="row g-3">
+                            <!--<div class="input-group flex-nowrap col-xs-3" style="width: 50;">
                                 <span class="input-group-text" id="addon-wrapping">@</span>
                                 <input type="text" class="form-control" placeholder="Nombre de usuario" aria-label="Username" aria-describedby="addon-wrapping">
+                            </div>-->
+                            <div class="col-md-6">
+                            <label for="username" class="form-label">Nombre usuario</label>
+                            <input type="text" class="form-control" id="username" name="username">
                             </div>
                             <div class="col-md-6">
-                            <label for="inputEmail4" class="form-label">Cambiar email</label>
-                            <input type="email" class="form-control" id="inputEmail4">
+                            <label for="correo" class="form-label">Cambiar email</label>
+                            <input type="text" class="form-control" id="correo" name="correo">
                             </div>
                             <div class="col-md-6">
-                            <label for="inputPassword4" class="form-label">Cambiar contraseña</label>
-                            <input type="password" class="form-control" id="inputPassword4">
+                            <label for="password" class="form-label">Cambiar contraseña</label>
+                            <input type="password" class="form-control" id="password" name="password">
+                            </div>
+                            <div class="col-md-6">
+                            <label for="roles" class="form-label">Cambiar suscripción</label>
+                            <input type="text" class="form-control" id="roles" name="roles">
                             </div>
                             <div class="col-12">
                             <label for="inputAddress" class="form-label">Dirección</label>
@@ -182,7 +190,7 @@
                                 </select>
                             </div>
                             <div  class="col-12">
-                            <button id="botonCambios" type="submit" class="btn btn-primary">Confirmar cambios</button>
+                            <button id="botonCambios" value="Update" type="submit" class="btn btn-primary">Confirmar cambios</button>
                             </div>
                         </form>
                         

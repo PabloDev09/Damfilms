@@ -48,800 +48,899 @@ import lombok.extern.log4j.Log4j2;
 
 @Controller
 @Log4j2
-public class DamfilsController {
-	
+public class DamfilsController
+{
+
 	@Autowired
 	private IDocumentalRepository iDocumentalRepository;
-	
-    @Autowired
-    private ITemporadaRepository iTemporadaRepository;
-    
-    @Autowired
-    private ISerieRepository iSerieRepository;
-    
-    @Autowired
-    private IEpisodioRepository iEpisodioRepository;
-	
+
+	@Autowired
+	private ITemporadaRepository iTemporadaRepository;
+
+	@Autowired
+	private ISerieRepository iSerieRepository;
+
+	@Autowired
+	private IEpisodioRepository iEpisodioRepository;
+
 	@Autowired
 	private IPeliculaRepository iPeliculaRepository;
-	
-	@Autowired 
+
+	@Autowired
 	private IDocumentalVisualizadoRepository iDocumentalVisualizadoRepository;
-	
+
 	@Autowired
 	private IPeliculaVisualizadaRepository iPeliculaVisualizadaRepository;
-	
+
 	@Autowired
 	private ISerieVisualizadaRepository iSerieVisualizadaRepository;
-	
+
 	@Autowired
 	private IUsuarioRepository iUsuarioRepository;
 
 	@Autowired
 	private IModoRepository iModoRepository;
-	
+
 	@Autowired
 	private IConfiguracionRepository iConfiguracionRepository;
-	
+
 	@Autowired
 	private ISuscripcionRepository iSuscripcionRepository;
-	
+
 	@RequestMapping(method = RequestMethod.GET, value = "/documentales_list")
-	public ResponseEntity<?> obtenerDocumentales() 
+	public ResponseEntity<?> obtenerDocumentales()
 	{
-		
-		try 
+
+		try
 		{
-			
+
 			List<Documental> listaDocumentales;
-			
-			if(this.iDocumentalRepository.findAll().isEmpty()) 
+
+			if (this.iDocumentalRepository.findAll().isEmpty())
 			{
 				String mensajeError = "No se ha encontrado ningún documental";
 				log.error(mensajeError);
 				throw new DamfilmsServerException(101, mensajeError);
-				
+
 			}
-			
+
 			listaDocumentales = this.iDocumentalRepository.findAll();
-			
+
 			return ResponseEntity.ok(listaDocumentales);
-			
-		}
-		catch (DamfilmsServerException damfilmsServerException) 
+
+		} catch (DamfilmsServerException damfilmsServerException)
 		{
 			return ResponseEntity.status(404).body(damfilmsServerException.getBodyExceptionMessage());
-		}
-		catch (Exception exception) 
+		} catch (Exception exception)
 		{
 			String mensajeError = "Error interno del servidor";
 			DamfilmsServerException damfilmsServerException = new DamfilmsServerException(100, mensajeError, exception);
-			
+
 			log.error(mensajeError);
 			return ResponseEntity.status(500).body(damfilmsServerException.getBodyExceptionMessage());
 		}
-		
+
 	}
-	
+
 	@RequestMapping(method = RequestMethod.GET, value = "/documentales/detalle")
 	public ResponseEntity<?> obtenerDetalleDocumental(@RequestParam(name = "titulo", required = true) String titulo,
-									 			@RequestParam(name = "fechaEstreno", required = true) Date fechaEstreno) 
+			@RequestParam(name = "fechaEstreno", required = true) Date fechaEstreno)
 	{
-		
-		try 
+
+		try
 		{
-			
-			if(this.iDocumentalRepository.encontrarDocumentalDetallado(titulo, fechaEstreno)==null) 
+
+			if (this.iDocumentalRepository.encontrarDocumentalDetallado(titulo, fechaEstreno) == null)
 			{
 				String mensajeError = "No se ha encontrado ningún documental con ese titulo y fecha de estreno";
 				log.error(mensajeError);
 				throw new DamfilmsServerException(102, mensajeError);
-				
+
 			}
-			
+
 			DocumentalDetalle documentalDetalle = new DocumentalDetalle();
 			documentalDetalle = this.iDocumentalRepository.encontrarDocumentalDetallado(titulo, fechaEstreno);
-			
+
 			return ResponseEntity.ok(documentalDetalle);
-			
-		}
-		catch (DamfilmsServerException damfilmsServerException) 
+
+		} catch (DamfilmsServerException damfilmsServerException)
 		{
 			return ResponseEntity.status(404).body(damfilmsServerException.getBodyExceptionMessage());
-		}
-		catch (Exception exception) 
+		} catch (Exception exception)
 		{
 			String mensajeError = "Error interno del servidor";
 			DamfilmsServerException damfilmsServerException = new DamfilmsServerException(100, mensajeError, exception);
-			
+
 			log.error(mensajeError);
 			return ResponseEntity.status(500).body(damfilmsServerException.getBodyExceptionMessage());
 		}
-		
+
 	}
-	
+
 	@RequestMapping(method = RequestMethod.GET, value = "/documentales/descripcion")
 	public ResponseEntity<?> obtenerDescripcionDocumental(@RequestParam(name = "titulo", required = true) String titulo,
-			 									   @RequestParam(name = "fechaEstreno", required = true) Date fechaEstreno)  
+			@RequestParam(name = "fechaEstreno", required = true) Date fechaEstreno)
 	{
-		try 
+		try
 		{
-			
-			if(this.iDocumentalRepository.encontrarDocumentalDescripcion(titulo, fechaEstreno)==null) 
+
+			if (this.iDocumentalRepository.encontrarDocumentalDescripcion(titulo, fechaEstreno) == null)
 			{
 				String mensajeError = "No se ha encontrado ningún documental con ese titulo y fecha de estreno";
 				log.error(mensajeError);
 				throw new DamfilmsServerException(103, mensajeError);
-				
+
 			}
-			
+
 			DocumentalDescripcion documentalDescripcion = new DocumentalDescripcion();
 			documentalDescripcion = this.iDocumentalRepository.encontrarDocumentalDescripcion(titulo, fechaEstreno);
-			
+
 			return ResponseEntity.ok(documentalDescripcion);
-			
-		}
-		catch (DamfilmsServerException damfilmsServerException) 
+
+		} catch (DamfilmsServerException damfilmsServerException)
 		{
 			return ResponseEntity.status(404).body(damfilmsServerException.getBodyExceptionMessage());
-		}
-		catch (Exception exception) 
+		} catch (Exception exception)
 		{
 			String mensajeError = "Error interno del servidor";
 			DamfilmsServerException damfilmsServerException = new DamfilmsServerException(100, mensajeError, exception);
-			
+
 			log.error(mensajeError);
 			return ResponseEntity.status(500).body(damfilmsServerException.getBodyExceptionMessage());
 		}
-		
+
 	}
-	
+
 	@RequestMapping(method = RequestMethod.GET, value = "/peliculas_list")
-	public ResponseEntity<?> obtenerPeliculas() 
+	public ResponseEntity<?> obtenerPeliculas()
 	{
-		try 
+		try
 		{
-			
+
 			List<Pelicula> listaPeliculas;
-			
-			if(this.iPeliculaRepository.findAll().isEmpty()) 
+
+			if (this.iPeliculaRepository.findAll().isEmpty())
 			{
 				String mensajeError = "No se ha encontrado ninguna película";
 				log.error(mensajeError);
 				throw new DamfilmsServerException(104, mensajeError);
-				
+
 			}
-			
+
 			listaPeliculas = this.iPeliculaRepository.findAll();
-			
+
 			return ResponseEntity.ok(listaPeliculas);
-			
-		}
-		catch (DamfilmsServerException damfilmsServerException) 
+
+		} catch (DamfilmsServerException damfilmsServerException)
 		{
 			return ResponseEntity.status(404).body(damfilmsServerException.getBodyExceptionMessage());
-		}
-		catch (Exception exception) 
+		} catch (Exception exception)
 		{
 			String mensajeError = "Error interno del servidor";
 			DamfilmsServerException damfilmsServerException = new DamfilmsServerException(100, mensajeError, exception);
-			
+
 			log.error(mensajeError);
 			return ResponseEntity.status(500).body(damfilmsServerException.getBodyExceptionMessage());
 		}
 	}
-	
+
 	@RequestMapping(method = RequestMethod.GET, value = "/peliculas/detalle")
 	public ResponseEntity<?> obtenerDetallePelicula(@RequestParam(name = "titulo", required = true) String titulo,
-											  @RequestParam(name = "fechaEstreno", required = true) Date fechaEstreno)  
+			@RequestParam(name = "fechaEstreno", required = true) Date fechaEstreno)
 	{
-		try 
+		try
 		{
-			
-			if(this.iPeliculaRepository.encontrarPeliculaDetallada(titulo, fechaEstreno)==null) 
+
+			if (this.iPeliculaRepository.encontrarPeliculaDetallada(titulo, fechaEstreno) == null)
 			{
 				String mensajeError = "No se ha encontrado ninguna película con ese titulo y fecha de estreno";
 				log.error(mensajeError);
 				throw new DamfilmsServerException(105, mensajeError);
-				
+
 			}
-			
+
 			PeliculaDetallada peliculaDetallada = new PeliculaDetallada();
 			peliculaDetallada = this.iPeliculaRepository.encontrarPeliculaDetallada(titulo, fechaEstreno);
-			
+
 			return ResponseEntity.ok(peliculaDetallada);
-			
-		}
-		catch (DamfilmsServerException damfilmsServerException) 
+
+		} catch (DamfilmsServerException damfilmsServerException)
 		{
 			return ResponseEntity.status(404).body(damfilmsServerException.getBodyExceptionMessage());
-		}
-		catch (Exception exception) 
+		} catch (Exception exception)
 		{
 			String mensajeError = "Error interno del servidor";
 			DamfilmsServerException damfilmsServerException = new DamfilmsServerException(100, mensajeError, exception);
-			
+
 			log.error(mensajeError);
 			return ResponseEntity.status(500).body(damfilmsServerException.getBodyExceptionMessage());
 		}
-		
+
 	}
-	
+
 	@RequestMapping(method = RequestMethod.GET, value = "/peliculas/descripcion")
 	public ResponseEntity<?> obtenerDescripcionPelicula(@RequestParam(name = "titulo", required = true) String titulo,
-			 						  			 @RequestParam(name = "fechaEstreno", required = true) Date fechaEstreno) 
+			@RequestParam(name = "fechaEstreno", required = true) Date fechaEstreno)
 	{
-		try 
+		try
 		{
-			
-			if(this.iPeliculaRepository.encontrarPeliculaDescripcion(titulo, fechaEstreno)==null) 
+
+			if (this.iPeliculaRepository.encontrarPeliculaDescripcion(titulo, fechaEstreno) == null)
 			{
 				String mensajeError = "No se ha encontrado ninguna película con ese titulo y fecha de estreno";
 				log.error(mensajeError);
 				throw new DamfilmsServerException(106, mensajeError);
-				
+
 			}
-			
+
 			PeliculaDescripcion peliculaDescripcion = new PeliculaDescripcion();
 			peliculaDescripcion = this.iPeliculaRepository.encontrarPeliculaDescripcion(titulo, fechaEstreno);
-			
+
 			return ResponseEntity.ok(peliculaDescripcion);
-			
-		}
-		catch (DamfilmsServerException damfilmsServerException) 
+
+		} catch (DamfilmsServerException damfilmsServerException)
 		{
 			return ResponseEntity.status(404).body(damfilmsServerException.getBodyExceptionMessage());
-		}
-		catch (Exception exception) 
+		} catch (Exception exception)
 		{
 			String mensajeError = "Error interno del servidor";
 			DamfilmsServerException damfilmsServerException = new DamfilmsServerException(100, mensajeError, exception);
-			
+
 			log.error(mensajeError);
 			return ResponseEntity.status(500).body(damfilmsServerException.getBodyExceptionMessage());
 		}
-		
+
 	}
-	
+
 	@RequestMapping(method = RequestMethod.GET, value = "/peliculas/visualizadas")
-	public ResponseEntity<?> obtenerPeliculasVisualizadasPorUsuario(@RequestParam(name = "usuario", required = true) String usuario) 
+	public ResponseEntity<?> obtenerPeliculasVisualizadasPorUsuario(
+			@RequestParam(name = "usuario", required = true) String usuario)
 	{
-		try 
+		try
 		{
-			
-			if(this.iPeliculaVisualizadaRepository.encontrarUsuario(usuario) == null) 
+
+			if (this.iPeliculaVisualizadaRepository.encontrarUsuario(usuario) == null)
 			{
 				String mensajeError = "No se ha encontrado ningun usuario con ese nombre";
 				log.error(mensajeError);
 				throw new DamfilmsServerException(107, mensajeError);
 			}
-			
+
 			List<PeliculaVisualizada> listaPeliculasVisualizadasPorUsuario;
-			
-			if(this.iPeliculaVisualizadaRepository.encontrarPeliculasVisualizadasPorUsuario(usuario).isEmpty()) 
+
+			if (this.iPeliculaVisualizadaRepository.encontrarPeliculasVisualizadasPorUsuario(usuario).isEmpty())
 			{
 				String mensajeError = "No se ha encontrado ninguna película visualizada por ese usuario";
 				log.error(mensajeError);
 				throw new DamfilmsServerException(108, mensajeError);
-				
+
 			}
-			
-			listaPeliculasVisualizadasPorUsuario = this.iPeliculaVisualizadaRepository.encontrarPeliculasVisualizadasPorUsuario(usuario);
-			
+
+			listaPeliculasVisualizadasPorUsuario = this.iPeliculaVisualizadaRepository
+					.encontrarPeliculasVisualizadasPorUsuario(usuario);
+
 			return ResponseEntity.ok(listaPeliculasVisualizadasPorUsuario);
-			
-		}
-		catch (DamfilmsServerException damfilmsServerException) 
+
+		} catch (DamfilmsServerException damfilmsServerException)
 		{
-			if(damfilmsServerException.getCode()==107) 
+			if (damfilmsServerException.getCode() == 107)
 			{
 				return ResponseEntity.status(404).body(damfilmsServerException.getBodyExceptionMessage());
-			} 
-			else 
+			} else
 			{
 				return ResponseEntity.status(405).body(damfilmsServerException.getBodyExceptionMessage());
 			}
-			
-		}
-		catch (Exception exception) 
+
+		} catch (Exception exception)
 		{
 			String mensajeError = "Error interno del servidor";
 			DamfilmsServerException damfilmsServerException = new DamfilmsServerException(100, mensajeError, exception);
-			
+
 			log.error(mensajeError);
 			return ResponseEntity.status(500).body(damfilmsServerException.getBodyExceptionMessage());
 		}
-		
+
 	}
-	
+
 	@RequestMapping(method = RequestMethod.GET, value = "/documentales/visualizados")
-	public ResponseEntity<?> obtenerDocumentalesVisualizadosPorUsuario(@RequestParam(name = "usuario", required = true) String usuario) 
+	public ResponseEntity<?> obtenerDocumentalesVisualizadosPorUsuario(
+			@RequestParam(name = "usuario", required = true) String usuario)
 	{
-		try 
+		try
 		{
-			
-			if(this.iDocumentalVisualizadoRepository.encontrarUsuario(usuario) == null) 
+
+			if (this.iDocumentalVisualizadoRepository.encontrarUsuario(usuario) == null)
 			{
 				String mensajeError = "No se ha encontrado ninguna usuario con ese nombre";
 				log.error(mensajeError);
 				throw new DamfilmsServerException(109, mensajeError);
 			}
-			
+
 			List<DocumentalVisualizado> listaDocumentalesVisualizados;
-			
-			if(this.iDocumentalVisualizadoRepository.findAll().isEmpty()) 
+
+			if (this.iDocumentalVisualizadoRepository.findAll().isEmpty())
 			{
 				String mensajeError = "No se ha encontrado ningún documental visualizado";
 				log.error(mensajeError);
 				throw new DamfilmsServerException(110, mensajeError);
-				
+
 			}
-			
+
 			listaDocumentalesVisualizados = this.iDocumentalVisualizadoRepository.findAll();
-			
+
 			return ResponseEntity.ok(listaDocumentalesVisualizados);
-			
-		}
-		catch (DamfilmsServerException damfilmsServerException) 
+
+		} catch (DamfilmsServerException damfilmsServerException)
 		{
-			
-			if(damfilmsServerException.getCode()==109) 
+
+			if (damfilmsServerException.getCode() == 109)
 			{
 				return ResponseEntity.status(404).body(damfilmsServerException.getBodyExceptionMessage());
-			} 
-			else 
+			} else
 			{
 				return ResponseEntity.status(405).body(damfilmsServerException.getBodyExceptionMessage());
-			}		
-			
-		}
-		catch (Exception exception) 
+			}
+
+		} catch (Exception exception)
 		{
 			String mensajeError = "Error interno del servidor";
 			DamfilmsServerException damfilmsServerException = new DamfilmsServerException(100, mensajeError, exception);
-			
+
 			log.error(mensajeError);
 			return ResponseEntity.status(500).body(damfilmsServerException.getBodyExceptionMessage());
 		}
-		
+
 	}
-	
-	
+
 	@RequestMapping(method = RequestMethod.GET, value = "/series/visualizadas")
-	public ResponseEntity<?> obtenerSeriesVisualizadasPorUsuario(@RequestParam(name = "usuario", required = true) String usuario) 
+	public ResponseEntity<?> obtenerSeriesVisualizadasPorUsuario(
+			@RequestParam(name = "usuario", required = true) String usuario)
 	{
-		try 
+		try
 		{
-			
-			if(this.iSerieVisualizadaRepository.encontrarUsuario(usuario) == null) 
+
+			if (this.iSerieVisualizadaRepository.encontrarUsuario(usuario) == null)
 			{
 				String mensajeError = "No se ha encontrado ninguna usuario con ese nombre";
 				log.error(mensajeError);
 				throw new DamfilmsServerException(111, mensajeError);
 			}
-			
+
 			List<SerieVisualizada> listaSeriesVisualizadas;
-			
-			if(this.iSerieVisualizadaRepository.findAll().isEmpty()) 
+
+			if (this.iSerieVisualizadaRepository.findAll().isEmpty())
 			{
 				String mensajeError = "No se ha encontrado ninguna serie visualizada";
 				log.error(mensajeError);
 				throw new DamfilmsServerException(112, mensajeError);
-				
+
 			}
-			
+
 			listaSeriesVisualizadas = this.iSerieVisualizadaRepository.findAll();
-			
+
 			return ResponseEntity.ok(listaSeriesVisualizadas);
-			
-		}
-		catch (DamfilmsServerException damfilmsServerException) 
+
+		} catch (DamfilmsServerException damfilmsServerException)
 		{
-			if(damfilmsServerException.getCode()==111) 
+			if (damfilmsServerException.getCode() == 111)
 			{
 				return ResponseEntity.status(404).body(damfilmsServerException.getBodyExceptionMessage());
-			} 
-			else 
+			} else
 			{
 				return ResponseEntity.status(405).body(damfilmsServerException.getBodyExceptionMessage());
 			}
-		}
-		catch (Exception exception) 
+		} catch (Exception exception)
 		{
 			String mensajeError = "Error interno del servidor";
 			DamfilmsServerException damfilmsServerException = new DamfilmsServerException(100, mensajeError, exception);
-			
+
 			log.error(mensajeError);
 			return ResponseEntity.status(500).body(damfilmsServerException.getBodyExceptionMessage());
 		}
-		
+
 	}
-  
-	  // ==================== Temporada ====================
-	    
-	    @RequestMapping(method = RequestMethod.GET, value = "/temporadas")
-	    public ResponseEntity<?> obtenerTemporadaPorId(@RequestParam(name = "temporadaId") TemporadaId temporadaId) {
-	        try {
-	            Temporada temporada = iTemporadaRepository.findById(temporadaId).orElse(null);
-	            if (temporada == null)
-	            {
-	                String mensajeError = "Temporada no encontrada";
-	                log.error(mensajeError);
-	                throw new DamfilmsServerException(4, mensajeError);
-	              
-	            }
-	            return ResponseEntity.ok(temporada);
-	        } 
-	        catch (DamfilmsServerException e) 
-	        {
-	            return ResponseEntity.status(404).body(e.getBodyExceptionMessage());
-	        } 
-	        catch (Exception exception) 
-	        {
-	        	
-	            String mensajeError = "Error interno del servidor";
-	            DamfilmsServerException damfilmsServerException = new DamfilmsServerException(100, mensajeError, exception);
-	            
-	            log.error(mensajeError);
-	            return ResponseEntity.status(500).body(damfilmsServerException.getBodyExceptionMessage());
-	        }
-	    }
 
-	    @RequestMapping(method = RequestMethod.GET, value = "/series/{serieId}/temporadas")
-	    public ResponseEntity<?> obtenerTemporadasPorSerieId(@RequestParam(name = "serieId") Long serieId) {
-	        try 
-	        {
-	            List<Temporada> temporadas = iTemporadaRepository.findBySerieId(serieId);
-	            if (temporadas.isEmpty()) 
-	            {
-	                String mensajeError = "No se encontraron temporadas para la serie especificada";
-	                log.error(mensajeError);
-	                throw new DamfilmsServerException(4, mensajeError);
-	            }
-	            return ResponseEntity.ok(temporadas);
-	        } 
-	        catch (DamfilmsServerException e) 
-	        {
-	            return ResponseEntity.status(404).body(e.getBodyExceptionMessage());
-	        } 
-	        catch (Exception exception) 
-	        {
-	        	
-	            String mensajeError = "Error interno del servidor";
-	            DamfilmsServerException damfilmsServerException = new DamfilmsServerException(100, mensajeError, exception);
-	            
-	            log.error(mensajeError);
-	            return ResponseEntity.status(500).body(damfilmsServerException.getBodyExceptionMessage());
-	        }
-	    }
-	    
-	    @RequestMapping(method = RequestMethod.GET, value = "/series/{id}")
-	    public ResponseEntity<?> obtenerSeriePorId(@RequestParam(name = "id") Long id) {
-	        try {
-	            Serie serie = iSerieRepository.findById(id).orElse(null);
-	            if (serie == null) 
-	            {
-	                String mensajeError = "Serie no encontrada";
-	                log.error(mensajeError);
-	                throw new DamfilmsServerException(4, mensajeError);
-	            }
-	            return ResponseEntity.ok(serie);
-	        } catch (DamfilmsServerException e) 
-	        {
-	            return ResponseEntity.status(404).body(e.getBodyExceptionMessage());
-	        } 
-	        catch (Exception exception) 
-	        {
-	        	
-	            String mensajeError = "Error interno del servidor";
-	            DamfilmsServerException damfilmsServerException = new DamfilmsServerException(100, mensajeError, exception);
-	            
-	            log.error(mensajeError);
-	            return ResponseEntity.status(500).body(damfilmsServerException.getBodyExceptionMessage());
-	        }
-	    }
+	// ==================== Temporada ====================
 
-	    @RequestMapping(method = RequestMethod.GET, value = "/series/{genero}")
-	    public ResponseEntity<?> obtenerSeriePorGenero(@RequestParam(name = "genero") String genero) {
-	        try 
-	        {
-	            List<Serie> series = iSerieRepository.findByGenero(genero);
-	            
-	            if (series.isEmpty()) 
-	            {
-	                String mensajeError = "No se encontraron series para el género especificado";
-	                log.error(mensajeError);
-	                throw new DamfilmsServerException(5, mensajeError);
-	            }
-	            return ResponseEntity.ok(series);
-	        } 
-	        catch (DamfilmsServerException error)
-	        {
-	            return ResponseEntity.status(404).body(error.getBodyExceptionMessage());
-	        } 
-	        catch (Exception exception) 
-	        {
-	        	
-	            String mensajeError = "Error interno del servidor";
-	            DamfilmsServerException damfilmsServerException = new DamfilmsServerException(100, mensajeError, exception);
-	            
-	            log.error(mensajeError);
-	            return ResponseEntity.status(500).body(damfilmsServerException.getBodyExceptionMessage());
-	        }
-	    }
-	    @RequestMapping(method = RequestMethod.GET, value = "/series/detalle")
-	    public ResponseEntity<?> obtenerDetalleSerie(@RequestParam(name = "nombre", required = true) String nombre) 
-	    {
-	        try 
-	        {
-	            // Verificar si la serie existe
-	            if (this.iSerieRepository.encontrarSerieDetallada(nombre) == null) 
-	            {
-	                String mensajeError = "No se ha encontrado ninguna serie con ese título y fecha de estreno";
-	                log.error(mensajeError);
-	                throw new DamfilmsServerException(5, mensajeError);
-	            }
+	@RequestMapping(method = RequestMethod.GET, value = "/temporadas")
+	public ResponseEntity<?> obtenerTemporadaPorId(@RequestParam(name = "temporadaId") TemporadaId temporadaId)
+	{
+		try
+		{
+			Temporada temporada = iTemporadaRepository.findById(temporadaId).orElse(null);
+			if (temporada == null)
+			{
+				String mensajeError = "Temporada no encontrada";
+				log.error(mensajeError);
+				throw new DamfilmsServerException(4, mensajeError);
 
-	            // Crear un DTO para la serie detallada
-	            SerieDetalle serieDetalle = new SerieDetalle();
-	            serieDetalle = this.iSerieRepository.encontrarSerieDetallada(nombre);
-				
-				
-	            // Retornar la respuesta con la serie detallada
-	            return ResponseEntity.ok(serieDetalle);
-	        }
-	        catch (DamfilmsServerException damfilmsServerException) 
-	        {
-	            return ResponseEntity.status(404).body(damfilmsServerException.getBodyExceptionMessage());
-	        }
-	        catch (Exception exception) 
-	        {
-	            String mensajeError = "Error interno del servidor";
-	            DamfilmsServerException damfilmsServerException = new DamfilmsServerException(100, mensajeError, exception);
-	            
-	            log.error(mensajeError);
-	            return ResponseEntity.status(500).body(damfilmsServerException.getBodyExceptionMessage());
-	        }
-	    }
-	    
+			}
+			return ResponseEntity.ok(temporada);
+		} catch (DamfilmsServerException e)
+		{
+			return ResponseEntity.status(404).body(e.getBodyExceptionMessage());
+		} catch (Exception exception)
+		{
+
+			String mensajeError = "Error interno del servidor";
+			DamfilmsServerException damfilmsServerException = new DamfilmsServerException(100, mensajeError, exception);
+
+			log.error(mensajeError);
+			return ResponseEntity.status(500).body(damfilmsServerException.getBodyExceptionMessage());
+		}
+	}
+
+	@RequestMapping(method = RequestMethod.GET, value = "/series/{serieId}/temporadas")
+	public ResponseEntity<?> obtenerTemporadasPorSerieId(@RequestParam(name = "serieId") Long serieId)
+	{
+		try
+		{
+			List<Temporada> temporadas = iTemporadaRepository.findBySerieId(serieId);
+			if (temporadas.isEmpty())
+			{
+				String mensajeError = "No se encontraron temporadas para la serie especificada";
+				log.error(mensajeError);
+				throw new DamfilmsServerException(4, mensajeError);
+			}
+			return ResponseEntity.ok(temporadas);
+		} catch (DamfilmsServerException e)
+		{
+			return ResponseEntity.status(404).body(e.getBodyExceptionMessage());
+		} catch (Exception exception)
+		{
+
+			String mensajeError = "Error interno del servidor";
+			DamfilmsServerException damfilmsServerException = new DamfilmsServerException(100, mensajeError, exception);
+
+			log.error(mensajeError);
+			return ResponseEntity.status(500).body(damfilmsServerException.getBodyExceptionMessage());
+		}
+	}
+
+	@RequestMapping(method = RequestMethod.GET, value = "/series/{id}")
+	public ResponseEntity<?> obtenerSeriePorId(@RequestParam(name = "id") Long id)
+	{
+		try
+		{
+			Serie serie = iSerieRepository.findById(id).orElse(null);
+			if (serie == null)
+			{
+				String mensajeError = "Serie no encontrada";
+				log.error(mensajeError);
+				throw new DamfilmsServerException(4, mensajeError);
+			}
+			return ResponseEntity.ok(serie);
+		} catch (DamfilmsServerException e)
+		{
+			return ResponseEntity.status(404).body(e.getBodyExceptionMessage());
+		} catch (Exception exception)
+		{
+
+			String mensajeError = "Error interno del servidor";
+			DamfilmsServerException damfilmsServerException = new DamfilmsServerException(100, mensajeError, exception);
+
+			log.error(mensajeError);
+			return ResponseEntity.status(500).body(damfilmsServerException.getBodyExceptionMessage());
+		}
+	}
+
+	@RequestMapping(method = RequestMethod.GET, value = "/series/{genero}")
+	public ResponseEntity<?> obtenerSeriePorGenero(@RequestParam(name = "genero") String genero)
+	{
+		try
+		{
+			List<Serie> series = iSerieRepository.findByGenero(genero);
+
+			if (series.isEmpty())
+			{
+				String mensajeError = "No se encontraron series para el género especificado";
+				log.error(mensajeError);
+				throw new DamfilmsServerException(5, mensajeError);
+			}
+			return ResponseEntity.ok(series);
+		} catch (DamfilmsServerException error)
+		{
+			return ResponseEntity.status(404).body(error.getBodyExceptionMessage());
+		} catch (Exception exception)
+		{
+
+			String mensajeError = "Error interno del servidor";
+			DamfilmsServerException damfilmsServerException = new DamfilmsServerException(100, mensajeError, exception);
+
+			log.error(mensajeError);
+			return ResponseEntity.status(500).body(damfilmsServerException.getBodyExceptionMessage());
+		}
+	}
+
+	@RequestMapping(method = RequestMethod.GET, value = "/series/detalle")
+	public ResponseEntity<?> obtenerDetalleSerie(@RequestParam(name = "nombre", required = true) String nombre)
+	{
+		try
+		{
+			// Verificar si la serie existe
+			if (this.iSerieRepository.encontrarSerieDetallada(nombre) == null)
+			{
+				String mensajeError = "No se ha encontrado ninguna serie con ese título y fecha de estreno";
+				log.error(mensajeError);
+				throw new DamfilmsServerException(5, mensajeError);
+			}
+
+			// Crear un DTO para la serie detallada
+			SerieDetalle serieDetalle = new SerieDetalle();
+			serieDetalle = this.iSerieRepository.encontrarSerieDetallada(nombre);
+
+			// Retornar la respuesta con la serie detallada
+			return ResponseEntity.ok(serieDetalle);
+		} catch (DamfilmsServerException damfilmsServerException)
+		{
+			return ResponseEntity.status(404).body(damfilmsServerException.getBodyExceptionMessage());
+		} catch (Exception exception)
+		{
+			String mensajeError = "Error interno del servidor";
+			DamfilmsServerException damfilmsServerException = new DamfilmsServerException(100, mensajeError, exception);
+
+			log.error(mensajeError);
+			return ResponseEntity.status(500).body(damfilmsServerException.getBodyExceptionMessage());
+		}
+	}
 
 	@RequestMapping(method = RequestMethod.GET, value = "/series/descripcion")
-	public ResponseEntity<?> obtenerDescripcionSerie(@RequestParam(name = "nombre", required = true) String nombre) 
+	public ResponseEntity<?> obtenerDescripcionSerie(@RequestParam(name = "nombre", required = true) String nombre)
 	{
-	    try 
-	    {
-	        // Verificar si la serie existe
-	        if (this.iSerieRepository.encontrarSerieDescripcion(nombre) == null) 
-	        {
-	            String mensajeError = "No se ha encontrado ninguna serie con ese título y fecha de estreno";
-	            log.error(mensajeError);
-	            throw new DamfilmsServerException(6, mensajeError);
-	        }
-	
-	        // Crear un DTO para la descripción de la serie
-	        SerieDescripcion serieDescripcion = new SerieDescripcion();
-	        serieDescripcion = this.iSerieRepository.encontrarSerieDescripcion(nombre);
-	
-	        // Retornar la respuesta con la descripción de la serie
-	        return ResponseEntity.ok(serieDescripcion);
-	    }
-	    catch (DamfilmsServerException damfilmsServerException) 
-	    {
-	        return ResponseEntity.status(404).body(damfilmsServerException.getBodyExceptionMessage());
-	    }
-	    catch (Exception exception) 
-	    {
-	        String mensajeError = "Error interno del servidor";
-	        DamfilmsServerException damfilmsServerException = new DamfilmsServerException(100, mensajeError, exception);
-	        
-	        log.error(mensajeError);
-	        return ResponseEntity.status(500).body(damfilmsServerException.getBodyExceptionMessage());
-	    }
+		try
+		{
+			// Verificar si la serie existe
+			if (this.iSerieRepository.encontrarSerieDescripcion(nombre) == null)
+			{
+				String mensajeError = "No se ha encontrado ninguna serie con ese título y fecha de estreno";
+				log.error(mensajeError);
+				throw new DamfilmsServerException(6, mensajeError);
+			}
+
+			// Crear un DTO para la descripción de la serie
+			SerieDescripcion serieDescripcion = new SerieDescripcion();
+			serieDescripcion = this.iSerieRepository.encontrarSerieDescripcion(nombre);
+
+			// Retornar la respuesta con la descripción de la serie
+			return ResponseEntity.ok(serieDescripcion);
+		} catch (DamfilmsServerException damfilmsServerException)
+		{
+			return ResponseEntity.status(404).body(damfilmsServerException.getBodyExceptionMessage());
+		} catch (Exception exception)
+		{
+			String mensajeError = "Error interno del servidor";
+			DamfilmsServerException damfilmsServerException = new DamfilmsServerException(100, mensajeError, exception);
+
+			log.error(mensajeError);
+			return ResponseEntity.status(500).body(damfilmsServerException.getBodyExceptionMessage());
+		}
 	}
-	
-    // ==================== Episodio ====================
-	
+
+	// ==================== Episodio ====================
+
 	@RequestMapping(method = RequestMethod.GET, value = "/episodios/detalle")
 	public ResponseEntity<?> obtenerDetalleEpisodio(
-	        @RequestParam(name = "episodioNumero", required = true) Integer episodioNumero,
-	        @RequestParam(name = "temporadaNumero", required = true) Integer temporadaNumero,
-	        @RequestParam(name = "serieId", required = true) String serieNombre) {
-	    try {
-	        // Buscar episodio
-	        Episodio episodio = this.iEpisodioRepository.findByIdAndSerieNombre(episodioNumero, serieNombre);
-	        if (episodio == null) 
-	        {
-	            String mensajeError = "No se encontró ningún episodio con el número especificado en la serie " + serieNombre;
-	            log.error(mensajeError);
-	            throw new DamfilmsServerException(5, mensajeError);
-	        }
+			@RequestParam(name = "episodioNumero", required = true) Integer episodioNumero,
+			@RequestParam(name = "temporadaNumero", required = true) Integer temporadaNumero,
+			@RequestParam(name = "serieId", required = true) String serieNombre)
+	{
+		try
+		{
+			// Buscar episodio
+			Episodio episodio = this.iEpisodioRepository.findByIdAndSerieNombre(episodioNumero, serieNombre);
+			if (episodio == null)
+			{
+				String mensajeError = "No se encontró ningún episodio con el número especificado en la serie "
+						+ serieNombre;
+				log.error(mensajeError);
+				throw new DamfilmsServerException(5, mensajeError);
+			}
 
-	        // Retornar el episodio detallado
-	        return ResponseEntity.ok(episodio);
-	        
-	    } 
-	    catch (DamfilmsServerException damfilmsServerException)
-	    {
-	        return ResponseEntity.status(404).body(damfilmsServerException.getBodyExceptionMessage());
-	    }
-	    catch (Exception exception)
-	    {
-	        String mensajeError = "Error interno del servidor";
-	        DamfilmsServerException damfilmsServerException = new DamfilmsServerException(100, mensajeError, exception);
+			// Retornar el episodio detallado
+			return ResponseEntity.ok(episodio);
 
-	        log.error(mensajeError, exception);
-	        return ResponseEntity.status(500).body(damfilmsServerException.getBodyExceptionMessage());
-	    }
+		} catch (DamfilmsServerException damfilmsServerException)
+		{
+			return ResponseEntity.status(404).body(damfilmsServerException.getBodyExceptionMessage());
+		} catch (Exception exception)
+		{
+			String mensajeError = "Error interno del servidor";
+			DamfilmsServerException damfilmsServerException = new DamfilmsServerException(100, mensajeError, exception);
+
+			log.error(mensajeError, exception);
+			return ResponseEntity.status(500).body(damfilmsServerException.getBodyExceptionMessage());
+		}
 	}
 
 	@RequestMapping(method = RequestMethod.GET, value = "/episodios/temporada")
 	public ResponseEntity<?> getEpisodiosPorTemporada(
-	        @RequestParam(name = "temporadaNumero", required = true) Integer temporadaNumero,
-	        @RequestParam(name = "serieNombre", required = true) String serieNombre) {
-	    try {
-	        // Buscar episodios
-	        List<Episodio> episodios = iEpisodioRepository.findByTemporadaId(temporadaNumero, serieNombre);
-	        if (episodios == null || episodios.isEmpty()) 
-	        {
-	            String mensajeError = "No se encontraron episodios para la temporada " + temporadaNumero + " de la serie " + serieNombre;
-	            log.error(mensajeError);
-	            throw new DamfilmsServerException(5, mensajeError);
-	        }
+			@RequestParam(name = "temporadaNumero", required = true) Integer temporadaNumero,
+			@RequestParam(name = "serieNombre", required = true) String serieNombre)
+	{
+		try
+		{
+			// Buscar episodios
+			List<Episodio> episodios = iEpisodioRepository.findByTemporadaId(temporadaNumero, serieNombre);
+			if (episodios == null || episodios.isEmpty())
+			{
+				String mensajeError = "No se encontraron episodios para la temporada " + temporadaNumero
+						+ " de la serie " + serieNombre;
+				log.error(mensajeError);
+				throw new DamfilmsServerException(5, mensajeError);
+			}
 
-	        // Retornar la lista de episodios
-	        return ResponseEntity.ok(episodios);
-	    } catch (DamfilmsServerException damfilmsServerException)
-	    {
-	        return ResponseEntity.status(404).body(damfilmsServerException.getBodyExceptionMessage());
-	    } 	    catch (Exception exception)
-	    {
-	        String mensajeError = "Error interno del servidor";
-	        DamfilmsServerException damfilmsServerException = new DamfilmsServerException(100, mensajeError, exception);
+			// Retornar la lista de episodios
+			return ResponseEntity.ok(episodios);
+		} catch (DamfilmsServerException damfilmsServerException)
+		{
+			return ResponseEntity.status(404).body(damfilmsServerException.getBodyExceptionMessage());
+		} catch (Exception exception)
+		{
+			String mensajeError = "Error interno del servidor";
+			DamfilmsServerException damfilmsServerException = new DamfilmsServerException(100, mensajeError, exception);
 
-	        log.error(mensajeError, exception);
-	        return ResponseEntity.status(500).body(damfilmsServerException.getBodyExceptionMessage());
-	    }
-	 } 
-    // ==================== Modo ====================
+			log.error(mensajeError, exception);
+			return ResponseEntity.status(500).body(damfilmsServerException.getBodyExceptionMessage());
+		}
+	}
+	// ==================== Modo ====================
 
 	// Endpoint para cambiar el modo de una configuración
 	@RequestMapping(method = RequestMethod.PUT, value = "/modo")
-	public ResponseEntity<?> cambiarModo(@RequestParam String usuario, @RequestParam String nombreModo) 
+	public ResponseEntity<?> cambiarModo(@RequestParam String usuario, @RequestParam String nombreModo)
 	{
-	    try 
-	    {
-	    	
-	        // Verifica si el usuario existe
-	        Usuario usuarioExistente = iUsuarioRepository.findByNombre(usuario);
-	        if (usuarioExistente == null) 
-	        {
-	            throw new DamfilmsServerException(404, "Usuario no encontrado");
-	        }
+		try
+		{
 
-	        // Obtiene la configuración asociada al usuario
-	        Configuracion configuracionActual = usuarioExistente.getConfiguracion();
-	        if (configuracionActual == null) 
-	        {
-	            throw new DamfilmsServerException(404, "Configuración no encontrada para el usuario");
-	        }
+			// Verifica si el usuario existe
+			Usuario usuarioExistente = iUsuarioRepository.findByNombre(usuario);
+			if (usuarioExistente == null)
+			{
+				throw new DamfilmsServerException(404, "Usuario no encontrado");
+			}
 
-	        // Verifica si el modo existe
-	        Optional<Modo> modoExistente = iModoRepository.findById(nombreModo);
-	        if (!modoExistente.isPresent()) 
-	        {
-	            throw new DamfilmsServerException(404, "Modo no encontrado");
-	        }
+			// Obtiene la configuración asociada al usuario
+			Configuracion configuracionActual = usuarioExistente.getConfiguracion();
+			if (configuracionActual == null)
+			{
+				throw new DamfilmsServerException(404, "Configuración no encontrada para el usuario");
+			}
 
-	        // Cambia el modo en la configuración
-	        configuracionActual.setModo(modoExistente.get());
-	        iConfiguracionRepository.save(configuracionActual);
+			// Verifica si el modo existe
+			Optional<Modo> modoExistente = iModoRepository.findById(nombreModo);
+			if (!modoExistente.isPresent())
+			{
+				throw new DamfilmsServerException(404, "Modo no encontrado");
+			}
 
-	        log.info("Modo cambiado exitosamente en la configuración del usuario: {}", usuario);
-	        return ResponseEntity.ok().build();
-	        
-	    } 
-	    catch (DamfilmsServerException ex) 
-	    {
-	        // Manejo de errores
-	        log.error("Error al cambiar el modo en la configuración: {}", ex.getMessage());
-	        DamfilmsServerException customException = new DamfilmsServerException(500, "Error al cambiar el modo en la configuración", ex);
-	        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(customException.getBodyExceptionMessage());
-	    }
+			// Cambia el modo en la configuración
+			configuracionActual.setModo(modoExistente.get());
+			iConfiguracionRepository.save(configuracionActual);
+
+			log.info("Modo cambiado exitosamente en la configuración del usuario: {}", usuario);
+			return ResponseEntity.ok().build();
+
+		} catch (DamfilmsServerException ex)
+		{
+			// Manejo de errores
+			log.error("Error al cambiar el modo en la configuración: {}", ex.getMessage());
+			DamfilmsServerException customException = new DamfilmsServerException(500,
+					"Error al cambiar el modo en la configuración", ex);
+			return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+					.body(customException.getBodyExceptionMessage());
+		}
 	}
 
-	// Endpoint para obtener el modo actual de una configuración asociada a un usuario
+	// Endpoint para obtener el modo actual de una configuración asociada a un
+	// usuario
 	@RequestMapping(method = RequestMethod.GET, value = "/modo")
-	public ResponseEntity<?> verModo(@RequestParam String usuario) 
+	public ResponseEntity<?> verModo(@RequestParam String usuario)
 	{
-	    try 
-	    {
-	        // Verifica si el usuario existe
-	    	Usuario usuarioOpt = iUsuarioRepository.findByNombre(usuario);
-	        if (usuarioOpt == null) 
-	        {
-	            throw new DamfilmsServerException(404, "Usuario no encontrado");
-	        }
+		try
+		{
+			// Verifica si el usuario existe
+			Usuario usuarioOpt = iUsuarioRepository.findByNombre(usuario);
+			if (usuarioOpt == null)
+			{
+				throw new DamfilmsServerException(404, "Usuario no encontrado");
+			}
 
-	        // Obtiene la configuración asociada al usuario
-	        Configuracion configuracionActual = usuarioOpt.getConfiguracion();
-	        if (configuracionActual == null) 
-	        {
-	            throw new DamfilmsServerException(404, "Configuración no encontrada para el usuario");
-	        }
+			// Obtiene la configuración asociada al usuario
+			Configuracion configuracionActual = usuarioOpt.getConfiguracion();
+			if (configuracionActual == null)
+			{
+				throw new DamfilmsServerException(404, "Configuración no encontrada para el usuario");
+			}
 
-	        // Obtiene el modo actual de la configuración
-	        Modo modoActual = configuracionActual.getModo();
-	        log.info("Modo actual en la configuración del usuario {}: {}", usuario, modoActual.getNombre());
-	        return ResponseEntity.ok(modoActual);
-	    }
-	    catch (Exception ex) 
-	    {
-	        // Manejo de errores
-	        log.error("Error al obtener el modo en la configuración: {}", ex.getMessage());
-	        DamfilmsServerException customException = new DamfilmsServerException(500, "Error al obtener el modo en la configuración", ex);
-	        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(customException.getBodyExceptionMessage());
-	    }
+			// Obtiene el modo actual de la configuración
+			Modo modoActual = configuracionActual.getModo();
+			log.info("Modo actual en la configuración del usuario {}: {}", usuario, modoActual.getNombre());
+			return ResponseEntity.ok(modoActual);
+		} catch (Exception ex)
+		{
+			// Manejo de errores
+			log.error("Error al obtener el modo en la configuración: {}", ex.getMessage());
+			DamfilmsServerException customException = new DamfilmsServerException(500,
+					"Error al obtener el modo en la configuración", ex);
+			return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+					.body(customException.getBodyExceptionMessage());
+		}
 	}
 
-    // ==================== Configuración ====================
-    @RequestMapping(method = RequestMethod.PUT, value = "/configuracion")
-    public ResponseEntity<?> cambiarConfiguracion(@RequestParam String usuario, @RequestBody Configuracion configuracionNueva) 
-    {
-        try 
-        {
-        	Usuario usuarioOpt = iUsuarioRepository.findByNombre(usuario);
-	        if (usuarioOpt == null) 
-	        {
-                throw new DamfilmsServerException(404, "Usuario no encontrado");
-            }
-            
-            Optional<Configuracion> configuracionIdiomaOpt = iConfiguracionRepository.findByIdioma(configuracionNueva.getIdioma());
-            if (!configuracionIdiomaOpt.isPresent()) 
-            {
-            	throw new DamfilmsServerException(404, "Idioma no encontrado");
-            }
-            
+	// ==================== Configuración ====================
+	@RequestMapping(method = RequestMethod.PUT, value = "/configuracion")
+	public ResponseEntity<?> cambiarConfiguracion(@RequestParam String usuario,
+			@RequestBody Configuracion configuracionNueva)
+	{
+		try
+		{
+			Usuario usuarioOpt = iUsuarioRepository.findByNombre(usuario);
+			if (usuarioOpt == null)
+			{
+				throw new DamfilmsServerException(404, "Usuario no encontrado");
+			}
 
-            Usuario usuarioEnt = usuarioOpt;
-            usuarioEnt.setConfiguracion(configuracionNueva);
-            iConfiguracionRepository.save(configuracionNueva);
+			Optional<Configuracion> configuracionIdiomaOpt = iConfiguracionRepository
+					.findByIdioma(configuracionNueva.getIdioma());
+			if (!configuracionIdiomaOpt.isPresent())
+			{
+				throw new DamfilmsServerException(404, "Idioma no encontrado");
+			}
 
-            log.info("Configuración cambiada exitosamente para usuario: {}", usuario);
-            return ResponseEntity.ok().build();
-        } 
-        catch (DamfilmsServerException ex) 
-        {
-            log.error("Error al cambiar configuración: {}", ex.getMessage());
-            DamfilmsServerException customException = new DamfilmsServerException(500, "Error al cambiar configuración", ex);
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(customException.getBodyExceptionMessage());
-        }
-    }
+			Usuario usuarioEnt = usuarioOpt;
+			usuarioEnt.setConfiguracion(configuracionNueva);
+			iConfiguracionRepository.save(configuracionNueva);
 
-    // ==================== Suscripcion ====================
-    @RequestMapping(method = RequestMethod.GET, value = "/suscripciones/tipos")
-    public ResponseEntity<?> obtenerTiposSuscripciones() 
-    {
-        try 
-        {
-	        List<String> tiposSuscripcion;
-        	
-            tiposSuscripcion = iSuscripcionRepository.encontrarTodosLosTipos();
-            
-            if (iSuscripcionRepository.encontrarTodosLosTipos().isEmpty()) 
-            {
-            	throw new DamfilmsServerException(404, "Ningun tipo de suscripcion encontrado");
-            }	        
-            
-            log.info("Tipos enviados exitosamente: {}", tiposSuscripcion);
-            return ResponseEntity.ok(tiposSuscripcion);
-        } 
-        catch (DamfilmsServerException ex) 
-        {
-            log.error("Error al encontrar tipos de suscripcion: {}", ex.getMessage());
-            DamfilmsServerException customException = new DamfilmsServerException(500, "Error al cambiar configuración", ex);
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(customException.getBodyExceptionMessage());
-        }
-    }
+			log.info("Configuración cambiada exitosamente para usuario: {}", usuario);
+			return ResponseEntity.ok().build();
+		} catch (DamfilmsServerException ex)
+		{
+			log.error("Error al cambiar configuración: {}", ex.getMessage());
+			DamfilmsServerException customException = new DamfilmsServerException(500, "Error al cambiar configuración",
+					ex);
+			return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+					.body(customException.getBodyExceptionMessage());
+		}
+	}
+
+//	@RequestMapping(method = RequestMethod.PUT, value = "/modo")
+//	public ResponseEntity<?> cambiarModo(@RequestParam String usuario, @RequestParam String nombreModo) 
+//	{
+//	    try 
+//	    {
+//	    	
+//	        // Verifica si el usuario existe
+//	        Usuario usuarioExistente = usuarioRepository.findByNombre(usuario);
+//	        if (usuarioExistente == null) 
+//	        {
+//	            throw new DamfilmsServerException(404, "Usuario no encontrado");
+//	        }
+//
+//	        // Obtiene la configuración asociada al usuario
+//	        Configuracion configuracionActual = usuarioExistente.getConfiguracion();
+//	        if (configuracionActual == null) 
+//	        {
+//	            throw new DamfilmsServerException(404, "Configuración no encontrada para el usuario");
+//	        }
+//
+//	        // Verifica si el modo existe
+//	        Optional<Modo> modoExistente = modoRepository.findById(nombreModo);
+//	        if (!modoExistente.isPresent()) 
+//	        {
+//	            throw new DamfilmsServerException(404, "Modo no encontrado");
+//	        }
+//
+//	        // Cambia el modo en la configuración
+//	        configuracionActual.setModo(modoExistente.get());
+//	        configuracionRepository.save(configuracionActual);
+//
+//	        log.info("Modo cambiado exitosamente en la configuración del usuario: {}", usuario);
+//	        return ResponseEntity.ok("Modo cambiado exitosamente en la configuración.");
+//	        
+//	    } 
+//	    catch (DamfilmsServerException ex) 
+//	    {
+//	        // Manejo de errores
+//	        log.error("Error al cambiar el modo en la configuración: {}", ex.getMessage());
+//	        DamfilmsServerException customException = new DamfilmsServerException(500, "Error al cambiar el modo en la configuración", ex);
+//	        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(customException.getBodyExceptionMessage());
+//	    }
+//	}
+//
+//	// Endpoint para obtener el modo actual de una configuración asociada a un usuario
+//	@RequestMapping(method = RequestMethod.GET, value = "/modo")
+//	public ResponseEntity<?> verModo(@RequestParam String usuario) 
+//	{
+//	    try 
+//	    {
+//	        // Verifica si el usuario existe
+//	    	Usuario usuarioOpt = usuarioRepository.findByNombre(usuario);
+//	        if (usuarioOpt == null) 
+//	        {
+//	            throw new DamfilmsServerException(404, "Usuario no encontrado");
+//	        }
+//
+//	        // Obtiene la configuración asociada al usuario
+//	        Configuracion configuracionActual = usuarioOpt.getConfiguracion();
+//	        if (configuracionActual == null) 
+//	        {
+//	            throw new DamfilmsServerException(404, "Configuración no encontrada para el usuario");
+//	        }
+//
+//	        // Obtiene el modo actual de la configuración
+//	        Modo modoActual = configuracionActual.getModo();
+//	        log.info("Modo actual en la configuración del usuario {}: {}", usuario, modoActual.getNombre());
+//	        return ResponseEntity.ok(modoActual);
+//	    }
+//	    catch (Exception ex) 
+//	    {
+//	        // Manejo de errores
+//	        log.error("Error al obtener el modo en la configuración: {}", ex.getMessage());
+//	        DamfilmsServerException customException = new DamfilmsServerException(500, "Error al obtener el modo en la configuración", ex);
+//	        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(customException.getBodyExceptionMessage());
+//	    }
+//	}
+//
+//    // ==================== Configuración ====================
+//    @RequestMapping(method = RequestMethod.PUT, value = "/configuracion")
+//    public ResponseEntity<?> cambiarConfiguracion(@RequestParam String usuario, @RequestBody Configuracion configuracionNueva) 
+//    {
+//        try 
+//        {
+//        	Usuario usuarioOpt = usuarioRepository.findByNombre(usuario);
+//	        if (usuarioOpt == null) 
+//	        {
+//                throw new DamfilmsServerException(404, "Usuario no encontrado");
+//            }
+//            
+//            Optional<Configuracion> configuracionIdiomaOpt = configuracionRepository.findByIdioma(configuracionNueva.getIdioma());
+//            if (!configuracionIdiomaOpt.isPresent()) 
+//            {
+//            	throw new DamfilmsServerException(404, "Idioma no encontrado");
+//            }
+//            
+//
+//            Usuario usuarioEnt = usuarioOpt;
+//            usuarioEnt.setConfiguracion(configuracionNueva);
+//            configuracionRepository.save(configuracionNueva);
+//
+//            log.info("Configuración cambiada exitosamente para usuario: {}", usuario);
+//            return ResponseEntity.ok("Configuración cambiada exitosamente.");
+//        } 
+//        catch (DamfilmsServerException ex) 
+//        {
+//            log.error("Error al cambiar configuración: {}", ex.getMessage());
+//            DamfilmsServerException customException = new DamfilmsServerException(500, "Error al cambiar configuración", ex);
+//            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(customException.getBodyExceptionMessage());
+//        }
+//    }
+
+	// ==================== Suscripcion ====================
+	@RequestMapping(method = RequestMethod.GET, value = "/suscripciones/tipos")
+	public ResponseEntity<?> obtenerTiposSuscripciones()
+	{
+		try
+		{
+			List<String> tiposSuscripcion;
+
+			tiposSuscripcion = iSuscripcionRepository.encontrarTodosLosTipos();
+
+			if (iSuscripcionRepository.encontrarTodosLosTipos().isEmpty())
+			{
+				throw new DamfilmsServerException(404, "Ningun tipo de suscripcion encontrado");
+			}
+
+			log.info("Tipos enviados exitosamente: {}", tiposSuscripcion);
+			return ResponseEntity.ok(tiposSuscripcion);
+		} catch (DamfilmsServerException ex)
+		{
+			log.error("Error al encontrar tipos de suscripcion: {}", ex.getMessage());
+			DamfilmsServerException customException = new DamfilmsServerException(500, "Error al cambiar configuración",
+					ex);
+			return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+					.body(customException.getBodyExceptionMessage());
+		}
+	}
 //    @RequestMapping(method = RequestMethod.GET, value = "/configuracion")
 //    public ResponseEntity<?> verConfiguracion(@RequestParam String usuario) {
 //        try {
@@ -860,8 +959,7 @@ public class DamfilsController {
 //        }
 //    }
 
-
-    // ==================== Usuario ====================
+	// ==================== Usuario ====================
 //    @RequestMapping(method = RequestMethod.POST, value = "/usuarios")
 //    public ResponseEntity<?> crearUsuario(@RequestBody Usuario nuevoUsuario) 
 //    {
@@ -897,29 +995,29 @@ public class DamfilsController {
 //        }
 //    }
 
-    @RequestMapping(method = RequestMethod.DELETE, value = "/usuarios")
-    public ResponseEntity<?> eliminarUsuario(@RequestParam String nombre) 
-    {
-        try
-        {
-        	Long id = iUsuarioRepository.findByNombre(nombre).getId();
-            if (!iUsuarioRepository.existsById(id)) 
-            {
-                throw new DamfilmsServerException(404, "Usuario no encontrado");
-            }
+	@RequestMapping(method = RequestMethod.DELETE, value = "/usuarios")
+	public ResponseEntity<?> eliminarUsuario(@RequestParam String nombre)
+	{
+		try
+		{
+			Long id = iUsuarioRepository.findByNombre(nombre).getId();
+			if (!iUsuarioRepository.existsById(id))
+			{
+				throw new DamfilmsServerException(404, "Usuario no encontrado");
+			}
 
-            iUsuarioRepository.deleteById(id);
-            log.info("Usuario eliminado exitosamente: {}", nombre);
-            return ResponseEntity.ok("Usuario eliminado exitosamente.");
-        } 
-        catch (DamfilmsServerException ex) 
-        {
-            log.error("Error al eliminar usuario: {}", ex.getMessage());
-            DamfilmsServerException customException = new DamfilmsServerException(500, "Error al eliminar usuario", ex);
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(customException.getBodyExceptionMessage());
-        }
-    }
-    
+			iUsuarioRepository.deleteById(id);
+			log.info("Usuario eliminado exitosamente: {}", nombre);
+			return ResponseEntity.ok("Usuario eliminado exitosamente.");
+		} catch (DamfilmsServerException ex)
+		{
+			log.error("Error al eliminar usuario: {}", ex.getMessage());
+			DamfilmsServerException customException = new DamfilmsServerException(500, "Error al eliminar usuario", ex);
+			return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+					.body(customException.getBodyExceptionMessage());
+		}
+	}
+
 //    @RequestMapping(method = RequestMethod.PUT, value = "/usuarios")
 //    public ResponseEntity<?> cambiarUsuario(@RequestBody Usuario usuarioModificado, @RequestParam String nombreUsuario) {
 //        try {
@@ -955,8 +1053,8 @@ public class DamfilsController {
 //        }
 //    }
 
-    // ==================== Suscripcion ====================
-    
+	// ==================== Suscripcion ====================
+
 //    @RequestMapping(method = RequestMethod.POST, value = "/suscripciones")
 //    public ResponseEntity<?> crearSuscripcion(@RequestParam String nombreUsuario) 
 //    {
@@ -997,7 +1095,6 @@ public class DamfilsController {
 //        }
 //    }
 
-    
 //    @RequestMapping(method = RequestMethod.GET, value = "/suscripciones")
 //    public ResponseEntity<?> verSuscripcion(@RequestParam String nombreUsuario) {
 //        try {
@@ -1070,8 +1167,4 @@ public class DamfilsController {
 //        }
 //    }
 
-
-    
 }
-
-

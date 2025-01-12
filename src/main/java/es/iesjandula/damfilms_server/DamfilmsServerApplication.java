@@ -25,111 +25,123 @@ import es.iesjandula.damfilms_server.utils.Constants;
 @SpringBootApplication
 public class DamfilmsServerApplication implements CommandLineRunner
 {
-	
+
 	@Autowired
 	private IGestorParseo iParseoFicheros;
-	
+
 	@Autowired
 	private IDocumentalRepository iDocumentalRepository;
-	
-    @Autowired
-    private IEpisodioRepository iEpisodioRepository;
-    
-    @Autowired
-    private ITemporadaRepository iTemporadaRepository;
-    
-    @Autowired
-    private ISerieRepository iSerieRepository;
-	
+
+	@Autowired
+	private IEpisodioRepository iEpisodioRepository;
+
+	@Autowired
+	private ITemporadaRepository iTemporadaRepository;
+
+	@Autowired
+	private ISerieRepository iSerieRepository;
+
 	@Autowired
 	private IPeliculaRepository iPeliculaRepository;
-	
-	@Autowired 
+
+	@Autowired
 	private IDocumentalVisualizadoRepository iDocumentalVisualizadoRepository;
-	
+
 	@Autowired
 	private IPeliculaVisualizadaRepository iPeliculaVisualizadaRepository;
-	
+
 	@Autowired
 	private ISerieVisualizadaRepository iSerieVisualizadaRepository;
-	
+
 	@Autowired
 	private IUsuarioRepository iUsuarioRepository;
 
 	@Autowired
 	private IModoRepository iModoRepository;
-	
+
 	@Autowired
 	private IConfiguracionRepository iConfiguracionRepository;
-	
+
 	@Autowired
 	private ISuscripcionRepository iSuscripcionRepository;
-	
+
 	@Autowired
 	private IGeneroRepository iGeneroRepository;
 
-	public static void main(String[] args) 
+	public static void main(String[] args)
 	{
 		SpringApplication.run(DamfilmsServerApplication.class, args);
 	}
 
 	@Transactional(readOnly = false)
-	public void run(String... args) throws Exception 
+	public void run(String... args) throws Exception
 	{
 
-		if(this.iGeneroRepository.findAll().isEmpty())
+		if (this.iGeneroRepository.findAll().isEmpty())
 		{
 			this.iParseoFicheros.parseaFichero(Constants.CSV_GENEROS);
 		}
-		if(this.iSerieRepository.findAll().isEmpty()) 
+		if (this.iSerieRepository.findAll().isEmpty())
 		{
 			this.iParseoFicheros.parseaFichero(Constants.CSV_SERIES);
 		}
-		if(this.iDocumentalRepository.findAll().isEmpty()) 
+		if (this.iDocumentalRepository.findAll().isEmpty())
 		{
-			this.iParseoFicheros.parseaFichero(Constants.CSV_DOCUMENTALES);	
+			this.iParseoFicheros.parseaFichero(Constants.CSV_DOCUMENTALES);
 		}
-		if(this.iPeliculaRepository.findAll().isEmpty())
+		if (this.iPeliculaRepository.findAll().isEmpty())
 		{
 			this.iParseoFicheros.parseaFichero(Constants.CSV_PELICULAS);
 		}
-		if(this.iModoRepository.findAll().isEmpty())
+		if (this.iModoRepository.findAll().isEmpty())
 		{
 			this.iParseoFicheros.parseaFichero(Constants.CSV_MODOS);
 		}
-		if(this.iConfiguracionRepository.findAll().isEmpty()) 
+		if (this.iConfiguracionRepository.findAll().isEmpty())
 		{
 			this.iParseoFicheros.parseaFichero(Constants.CSV_CONFIGURACIONES);
 		}
-		if(this.iUsuarioRepository.findAll().isEmpty())
+		if (this.iUsuarioRepository.findAll().isEmpty())
 		{
 			this.iParseoFicheros.parseaFichero(Constants.CSV_USUARIOS);
 		}
-		if(this.iPeliculaVisualizadaRepository.findAll().isEmpty())
+		if (this.iPeliculaVisualizadaRepository.findAll().isEmpty())
 		{
 			this.iParseoFicheros.parseaFichero(Constants.CSV_PELICULAS_VISUALIZADAS);
-		}	
-		if(this.iSerieVisualizadaRepository.findAll().isEmpty())
+		}
+		if (this.iSerieVisualizadaRepository.findAll().isEmpty())
 		{
 			this.iParseoFicheros.parseaFichero(Constants.CSV_SERIES_VISUALIZADAS);
-		}		
-		if(this.iDocumentalVisualizadoRepository.findAll().isEmpty())
+		}
+		if (this.iDocumentalVisualizadoRepository.findAll().isEmpty())
 		{
 			this.iParseoFicheros.parseaFichero(Constants.CSV_DOCUMENTALES_VISUALIZADOS);
 		}
-		if(this.iSuscripcionRepository.findAll().isEmpty())
+		if (this.iSuscripcionRepository.findAll().isEmpty())
 		{
 			this.iParseoFicheros.parseaFichero(Constants.CSV_SUSCRIPCIONES);
 		}
-		if(this.iTemporadaRepository.findAll().isEmpty())
+		if (this.iTemporadaRepository.findAll().isEmpty())
 		{
 			this.iParseoFicheros.parseaFichero(Constants.CSV_TEMPORADAS);
 		}
-		if(this.iEpisodioRepository.findAll().isEmpty())
+		if (this.iEpisodioRepository.findAll().isEmpty())
 		{
 			this.iParseoFicheros.parseaFichero(Constants.CSV_EPISODIOS);
 		}
-		
+
+//		if(this.iPeliculaVisualizadaRepository.findAll().isEmpty())
+//		{
+//			this.iParseoFicheros.parseaFichero(Constants.CSV_PELICULAS_VISUALIZADAS);
+//		}	
+//		if(this.iSerieVisualizadaRepository.findAll().isEmpty())
+//		{
+//			this.iParseoFicheros.parseaFichero(Constants.CSV_SERIES_VISUALIZADAS);
+//		}		
+//		if(this.iDocumentalVisualizadoRepository.findAll().isEmpty())
+//		{
+//			this.iParseoFicheros.parseaFichero(Constants.CSV_DOCUMENTALES_VISUALIZADOS);
+//		}				
 	}
 
 }
