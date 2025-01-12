@@ -1036,8 +1036,8 @@ public class DamfilsController
         }
     }
     
-    @RequestMapping(method = RequestMethod.GET, value = "/suscripciones/tipos")
-	public ResponseEntity<?> obtenerTiposSuscripciones()
+    @RequestMapping(method = RequestMethod.GET, value = "/suscripcion/tipos")
+	public ResponseEntity<?> obtenerTiposSuscripcion()
 	{
 		try
 		{

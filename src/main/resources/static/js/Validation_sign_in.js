@@ -1,6 +1,6 @@
  async function obtenerTiposSuscripciones() {
             try {
-                const response = await fetch('/suscripciones/tipos');
+                const response = await fetch('/suscripcion/tipos');
                 if (!response.ok) {
                     throw new Error('Error al obtener los tipos de suscripción');
                 }
