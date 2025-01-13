@@ -774,7 +774,7 @@ public class DamfilsController
 	}
 
 	// ==================== Configuración ====================
-	@RequestMapping(method = RequestMethod.PUT, value = "/configuracion")
+	@RequestMapping(method = RequestMethod.PUT, value = "/cambiarConfiguracion")
 	public ResponseEntity<?> cambiarConfiguracion(@RequestParam String usuario,
 			@RequestBody Configuracion configuracionNueva)
 	{
@@ -810,7 +810,7 @@ public class DamfilsController
 	}
 
 	
-	    @RequestMapping(method = RequestMethod.GET, value = "/configuracion")
+	    @RequestMapping(method = RequestMethod.GET, value = "/verConfiguracion")
     public ResponseEntity<?> verConfiguracion(@RequestParam String usuario) {
         try {
         	Usuario usuarioOpt = iUsuarioRepository.findByNombre(usuario);
